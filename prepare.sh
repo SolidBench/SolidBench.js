@@ -8,8 +8,8 @@ command_exists () {
 # Check flags
 scale="0.1"
 force=false
-fragconfig="templates/config-subject.json"
-while getopts s:f flag
+fragconfig="templates/fragmenter-config-subject.json"
+while getopts os:f: flag
 do
     case "${flag}" in
 		o) force=true;;
@@ -19,7 +19,7 @@ do
     		echo "Optional flags"
 			echo "  -o       If existing files should be overwritten"
     		echo "  -s       The SNB scale factor (default: 0.1) (possible: 0.1, 1, 3, 10, 30, 100, 300, 1000)"
-			echo "  -f       Path to the fragmentation strategy (default: config-subject.json)"
+			echo "  -f       Path to the fragmentation strategy (default: fragmenter-config-subject.json)"
 			exit 1
 			;;
     esac
