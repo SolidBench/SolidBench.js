@@ -2,6 +2,13 @@
 
 A tool to create a **decentralized** version of the [LDBC SNB](https://github.com/ldbc/ldbc_snb_datagen) **social network** dataset, and serve it over HTTP.
 
+## Requirements
+
+* [Bash](https://www.gnu.org/software/bash/) _(Installed by default on UNIX machines)_
+* [Git](https://git-scm.com/) _(Installed by default on most UNIX machines)_
+* [Node.js](https://nodejs.org/en/) _(1.12 or higher)_
+* [Docker](https://www.docker.com/)
+
 ## Installation
 
 ```bash
