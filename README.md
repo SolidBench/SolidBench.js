@@ -30,7 +30,7 @@ Optional flags
 
 **What does this do?**
 
-This preparation script will first use the [LDBC SNB generator](https://github.com/ldbc/ldbc_snb_datagen)
+This preparation script will first use the (interactive) [LDBC SNB generator](https://github.com/ldbc/ldbc_snb_datagen)
 to create one large Turtle file with a given scale factor (defaults to `0.1`).
 
 Next, this Turtle file will be fragmented using [`rdf-dataset-fragmenter.js`](https://github.com/rubensworks/rdf-dataset-fragmenter.js)
@@ -70,6 +70,10 @@ $ curl http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/data/pers00000021990
 By default, the following data model is used where all triples are placed in the document identified by their subject URL.
 
 ![](https://raw.githubusercontent.com/ldbc/ldbc_snb_docs/dev/figures/schema-comfortable.png)
+
+For inspiration for possible queries over this dataset,
+please refer to the [`interactive-` queries of SNB](https://github.com/ldbc/ldbc_snb_implementations/tree/stable/sparql/queries).
+(Note: these queries will require changes to their URLs before they can be used)
 
 ## License
 
