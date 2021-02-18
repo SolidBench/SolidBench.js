@@ -48,7 +48,7 @@ and the given fragmentation strategy config (defaults to a subject-based fragmen
 The fragmented data can be served over HTTP:
 
 ```bash
-$ ./prepare.sh
+$ ./serve.sh
 ```
 
 **Full usage options:**
