@@ -1,0 +1,78 @@
+# Decentralized LDBC SNB
+
+A tool to create a **decentralized** version of the [LDBC SNB](https://github.com/ldbc/ldbc_snb_datagen) **social network** dataset, and serve it over HTTP.
+
+## Installation
+
+```bash
+$ git clone git@github.com:rubensworks/ldbc-snb-decentralized.git
+```
+
+## Usage
+
+### 1. Generate
+
+The social network data can be generated using the default options:
+
+```bash
+$ ./prepare.sh
+```
+
+**Full usage options:**
+
+```bash
+Usage: prepare.sh
+Optional flags
+  -o       If existing files should be overwritten
+  -s       The SNB scale factor (default: 0.1) (possible: 0.1, 1, 3, 10, 30, 100, 300, 1000)
+  -f       Path to the fragmentation strategy (default: fragmenter-config-subject.json)
+```
+
+**What does this do?**
+
+This preparation script will first use the [LDBC SNB generator](https://github.com/ldbc/ldbc_snb_datagen)
+to create one large Turtle file with a given scale factor (defaults to `0.1`).
+
+Next, this Turtle file will be fragmented using [`rdf-dataset-fragmenter.js`](https://github.com/rubensworks/rdf-dataset-fragmenter.js)
+and the given fragmentation strategy config (defaults to a subject-based fragmentation).
+
+### 2. Serve
+
+The fragmented data can be served over HTTP:
+
+```bash
+$ ./prepare.sh
+```
+
+**Full usage options:**
+
+```bash
+Usage: serve.sh
+Optional flags
+  -p       The HTTP port to run on (default: 3000)
+  -c       Path to the server config (default: server-config.json)
+```
+
+**What does this do?**
+
+The fragmented dataset from the preparation phase is loaded into the [Solid Community Server](https://github.com/solid/community-server/)
+so that it can be served over HTTP.
+
+The provided server config uses a simple file-based mapping, so that for example the file in `out-fragments/http/localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/data/pers00000021990232556027` is served on `http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/data/pers00000021990232556027`.
+Once the server is live, you can perform requests such as:
+
+```bash
+$ curl http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/data/pers00000021990232556027
+```
+
+## Data model
+
+By default, the following data model is used where all triples are placed in the document identified by their subject URL.
+
+![](https://raw.githubusercontent.com/ldbc/ldbc_snb_docs/dev/figures/schema-comfortable.png)
+
+## License
+
+This software is written by [Ruben Taelman](https://rubensworks.net/).
+
+This code is released under the [MIT license](http://opensource.org/licenses/MIT).
