@@ -29,4 +29,4 @@ if ! command_exists community-solid-server; then
 fi
 
 echo -e "\033[1m\033[34mSolid Community Server\033[0m: Started"
-community-solid-server  -f out-fragments/http/localhost:3000/ -c $config
+community-solid-server  -f out-fragments/http/localhost_3000/ -c $config
