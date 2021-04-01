@@ -1,10 +1,6 @@
 #/bin/bash
 # Serves the fragmented dataset via an HTTP server
 
-command_exists () {
-    type "$1" &> /dev/null ;
-}
-
 # Check flags
 port="3000"
 config="templates/server-config.json"
@@ -22,11 +18,8 @@ do
     esac
 done
 
-# Install fragmenter if needed
-if ! command_exists community-solid-server; then
-	echo -e "\033[1m\033[34mSolid Community Server\033[0m: Installing"
-	npm install -g @solid/community-server@0.6.0
-fi
+# Ensure required packages are installed
+$(dirname "${BASH_SOURCE[0]}")/install.sh
 
 echo -e "\033[1m\033[34mSolid Community Server\033[0m: Started"
-community-solid-server  -f out-fragments/http/localhost_3000/ -c $config
+npx community-solid-server -f out-fragments/http/localhost_3000/ -c $config

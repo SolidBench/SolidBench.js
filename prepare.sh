@@ -1,10 +1,6 @@
 #/bin/bash
 # Generates an LDBC SNB dataset of a given scale, and fragments its according to a given strategy.
 
-command_exists () {
-    type "$1" &> /dev/null ;
-}
-
 # Check flags
 scale="0.1"
 force=false
@@ -31,6 +27,9 @@ do
     esac
 done
 
+# Ensure required packages are installed
+$(dirname "${BASH_SOURCE[0]}")/install.sh
+
 # Generate SNB dataset
 if [ -d "$(pwd)/out-snb/" ] && [ "$force" = false ]; then
 	echo -e "\033[1m\033[34mSNB dataset generator\033[0m: Skipped (/out-snb already exists, remove to regenerate)"
@@ -50,35 +49,23 @@ fi
 if [ -d "$(pwd)/out-enhanced/" ] && [ "$force" = false ]; then
 	echo -e "\033[1m\033[34mSNB dataset enhancer\033[0m: Skipped (/out-enhanced already exists, remove to regenerate)"
 else
-	# Install enhancer if needed
-	if ! command_exists ldbc-snb-enhancer; then
-		echo -e "\033[1m\033[34mSNB dataset enhancer\033[0m: Installing"
-		npm install -g ldbc-snb-enhancer
-	fi
-    
 	echo -e "\033[1m\033[34mSNB dataset enhancer\033[0m: Started"
     mkdir $(pwd)/out-enhanced
-	ldbc-snb-enhancer $enhanceconfig
+	npx ldbc-snb-enhancer $enhanceconfig
 	echo -e "\033[1m\033[34mSNB dataset enhancer\033[0m: Done"
 fi
 
 # Fragment SNB dataset
 if [ -d "$(pwd)/out-fragments/" ] && [ "$force" = false ]; then
 	echo -e "\033[1m\033[34mSNB dataset fragmenter\033[0m: Skipped (/out-fragments already exists, remove to regenerate)"
-else
-	# Install fragmenter if needed
-	if ! command_exists rdf-dataset-fragmenter; then
-		echo -e "\033[1m\033[34mSNB dataset fragmenter\033[0m: Installing"
-		npm install -g rdf-dataset-fragmenter
-	fi
-	
+else	
     # Initial fragmentation
 	echo -e "\033[1m\033[34mSNB dataset fragmenter\033[0m: Started initial pass"
-	rdf-dataset-fragmenter $fragconfig
+	npx rdf-dataset-fragmenter $fragconfig
 	echo -e "\033[1m\033[34mSNB dataset fragmenter\033[0m: Done with initial pass"
     
     # Auxiliary fragmentation
 	echo -e "\033[1m\033[34mSNB dataset fragmenter\033[0m: Started auxiliary pass"
-	rdf-dataset-fragmenter $fragenhanceconfig
+	npx rdf-dataset-fragmenter $fragenhanceconfig
 	echo -e "\033[1m\033[34mSNB dataset fragmenter\033[0m: Done with auxiliary pass"
 fi
