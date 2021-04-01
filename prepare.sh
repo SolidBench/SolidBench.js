@@ -7,6 +7,7 @@ force=false
 enhanceconfig="templates/enhancer-config-dummy.json"
 fragconfig="templates/fragmenter-config-subject.json"
 fragenhanceconfig="templates/fragmenter-auxiliary-config-subject.json"
+queryconfig="templates/query-config.json"
 while getopts os:f: flag
 do
     case "${flag}" in
@@ -15,6 +16,7 @@ do
         e) enhanceconfig=${OPTARG};;
         f) fragconfig=${OPTARG};;
         g) fragenhanceconfig=${OPTARG};;
+        q) queryconfig=${OPTARG};;
 		\?) echo "Usage: prepare.sh"
     		echo "Optional flags"
 			echo "  -o       If existing files should be overwritten"
@@ -22,6 +24,7 @@ do
             echo "  -e       Path to the enhancement config (default: enhancer-config-dummy.json)"
             echo "  -f       Path to the fragmentation strategy (default: fragmenter-config-subject.json)"
             echo "  -g       Path to the enhancement's fragmentation strategy (default: fragmenter-auxiliary-config-subject.json)"
+            echo "  -q       Path to the query instantiation strategy (default: query-config.json)"
 			exit 1
 			;;
     esac
@@ -68,4 +71,14 @@ else
 	echo -e "\033[1m\033[34mSNB dataset fragmenter\033[0m: Started auxiliary pass"
 	npx rdf-dataset-fragmenter $fragenhanceconfig
 	echo -e "\033[1m\033[34mSNB dataset fragmenter\033[0m: Done with auxiliary pass"
+fi
+
+# Instantiate queries
+if [ -d "$(pwd)/out-queries/" ] && [ "$force" = false ]; then
+	echo -e "\033[1m\033[34mSPARQL query instantiator\033[0m: Skipped (/out-queries already exists, remove to regenerate)"
+else
+	echo -e "\033[1m\033[34mSPARQL query instantiator\033[0m: Started"
+    mkdir $(pwd)/out-queries
+	npx sparql-query-parameter-instantiator $queryconfig
+	echo -e "\033[1m\033[34mSPARQL query instantiator\033[0m: Done"
 fi

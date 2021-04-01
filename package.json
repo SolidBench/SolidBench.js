@@ -3,6 +3,7 @@
     "dependencies": {
         "@solid/community-server": "0.6.0",
         "ldbc-snb-enhancer": "^1.0.2",
-        "rdf-dataset-fragmenter": "^1.2.0"
+        "rdf-dataset-fragmenter": "^1.2.0",
+        "sparql-query-parameter-instantiator": "^1.0.0"
     }
 }
