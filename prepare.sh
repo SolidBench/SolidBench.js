@@ -8,18 +8,24 @@ command_exists () {
 # Check flags
 scale="0.1"
 force=false
+enhanceconfig="templates/enhancer-config-dummy.json"
 fragconfig="templates/fragmenter-config-subject.json"
+fragenhanceconfig="templates/fragmenter-auxiliary-config-subject.json"
 while getopts os:f: flag
 do
     case "${flag}" in
 		o) force=true;;
         s) scale=${OPTARG};;
-		f) fragconfig=${OPTARG};;
+        e) enhanceconfig=${OPTARG};;
+        f) fragconfig=${OPTARG};;
+        g) fragenhanceconfig=${OPTARG};;
 		\?) echo "Usage: prepare.sh"
     		echo "Optional flags"
 			echo "  -o       If existing files should be overwritten"
     		echo "  -s       The SNB scale factor (default: 0.1) (possible: 0.1, 1, 3, 10, 30, 100, 300, 1000)"
-			echo "  -f       Path to the fragmentation strategy (default: fragmenter-config-subject.json)"
+            echo "  -e       Path to the enhancement config (default: enhancer-config-dummy.json)"
+            echo "  -f       Path to the fragmentation strategy (default: fragmenter-config-subject.json)"
+            echo "  -g       Path to the enhancement's fragmentation strategy (default: fragmenter-auxiliary-config-subject.json)"
 			exit 1
 			;;
     esac
@@ -40,6 +46,22 @@ else
 	echo -e "\033[1m\033[34mSNB dataset generator\033[0m: Done"
 fi
 
+# Enhance SNB dataset
+if [ -d "$(pwd)/out-enhanced/" ] && [ "$force" = false ]; then
+	echo -e "\033[1m\033[34mSNB dataset enhancer\033[0m: Skipped (/out-enhanced already exists, remove to regenerate)"
+else
+	# Install enhancer if needed
+	if ! command_exists ldbc-snb-enhancer; then
+		echo -e "\033[1m\033[34mSNB dataset enhancer\033[0m: Installing"
+		npm install -g ldbc-snb-enhancer
+	fi
+    
+	echo -e "\033[1m\033[34mSNB dataset enhancer\033[0m: Started"
+    mkdir $(pwd)/out-enhanced
+	ldbc-snb-enhancer $enhanceconfig
+	echo -e "\033[1m\033[34mSNB dataset enhancer\033[0m: Done"
+fi
+
 # Fragment SNB dataset
 if [ -d "$(pwd)/out-fragments/" ] && [ "$force" = false ]; then
 	echo -e "\033[1m\033[34mSNB dataset fragmenter\033[0m: Skipped (/out-fragments already exists, remove to regenerate)"
@@ -50,7 +72,13 @@ else
 		npm install -g rdf-dataset-fragmenter
 	fi
 	
-	echo -e "\033[1m\033[34mSNB dataset fragmenter\033[0m: Started"
+    # Initial fragmentation
+	echo -e "\033[1m\033[34mSNB dataset fragmenter\033[0m: Started initial pass"
 	rdf-dataset-fragmenter $fragconfig
-	echo -e "\033[1m\033[34mSNB dataset fragmenter\033[0m: Done"
+	echo -e "\033[1m\033[34mSNB dataset fragmenter\033[0m: Done with initial pass"
+    
+    # Auxiliary fragmentation
+	echo -e "\033[1m\033[34mSNB dataset fragmenter\033[0m: Started auxiliary pass"
+	rdf-dataset-fragmenter $fragenhanceconfig
+	echo -e "\033[1m\033[34mSNB dataset fragmenter\033[0m: Done with auxiliary pass"
 fi

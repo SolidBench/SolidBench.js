@@ -32,7 +32,9 @@ Usage: prepare.sh
 Optional flags
   -o       If existing files should be overwritten
   -s       The SNB scale factor (default: 0.1) (possible: 0.1, 1, 3, 10, 30, 100, 300, 1000)
+  -e       Path to the enhancement config (default: enhancer-config-dummy.json)
   -f       Path to the fragmentation strategy (default: fragmenter-config-subject.json)
+  -g       Path to the enhancement's fragmentation strategy (default: fragmenter-auxiliary-config-subject.json)
 ```
 
 **What does this do?**
@@ -40,8 +42,15 @@ Optional flags
 This preparation script will first use the (interactive) [LDBC SNB generator](https://github.com/ldbc/ldbc_snb_datagen)
 to create one large Turtle file with a given scale factor (defaults to `0.1`).
 
+Then, auxiliary data will be generated using [`ldbc-snb-enhancer.js`](https://github.com/rubensworks/ldbc-snb-enhancer.js/)
+based on the given enhancement config (defaults to an empty config).
+
 Next, this Turtle file will be fragmented using [`rdf-dataset-fragmenter.js`](https://github.com/rubensworks/rdf-dataset-fragmenter.js)
 and the given fragmentation strategy config (defaults to a subject-based fragmentation).
+This happens in two passes:
+
+1. Fragmenting of the main SNB dataset.
+1. Fragmenting of the auxiliary SNB dataset.
 
 ### 2. Serve
 

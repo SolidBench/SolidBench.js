@@ -1,0 +1,21 @@
+{
+  "@context": "https://linkedsoftwaredependencies.org/bundles/npm/ldbc-snb-enhancer/^1.0.0/components/context.jsonld",
+  "@id": "urn:ldbc-snb-enhancer:default",
+  "@type": "Enhancer",
+  "Enhancer:_options_personsPath": "out-snb/social_network/social_network_person_0_0.ttl",
+  "Enhancer:_options_activitiesPath": "out-snb/social_network/social_network_activity_0_0.ttl",
+  "Enhancer:_options_staticPath": "out-snb/social_network/social_network_static_0_0.ttl",
+  "Enhancer:_options_destinationPathData": "out-enhanced/social_network_auxiliary.ttl",
+  "Enhancer:_options_logger": {
+    "@type": "LoggerStdout"
+  },
+  "Enhancer:_options_dataSelector": {
+    "@type": "DataSelectorRandom",
+    "DataSelectorRandom:_seed": 12345
+  },
+  "Enhancer:_options_parameterEmitterPosts": {
+    "@type": "ParameterEmitterCsv",
+    "ParameterEmitterCsv:_destinationPath": "out-enhanced/parameters-posts.csv"
+  },
+  "Enhancer:_options_handlers": []
+}
