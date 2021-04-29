@@ -2,6 +2,7 @@
   "@context": "https://linkedsoftwaredependencies.org/bundles/npm/@solid/community-server/^0.0.0/components/context.jsonld",
   "import": [
     "files-scs:config/presets/http.json",
+    "files-scs:config/presets/identifiers/suffix-identifiers.json",
     "files-scs:config/presets/ldp.json",
     "files-scs:config/presets/ldp/credentials-extractor.json",
     "files-scs:config/presets/ldp/metadata-handler.json",
@@ -18,79 +19,105 @@
     "files-scs:config/presets/storage-wrapper.json",
     "files-scs:config/presets/cli-params.json"
   ],
+  "comment": "Adapted from \"files-scs:config/config-file.json\"",
   "@graph": [
     {
       "comment": "Use a file based store as backend with no additional routing.",
       "@id": "urn:solid-server:default:RoutingResourceStore",
       "@type": "PassthroughStore",
-      "PassthroughStore:_source": {
+      "source": {
         "@id": "urn:solid-server:default:FileResourceStore"
       }
     },
+
+
+    { "comment": "Adapted from \"files-scs:config/presets/acl.json\", with AllowEverythingAuthorizer" },
+    {
+      "@id": "urn:solid-server:default:AclIdentifierStrategy",
+      "@type": "SuffixAuxiliaryIdentifierStrategy",
+      "suffix": ".acl"
+    },
+    {
+      "@id": "urn:solid-server:default:AclStrategy",
+      "@type": "ComposedAuxiliaryStrategy",
+      "identifierStrategy": {
+        "@id": "urn:solid-server:default:AclIdentifierStrategy"
+      },
+      "metadataGenerator": {
+        "@type": "LinkMetadataGenerator",
+        "link": "http://www.w3.org/ns/auth/acl#accessControl",
+        "identifierStrategy": {
+          "@id": "urn:solid-server:default:AclIdentifierStrategy"
+        }
+      },
+      "validator": {
+        "@id": "urn:solid-server:default:RdfValidator"
+      },
+      "isRootRequired": true
+    },
+    {
+      "@id": "urn:solid-server:default:AclBasedAuthorizer",
+      "@type": "AllowEverythingAuthorizer"
+    },
+
 
     { "comment": "Adapted from \"files-scs:config/presets/init.json\", with removed AclInitializer and RootContainerInitializer" },
     {
       "@id": "urn:solid-server:default:Initializer",
       "@type": "SequenceHandler",
-      "SequenceHandler:_handlers": [
+      "handlers": [
         {
           "@id": "urn:solid-server:default:LoggerInitializer",
           "@type": "LoggerInitializer",
-          "LoggerInitializer:_loggerFactory": {
+          "loggerFactory": {
             "@id": "urn:solid-server:default:LoggerFactory"
           }
         },
         {
           "@id": "urn:solid-server:default:ServerInitializer",
           "@type": "ServerInitializer",
-          "ServerInitializer:_serverFactory": {
+          "serverFactory": {
             "@id": "urn:solid-server:default:ServerFactory"
           },
-          "ServerInitializer:_port": {
+          "port": {
             "@id": "urn:solid-server:default:variable:port"
           }
         }
       ]
     },
 
-    { "comment": "Adapted from \"files-scs:config/presets/acl.json\", with AllowEverythingAuthorizer" },
-    {
-      "@id": "urn:solid-server:default:AclManager",
-      "@type": "UrlBasedAclManager"
-    },
-    {
-      "@id": "urn:solid-server:default:AclAuthorizer",
-      "@type": "AllowEverythingAuthorizer"
-    },
 
     { "comment": "Adapted from \"files-scs:config/presets/storage/backend/storage-filesystem.json\", with FixedContentTypeMapper" },
     {
       "@id": "urn:solid-server:default:FileIdentifierMapper",
       "@type": "FixedContentTypeMapper",
-      "FixedContentTypeMapper:_base": {
+      "base": {
         "@id": "urn:solid-server:default:variable:baseUrl"
       },
-      "FixedContentTypeMapper:_rootFilepath": {
+      "rootFilepath": {
         "@id": "urn:solid-server:default:variable:rootFilePath"
       },
-      "FixedContentTypeMapper:_contentType": "application/n-quads",
-      "FixedContentTypeMapper:_pathSuffix": ".nq"
+      "contentType": "application/n-quads",
+      "pathSuffix": ".nq"
     },
     {
       "@id": "urn:solid-server:default:FileDataAccessor",
       "@type": "FileDataAccessor",
-      "FileDataAccessor:_resourceMapper": {
+      "resourceMapper": {
         "@id": "urn:solid-server:default:FileIdentifierMapper"
       }
     },
     {
       "@id": "urn:solid-server:default:FileResourceStore",
       "@type": "DataAccessorBasedStore",
-      "DataAccessorBasedStore:_accessor": {
+      "accessor": {
         "@id": "urn:solid-server:default:FileDataAccessor"
       },
-      "DataAccessorBasedStore:_identifierStrategy": {
+      "identifierStrategy": {
         "@id": "urn:solid-server:default:IdentifierStrategy"
+      },
+      "auxiliaryStrategy": {
+        "@id": "urn:solid-server:default:AuxiliaryStrategy"
       }
     }
   ]

@@ -1,9 +1,106 @@
 {
-    "private": true,
-    "dependencies": {
-        "@solid/community-server": "0.6.0",
-        "ldbc-snb-enhancer": "^1.0.2",
-        "rdf-dataset-fragmenter": "^1.2.0",
-        "sparql-query-parameter-instantiator": "^1.0.0"
+  "name": "ldbc-snb-decentralized",
+  "version": "0.0.1",
+  "description": "Decentralized version of the LDBC SNB benchmark",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest ${1}",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
+    "lint": "eslint . --ext .ts --cache",
+    "prepare": "npm run build",
+    "version": "manual-git-changelog onversion"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build && npm run lint && npm run test"
     }
+  },
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "tsconfig.json"
+      }
+    },
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "testRegex": "/test/.*-test.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "test"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
+  },
+  "keywords": [
+    "decentralized",
+    "ldbc",
+    "snb",
+    "benchmark",
+    "social network"
+  ],
+  "author": "Ruben Taelman <rubensworks@gmail.com>",
+  "repository": "git@github.com:rubensworks/ldbc-snb-decentralized.js.git",
+  "bugs": {
+    "url": "https://github.com/rubensworks/ldbc-snb-decentralized.js/issues"
+  },
+  "homepage": "https://github.com/rubensworks/ldbc-snb-decentralized.js#readme",
+  "license": "MIT",
+  "bin": {
+    "ldbc-snb-decentralized": "bin/ldbc-snb-decentralized"
+  },
+  "files": [
+    "bin/**/*.d.ts",
+    "bin/**/*.js",
+    "lib/**/*.d.ts",
+    "lib/**/*.js",
+    "lib/**/*.json",
+    "templates/**/*",
+    "index.d.ts",
+    "index.ts"
+  ],
+  "dependencies": {
+    "@solid/community-server": "0.6.0",
+    "@types/dockerode": "^3.2.3",
+    "@types/yargs": "^16.0.1",
+    "dockerode": "^3.2.1",
+    "ldbc-snb-enhancer": "^1.1.0",
+    "rdf-dataset-fragmenter": "^1.3.0",
+    "sparql-query-parameter-instantiator": "^1.1.0",
+    "yargs": "^16.2.0"
+  },
+  "devDependencies": {
+    "@rubensworks/eslint-config": "^1.0.1",
+    "@types/jest": "^26.0.0",
+    "@types/node": "^14.14.7",
+    "@typescript-eslint/eslint-plugin": "^4.2.0",
+    "@typescript-eslint/parser": "^4.1.1",
+    "coveralls": "^3.0.0",
+    "eslint": "^7.9.0",
+    "eslint-config-es": "^3.23.0",
+    "eslint-import-resolver-typescript": "^2.3.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^24.0.2",
+    "eslint-plugin-tsdoc": "^0.2.7",
+    "eslint-plugin-unused-imports": "^0.1.3",
+    "fs-extra": "^9.0.0",
+    "husky": "^4.2.5",
+    "jest": "^26.6.3",
+    "jest-extended": "^0.11.2",
+    "manual-git-changelog": "^1.0.1",
+    "rimraf": "latest",
+    "ts-jest": "^26.4.3",
+    "typescript": "^4.0.5"
+  }
 }

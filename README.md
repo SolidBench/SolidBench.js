@@ -2,17 +2,23 @@
 
 A tool to create a **decentralized** version of the [LDBC SNB](https://github.com/ldbc/ldbc_snb_datagen) **social network** dataset, and serve it over HTTP.
 
+[![Build status](https://github.com/rubensworks/ldbc-snb-decentralized.js/workflows/CI/badge.svg)](https://github.com/rubensworks/ldbc-snb-decentralized.js/actions?query=workflow%3ACI)
+[![Coverage Status](https://coveralls.io/repos/github/rubensworks/ldbc-snb-decentralized.js/badge.svg?branch=master)](https://coveralls.io/github/rubensworks/ldbc-snb-decentralized.js?branch=master)
+[![npm version](https://badge.fury.io/js/ldbc-snb-decentralized.svg)](https://www.npmjs.com/package/ldbc-snb-decentralized)
+
 ## Requirements
 
-* [Bash](https://www.gnu.org/software/bash/) _(Installed by default on UNIX machines)_
-* [Git](https://git-scm.com/) _(Installed by default on most UNIX machines)_
 * [Node.js](https://nodejs.org/en/) _(1.12 or higher)_
-* [Docker](https://www.docker.com/)
+* [Docker](https://www.docker.com/) _(required for invoking [LDBC SNB generator](https://github.com/ldbc/ldbc_snb_datagen))_
 
 ## Installation
 
 ```bash
-$ git clone git@github.com:rubensworks/ldbc-snb-decentralized.git
+$ npm install -g ldbc-snb-decentralized
+```
+or
+```bash
+$ yarn global add ldbc-snb-decentralized
 ```
 
 ## Usage
@@ -22,20 +28,35 @@ $ git clone git@github.com:rubensworks/ldbc-snb-decentralized.git
 The social network data can be generated using the default options:
 
 ```bash
-$ ./prepare.sh
+$ ldbc-snb-decentralized generate
 ```
 
 **Full usage options:**
 
 ```bash
-Usage: prepare.sh
-Optional flags
-  -o       If existing files should be overwritten
-  -s       The SNB scale factor (default: 0.1) (possible: 0.1, 1, 3, 10, 30, 100, 300, 1000)
-  -e       Path to the enhancement config (default: enhancer-config-dummy.json)
-  -f       Path to the fragmentation strategy (default: fragmenter-config-subject.json)
-  -g       Path to the enhancement's fragmentation strategy (default: fragmenter-auxiliary-config-subject.json)
-  -q       Path to the query instantiation strategy (default: query-config.json)
+ldbc-snb-decentralized.js generate
+
+Generate social network data
+
+Options:
+      --version                    Show version number                 [boolean]
+      --cwd                        The current working directory
+                                                           [string] [default: .]
+      --verbose                    If more output should be printed    [boolean]
+      --help                       Show help                           [boolean]
+  -o, --overwrite                  If existing files should be overwritten
+                                                       [string] [default: false]
+  -s, --scale                      The SNB scale factor  [number] [default: 0.1]
+  -e, --enhancementConfig          Path to enhancement config
+                                  [string] [default: enhancer-config-dummy.json]
+  -f, --fragmentConfig             Path to fragmentation config
+                              [string] [default: fragmenter-config-subject.json]
+  -g, --enhancementFragmentConfig  Path to enhancement's fragmentation config
+                    [string] [default: fragmenter-auxiliary-config-subject.json]
+  -q, --queryConfig                Path to query instantiation config
+                                           [string] [default: query-config.json]
+      --hadoopMemory               Memory limit for Hadoop
+                                                        [string] [default: "4G"]
 ```
 
 **What does this do?**
@@ -62,16 +83,25 @@ with the given query instantiation config (defaults to a config producing two qu
 The fragmented data can be served over HTTP:
 
 ```bash
-$ ./serve.sh
+$ ldbc-snb-decentralized serve
 ```
 
 **Full usage options:**
 
 ```bash
-Usage: serve.sh
-Optional flags
-  -p       The HTTP port to run on (default: 3000)
-  -c       Path to the server config (default: server-config.json)
+ldbc-snb-decentralized.js serve
+
+Serves the fragmented dataset via an HTTP server
+
+Options:
+      --version   Show version number                                  [boolean]
+      --cwd       The current working directory            [string] [default: .]
+      --verbose   If more output should be printed                     [boolean]
+      --help      Show help                                            [boolean]
+  -p, --port      The HTTP port to run on               [number] [default: 3000]
+  -c, --config    Path to server config   [string] [default: server-config.json]
+  -l, --logLevel  Logging level (error, warn, info, verbose, debug, silly)
+                                                      [string] [default: "info"]
 ```
 
 **What does this do?**
