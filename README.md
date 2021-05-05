@@ -21,6 +21,12 @@ or
 $ yarn global add ldbc-snb-decentralized
 ```
 
+## Quick start
+
+1. `$ ldbc-snb-decentralized generate`: Generate dataset with default options.
+2. `$ ldbc-snb-decentralized serve`: Serve datasets over HTTP
+3. Initiate HTTP requests over `http://localhost:3000/`, such as `$ curl http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/data/pers00000021990232556027`
+
 ## Usage
 
 ### 1. Generate
