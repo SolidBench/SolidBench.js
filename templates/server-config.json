@@ -17,7 +17,10 @@
     "files-scs:config/presets/representation-conversion.json",
     "files-scs:config/presets/static.json",
     "files-scs:config/presets/storage-wrapper.json",
-    "files-scs:config/presets/cli-params.json"
+    "files-scs:config/presets/cli-params.json",
+    "files-scs:config/presets/identity/identity-provider.json",
+    "files-scs:config/presets/identity/interaction-policy.json",
+    "files-scs:config/presets/identity/email-sender.json"
   ],
   "comment": "Adapted from \"files-scs:config/config-file.json\"",
   "@graph": [

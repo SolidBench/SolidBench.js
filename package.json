@@ -63,6 +63,7 @@
   "files": [
     "bin/**/*.d.ts",
     "bin/**/*.js",
+    "bin/ldbc-snb-decentralized",
     "lib/**/*.d.ts",
     "lib/**/*.js",
     "lib/**/*.json",
@@ -71,7 +72,7 @@
     "index.ts"
   ],
   "dependencies": {
-    "@solid/community-server": "0.6.0",
+    "@solid/community-server": "^0.9.0",
     "@types/dockerode": "^3.2.3",
     "@types/yargs": "^16.0.1",
     "dockerode": "^3.2.1",
