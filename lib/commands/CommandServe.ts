@@ -1,7 +1,6 @@
-import * as Path from 'path';
-
 import type { Argv } from 'yargs';
 import { Server } from '../Server';
+import { Templates } from '../Templates';
 
 export const command = 'serve';
 export const desc = 'Serves the fragmented dataset via an HTTP server';
@@ -18,7 +17,7 @@ export const builder = (yargs: Argv<any>): Argv<any> =>
         type: 'string',
         alias: 'c',
         describe: 'Path to server config',
-        default: Path.join(__dirname, '../../templates/server-config.json'),
+        default: Templates.SERVER_CONFIG,
         defaultDescription: 'server-config.json',
       },
       logLevel: {

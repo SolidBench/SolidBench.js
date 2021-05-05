@@ -1,6 +1,6 @@
-import * as Path from 'path';
 import type { Argv } from 'yargs';
 import { Generator } from '../Generator';
+import { Templates } from '../Templates';
 
 export const command = 'generate';
 export const desc = 'Generate social network data';
@@ -23,28 +23,28 @@ export const builder = (yargs: Argv<any>): Argv<any> =>
         type: 'string',
         alias: 'e',
         describe: 'Path to enhancement config',
-        default: Path.join(__dirname, '../../templates/enhancer-config-dummy.json'),
+        default: Templates.ENHANCEMENT_CONFIG,
         defaultDescription: 'enhancer-config-dummy.json',
       },
       fragmentConfig: {
         type: 'string',
         alias: 'f',
         describe: 'Path to fragmentation config',
-        default: Path.join(__dirname, '../../templates/fragmenter-config-subject.json'),
+        default: Templates.FRAGMENT_CONFIG,
         defaultDescription: 'fragmenter-config-subject.json',
       },
       enhancementFragmentConfig: {
         type: 'string',
         alias: 'g',
         describe: 'Path to enhancement\'s fragmentation config',
-        default: Path.join(__dirname, '../../templates/fragmenter-auxiliary-config-subject.json'),
+        default: Templates.ENHANCEMENT_FRAGMENT_CONFIG,
         defaultDescription: 'fragmenter-auxiliary-config-subject.json',
       },
       queryConfig: {
         type: 'string',
         alias: 'q',
         describe: 'Path to query instantiation config',
-        default: Path.join(__dirname, '../../templates/query-config.json'),
+        default: Templates.QUERY_CONFIG,
         defaultDescription: 'query-config.json',
       },
       hadoopMemory: {
