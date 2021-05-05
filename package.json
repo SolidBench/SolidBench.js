@@ -1,6 +1,6 @@
 {
   "name": "ldbc-snb-decentralized",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Decentralized version of the LDBC SNB benchmark",
   "main": "index.js",
   "scripts": {
