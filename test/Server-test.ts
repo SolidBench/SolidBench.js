@@ -26,12 +26,16 @@ describe('Server', () => {
       {
         mainModulePath: Path.join(__dirname, '..'),
         logLevel: 'info',
+        typeChecking: false,
       },
       'CONFIG',
       {
-        port: 3_000,
-        rootFilePath: 'out-fragments/http/localhost_3000/',
-        loggingLevel: 'info',
+        'urn:solid-server:default:variable:baseUrl': 'http://localhost:3000/',
+        'urn:solid-server:default:variable:loggingLevel': 'info',
+        'urn:solid-server:default:variable:port': 3_000,
+        'urn:solid-server:default:variable:rootFilePath': 'out-fragments/http/localhost_3000/',
+        'urn:solid-server:default:variable:seededPodConfigJson': '',
+        'urn:solid-server:default:variable:showStackTrace': false,
       },
     );
   });

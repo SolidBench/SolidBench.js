@@ -1,55 +1,49 @@
 {
-  "@context": "https://linkedsoftwaredependencies.org/bundles/npm/rdf-dataset-fragmenter/^1.0.0/components/context.jsonld",
+  "@context": "https://linkedsoftwaredependencies.org/bundles/npm/rdf-dataset-fragmenter/^2.0.0/components/context.jsonld",
   "@id": "urn:rdf-dataset-fragmenter:default",
   "@type": "Fragmenter",
-  "Fragmenter:_options_quadSource": {
+  "quadSource": {
 	"@id": "urn:rdf-dataset-fragmenter:source:default",
 	"@type": "QuadSourceComposite",
-	"QuadSourceComposite:_sources": [
+	"sources": [
 	  {
 	    "@type": "QuadSourceFile",
-	    "QuadSourceFile:_options_filePath": "out-enhanced/social_network_auxiliary.ttl"
+	    "filePath": "out-enhanced/social_network_auxiliary.ttl"
 	  }
 	]
   },
-  "Fragmenter:_options_transformers": [
+  "transformers": [
     {
       "@type": "QuadTransformerReplaceIri",
-      "QuadTransformerReplaceIri:_searchRegex": "^http://www.ldbc.eu",
-      "QuadTransformerReplaceIri:_replacementString": "http://localhost:3000/www.ldbc.eu"
+      "searchRegex": "^http://www.ldbc.eu",
+      "replacementString": "http://localhost:3000/www.ldbc.eu"
     },
     {
       "@type": "QuadTransformerReplaceIri",
-      "QuadTransformerReplaceIri:_searchRegex": "^http://dbpedia.org",
-      "QuadTransformerReplaceIri:_replacementString": "http://localhost:3000/dbpedia.org"
+      "searchRegex": "^http://dbpedia.org",
+      "replacementString": "http://localhost:3000/dbpedia.org"
     },
     {
       "@type": "QuadTransformerReplaceIri",
-      "QuadTransformerReplaceIri:_searchRegex": "^http://www.w3.org/2002/07/owl",
-      "QuadTransformerReplaceIri:_replacementString": "http://localhost:3000/www.w3.org/2002/07/owl"
+      "searchRegex": "^http://www.w3.org/2002/07/owl",
+      "replacementString": "http://localhost:3000/www.w3.org/2002/07/owl"
     }
   ],
-  "Fragmenter:_options_fragmentationStrategy": {
+  "fragmentationStrategy": {
     "@type": "FragmentationStrategyComposite",
-    "FragmentationStrategyComposite:_strategies": [
+    "strategies": [
       { "@type": "FragmentationStrategySubject" }
     ]
   },
-  "Fragmenter:_options_quadSink": {
+  "quadSink": {
 	"@id": "urn:rdf-dataset-fragmenter:sink:default",
 	"@type": "QuadSinkFile",
-	"QuadSinkFile:_options_log": true,
-	"QuadSinkFile:_options_outputFormat": "application/n-quads",
-	"QuadSinkFile:_options_fileExtension": ".nq",
-	"QuadSinkFile:_options_iriToPath": [
-	  {
-	    "QuadSinkFile:_options_iriToPath_key": "http://",
-	    "QuadSinkFile:_options_iriToPath_value": "out-fragments/http/"
-	  },
-	  {
-	    "QuadSinkFile:_options_iriToPath_key": "https://",
-	    "QuadSinkFile:_options_iriToPath_value": "out-fragments/https/"
-	  }
-	]
+	"log": true,
+	"outputFormat": "application/n-quads",
+	"fileExtension": ".nq",
+    "iriToPath": {
+      "http://": "out-fragments/http/",
+      "https://": "out-fragments/https/"
+    }
   }
 }

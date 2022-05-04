@@ -1,40 +1,40 @@
 {
-  "@context": "https://linkedsoftwaredependencies.org/bundles/npm/sparql-query-parameter-instantiator/^1.0.0/components/context.jsonld",
+  "@context": "https://linkedsoftwaredependencies.org/bundles/npm/sparql-query-parameter-instantiator/^2.0.0/components/context.jsonld",
   "@id": "urn:sparql-query-parameter-instantiator:default",
   "@type": "QueryInstantiator",
-  "QueryInstantiator:_count": 5,
-  "QueryInstantiator:_providers": [
+  "count": 5,
+  "providers": [
     {
       "@type": "QueryTemplateProvider",
-      "QueryTemplateProvider:_templateFilePath": "templates/queries/interactive-short-4.sparql",
-      "QueryTemplateProvider:_destinationFilePath": "out-queries/interactive-short-4.sparql",
-      "QueryTemplateProvider:_variables": [
+      "templateFilePath": "templates/queries/interactive-short-4.sparql",
+      "destinationFilePath": "out-queries/interactive-short-4.sparql",
+      "variables": [
         {
           "@type": "VariableTemplateNamedNode",
-          "VariableTemplateNamedNode:_name": "message",
-          "VariableTemplateNamedNode:_substitutionProvider": {
+          "name": "message",
+          "substitutionProvider": {
             "@type": "SubstitutionProviderCsv",
-            "SubstitutionProviderCsv:_csvFilePath": "out-enhanced/parameters-posts.csv",
-            "SubstitutionProviderCsv:_columnName": "post"
+            "csvFilePath": "out-enhanced/parameters-posts.csv",
+            "columnName": "post"
           },
-          "VariableTemplateNamedNode:_valueTransformers": [
+          "valueTransformers": [
             {
               "@id": "urn:sparql-query-parameter-instantiator:valueTransformer1",
               "@type": "ValueTransformerReplaceIri",
-              "ValueTransformerReplaceIri:_searchRegex": "^http://www.ldbc.eu",
-              "ValueTransformerReplaceIri:_replacementString": "http://localhost:3000/www.ldbc.eu"
+              "searchRegex": "^http://www.ldbc.eu",
+              "replacementString": "http://localhost:3000/www.ldbc.eu"
             },
             {
               "@id": "urn:sparql-query-parameter-instantiator:valueTransformer2",
               "@type": "ValueTransformerReplaceIri",
-              "ValueTransformerReplaceIri:_searchRegex": "^http://dbpedia.org",
-              "ValueTransformerReplaceIri:_replacementString": "http://localhost:3000/dbpedia.org"
+              "searchRegex": "^http://dbpedia.org",
+              "replacementString": "http://localhost:3000/dbpedia.org"
             },
             {
               "@id": "urn:sparql-query-parameter-instantiator:valueTransformer3",
               "@type": "ValueTransformerReplaceIri",
-              "ValueTransformerReplaceIri:_searchRegex": "^http://www.w3.org/2002/07/owl",
-              "ValueTransformerReplaceIri:_replacementString": "http://localhost:3000/www.w3.org/2002/07/owl"
+              "searchRegex": "^http://www.w3.org/2002/07/owl",
+              "replacementString": "http://localhost:3000/www.w3.org/2002/07/owl"
             }
           ]
         }
@@ -42,18 +42,18 @@
     },
     {
       "@type": "QueryTemplateProvider",
-      "QueryTemplateProvider:_templateFilePath": "templates/queries/interactive-short-5.sparql",
-      "QueryTemplateProvider:_destinationFilePath": "out-queries/interactive-short-5.sparql",
-      "QueryTemplateProvider:_variables": [
+      "templateFilePath": "templates/queries/interactive-short-5.sparql",
+      "destinationFilePath": "out-queries/interactive-short-5.sparql",
+      "variables": [
         {
           "@type": "VariableTemplateNamedNode",
-          "VariableTemplateNamedNode:_name": "message",
-          "VariableTemplateNamedNode:_substitutionProvider": {
+          "name": "message",
+          "substitutionProvider": {
             "@type": "SubstitutionProviderCsv",
-            "SubstitutionProviderCsv:_csvFilePath": "out-enhanced/parameters-posts.csv",
-            "SubstitutionProviderCsv:_columnName": "post"
+            "csvFilePath": "out-enhanced/parameters-posts.csv",
+            "columnName": "post"
           },
-          "VariableTemplateNamedNode:_valueTransformers": [
+          "valueTransformers": [
             {
               "@id": "urn:sparql-query-parameter-instantiator:valueTransformer1"
             },

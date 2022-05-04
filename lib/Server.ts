@@ -20,12 +20,16 @@ export class Server {
       {
         mainModulePath: Path.join(__dirname, '..'),
         logLevel: <any> this.logLevel,
+        typeChecking: false,
       },
       this.configPath,
       {
-        port: this.port,
-        rootFilePath: 'out-fragments/http/localhost_3000/',
-        loggingLevel: this.logLevel,
+        'urn:solid-server:default:variable:port': this.port,
+        'urn:solid-server:default:variable:rootFilePath': 'out-fragments/http/localhost_3000/',
+        'urn:solid-server:default:variable:loggingLevel': this.logLevel,
+        'urn:solid-server:default:variable:baseUrl': `http://localhost:${this.port}/`,
+        'urn:solid-server:default:variable:seededPodConfigJson': '',
+        'urn:solid-server:default:variable:showStackTrace': false,
       },
     );
   }

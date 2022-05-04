@@ -72,13 +72,13 @@
     "index.ts"
   ],
   "dependencies": {
-    "@solid/community-server": "^0.9.0",
+    "@solid/community-server": "https://github.com/CommunitySolidServer/CommunitySolidServer/#versions/5.0.0",
     "@types/dockerode": "^3.2.3",
     "@types/yargs": "^16.0.1",
     "dockerode": "^3.2.1",
-    "ldbc-snb-enhancer": "^1.1.0",
-    "rdf-dataset-fragmenter": "^1.3.0",
-    "sparql-query-parameter-instantiator": "^1.1.0",
+    "ldbc-snb-enhancer": "^2.0.0",
+    "rdf-dataset-fragmenter": "^2.0.0",
+    "sparql-query-parameter-instantiator": "^2.0.0",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
@@ -102,6 +102,6 @@
     "manual-git-changelog": "^1.0.1",
     "rimraf": "latest",
     "ts-jest": "^26.4.3",
-    "typescript": "^4.0.5"
+    "typescript": "^4.6.4"
   }
 }
