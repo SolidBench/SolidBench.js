@@ -35,6 +35,25 @@
       "@type": "QuadTransformerReplaceIri",
       "searchRegex": "^http://www.w3.org/2002/07/owl",
       "replacementString": "http://localhost:3000/www.w3.org/2002/07/owl"
+    },
+    {
+      "@type": "QuadTransformerReplaceIri",
+      "searchRegex": "^http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/data/pers([0-9]*)$",
+      "replacementString": "http://localhost:3000/pods/$1/profile/card#me"
+    },
+    {
+      "@type": "QuadTransformerRemapResourceIdentifier",
+      "newIdentifierSeparator": "../posts/",
+      "typeRegex": "vocabulary/Post$",
+      "identifierPredicateRegex": "vocabulary/id$",
+      "targetPredicateRegex": "vocabulary/hasCreator$"
+    },
+    {
+      "@type": "QuadTransformerRemapResourceIdentifier",
+      "newIdentifierSeparator": "../comments/",
+      "typeRegex": "vocabulary/Comment$",
+      "identifierPredicateRegex": "vocabulary/id$",
+      "targetPredicateRegex": "vocabulary/hasCreator$"
     }
   ],
   "fragmentationStrategy": {
