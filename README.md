@@ -8,7 +8,7 @@ A tool to create a **decentralized** version of the [LDBC SNB](https://github.co
 
 ## Requirements
 
-* [Node.js](https://nodejs.org/en/) _(1.12 or higher)_
+* [Node.js](https://nodejs.org/en/) _(1.14 or higher)_
 * [Docker](https://www.docker.com/) _(required for invoking [LDBC SNB generator](https://github.com/ldbc/ldbc_snb_datagen))_
 
 ## Installation
@@ -74,7 +74,7 @@ Then, **auxiliary data** will be generated using [`ldbc-snb-enhancer.js`](https:
 based on the given enhancement config (defaults to an empty config).
 
 Next, this Turtle file will be **fragmented** using [`rdf-dataset-fragmenter.js`](https://github.com/rubensworks/rdf-dataset-fragmenter.js)
-and the given fragmentation strategy config (defaults to a subject-based fragmentation).
+and the given fragmentation strategy config (defaults to a [Solid-pod](https://solidproject.org/)-based fragmentation).
 This happens in two passes:
 
 1. Fragmenting of the main SNB dataset.

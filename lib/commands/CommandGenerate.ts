@@ -31,7 +31,7 @@ export const builder = (yargs: Argv<any>): Argv<any> =>
         alias: 'f',
         describe: 'Path to fragmentation config',
         default: Templates.FRAGMENT_CONFIG,
-        defaultDescription: 'fragmenter-config-subject.json',
+        defaultDescription: 'fragmenter-config-pod.json',
       },
       enhancementFragmentConfig: {
         type: 'string',
