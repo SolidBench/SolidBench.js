@@ -129,7 +129,7 @@ By default, the following data model is used where all triples are placed in the
 ![](https://raw.githubusercontent.com/ldbc/ldbc_snb_docs/dev/figures/schema-comfortable.png)
 
 For inspiration for possible queries over this dataset,
-please refer to the [`interactive-` queries of SNB](https://github.com/ldbc/ldbc_snb_implementations/tree/stable/sparql/queries).
+please refer to the [`interactive-` queries of SNB](https://github.com/ldbc/ldbc_snb_interactive_impls/tree/c19be0e793680497de4e88d360a20708cfcf43a9/sparql/queries).
 (Note: these queries will require changes to their URLs before they can be used)
 
 ## License
