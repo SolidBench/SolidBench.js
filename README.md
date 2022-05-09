@@ -56,7 +56,7 @@ Options:
   -e, --enhancementConfig          Path to enhancement config
                                   [string] [default: enhancer-config-dummy.json]
   -f, --fragmentConfig             Path to fragmentation config
-                              [string] [default: fragmenter-config-subject.json]
+                              [string] [default: fragmenter-config-pod.json]
   -g, --enhancementFragmentConfig  Path to enhancement's fragmentation config
                     [string] [default: fragmenter-auxiliary-config-subject.json]
   -q, --queryConfig                Path to query instantiation config

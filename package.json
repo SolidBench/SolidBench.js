@@ -72,7 +72,7 @@
     "index.ts"
   ],
   "dependencies": {
-    "@solid/community-server": "https://github.com/CommunitySolidServer/CommunitySolidServer/#versions/5.0.0",
+    "@solid/community-server": "^5.0.0-alpha.0",
     "@types/dockerode": "^3.2.3",
     "@types/yargs": "^16.0.1",
     "dockerode": "^3.2.1",

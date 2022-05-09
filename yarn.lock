@@ -2549,9 +2549,10 @@
     node-fetch "^2.6.7"
     ts-guards "^0.5.1"
 
-"@solid/community-server@https://github.com/CommunitySolidServer/CommunitySolidServer/#versions/5.0.0":
-  version "4.0.0"
-  resolved "https://github.com/CommunitySolidServer/CommunitySolidServer/#ff80079000a0f308f31b83cfc52e90421f20dadc"
+"@solid/community-server@^5.0.0-alpha.0":
+  version "5.0.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@solid/community-server/-/community-server-5.0.0-alpha.0.tgz#82689e742ee7dbc37842eabfd0249f93fb58ab42"
+  integrity sha512-SpzW3+JTcBCqbi2ZlszGhUCioaPPnjEh71e/H1yk7c80P/HDWRKgXG9uQcv6WF7cOIyKvOawOPKnGrATcpdjMg==
   dependencies:
     "@comunica/query-sparql" "^2.2.1"
     "@rdfjs/types" "^1.1.0"
