@@ -25,7 +25,7 @@ $ yarn global add ldbc-snb-decentralized
 
 1. `$ ldbc-snb-decentralized generate`: Generate dataset with default options.
 2. `$ ldbc-snb-decentralized serve`: Serve datasets over HTTP
-3. Initiate HTTP requests over `http://localhost:3000/`, such as `$ curl http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/data/pers00000021990232556027`
+3. Initiate HTTP requests over `http://localhost:3000/`, such as `$ curl http://localhost:3000/pods/00000000000000000933/profile/card`
 
 ## Usage
 
@@ -115,11 +115,11 @@ Options:
 The fragmented dataset from the preparation phase is loaded into the [Solid Community Server](https://github.com/solid/community-server/)
 so that it can be served over HTTP.
 
-The provided server config uses a simple file-based mapping, so that for example the file in `out-fragments/http/localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/data/pers00000021990232556027` is served on `http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/data/pers00000021990232556027`.
+The provided server config uses a simple file-based mapping, so that for example the file in `out-fragments/http/localhost:3000/pods/00000000000000000933/profile/card` is served on `http://localhost:3000/pods/00000000000000000933/profile/card`.
 Once the server is live, you can perform requests such as:
 
 ```bash
-$ curl http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/data/pers00000021990232556027
+$ curl http://localhost:3000/pods/00000000000000000933/profile/card
 ```
 
 ## Data model
