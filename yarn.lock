@@ -8278,10 +8278,10 @@ rdf-data-factory@^1.0.1, rdf-data-factory@^1.0.3, rdf-data-factory@^1.0.4, rdf-d
   dependencies:
     "@rdfjs/types" "*"
 
-rdf-dataset-fragmenter@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/rdf-dataset-fragmenter/-/rdf-dataset-fragmenter-2.1.0.tgz#29c506794110f50f9786aff6419ea4d3eb4f3b8c"
-  integrity sha512-NSydORg9/DC6SDHDKvyQpwOUylHnqDDcFIdgq/U3KtRNl4BVgyP2f37ky/LhclxjcguHPuOuIEHeaagVZpq38Q==
+rdf-dataset-fragmenter@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/rdf-dataset-fragmenter/-/rdf-dataset-fragmenter-2.2.0.tgz#1a2aa74a57f963079656d1aca2e04e3714b35902"
+  integrity sha512-aBnPhZV1rJrEKKWhj/FmTs78LAH4zO5Ut8kz+YqKH1fj7egWYgNzfC2qqsEEw8ARqga9XFX6wfXOH3pKbvbQ0Q==
   dependencies:
     "@rdfjs/types" "*"
     "@types/async-lock" "^1.1.2"

@@ -6,64 +6,33 @@
   "providers": [
     {
       "@type": "QueryTemplateProvider",
-      "templateFilePath": "templates/queries/interactive-short-4.sparql",
-      "destinationFilePath": "out-queries/interactive-short-4.sparql",
+      "templateFilePath": "templates/queries/interactive-short-1-nocity.sparql",
+      "destinationFilePath": "out-queries/interactive-short-1-nocity.sparql",
       "variables": [
         {
           "@type": "VariableTemplateNamedNode",
-          "name": "message",
+          "name": "person",
           "substitutionProvider": {
             "@type": "SubstitutionProviderCsv",
-            "csvFilePath": "out-enhanced/parameters-posts.csv",
-            "columnName": "post"
-          },
-          "valueTransformers": [
-            {
-              "@id": "urn:sparql-query-parameter-instantiator:valueTransformer1",
-              "@type": "ValueTransformerReplaceIri",
-              "searchRegex": "^http://www.ldbc.eu",
-              "replacementString": "http://localhost:3000/www.ldbc.eu"
-            },
-            {
-              "@id": "urn:sparql-query-parameter-instantiator:valueTransformer2",
-              "@type": "ValueTransformerReplaceIri",
-              "searchRegex": "^http://dbpedia.org",
-              "replacementString": "http://localhost:3000/dbpedia.org"
-            },
-            {
-              "@id": "urn:sparql-query-parameter-instantiator:valueTransformer3",
-              "@type": "ValueTransformerReplaceIri",
-              "searchRegex": "^http://www.w3.org/2002/07/owl",
-              "replacementString": "http://localhost:3000/www.w3.org/2002/07/owl"
-            }
-          ]
+            "csvFilePath": "out-fragments/parameters-persons.csv",
+            "columnName": "subject"
+          }
         }
       ]
     },
     {
       "@type": "QueryTemplateProvider",
-      "templateFilePath": "templates/queries/interactive-short-5.sparql",
-      "destinationFilePath": "out-queries/interactive-short-5.sparql",
+      "templateFilePath": "templates/queries/interactive-short-4-creator.sparql",
+      "destinationFilePath": "out-queries/interactive-short-4-creator.sparql",
       "variables": [
         {
           "@type": "VariableTemplateNamedNode",
-          "name": "message",
+          "name": "creator",
           "substitutionProvider": {
             "@type": "SubstitutionProviderCsv",
-            "csvFilePath": "out-enhanced/parameters-posts.csv",
-            "columnName": "post"
-          },
-          "valueTransformers": [
-            {
-              "@id": "urn:sparql-query-parameter-instantiator:valueTransformer1"
-            },
-            {
-              "@id": "urn:sparql-query-parameter-instantiator:valueTransformer2"
-            },
-            {
-              "@id": "urn:sparql-query-parameter-instantiator:valueTransformer3"
-            }
-          ]
+            "csvFilePath": "out-fragments/parameters-persons.csv",
+            "columnName": "subject"
+          }
         }
       ]
     }

@@ -422,13 +422,63 @@
   },
   "quadSink": {
 	"@id": "urn:rdf-dataset-fragmenter:sink:default",
-	"@type": "QuadSinkFile",
-	"log": true,
-	"outputFormat": "application/n-quads",
-	"fileExtension": ".nq",
-	"iriToPath": {
-	  "http://": "out-fragments/http/",
-	  "https://": "out-fragments/https/"
-	}
+    "@type": "QuadSinkComposite",
+    "sinks": [
+      {
+        "@type": "QuadSinkFile",
+        "log": true,
+        "outputFormat": "application/n-quads",
+        "fileExtension": ".nq",
+        "iriToPath": {
+          "http://": "out-fragments/http/",
+          "https://": "out-fragments/https/"
+        }
+      },
+      {
+        "@type": "QuadSinkFiltered",
+        "filter": {
+          "@type": "QuadMatcherResourceType",
+          "typeRegex": "vocabulary/Person$",
+          "matchFullResource": false
+        },
+        "sink": {
+          "@type": "QuadSinkCsv",
+          "file": "out-fragments/parameters-persons.csv",
+          "columns": [
+            "subject"
+          ]
+        }
+      },
+      {
+        "@type": "QuadSinkFiltered",
+        "filter": {
+          "@type": "QuadMatcherResourceType",
+          "typeRegex": "vocabulary/Comment$",
+          "matchFullResource": false
+        },
+        "sink": {
+          "@type": "QuadSinkCsv",
+          "file": "out-fragments/parameters-comments.csv",
+          "columns": [
+            "subject"
+          ]
+        }
+      },
+      {
+        "@type": "QuadSinkFiltered",
+        "filter": {
+          "@type": "QuadMatcherResourceType",
+          "typeRegex": "vocabulary/Post$",
+          "matchFullResource": false
+        },
+        "sink": {
+          "@type": "QuadSinkCsv",
+          "file": "out-fragments/parameters-posts.csv",
+          "columns": [
+            "subject"
+          ]
+        }
+      }
+    ]
   }
 }
