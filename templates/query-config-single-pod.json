@@ -1,0 +1,40 @@
+{
+  "@context": "https://linkedsoftwaredependencies.org/bundles/npm/sparql-query-parameter-instantiator/^2.0.0/components/context.jsonld",
+  "@id": "urn:sparql-query-parameter-instantiator:default",
+  "@type": "QueryInstantiator",
+  "count": 5,
+  "providers": [
+    {
+      "@type": "QueryTemplateProvider",
+      "templateFilePath": "templates/queries/interactive-short-1-nocity.sparql",
+      "destinationFilePath": "out-queries/interactive-short-1-nocity.sparql",
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "person",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-fragments/parameters-persons.csv",
+            "columnName": "subject"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "QueryTemplateProvider",
+      "templateFilePath": "templates/queries/interactive-short-4-creator.sparql",
+      "destinationFilePath": "out-queries/interactive-short-4-creator.sparql",
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "creator",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-fragments/parameters-persons.csv",
+            "columnName": "subject"
+          }
+        }
+      ]
+    }
+  ]
+}
