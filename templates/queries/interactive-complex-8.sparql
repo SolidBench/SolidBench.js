@@ -1,4 +1,4 @@
-# Friends of a person (unidirectional)
+# Recent replies
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -11,17 +11,26 @@ PREFIX dbpedia-owl: <http://localhost:3000/dbpedia.org/ontology/>
 
 SELECT
     ?personId
-    ?firstName
-    ?lastName
-    ?friendshipCreationDate
+    ?personFirstName
+    ?personLastName
+    ?commentCreationDate
+    ?commentId
+    ?commentContent
 WHERE
 {
+    VALUES (?type) {(snvoc:Comment) (snvoc:Post)}
     ?rootPerson a snvoc:Person .
-    ?rootPerson snvoc:id ?rootId .
-        ?rootPerson snvoc:knows ?knows .
-        ?knows snvoc:hasPerson ?person .
-    ?knows snvoc:creationDate ?friendshipCreationDate .
-    ?person snvoc:firstName ?firstName .
-    ?person snvoc:lastName ?lastName .
+    ?message snvoc:hasCreator ?rootPerson .
+    ?message a ?type .
+    ?comment a snvoc:Comment .
+    ?comment snvoc:replyOf ?message .
+    ?comment snvoc:creationDate ?commentCreationDate .
+    ?comment snvoc:id ?commentId .
+    ?comment snvoc:content ?commentContent .
+    ?comment snvoc:hasCreator ?person .
     ?person snvoc:id ?personId .
+    ?person snvoc:firstName ?personFirstName .
+    ?person snvoc:lastName ?personLastName
 }
+ORDER BY DESC(?commentCreationDate) ?commentId
+LIMIT 20

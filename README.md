@@ -82,7 +82,7 @@ This happens in two passes:
 
 Finally, **query** templates will be instantiated based on the generated data.
 This is done using [`sparql-query-parameter-instantiator.js`](https://github.com/rubensworks/sparql-query-parameter-instantiator.js)
-with the given query instantiation config (defaults to a config producing two query types).
+with the given query instantiation config (defaults to a config instantiating [all LDBC SNB interactive queries](https://github.com/rubensworks/ldbc-snb-decentralized.js/tree/master/templates/queries)).
 
 ### 2. Serve
 
@@ -128,9 +128,7 @@ By default, the following data model is used where all triples are placed in the
 
 ![](https://raw.githubusercontent.com/ldbc/ldbc_snb_docs/dev/figures/schema-comfortable.png)
 
-For inspiration for possible queries over this dataset,
-please refer to the [`interactive-` queries of SNB](https://github.com/ldbc/ldbc_snb_interactive_impls/tree/c19be0e793680497de4e88d360a20708cfcf43a9/sparql/queries).
-(Note: these queries will require changes to their URLs before they can be used)
+Query templates can be found in [`templates/queries/`](https://github.com/rubensworks/ldbc-snb-decentralized.js/tree/master/templates/queries).
 
 ## License
 
