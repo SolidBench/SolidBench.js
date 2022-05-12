@@ -55,9 +55,23 @@
           "name": "message",
           "substitutionProvider": {
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderMessage",
-            "@type": "SubstitutionProviderCsv",
-            "csvFilePath": "out-fragments/parameters-comments.csv",
-            "columnName": "subject"
+            "@type": "SubstitutionProviderShuffle",
+            "seed": 12345,
+            "substitutionProvider": {
+              "@type": "SubstitutionProviderUnion",
+              "substitutionProviders": [
+                {
+                  "@type": "SubstitutionProviderCsv",
+                  "csvFilePath": "/Users/rtaelman/nosync/ldbc-snb-decentralized/out-fragments/parameters-comments.csv",
+                  "columnName": "subject"
+                },
+                {
+                  "@type": "SubstitutionProviderCsv",
+                  "csvFilePath": "/Users/rtaelman/nosync/ldbc-snb-decentralized/out-fragments/parameters-posts.csv",
+                  "columnName": "subject"
+                }
+              ]
+            }
           }
         }
       ]
