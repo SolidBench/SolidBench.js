@@ -78,7 +78,7 @@
     "dockerode": "^3.2.1",
     "ldbc-snb-enhancer": "^2.0.0",
     "rdf-dataset-fragmenter": "^2.2.0",
-    "sparql-query-parameter-instantiator": "^2.1.0",
+    "sparql-query-parameter-instantiator": "^2.2.2",
     "yargs": "^16.2.0"
   },
   "devDependencies": {

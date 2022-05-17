@@ -13,8 +13,7 @@ SELECT
     ?tagName
     (COUNT(*) AS ?postCount)
 WHERE {
-    BIND( $startDate AS ?startDate ) .
-    BIND( ?startDate + "P$durationDaysD"^^xsd:duration AS ?endDate ) .
+    BIND( ?startDate + STRDT(CONCAT("P", ?durationDays, "D"), xsd:duration) AS ?endDate ) .
     ?rootPerson a snvoc:Person .
     ?rootPerson ((snvoc:knows/snvoc:hasPerson)|^(snvoc:knows/snvoc:hasPerson)) ?fr .
     ?post a snvoc:Post .

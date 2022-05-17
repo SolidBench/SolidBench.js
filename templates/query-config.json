@@ -111,6 +111,425 @@
           "substitutionProvider": { "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderMessage" }
         }
       ]
+    },
+    {
+      "@type": "QueryTemplateProvider",
+      "templateFilePath": "templates/queries/interactive-complex-1.sparql",
+      "destinationFilePath": "out-queries/interactive-complex-1.sparql",
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "rootPerson",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_1_param.txt",
+            "separator": "|",
+            "columnName": "personId"
+          },
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri",
+              "@type": "ValueTransformerReplaceIri",
+              "searchRegex": "^(.*)$",
+              "replacementString": "http://localhost:3000/pods/$1/profile/card#me"
+            }
+          ]
+        },
+        {
+          "@type": "VariableTemplateLiteral",
+          "name": "firstName",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_1_param.txt",
+            "separator": "|",
+            "columnName": "firstName"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "QueryTemplateProvider",
+      "templateFilePath": "templates/queries/interactive-complex-2.sparql",
+      "destinationFilePath": "out-queries/interactive-complex-2.sparql",
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "rootPerson",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_2_param.txt",
+            "separator": "|",
+            "columnName": "personId"
+          },
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri"
+            }
+          ]
+        },
+        {
+          "@type": "VariableTemplateTimestamp",
+          "name": "maxDate",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_2_param.txt",
+            "separator": "|",
+            "columnName": "maxDate"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "QueryTemplateProvider",
+      "templateFilePath": "templates/queries/interactive-complex-3.sparql",
+      "destinationFilePath": "out-queries/interactive-complex-3.sparql",
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "rootPerson",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_3_param.txt",
+            "separator": "|",
+            "columnName": "personId"
+          },
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri"
+            }
+          ]
+        },
+        {
+          "@type": "VariableTemplateTimestamp",
+          "name": "startDate",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_3_param.txt",
+            "separator": "|",
+            "columnName": "startDate"
+          }
+        },
+        {
+          "@type": "VariableTemplateLiteral",
+          "name": "durationDays",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_3_param.txt",
+            "separator": "|",
+            "columnName": "durationDays"
+          }
+        },
+        {
+          "@type": "VariableTemplateLiteral",
+          "name": "countryXName",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_3_param.txt",
+            "separator": "|",
+            "columnName": "countryXName"
+          }
+        },
+        {
+          "@type": "VariableTemplateLiteral",
+          "name": "countryYName",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_3_param.txt",
+            "separator": "|",
+            "columnName": "countryYName"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "QueryTemplateProvider",
+      "templateFilePath": "templates/queries/interactive-complex-4.sparql",
+      "destinationFilePath": "out-queries/interactive-complex-4.sparql",
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "rootPerson",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_4_param.txt",
+            "separator": "|",
+            "columnName": "personId"
+          },
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri"
+            }
+          ]
+        },
+        {
+          "@type": "VariableTemplateTimestamp",
+          "name": "startDate",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_4_param.txt",
+            "separator": "|",
+            "columnName": "startDate"
+          }
+        },
+        {
+          "@type": "VariableTemplateLiteral",
+          "name": "durationDays",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_4_param.txt",
+            "separator": "|",
+            "columnName": "durationDays"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "QueryTemplateProvider",
+      "templateFilePath": "templates/queries/interactive-complex-5.sparql",
+      "destinationFilePath": "out-queries/interactive-complex-5.sparql",
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "rootPerson",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_5_param.txt",
+            "separator": "|",
+            "columnName": "personId"
+          },
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri"
+            }
+          ]
+        },
+        {
+          "@type": "VariableTemplateTimestamp",
+          "name": "minDate",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_5_param.txt",
+            "separator": "|",
+            "columnName": "minDate"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "QueryTemplateProvider",
+      "templateFilePath": "templates/queries/interactive-complex-6.sparql",
+      "destinationFilePath": "out-queries/interactive-complex-6.sparql",
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "rootPerson",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_6_param.txt",
+            "separator": "|",
+            "columnName": "personId"
+          },
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri"
+            }
+          ]
+        },
+        {
+          "@type": "VariableTemplateLiteral",
+          "name": "tagName",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_6_param.txt",
+            "separator": "|",
+            "columnName": "tagName"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "QueryTemplateProvider",
+      "templateFilePath": "templates/queries/interactive-complex-7.sparql",
+      "destinationFilePath": "out-queries/interactive-complex-7.sparql",
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "rootPerson",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_7_param.txt",
+            "separator": "|",
+            "columnName": "personId"
+          },
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "QueryTemplateProvider",
+      "templateFilePath": "templates/queries/interactive-complex-8.sparql",
+      "destinationFilePath": "out-queries/interactive-complex-8.sparql",
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "rootPerson",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_8_param.txt",
+            "separator": "|",
+            "columnName": "personId"
+          },
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "QueryTemplateProvider",
+      "templateFilePath": "templates/queries/interactive-complex-9.sparql",
+      "destinationFilePath": "out-queries/interactive-complex-9.sparql",
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "rootPerson",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_9_param.txt",
+            "separator": "|",
+            "columnName": "personId"
+          },
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri"
+            }
+          ]
+        },
+        {
+          "@type": "VariableTemplateTimestamp",
+          "name": "maxDate",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_9_param.txt",
+            "separator": "|",
+            "columnName": "maxDate"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "QueryTemplateProvider",
+      "templateFilePath": "templates/queries/interactive-complex-10.sparql",
+      "destinationFilePath": "out-queries/interactive-complex-10.sparql",
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "rootPerson",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_10_param.txt",
+            "separator": "|",
+            "columnName": "personId"
+          },
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri"
+            }
+          ]
+        },
+        {
+          "@type": "VariableTemplateLiteral",
+          "name": "month",
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_10_param.txt",
+            "separator": "|",
+            "columnName": "month"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "QueryTemplateProvider",
+      "templateFilePath": "templates/queries/interactive-complex-11.sparql",
+      "destinationFilePath": "out-queries/interactive-complex-11.sparql",
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "rootPerson",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_11_param.txt",
+            "separator": "|",
+            "columnName": "personId"
+          },
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri"
+            }
+          ]
+        },
+        {
+          "@type": "VariableTemplateLiteral",
+          "name": "countryName",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_11_param.txt",
+            "separator": "|",
+            "columnName": "countryName"
+          }
+        },
+        {
+          "@type": "VariableTemplateLiteral",
+          "name": "workFromYear",
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_11_param.txt",
+            "separator": "|",
+            "columnName": "workFromYear"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "QueryTemplateProvider",
+      "templateFilePath": "templates/queries/interactive-complex-12.sparql",
+      "destinationFilePath": "out-queries/interactive-complex-12.sparql",
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "rootPerson",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_12_param.txt",
+            "separator": "|",
+            "columnName": "personId"
+          },
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri"
+            }
+          ]
+        },
+        {
+          "@type": "VariableTemplateLiteral",
+          "name": "tagClassName",
+          "substitutionProvider": {
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-snb/substitution_parameters/interactive_12_param.txt",
+            "separator": "|",
+            "columnName": "tagClassName"
+          }
+        }
+      ]
     }
   ]
 }

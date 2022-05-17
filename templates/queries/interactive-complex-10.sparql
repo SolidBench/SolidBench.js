@@ -18,7 +18,6 @@ SELECT
     (?locationName AS ?personCityName)
 WHERE
 {
-    BIND($month AS ?month)
     BIND(IF(?month = 12, 1, ?month + 1) AS ?nextMonth)
     {
         SELECT DISTINCT

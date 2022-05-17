@@ -9074,10 +9074,10 @@ spark-md5@^3.0.1:
   resolved "https://registry.yarnpkg.com/spark-md5/-/spark-md5-3.0.2.tgz#7952c4a30784347abcee73268e473b9c0167e3fc"
   integrity sha512-wcFzz9cDfbuqe0FZzfi2or1sgyIrsDwmPwfZC4hiNidPdPINjeUwNfv5kldczoEAcjl9Y1L3SM7Uz2PUEQzxQw==
 
-sparql-query-parameter-instantiator@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/sparql-query-parameter-instantiator/-/sparql-query-parameter-instantiator-2.1.0.tgz#2eacef64221cec2ee3a48639cd928964df50890f"
-  integrity sha512-/geo77R3GyVYXa3Ol+ersokMS5YZpDVq1hmpqO4JiNS4lsvPBZ/d1lQbbmjjs5otyF3MIo1yPHjQA3zQ6W+1Ww==
+sparql-query-parameter-instantiator@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/sparql-query-parameter-instantiator/-/sparql-query-parameter-instantiator-2.2.2.tgz#9f369aab28673222119a1cfe09b319e2aed6eea0"
+  integrity sha512-jIZInHXbjXn4m4y4Dp9uzdoXOw4grHOJlHcawbX/3DF2xMoHAn21oH99Q+lYf5706yIJtkcvW3I2E3TkPUKKJA==
   dependencies:
     "@rdfjs/types" "*"
     "@types/sparqljs" "*"
