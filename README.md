@@ -1,6 +1,6 @@
 # Decentralized LDBC SNB
 
-A tool to create a **decentralized** version of the [LDBC SNB](https://github.com/ldbc/ldbc_snb_datagen) **social network** dataset, and serve it over HTTP.
+A tool to create a **decentralized** version of the [LDBC SNB](https://github.com/ldbc/ldbc_snb_datagen_hadoop) **social network** dataset, and serve it over HTTP.
 
 [![Build status](https://github.com/rubensworks/ldbc-snb-decentralized.js/workflows/CI/badge.svg)](https://github.com/rubensworks/ldbc-snb-decentralized.js/actions?query=workflow%3ACI)
 [![Coverage Status](https://coveralls.io/repos/github/rubensworks/ldbc-snb-decentralized.js/badge.svg?branch=master)](https://coveralls.io/github/rubensworks/ldbc-snb-decentralized.js?branch=master)
@@ -9,7 +9,7 @@ A tool to create a **decentralized** version of the [LDBC SNB](https://github.co
 ## Requirements
 
 * [Node.js](https://nodejs.org/en/) _(1.14 or higher)_
-* [Docker](https://www.docker.com/) _(required for invoking [LDBC SNB generator](https://github.com/ldbc/ldbc_snb_datagen))_
+* [Docker](https://www.docker.com/) _(required for invoking [LDBC SNB generator](https://github.com/ldbc/ldbc_snb_datagen_hadoop))_
 
 ## Installation
 
@@ -67,8 +67,8 @@ Options:
 
 **What does this do?**
 
-This preparation script will first use the (interactive) [LDBC SNB generator](https://github.com/ldbc/ldbc_snb_datagen)
-to **create one large Turtle file** with a given scale factor (defaults to `0.1`).
+This preparation script will first use the (interactive) [LDBC SNB generator](https://github.com/ldbc/ldbc_snb_datagen_hadoop)
+to **create one large Turtle file** with a given scale factor (defaults to `0.1`, allowed values: `[0.1, 0.3, 1, 3, 10, 30, 100, 300, 1000]).
 
 Then, **auxiliary data** will be generated using [`ldbc-snb-enhancer.js`](https://github.com/rubensworks/ldbc-snb-enhancer.js/)
 based on the given enhancement config (defaults to an empty config).
