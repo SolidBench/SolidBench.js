@@ -62,12 +62,12 @@
               "substitutionProviders": [
                 {
                   "@type": "SubstitutionProviderCsv",
-                  "csvFilePath": "/Users/rtaelman/nosync/ldbc-snb-decentralized/out-fragments/parameters-comments.csv",
+                  "csvFilePath": "out-fragments/parameters-comments.csv",
                   "columnName": "subject"
                 },
                 {
                   "@type": "SubstitutionProviderCsv",
-                  "csvFilePath": "/Users/rtaelman/nosync/ldbc-snb-decentralized/out-fragments/parameters-posts.csv",
+                  "csvFilePath": "out-fragments/parameters-posts.csv",
                   "columnName": "subject"
                 }
               ]
