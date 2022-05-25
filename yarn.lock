@@ -7130,10 +7130,10 @@ lcov-parse@^1.0.0:
   resolved "https://registry.yarnpkg.com/lcov-parse/-/lcov-parse-1.0.0.tgz#eb0d46b54111ebc561acb4c408ef9363bdc8f7e0"
   integrity sha1-6w1GtUER68VhrLTECO+TY73I9+A=
 
-ldbc-snb-enhancer@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ldbc-snb-enhancer/-/ldbc-snb-enhancer-2.0.0.tgz#79dfaa13678a66af79241bceaad006ba51f8ba04"
-  integrity sha512-POuusoAwiTTBEfKTa2ZRCYRUHflGDhntPumTAFlU35yfU2GZVPSZNpSxgeUkUQXk1dcIvP03B0RlCC1EBhu0Mg==
+ldbc-snb-enhancer@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/ldbc-snb-enhancer/-/ldbc-snb-enhancer-2.1.1.tgz#47cbf66938ee8ccb02dd081ff7769cb19624c5e6"
+  integrity sha512-Y7QGaW59muFaPUVKEua8T1wlOtFPjKtt0kj61y6foIgN+fOGRchEpahxmlx4mKTF9ZoAGRI5vz6TWzE8+UHH6Q==
   dependencies:
     "@rdfjs/types" "*"
     componentsjs "^5.0.1"
@@ -8278,10 +8278,10 @@ rdf-data-factory@^1.0.1, rdf-data-factory@^1.0.3, rdf-data-factory@^1.0.4, rdf-d
   dependencies:
     "@rdfjs/types" "*"
 
-rdf-dataset-fragmenter@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/rdf-dataset-fragmenter/-/rdf-dataset-fragmenter-2.2.0.tgz#1a2aa74a57f963079656d1aca2e04e3714b35902"
-  integrity sha512-aBnPhZV1rJrEKKWhj/FmTs78LAH4zO5Ut8kz+YqKH1fj7egWYgNzfC2qqsEEw8ARqga9XFX6wfXOH3pKbvbQ0Q==
+rdf-dataset-fragmenter@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/rdf-dataset-fragmenter/-/rdf-dataset-fragmenter-2.2.1.tgz#c25ef2b0fe26dc43df2b3d69a01cdc63a28a1441"
+  integrity sha512-4CRrzDeFsuSZ1/Tc14fCvZKEcWqlHrH4n/ECFO5wrEMqVluRMtqn3kWvmyk2/zhMeK6mwPxJ1kWR/rQkpxaXQA==
   dependencies:
     "@rdfjs/types" "*"
     "@types/async-lock" "^1.1.2"

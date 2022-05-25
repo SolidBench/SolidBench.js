@@ -17,5 +17,10 @@
     "@type": "ParameterEmitterCsv",
     "destinationPath": "out-enhanced/parameters-posts.csv"
   },
-  "handlers": []
+  "handlers": [
+    {
+      "@type": "EnhancementHandlerPersonNoise",
+      "chance": 10
+    }
+  ]
 }
