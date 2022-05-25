@@ -130,6 +130,48 @@ By default, the following data model is used where all triples are placed in the
 
 Query templates can be found in [`templates/queries/`](https://github.com/rubensworks/ldbc-snb-decentralized.js/tree/master/templates/queries).
 
+## Pod-based fragmentation
+
+By default, data will be fragmented into files resembling [Solid data pods](https://solidproject.org/).
+
+For example, a generated pod can contain the following files:
+
+```text
+pods/00000000000000000290/
+    comments/
+        2010-12-02
+        2012-07-14
+    noise/
+        NOISE-1411
+        NOISE-83603
+    posts/
+        2010-02-14
+        2012-09-09
+    profile/
+        card.
+    settings/
+        publicTypeIndex
+```
+
+All files are serialized using the [N-Quads serialization](https://www.w3.org/TR/n-quads/).
+
+The `noise/` directory contains dummy triples with the main purpose of increasing the size of a pod.
+The amount of noise that is produced can be configured using the enhancement config file.
+
+Below, a minimalized example of the contents of a profile can be found:
+```turtle
+<http://localhost:3000/pods/00000000000000000290/profile/card#me> <http://www.w3.org/ns/solid/terms#publicTypeIndex> <http://localhost:3000/pods/00000000000000000290/settings/publicTypeIndex> .
+<http://localhost:3000/pods/00000000000000000290/profile/card#me> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Person> .
+<http://localhost:3000/pods/00000000000000000290/profile/card#me> <http://www.w3.org/ns/pim/space#storage> <http://localhost:3000/pods/00000000000000000290/> .
+<http://localhost:3000/pods/00000000000000000290/profile/card#me> <http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/id> "290"^^<http://www.w3.org/2001/XMLSchema#long> .
+<http://localhost:3000/pods/00000000000000000290/profile/card#me> <http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/firstName> "Ayesha" .
+<http://localhost:3000/pods/00000000000000000290/profile/card#me> <http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/lastName> "Baloch" .
+<http://localhost:3000/pods/00000000000000000290/profile/card#me> <http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/gender> "male" .
+<http://localhost:3000/pods/00000000000000000290/profile/card#me> <http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasInterest> <http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/tag/John_the_Baptist> .
+<http://localhost:3000/pods/00000000000000000290/profile/card#me> <http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/knows> _:b4_knows00000000000000124063 .
+_:b4_knows00000000000000124063 <http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasPerson> <http://localhost:3000/pods/00000000000000001753/profile/card#me> .
+```
+
 ## License
 
 This software is written by [Ruben Taelman](https://rubensworks.net/).
