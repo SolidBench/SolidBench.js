@@ -74,11 +74,14 @@
   "dependencies": {
     "@solid/community-server": "^5.0.0-alpha.0",
     "@types/dockerode": "^3.2.3",
+    "@types/unzipper": "^0.10.5",
     "@types/yargs": "^16.0.1",
     "dockerode": "^3.2.1",
     "ldbc-snb-enhancer": "^2.1.1",
+    "ldbc-snb-validation-generator": "^1.1.0",
     "rdf-dataset-fragmenter": "^2.2.1",
-    "sparql-query-parameter-instantiator": "^2.2.2",
+    "sparql-query-parameter-instantiator": "^2.3.0",
+    "unzipper": "^0.10.11",
     "yargs": "^16.2.0"
   },
   "devDependencies": {

@@ -47,6 +47,19 @@ export const builder = (yargs: Argv<any>): Argv<any> =>
         default: Templates.QUERY_CONFIG,
         defaultDescription: 'query-config.json',
       },
+      validationParams: {
+        type: 'string',
+        describe: 'URL of the validation parameters zip file',
+        default: Templates.VALIDATION_PARAMS_URL,
+        defaultDescription: 'https://.../validation_params.zip',
+      },
+      validationConfig: {
+        type: 'string',
+        alias: 'v',
+        describe: 'Path to validation generator config',
+        default: Templates.VALIDATION_CONFIG,
+        defaultDescription: 'validation-config.json',
+      },
       hadoopMemory: {
         type: 'string',
         describe: 'Memory limit for Hadoop',
@@ -69,5 +82,7 @@ export const handler = (argv: Record<string, any>): Promise<void> => new Generat
   fragmentConfig: argv.fragmentConfig,
   enhancementFragmentConfig: argv.enhancementFragmentConfig,
   queryConfig: argv.queryConfig,
+  validationParams: argv.validationParams,
+  validationConfig: argv.validationConfig,
   hadoopMemory: argv.hadoopMemory,
 }).generate();

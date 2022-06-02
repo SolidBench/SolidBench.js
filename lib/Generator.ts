@@ -1,9 +1,12 @@
 import * as fs from 'fs';
+import { request } from 'https';
 import * as Path from 'path';
 import Dockerode from 'dockerode';
 import { runConfig as runEnhancer } from 'ldbc-snb-enhancer';
+import { runConfig as runValidationGenerator } from 'ldbc-snb-validation-generator';
 import { runConfig as runFragmenter } from 'rdf-dataset-fragmenter';
 import { runConfig as runQueryInstantiator } from 'sparql-query-parameter-instantiator';
+import { Extract } from 'unzipper';
 
 /**
  * Generates decentralized social network data in different phases.
@@ -26,6 +29,8 @@ export class Generator {
   private readonly fragmentConfig: string;
   private readonly enhancementFragmentConfig: string;
   private readonly queryConfig: string;
+  private readonly validationParams: string;
+  private readonly validationConfig: string;
   private readonly hadoopMemory: string;
   private readonly mainModulePath: string;
 
@@ -38,6 +43,8 @@ export class Generator {
     this.fragmentConfig = opts.fragmentConfig;
     this.enhancementFragmentConfig = opts.enhancementFragmentConfig;
     this.queryConfig = opts.queryConfig;
+    this.validationParams = opts.validationParams;
+    this.validationConfig = opts.validationConfig;
     this.hadoopMemory = opts.hadoopMemory;
     this.mainModulePath = Path.join(__dirname, '..');
   }
@@ -76,6 +83,8 @@ export class Generator {
     await this.runPhase('SNB dataset enhancer', 'out-enhanced', () => this.enhanceSnbDataset());
     await this.runPhase('SNB dataset fragmenter', 'out-fragments', () => this.fragmentSnbDataset());
     await this.runPhase('SPARQL query instantiator', 'out-queries', () => this.instantiateQueries());
+    await this.runPhase('SNB validation downloader', 'out-validate-params', () => this.downloadValidationParams());
+    await this.runPhase('SNB validation generator', 'out-validate', () => this.generateValidation());
     const timeEnd = process.hrtime(timeStart);
     this.log('All', `Done in ${timeEnd[0] + (timeEnd[1] / 1_000_000_000)} seconds`);
   }
@@ -177,6 +186,37 @@ export class Generator {
   }
 
   /**
+   * Download validation parameters
+   */
+  public async downloadValidationParams(): Promise<void> {
+    // Create target directory
+    const target = Path.join(this.cwd, 'out-validate-params');
+    await fs.promises.mkdir(target);
+
+    // Download and extract zip file
+    return new Promise((resolve, reject) => {
+      request(this.validationParams, res => {
+        res
+          .on('error', reject)
+          .pipe(Extract({ path: target }))
+          .on('error', reject)
+          .on('close', resolve);
+      }).end();
+    });
+  }
+
+  /**
+   * Generate validation queries and results.
+   */
+  public async generateValidation(): Promise<void> {
+    // Create target directory
+    await fs.promises.mkdir(Path.join(this.cwd, 'out-validate'));
+
+    // Run generator
+    await runValidationGenerator(this.validationConfig, { mainModulePath: this.mainModulePath });
+  }
+
+  /**
    * Return a string in a given color
    * @param str The string that should be printed in
    * @param color A given color
@@ -195,5 +235,7 @@ export interface IGeneratorOptions {
   fragmentConfig: string;
   enhancementFragmentConfig: string;
   queryConfig: string;
+  validationParams: string;
+  validationConfig: string;
   hadoopMemory: string;
 }

@@ -1,5 +1,6 @@
 import * as Path from 'path';
 import { runConfig as runEnhancer } from 'ldbc-snb-enhancer';
+import { runConfig as runValidationGenerator } from 'ldbc-snb-validation-generator';
 import { runConfig as runFragmenter } from 'rdf-dataset-fragmenter';
 import { runConfig as runQueryInstantiator } from 'sparql-query-parameter-instantiator';
 import { Generator } from '../lib/Generator';
@@ -9,7 +10,8 @@ let filesOut: Record<string, string> = {};
 let filesDeleted: Record<string, boolean> = {};
 let dirsOut: Record<string, boolean> = {};
 jest.mock('fs', () => ({
-  ...jest.requireActual('fs'),
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+  ...<any>jest.requireActual('fs'),
   promises: {
     async readFile(filePath: string) {
       if (filePath in files) {
@@ -52,7 +54,28 @@ jest.mock('sparql-query-parameter-instantiator', () => ({
   runConfig: jest.fn(),
 }));
 
+jest.mock('ldbc-snb-validation-generator', () => ({
+  runConfig: jest.fn(),
+}));
+
 jest.spyOn(process.stdout, 'write').mockImplementation();
+
+jest.mock('https', () => ({
+  request: jest.fn((_param, cb) => {
+    cb({
+      on: jest.fn(() => ({
+        pipe: jest.fn(() => ({
+          on: jest.fn(() => ({
+            on: jest.fn((name, cbInner) => {
+              cbInner();
+            }),
+          })),
+        })),
+      })),
+    });
+    return { end: jest.fn() };
+  }),
+}));
 
 describe('Generator', () => {
   let generator: Generator;
@@ -89,6 +112,8 @@ describe('Generator', () => {
       fragmentConfig: 'fragmentConfig',
       enhancementFragmentConfig: 'enhancementFragmentConfig',
       queryConfig: 'queryConfig',
+      validationParams: 'validationParams',
+      validationConfig: 'validationConfig',
       hadoopMemory: '4G',
     });
     jest.clearAllMocks();
@@ -122,6 +147,8 @@ describe('Generator', () => {
         fragmentConfig: 'fragmentConfig',
         enhancementFragmentConfig: 'enhancementFragmentConfig',
         queryConfig: 'queryConfig',
+        validationParams: 'validationParams',
+        validationConfig: 'validationConfig',
         hadoopMemory: '4G',
       });
 
@@ -222,6 +249,15 @@ describe('Generator', () => {
     });
   });
 
+  describe('generateValidation', () => {
+    it('should run the validation generator', async() => {
+      await generator.generateValidation();
+
+      expect(dirsOut[Path.join('CWD', 'out-validate')]).toBeTruthy();
+      expect(runValidationGenerator).toHaveBeenCalledWith('validationConfig', { mainModulePath });
+    });
+  });
+
   describe('generate', () => {
     describe('when overwrite is enabled', () => {
       it('should run all phases if directories do not exist yet', async() => {
@@ -232,6 +268,7 @@ describe('Generator', () => {
         expect(runFragmenter).toHaveBeenCalledWith('fragmentConfig', { mainModulePath });
         expect(runFragmenter).toHaveBeenCalledWith('enhancementFragmentConfig', { mainModulePath });
         expect(runQueryInstantiator).toHaveBeenCalledWith('queryConfig', { mainModulePath });
+        expect(runValidationGenerator).toHaveBeenCalledWith('validationConfig', { mainModulePath });
       });
 
       it('should skip phases with existing directories', async() => {
@@ -239,6 +276,7 @@ describe('Generator', () => {
         files[Path.join('CWD', 'out-enhanced')] = 'a';
         files[Path.join('CWD', 'out-fragments')] = 'a';
         files[Path.join('CWD', 'out-queries')] = 'a';
+        files[Path.join('CWD', 'out-validate')] = 'a';
 
         await generator.generate();
 
@@ -247,6 +285,7 @@ describe('Generator', () => {
         expect(runFragmenter).toHaveBeenCalledWith('fragmentConfig', { mainModulePath });
         expect(runFragmenter).toHaveBeenCalledWith('enhancementFragmentConfig', { mainModulePath });
         expect(runQueryInstantiator).toHaveBeenCalledWith('queryConfig', { mainModulePath });
+        expect(runValidationGenerator).toHaveBeenCalledWith('validationConfig', { mainModulePath });
       });
     });
 
@@ -261,6 +300,8 @@ describe('Generator', () => {
           fragmentConfig: 'fragmentConfig',
           enhancementFragmentConfig: 'enhancementFragmentConfig',
           queryConfig: 'queryConfig',
+          validationParams: 'validationParams',
+          validationConfig: 'validationConfig',
           hadoopMemory: '4G',
         });
       });
@@ -273,6 +314,7 @@ describe('Generator', () => {
         expect(runFragmenter).toHaveBeenCalledWith('fragmentConfig', { mainModulePath });
         expect(runFragmenter).toHaveBeenCalledWith('enhancementFragmentConfig', { mainModulePath });
         expect(runQueryInstantiator).toHaveBeenCalledWith('queryConfig', { mainModulePath });
+        expect(runValidationGenerator).toHaveBeenCalledWith('validationConfig', { mainModulePath });
       });
 
       it('should skip phases with existing directories', async() => {
@@ -280,6 +322,7 @@ describe('Generator', () => {
         files[Path.join('CWD', 'out-enhanced')] = 'a';
         files[Path.join('CWD', 'out-fragments')] = 'a';
         files[Path.join('CWD', 'out-queries')] = 'a';
+        files[Path.join('CWD', 'out-validate')] = 'a';
 
         await generator.generate();
 
@@ -288,6 +331,7 @@ describe('Generator', () => {
         expect(runFragmenter).not.toHaveBeenCalled();
         expect(runFragmenter).not.toHaveBeenCalled();
         expect(runQueryInstantiator).not.toHaveBeenCalled();
+        expect(runValidationGenerator).not.toHaveBeenCalled();
       });
     });
   });

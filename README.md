@@ -56,11 +56,15 @@ Options:
   -e, --enhancementConfig          Path to enhancement config
                                   [string] [default: enhancer-config-dummy.json]
   -f, --fragmentConfig             Path to fragmentation config
-                              [string] [default: fragmenter-config-pod.json]
+                                  [string] [default: fragmenter-config-pod.json]
   -g, --enhancementFragmentConfig  Path to enhancement's fragmentation config
                     [string] [default: fragmenter-auxiliary-config-subject.json]
   -q, --queryConfig                Path to query instantiation config
                                            [string] [default: query-config.json]
+      --validationParams           URL of the validation parameters zip file
+                           [string] [default: https://.../validation_params.zip]
+  -v, --validationConfig           Path to validation generator config
+                                      [string] [default: validation-config.json]
       --hadoopMemory               Memory limit for Hadoop
                                                         [string] [default: "4G"]
 ```
@@ -80,9 +84,15 @@ This happens in two passes:
 1. Fragmenting of the main SNB dataset.
 1. Fragmenting of the auxiliary SNB dataset.
 
-Finally, **query** templates will be instantiated based on the generated data.
+Then, **query** templates will be instantiated based on the generated data.
 This is done using [`sparql-query-parameter-instantiator.js`](https://github.com/rubensworks/sparql-query-parameter-instantiator.js)
 with the given query instantiation config (defaults to a config instantiating [all LDBC SNB interactive queries](https://github.com/rubensworks/ldbc-snb-decentralized.js/tree/master/templates/queries)).
+
+Finally, **validation queries and results** will be generated.
+This is done using [`ldbc-snb-validation-generator.js`](https://github.com/rubensworks/ldbc-snb-validation-generator.js/) with the given validation config.
+This defaults to a config instantiating all queries and results from the `validation_params-sf1-without-updates.csv` file from LDBC SNB.
+This default config will produce queries and expected results in the `out-validate/` directory,
+which are expected to be executed on a scale factor of `1`.
 
 ### 2. Serve
 
