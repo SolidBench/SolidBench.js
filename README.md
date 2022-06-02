@@ -69,10 +69,20 @@ Options:
                                                         [string] [default: "4G"]
 ```
 
+**Memory usage**
+
+For certain scale factors, you may have to increase your default Node memory limit.
+You can do this as follows (set RAM limit to 8GB):
+
+```bash
+NODE_OPTIONS=--max-old-space-size=8192 ldbc-snb-decentralized.js generate
+```
+
 **What does this do?**
 
 This preparation script will first use the (interactive) [LDBC SNB generator](https://github.com/ldbc/ldbc_snb_datagen_hadoop)
 to **create one large Turtle file** with a given scale factor (defaults to `0.1`, allowed values: `[0.1, 0.3, 1, 3, 10, 30, 100, 300, 1000]).
+The default scale factor of `0.1` produces around 5M triples, and requires around 15 minutes for full generation on an average machine.
 
 Then, **auxiliary data** will be generated using [`ldbc-snb-enhancer.js`](https://github.com/rubensworks/ldbc-snb-enhancer.js/)
 based on the given enhancement config (defaults to an empty config).
