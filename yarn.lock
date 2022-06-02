@@ -9172,10 +9172,10 @@ sparql-query-parameter-instantiator@^2.3.0:
     csv-parser "^3.0.0"
     sparqljs "^3.4.1"
 
-sparql-query-parameter-instantiator@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/sparql-query-parameter-instantiator/-/sparql-query-parameter-instantiator-2.4.0.tgz#7e07bae72abf31bdb167264d069613a3cd651b98"
-  integrity sha512-XZD49crjRIPEseXhhEURAg/G5+L+35bjrl3lJbqKmcavUJ1pX3SzQg3K2VtdTHOd7U3EwHvK0BxpeLfiBPJ83Q==
+sparql-query-parameter-instantiator@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/sparql-query-parameter-instantiator/-/sparql-query-parameter-instantiator-2.5.1.tgz#cb4ce817d207838205e0597795e0b063c0853ee3"
+  integrity sha512-w55X+vbNfctqKauL5w5LvBwKW0fS9NrLEjpB+w42mRKJDypVLNFZwXejU/ggFEUmLJEvoHOnZEt7hyRqCvO6/g==
   dependencies:
     "@rdfjs/types" "*"
     "@types/sparqljs" "*"

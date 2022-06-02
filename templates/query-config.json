@@ -152,6 +152,13 @@
           },
           "valueTransformers": [
             {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIdPad",
+              "@type": "ValueTransformerPad",
+              "paddingCharacter": "0",
+              "paddingLength": "20",
+              "start": true
+            },
+            {
               "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri",
               "@type": "ValueTransformerReplaceIri",
               "searchRegex": "^(.*)$",
@@ -190,6 +197,9 @@
           },
           "valueTransformers": [
             {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIdPad"
+            },
+            {
               "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri"
             }
           ]
@@ -224,6 +234,9 @@
             "columnName": "personId"
           },
           "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIdPad"
+            },
             {
               "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri"
             }
@@ -290,6 +303,9 @@
           },
           "valueTransformers": [
             {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIdPad"
+            },
+            {
               "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri"
             }
           ]
@@ -335,6 +351,9 @@
           },
           "valueTransformers": [
             {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIdPad"
+            },
+            {
               "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri"
             }
           ]
@@ -369,6 +388,9 @@
             "columnName": "personId"
           },
           "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIdPad"
+            },
             {
               "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri"
             }
@@ -405,6 +427,9 @@
           },
           "valueTransformers": [
             {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIdPad"
+            },
+            {
               "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri"
             }
           ]
@@ -430,6 +455,9 @@
           },
           "valueTransformers": [
             {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIdPad"
+            },
+            {
               "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri"
             }
           ]
@@ -454,6 +482,9 @@
             "columnName": "personId"
           },
           "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIdPad"
+            },
             {
               "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri"
             }
@@ -490,6 +521,9 @@
           },
           "valueTransformers": [
             {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIdPad"
+            },
+            {
               "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri"
             }
           ]
@@ -525,6 +559,9 @@
             "columnName": "personId"
           },
           "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIdPad"
+            },
             {
               "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri"
             }
@@ -571,6 +608,9 @@
             "columnName": "personId"
           },
           "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIdPad"
+            },
             {
               "@id": "urn:sparql-query-parameter-instantiator:valueTransformerPersonIdToIri"
             }
