@@ -17,7 +17,10 @@
     {
       "@type": "SparqlQueryHandler",
       "identifier": "com.ldbc.driver.workloads.ldbc.snb.interactive.LdbcQuery1",
-      "templateFilePath": "templates/queries/interactive-complex-1.sparql",
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-complex-1.sparql",
+        "@type": "Variable"
+      },
       "variables": [
         {
           "@type": "VariableTemplateNamedNode",
@@ -124,7 +127,10 @@
     {
       "@type": "SparqlQueryHandler",
       "identifier": "com.ldbc.driver.workloads.ldbc.snb.interactive.LdbcQuery2",
-      "templateFilePath": "templates/queries/interactive-complex-2.sparql",
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-complex-2.sparql",
+        "@type": "Variable"
+      },
       "variables": [
         {
           "@type": "VariableTemplateNamedNode",
@@ -170,7 +176,10 @@
     {
       "@type": "SparqlQueryHandler",
       "identifier": "com.ldbc.driver.workloads.ldbc.snb.interactive.LdbcQuery3",
-      "templateFilePath": "templates/queries/interactive-complex-3.sparql",
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-complex-3.sparql",
+        "@type": "Variable"
+      },
       "variables": [
         {
           "@type": "VariableTemplateNamedNode",
@@ -228,7 +237,10 @@
     {
       "@type": "SparqlQueryHandler",
       "identifier": "com.ldbc.driver.workloads.ldbc.snb.interactive.LdbcQuery4",
-      "templateFilePath": "templates/queries/interactive-complex-4.sparql",
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-complex-4.sparql",
+        "@type": "Variable"
+      },
       "variables": [
         {
           "@type": "VariableTemplateNamedNode",
@@ -262,7 +274,10 @@
     {
       "@type": "SparqlQueryHandler",
       "identifier": "com.ldbc.driver.workloads.ldbc.snb.interactive.LdbcQuery5",
-      "templateFilePath": "templates/queries/interactive-complex-5.sparql",
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-complex-5.sparql",
+        "@type": "Variable"
+      },
       "variables": [
         {
           "@type": "VariableTemplateNamedNode",
@@ -292,7 +307,10 @@
     {
       "@type": "SparqlQueryHandler",
       "identifier": "com.ldbc.driver.workloads.ldbc.snb.interactive.LdbcQuery6",
-      "templateFilePath": "templates/queries/interactive-complex-6.sparql",
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-complex-6.sparql",
+        "@type": "Variable"
+      },
       "variables": [
         {
           "@type": "VariableTemplateNamedNode",
@@ -322,7 +340,10 @@
     {
       "@type": "SparqlQueryHandler",
       "identifier": "com.ldbc.driver.workloads.ldbc.snb.interactive.LdbcQuery7",
-      "templateFilePath": "templates/queries/interactive-complex-7.sparql",
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-complex-7.sparql",
+        "@type": "Variable"
+      },
       "variables": [
         {
           "@type": "VariableTemplateNamedNode",
@@ -372,7 +393,10 @@
     {
       "@type": "SparqlQueryHandler",
       "identifier": "com.ldbc.driver.workloads.ldbc.snb.interactive.LdbcQuery8",
-      "templateFilePath": "templates/queries/interactive-complex-8.sparql",
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-complex-8.sparql",
+        "@type": "Variable"
+      },
       "variables": [
         {
           "@type": "VariableTemplateNamedNode",
@@ -414,7 +438,10 @@
     {
       "@type": "SparqlQueryHandler",
       "identifier": "com.ldbc.driver.workloads.ldbc.snb.interactive.LdbcQuery9",
-      "templateFilePath": "templates/queries/interactive-complex-9.sparql",
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-complex-9.sparql",
+        "@type": "Variable"
+      },
       "variables": [
         {
           "@type": "VariableTemplateNamedNode",
@@ -460,7 +487,10 @@
     {
       "@type": "SparqlQueryHandler",
       "identifier": "com.ldbc.driver.workloads.ldbc.snb.interactive.LdbcQuery10",
-      "templateFilePath": "templates/queries/interactive-complex-10.sparql",
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-complex-10.sparql",
+        "@type": "Variable"
+      },
       "variables": [
         {
           "@type": "VariableTemplateNamedNode",
@@ -506,7 +536,10 @@
     {
       "@type": "SparqlQueryHandler",
       "identifier": "com.ldbc.driver.workloads.ldbc.snb.interactive.LdbcQuery11",
-      "templateFilePath": "templates/queries/interactive-complex-11.sparql",
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-complex-11.sparql",
+        "@type": "Variable"
+      },
       "variables": [
         {
           "@type": "VariableTemplateNamedNode",
@@ -552,7 +585,10 @@
     {
       "@type": "SparqlQueryHandler",
       "identifier": "com.ldbc.driver.workloads.ldbc.snb.interactive.LdbcQuery12",
-      "templateFilePath": "templates/queries/interactive-complex-12.sparql",
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-complex-12.sparql",
+        "@type": "Variable"
+      },
       "variables": [
         {
           "@type": "VariableTemplateNamedNode",

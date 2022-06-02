@@ -182,7 +182,9 @@ export class Generator {
     await fs.promises.mkdir(Path.join(this.cwd, 'out-queries'));
 
     // Run instantiator
-    await runQueryInstantiator(this.queryConfig, { mainModulePath: this.mainModulePath });
+    await runQueryInstantiator(this.queryConfig, { mainModulePath: this.mainModulePath }, {
+      variables: await this.generateVariables(),
+    });
   }
 
   /**
@@ -213,7 +215,14 @@ export class Generator {
     await fs.promises.mkdir(Path.join(this.cwd, 'out-validate'));
 
     // Run generator
-    await runValidationGenerator(this.validationConfig, { mainModulePath: this.mainModulePath });
+    await runValidationGenerator(this.validationConfig, { mainModulePath: this.mainModulePath }, {
+      variables: await this.generateVariables(),
+    });
+  }
+
+  protected async generateVariables(): Promise<Record<string, string>> {
+    return Object.fromEntries((await fs.promises.readdir(Path.join(__dirname, '../templates/queries/')))
+      .map(name => [ `urn:variables:query-templates:${name}`, Path.join(__dirname, `../templates/queries/${name}`) ]));
   }
 
   /**

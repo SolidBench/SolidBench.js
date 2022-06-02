@@ -34,6 +34,9 @@ jest.mock('fs', () => ({
       }
       throw new Error(`Unknown file in Generator tests: ${filePath}`);
     },
+    async readdir(): Promise<string[]> {
+      return [ 'abc' ];
+    },
   },
 }));
 
@@ -245,7 +248,8 @@ describe('Generator', () => {
       await generator.instantiateQueries();
 
       expect(dirsOut[Path.join('CWD', 'out-queries')]).toBeTruthy();
-      expect(runQueryInstantiator).toHaveBeenCalledWith('queryConfig', { mainModulePath });
+      expect(runQueryInstantiator)
+        .toHaveBeenCalledWith('queryConfig', { mainModulePath }, { variables: expect.anything() });
     });
   });
 
@@ -254,7 +258,8 @@ describe('Generator', () => {
       await generator.generateValidation();
 
       expect(dirsOut[Path.join('CWD', 'out-validate')]).toBeTruthy();
-      expect(runValidationGenerator).toHaveBeenCalledWith('validationConfig', { mainModulePath });
+      expect(runValidationGenerator)
+        .toHaveBeenCalledWith('validationConfig', { mainModulePath }, { variables: expect.anything() });
     });
   });
 
@@ -267,8 +272,10 @@ describe('Generator', () => {
         expect(runEnhancer).toHaveBeenCalledWith('enhancementConfig', { mainModulePath });
         expect(runFragmenter).toHaveBeenCalledWith('fragmentConfig', { mainModulePath });
         expect(runFragmenter).toHaveBeenCalledWith('enhancementFragmentConfig', { mainModulePath });
-        expect(runQueryInstantiator).toHaveBeenCalledWith('queryConfig', { mainModulePath });
-        expect(runValidationGenerator).toHaveBeenCalledWith('validationConfig', { mainModulePath });
+        expect(runQueryInstantiator)
+          .toHaveBeenCalledWith('queryConfig', { mainModulePath }, { variables: expect.anything() });
+        expect(runValidationGenerator)
+          .toHaveBeenCalledWith('validationConfig', { mainModulePath }, { variables: expect.anything() });
       });
 
       it('should skip phases with existing directories', async() => {
@@ -284,8 +291,10 @@ describe('Generator', () => {
         expect(runEnhancer).toHaveBeenCalledWith('enhancementConfig', { mainModulePath });
         expect(runFragmenter).toHaveBeenCalledWith('fragmentConfig', { mainModulePath });
         expect(runFragmenter).toHaveBeenCalledWith('enhancementFragmentConfig', { mainModulePath });
-        expect(runQueryInstantiator).toHaveBeenCalledWith('queryConfig', { mainModulePath });
-        expect(runValidationGenerator).toHaveBeenCalledWith('validationConfig', { mainModulePath });
+        expect(runQueryInstantiator)
+          .toHaveBeenCalledWith('queryConfig', { mainModulePath }, { variables: expect.anything() });
+        expect(runValidationGenerator)
+          .toHaveBeenCalledWith('validationConfig', { mainModulePath }, { variables: expect.anything() });
       });
     });
 
@@ -313,8 +322,10 @@ describe('Generator', () => {
         expect(runEnhancer).toHaveBeenCalledWith('enhancementConfig', { mainModulePath });
         expect(runFragmenter).toHaveBeenCalledWith('fragmentConfig', { mainModulePath });
         expect(runFragmenter).toHaveBeenCalledWith('enhancementFragmentConfig', { mainModulePath });
-        expect(runQueryInstantiator).toHaveBeenCalledWith('queryConfig', { mainModulePath });
-        expect(runValidationGenerator).toHaveBeenCalledWith('validationConfig', { mainModulePath });
+        expect(runQueryInstantiator)
+          .toHaveBeenCalledWith('queryConfig', { mainModulePath }, { variables: expect.anything() });
+        expect(runValidationGenerator)
+          .toHaveBeenCalledWith('validationConfig', { mainModulePath }, { variables: expect.anything() });
       });
 
       it('should skip phases with existing directories', async() => {

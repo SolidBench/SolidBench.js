@@ -6,7 +6,10 @@
   "providers": [
     {
       "@type": "QueryTemplateProvider",
-      "templateFilePath": "templates/queries/interactive-short-1-nocity.sparql",
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-short-1-nocity.sparql",
+        "@type": "Variable"
+      },
       "destinationFilePath": "out-queries/interactive-short-1-nocity.sparql",
       "variables": [
         {
@@ -22,7 +25,10 @@
     },
     {
       "@type": "QueryTemplateProvider",
-      "templateFilePath": "templates/queries/interactive-short-4-creator.sparql",
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-short-4-creator.sparql",
+        "@type": "Variable"
+      },
       "destinationFilePath": "out-queries/interactive-short-4-creator.sparql",
       "variables": [
         {
