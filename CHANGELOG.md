@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v1.1.1"></a>
+## [v1.1.1](https://github.com/rubensworks/ldbc-snb-decentralized.js/compare/v1.1.0...v1.1.1) - 2022-06-13
+
+### Fixed
+* [Fix complex queries not correctly being instantiated](https://github.com/rubensworks/ldbc-snb-decentralized.js/commit/27e0bf41fddc2792e2675cb81f86884d490fc238)
+
 <a name="v1.1.0"></a>
 ## [v1.1.0](https://github.com/rubensworks/ldbc-snb-decentralized.js/compare/v1.0.1...v1.1.0) - 2022-06-02
 
