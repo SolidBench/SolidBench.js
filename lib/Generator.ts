@@ -159,19 +159,27 @@ export class Generator {
     await fs.promises.mkdir(Path.join(this.cwd, 'out-enhanced'));
 
     // Run enhancer
+    const oldCwd = process.cwd();
+    process.chdir(this.cwd);
     await runEnhancer(this.enhancementConfig, { mainModulePath: this.mainModulePath });
+    process.chdir(oldCwd);
   }
 
   /**
    * Fragment the generated and enhanced LDBC SNB datasets.
    */
   public async fragmentSnbDataset(): Promise<void> {
+    const oldCwd = process.cwd();
+    process.chdir(this.cwd);
+
     // Initial fragmentation
     await runFragmenter(this.fragmentConfig, { mainModulePath: this.mainModulePath });
 
     // Auxiliary fragmentation
     this.log('SNB dataset fragmenter', 'Starting auxiliary phase');
     await runFragmenter(this.enhancementFragmentConfig, { mainModulePath: this.mainModulePath });
+
+    process.chdir(oldCwd);
   }
 
   /**
@@ -182,9 +190,12 @@ export class Generator {
     await fs.promises.mkdir(Path.join(this.cwd, 'out-queries'));
 
     // Run instantiator
+    const oldCwd = process.cwd();
+    process.chdir(this.cwd);
     await runQueryInstantiator(this.queryConfig, { mainModulePath: this.mainModulePath }, {
       variables: await this.generateVariables(),
     });
+    process.chdir(oldCwd);
   }
 
   /**
@@ -215,9 +226,12 @@ export class Generator {
     await fs.promises.mkdir(Path.join(this.cwd, 'out-validate'));
 
     // Run generator
+    const oldCwd = process.cwd();
+    process.chdir(this.cwd);
     await runValidationGenerator(this.validationConfig, { mainModulePath: this.mainModulePath }, {
       variables: await this.generateVariables(),
     });
+    process.chdir(oldCwd);
   }
 
   protected async generateVariables(): Promise<Record<string, string>> {

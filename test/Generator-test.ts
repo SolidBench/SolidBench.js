@@ -62,6 +62,7 @@ jest.mock('ldbc-snb-validation-generator', () => ({
 }));
 
 jest.spyOn(process.stdout, 'write').mockImplementation();
+jest.spyOn(process, 'chdir').mockImplementation();
 
 jest.mock('https', () => ({
   request: jest.fn((_param, cb) => {
