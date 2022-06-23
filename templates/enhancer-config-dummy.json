@@ -21,6 +21,9 @@
     {
       "@type": "EnhancementHandlerPersonNoise",
       "chance": 10
+    },
+    {
+      "@type": "EnhancementHandlerVocabulary"
     }
   ]
 }

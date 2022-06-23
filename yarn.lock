@@ -7189,10 +7189,10 @@ lcov-parse@^1.0.0:
   resolved "https://registry.yarnpkg.com/lcov-parse/-/lcov-parse-1.0.0.tgz#eb0d46b54111ebc561acb4c408ef9363bdc8f7e0"
   integrity sha1-6w1GtUER68VhrLTECO+TY73I9+A=
 
-ldbc-snb-enhancer@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/ldbc-snb-enhancer/-/ldbc-snb-enhancer-2.1.1.tgz#47cbf66938ee8ccb02dd081ff7769cb19624c5e6"
-  integrity sha512-Y7QGaW59muFaPUVKEua8T1wlOtFPjKtt0kj61y6foIgN+fOGRchEpahxmlx4mKTF9ZoAGRI5vz6TWzE8+UHH6Q==
+ldbc-snb-enhancer@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/ldbc-snb-enhancer/-/ldbc-snb-enhancer-2.2.0.tgz#acf2eccd8111249e6aeb6aeecbca57bb13f9f514"
+  integrity sha512-kntEoZYojO+Tl85+cEe6dLBHvDGEvkqi4Mp7k4yzF+fNO7wZkXXbn5YL28MPYW4BTUrGurg7w0y2Y8+kyGVPNg==
   dependencies:
     "@rdfjs/types" "*"
     componentsjs "^5.0.1"
