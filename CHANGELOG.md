@@ -1,6 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v1.2.0"></a>
+## [v1.2.0](https://github.com/SolidBench/SolidBench.js/compare/v1.1.1...v1.2.0) - 2022-07-18
+
+### Changed
+* [Rename project to SolidBench.js](https://github.com/SolidBench/SolidBench.js/commit/c803f40e617f208fdf537f795d5ecc759f0db7cf)
+* [Update to ldbc-snb-enhancer 2.2.0](https://github.com/SolidBench/SolidBench.js/commit/af76b4815367834b1f60c047bb93afc0e9f0310d)
+
+### Fixed
+* [Fix different cwd not being applied on config runners](https://github.com/SolidBench/SolidBench.js/commit/7cde2001c2bfefe998d42a4f209858be0effa71a)
+
 <a name="v1.1.1"></a>
 ## [v1.1.1](https://github.com/SolidBench/SolidBench.js/compare/v1.1.0...v1.1.1) - 2022-06-13
 
