@@ -1,2 +1,0 @@
-#!/usr/bin/env node
-require('./ldbc-snb-decentralized.js')

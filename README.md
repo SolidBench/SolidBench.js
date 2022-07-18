@@ -1,10 +1,15 @@
-# Decentralized LDBC SNB
+# SolidBench.js
+### A benchmark for [Solid](https://solidproject.org/) to simulate vaults with the social network data.
 
-A tool to create a **decentralized** version of the [LDBC SNB](https://github.com/ldbc/ldbc_snb_datagen_hadoop) **social network** dataset, and serve it over HTTP.
+[![Build status](https://github.com/SolidBench/SolidBench.js/workflows/CI/badge.svg)](https://github.com/SolidBench/SolidBench.js/actions?query=workflow%3ACI)
+[![Coverage Status](https://coveralls.io/repos/github/SolidBench/SolidBench.js/badge.svg?branch=master)](https://coveralls.io/github/SolidBench/SolidBench.js?branch=master)
+[![npm version](https://badge.fury.io/js/solidbench.svg)](https://www.npmjs.com/package/solidbench)
 
-[![Build status](https://github.com/rubensworks/ldbc-snb-decentralized.js/workflows/CI/badge.svg)](https://github.com/rubensworks/ldbc-snb-decentralized.js/actions?query=workflow%3ACI)
-[![Coverage Status](https://coveralls.io/repos/github/rubensworks/ldbc-snb-decentralized.js/badge.svg?branch=master)](https://coveralls.io/github/rubensworks/ldbc-snb-decentralized.js?branch=master)
-[![npm version](https://badge.fury.io/js/ldbc-snb-decentralized.svg)](https://www.npmjs.com/package/ldbc-snb-decentralized)
+This benchmark allows you to generate a large amount of Solid data vaults with **simulated social network data**,
+and serve them over HTTP using a built-in [Solid Community Server](https://github.com/CommunitySolidServer/CommunitySolidServer) instance.
+Furthermore, different SPARQL queries will be generated to simulate workloads of social network apps for Solid.
+
+This benchmark is based on the [LDBC SNB](https://github.com/ldbc/ldbc_snb_datagen_hadoop) **social network** dataset.
 
 ## Requirements
 
@@ -14,17 +19,17 @@ A tool to create a **decentralized** version of the [LDBC SNB](https://github.co
 ## Installation
 
 ```bash
-$ npm install -g ldbc-snb-decentralized
+$ npm install -g solidbench
 ```
 or
 ```bash
-$ yarn global add ldbc-snb-decentralized
+$ yarn global add solidbench
 ```
 
 ## Quick start
 
-1. `$ ldbc-snb-decentralized generate`: Generate dataset with default options.
-2. `$ ldbc-snb-decentralized serve`: Serve datasets over HTTP
+1. `$ solidbench generate`: Generate Solid data vaults with social network data.
+2. `$ solidbench serve`: Serve datasets over HTTP.
 3. Initiate HTTP requests over `http://localhost:3000/`, such as `$ curl http://localhost:3000/pods/00000000000000000933/profile/card`
 
 ## Usage
@@ -34,13 +39,13 @@ $ yarn global add ldbc-snb-decentralized
 The social network data can be generated using the default options:
 
 ```bash
-$ ldbc-snb-decentralized generate
+$ solidbench generate
 ```
 
 **Full usage options:**
 
 ```bash
-ldbc-snb-decentralized.js generate
+solidbench generate
 
 Generate social network data
 
@@ -75,47 +80,47 @@ For certain scale factors, you may have to increase your default Node memory lim
 You can do this as follows (set RAM limit to 8GB):
 
 ```bash
-NODE_OPTIONS=--max-old-space-size=8192 ldbc-snb-decentralized.js generate
+NODE_OPTIONS=--max-old-space-size=8192 solidbench.js generate
 ```
 
 **What does this do?**
 
-This preparation script will first use the (interactive) [LDBC SNB generator](https://github.com/ldbc/ldbc_snb_datagen_hadoop)
+This generate command will first use the (interactive) [LDBC SNB generator](https://github.com/ldbc/ldbc_snb_datagen_hadoop)
 to **create one large Turtle file** with a given scale factor (defaults to `0.1`, allowed values: `[0.1, 0.3, 1, 3, 10, 30, 100, 300, 1000]).
 The default scale factor of `0.1` produces around 5M triples, and requires around 15 minutes for full generation on an average machine.
 
-Then, **auxiliary data** will be generated using [`ldbc-snb-enhancer.js`](https://github.com/rubensworks/ldbc-snb-enhancer.js/)
+Then, **auxiliary data** will be generated using [`ldbc-snb-enhancer.js`](https://github.com/SolidBench/ldbc-snb-enhancer.js/)
 based on the given enhancement config (defaults to an empty config).
 
-Next, this Turtle file will be **fragmented** using [`rdf-dataset-fragmenter.js`](https://github.com/rubensworks/rdf-dataset-fragmenter.js)
-and the given fragmentation strategy config (defaults to a [Solid-pod](https://solidproject.org/)-based fragmentation).
+Next, this Turtle file will be **fragmented** using [`rdf-dataset-fragmenter.js`](https://github.com/SolidBench/rdf-dataset-fragmenter.js)
+and the given fragmentation strategy config (defaults to a Solid vault-based fragmentation).
 This happens in two passes:
 
 1. Fragmenting of the main SNB dataset.
 1. Fragmenting of the auxiliary SNB dataset.
 
 Then, **query** templates will be instantiated based on the generated data.
-This is done using [`sparql-query-parameter-instantiator.js`](https://github.com/rubensworks/sparql-query-parameter-instantiator.js)
-with the given query instantiation config (defaults to a config instantiating [all LDBC SNB interactive queries](https://github.com/rubensworks/ldbc-snb-decentralized.js/tree/master/templates/queries)).
+This is done using [`sparql-query-parameter-instantiator.js`](https://github.com/SolidBench/sparql-query-parameter-instantiator.js)
+with the given query instantiation config (defaults to a config instantiating [all LDBC SNB interactive queries](https://github.com/SolidBench/SolidBench.js/tree/master/templates/queries)).
 
 Finally, **validation queries and results** will be generated.
-This is done using [`ldbc-snb-validation-generator.js`](https://github.com/rubensworks/ldbc-snb-validation-generator.js/) with the given validation config.
+This is done using [`ldbc-snb-validation-generator.js`](https://github.com/SolidBench/ldbc-snb-validation-generator.js/) with the given validation config.
 This defaults to a config instantiating all queries and results from the `validation_params-sf1-without-updates.csv` file from LDBC SNB.
 This default config will produce queries and expected results in the `out-validate/` directory,
 which are expected to be executed on a scale factor of `1`.
 
 ### 2. Serve
 
-The fragmented data can be served over HTTP:
+The social network data can be served over HTTP as actual Solid vaults:
 
 ```bash
-$ ldbc-snb-decentralized serve
+$ solidbench serve
 ```
 
 **Full usage options:**
 
 ```bash
-ldbc-snb-decentralized.js serve
+solidbench serve
 
 Serves the fragmented dataset via an HTTP server
 
@@ -132,7 +137,7 @@ Options:
 
 **What does this do?**
 
-The fragmented dataset from the preparation phase is loaded into the [Solid Community Server](https://github.com/solid/community-server/)
+The fragmented dataset from the preparation phase is loaded into the [Solid Community Server](https://github.com/CommunitySolidServer/CommunitySolidServer)
 so that it can be served over HTTP.
 
 The provided server config uses a simple file-based mapping, so that for example the file in `out-fragments/http/localhost:3000/pods/00000000000000000933/profile/card` is served on `http://localhost:3000/pods/00000000000000000933/profile/card`.
@@ -148,7 +153,7 @@ By default, the following data model is used where all triples are placed in the
 
 ![](https://raw.githubusercontent.com/ldbc/ldbc_snb_docs/dev/figures/schema-comfortable.png)
 
-Query templates can be found in [`templates/queries/`](https://github.com/rubensworks/ldbc-snb-decentralized.js/tree/master/templates/queries).
+Query templates can be found in [`templates/queries/`](https://github.com/rubensworks/solidbench.js/tree/master/templates/queries).
 
 ## Pod-based fragmentation
 
@@ -191,6 +196,14 @@ Below, a minimalized example of the contents of a profile can be found:
 <http://localhost:3000/pods/00000000000000000290/profile/card#me> <http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/knows> _:b4_knows00000000000000124063 .
 _:b4_knows00000000000000124063 <http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasPerson> <http://localhost:3000/pods/00000000000000001753/profile/card#me> .
 ```
+
+## Limitations
+
+At this stage, this benchmark has the following limitations:
+
+- Vaults don't make use of authentication, and all data is readable by everyone without authentication.
+- SPARQL update queries for modifying data within vaults are not being generated yet: https://github.com/SolidBench/SolidBench.js/issues/3
+- All vaults make use of the same vocabulary: https://github.com/SolidBench/SolidBench.js/issues/4
 
 ## License
 
