@@ -1,7 +1,7 @@
 {
   "name": "solidbench",
   "version": "1.2.0",
-  "description": "A benchmark for Solid to simulate vaults with the social network data.",
+  "description": "A benchmark for Solid to simulate vaults with social network data.",
   "main": "index.js",
   "scripts": {
     "build": "tsc",

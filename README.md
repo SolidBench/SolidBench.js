@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/SolidBench/SolidBench.js/badge.svg?branch=master)](https://coveralls.io/github/SolidBench/SolidBench.js?branch=master)
 [![npm version](https://badge.fury.io/js/solidbench.svg)](https://www.npmjs.com/package/solidbench)
 
-### A benchmark for [Solid](https://solidproject.org/) to simulate vaults with the social network data.
+### A benchmark for [Solid](https://solidproject.org/) to simulate vaults with social network data.
 
 This benchmark allows you to generate a large amount of Solid data vaults with **simulated social network data**,
 and serve them over HTTP using a built-in [Solid Community Server](https://github.com/CommunitySolidServer/CommunitySolidServer) instance.
