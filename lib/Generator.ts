@@ -20,6 +20,7 @@ export class Generator {
   public static readonly COLOR_MAGENTA: string = '\u001B[35m';
   public static readonly COLOR_CYAN: string = '\u001B[36m';
   public static readonly COLOR_GRAY: string = '\u001B[90m';
+  public static readonly LDBC_SNB_DATAGEN_DOCKER_IMAGE: string = 'rubensworks/ldbc_snb_datagen:latest';
 
   private readonly cwd: string;
   private readonly verbose: boolean;
@@ -98,10 +99,17 @@ export class Generator {
     const paramsPath = Path.join(this.cwd, 'params.ini');
     await fs.promises.writeFile(paramsPath, paramsTemplate.replace(/SCALE/ug, this.scale), 'utf8');
 
-    // Start Docker container
+    // Pull the base Docker image
     const dockerode = new Dockerode();
+    const buildStream = await dockerode.pull(Generator.LDBC_SNB_DATAGEN_DOCKER_IMAGE);
+    await new Promise((resolve, reject) => {
+      dockerode.modem.followProgress(buildStream,
+        (err: Error | null, res: any[]) => err ? reject(err) : resolve(res));
+    });
+
+    // Start Docker container
     const container = await dockerode.createContainer({
-      Image: 'rubensworks/ldbc_snb_datagen:latest',
+      Image: Generator.LDBC_SNB_DATAGEN_DOCKER_IMAGE,
       Tty: true,
       AttachStdout: true,
       AttachStderr: true,
