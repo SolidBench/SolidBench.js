@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v1.2.1"></a>
+## [v1.2.1](https://github.com/SolidBench/SolidBench.js/compare/v1.2.0...v1.2.1) - 2022-07-26
+
+### Fixed
+* [Pull Docker image if it is not available](https://github.com/SolidBench/SolidBench.js/commit/32d957aef43518820f7c35f16bff3223e1606ea6)
+
 <a name="v1.2.0"></a>
 ## [v1.2.0](https://github.com/SolidBench/SolidBench.js/compare/v1.1.1...v1.2.0) - 2022-07-18
 
