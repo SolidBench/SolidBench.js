@@ -48,6 +48,29 @@
       "link": "../"
     },
     {
+      "@type": "QuadTransformerAppendQuad",
+      "matcher": {
+        "@type": "QuadMatcherPredicate",
+        "predicateRegex": "vocabulary/containerOf$"
+      },
+      "subject": {
+        "@type": "TermTemplateQuadComponent",
+        "component": "object"
+      },
+      "predicate": {
+        "@type": "TermTemplateStaticNamedNode",
+        "value": "http://www.w3.org/2000/01/rdf-schema#seeAlso"
+      },
+      "object": {
+        "@type": "TermTemplateQuadComponent",
+        "component": "subject"
+      },
+      "graph": {
+        "@type": "TermTemplateQuadComponent",
+        "component": "graph"
+      }
+    },
+    {
       "@type": "QuadTransformerCompositeVaryingResource",
       "typeRegex": "vocabulary/Post$",
       "targetPredicateRegex": "vocabulary/hasCreator$",
