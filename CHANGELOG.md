@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v1.3.0"></a>
+## [v1.3.0](https://github.com/SolidBench/SolidBench.js/compare/v1.2.1...v1.3.0) - 2022-08-02
+
+### Added
+* [Append reverse links from forums to posts](https://github.com/SolidBench/SolidBench.js/commit/b13818b9dbdb6f583ff514d80fa19d46e479fd93)
+
 <a name="v1.2.1"></a>
 ## [v1.2.1](https://github.com/SolidBench/SolidBench.js/compare/v1.2.0...v1.2.1) - 2022-07-26
 
