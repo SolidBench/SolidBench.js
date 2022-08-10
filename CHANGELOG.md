@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v1.3.1"></a>
+## [v1.3.1](https://github.com/SolidBench/SolidBench.js/compare/v1.3.0...v1.3.1) - 2022-08-10
+
+### Fixed
+* [Fix fragmenter issues with forum backlinks](https://github.com/SolidBench/SolidBench.js/commit/607d2e34701362360f73cdc9c9f2798d8f470be5)
+
 <a name="v1.3.0"></a>
 ## [v1.3.0](https://github.com/SolidBench/SolidBench.js/compare/v1.2.1...v1.3.0) - 2022-08-02
 
