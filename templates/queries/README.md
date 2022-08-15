@@ -1,12 +1,14 @@
 # Query templates
 
-The contents of this directory are based on the [`interactive-` queries of SNB](https://github.com/ldbc/ldbc_snb_interactive_impls/tree/c19be0e793680497de4e88d360a20708cfcf43a9/sparql/queries).
+The `short` and `complex` queries within this directory are based on the [`interactive-` queries of SNB](https://github.com/ldbc/ldbc_snb_interactive_impls/tree/c19be0e793680497de4e88d360a20708cfcf43a9/sparql/queries).
 Queries are slightly modified to be based on IRI-based parameters instead of id/integer-based parameters,
 as the former is better suitable for decentralized environments.
 Non-SPARQL queries have been omitted.
 
 Below, you can find an overview of these queries.
 More details can be found in https://arxiv.org/pdf/2001.02299.pdf
+
+`discover` queries have been created specifically for testing discovery-related choke points in data vaults.
 
 | Filename | Title | Parameter | Description |
 | -------- | ----- | | --------- ----------- |
@@ -29,3 +31,11 @@ More details can be found in https://arxiv.org/pdf/2001.02299.pdf
 | `interactive-complex-10.sparql` | Friend recommendation | `rootPerson`, `month` | Given a start Person with id personId, find that Person’s friends of friends (foaf) – excluding the start Person and his/her immediate friends –, who were born on or after the 21st of a given month (in any year) and before the 22nd of the following month. Calculate the similarity between each friend and the start person, where commonInterestScore is defined as follows: • common = number of Posts created by friend, such that the Post has a Tag that the start person is interested in • uncommon = number of Posts created by friend, such that the Post has no Tag that the start person is interested in • commonInterestScore = common - uncommon |
 | `interactive-complex-11.sparql` | Job referral | `rootPerson`, `countryName`, `workFromYear` | Given a start Person, find that Person’s friends and friends of friends (excluding start Person) who started working in some Company in a given Country, before a given date (year). |
 | `interactive-complex-12.sparql` | Expert search | `rootPerson`, `tagClassName` | Given a start Person, find the Comments that this Person’s friends made in reply to Posts, considering only those Comments that are direct (single-hop) replies to Posts, not the transitive (multi-hop) ones. Only consider Posts with a Tag in a given TagClass or in a descendent of that TagClass. Count the number of these reply Comments, and collect the Tags that were attached to the Posts they replied to, but only collect Tags with the given TagClass or with a descendant of that TagClass. Return Persons with at least one reply, the reply count, and the collection of Tags. |
+| `interactive-discover-1.sparql` | All posts of a person | `person` | Given a start Person, retrieve their posts, and retrieve its message content, creation date, and message id. |
+| `interactive-discover-2.sparql` | All messages of a person | `person` | Given a start Person, retrieve the union of their posts and messages, and retrieve its message content, creation date, and message id. |
+| `interactive-discover-3.sparql` | Top tags in messages from a person | `person` | Given a start Person, find its messages, find its tags, and retrieve the tag names. Group everything by tag name, and count the messages grouped by tag name in descending order. |
+| `interactive-discover-4.sparql` | Top locations in comments from a person | `person` | Given a start Person, find its comments, find its locations, and retrieve the location names. Group everything by location name, and count the messages grouped by location name in descending order. |
+| `interactive-discover-5.sparql` | All IPs a person has messaged from | `person` | Given a start Person, find its messages, and retrieve the distinct location IPs of each message. |
+| `interactive-discover-6.sparql` | All fora a person messaged on | `person` | Given a start Person, find its messages, find the forum each message is part of, and retrieve each forum id and title. |
+| `interactive-discover-7.sparql` | All moderators in fora a person messaged on | `person` | Given a start Person, find its messages, find the forum each message is part of, find its moderators, and retrieve the moderator's first and last name. |
+| `interactive-discover-8.sparql` | Other messages created by people that a person likes messages from | `person` | Given a start Person, find its likes, find the creator of the likes, find other messages by the creator, and retrieve messages contents. |

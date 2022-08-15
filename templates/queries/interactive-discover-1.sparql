@@ -1,0 +1,23 @@
+# All posts of a person
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX sn: <http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/data/>
+PREFIX snvoc: <http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/>
+PREFIX sntag: <http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/tag/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dbpedia: <http://localhost:3000/dbpedia.org/resource/>
+PREFIX dbpedia-owl: <http://localhost:3000/dbpedia.org/ontology/>
+
+SELECT
+    ?messageId
+    ?messageCreationDate
+    ?messageContent
+WHERE
+{
+    ?message snvoc:hasCreator ?person;
+        rdf:type snvoc:Post;
+        snvoc:content ?messageContent;
+        snvoc:creationDate ?messageCreationDate;
+        snvoc:id ?messageId.
+}
