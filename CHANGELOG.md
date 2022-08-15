@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v1.4.0"></a>
+## [v1.4.0](https://github.com/SolidBench/SolidBench.js/compare/v1.3.1...v1.4.0) - 2022-08-15
+
+### Added
+* [Add discover queries](https://github.com/SolidBench/SolidBench.js/commit/a6452ba9f027d2cb1ede3c6ded2353c5bd33495e)
+
 <a name="v1.3.1"></a>
 ## [v1.3.1](https://github.com/SolidBench/SolidBench.js/compare/v1.3.0...v1.3.1) - 2022-08-10
 
