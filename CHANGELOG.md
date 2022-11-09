@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v1.4.1"></a>
+## [v1.4.1](https://github.com/SolidBench/SolidBench.js/compare/v1.4.0...v1.4.1) - 2022-11-09
+
+### Fixed
+* [Include source map files in packed files](https://github.com/SolidBench/SolidBench.js/commit/fd8c4be90382756e87fca285cbb6d5ba332b22a7)
+
 <a name="v1.4.0"></a>
 ## [v1.4.0](https://github.com/SolidBench/SolidBench.js/compare/v1.3.1...v1.4.0) - 2022-08-15
 
