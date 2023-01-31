@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v1.5.0"></a>
+## [v1.5.0](https://github.com/SolidBench/SolidBench.js/compare/v1.4.1...v1.5.0) - 2023-01-31
+
+### Added
+* [Expose Post and Comment domain in vocabulary](https://github.com/SolidBench/SolidBench.js/commit/225cdd7bf314dcdb5d6db8efb6359a95f5a5328e)
+
 <a name="v1.4.1"></a>
 ## [v1.4.1](https://github.com/SolidBench/SolidBench.js/compare/v1.4.0...v1.4.1) - 2022-11-09
 
