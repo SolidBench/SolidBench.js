@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v1.5.1"></a>
+## [v1.5.1](https://github.com/SolidBench/SolidBench.js/compare/v1.5.0...v1.5.1) - 2023-01-31
+
+### Fixed
+* [Fix generator failure in Node 14](https://github.com/SolidBench/SolidBench.js/commit/70d47f1da94fa3bedb41c603b39647f3933f05da)
+
 <a name="v1.5.0"></a>
 ## [v1.5.0](https://github.com/SolidBench/SolidBench.js/compare/v1.4.1...v1.5.0) - 2023-01-31
 
