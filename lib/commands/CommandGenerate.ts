@@ -24,7 +24,7 @@ export const builder = (yargs: Argv<any>): Argv<any> =>
         alias: 'e',
         describe: 'Path to enhancement config',
         default: Templates.ENHANCEMENT_CONFIG,
-        defaultDescription: 'enhancer-config-dummy.json',
+        defaultDescription: 'enhancer-config-pod.json',
       },
       fragmentConfig: {
         type: 'string',

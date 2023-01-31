@@ -60,7 +60,7 @@ Options:
                                                        [string] [default: false]
   -s, --scale                      The SNB scale factor  [number] [default: 0.1]
   -e, --enhancementConfig          Path to enhancement config
-                                  [string] [default: enhancer-config-dummy.json]
+                                  [string] [default: enhancer-config-pod.json]
   -f, --fragmentConfig             Path to fragmentation config
                                   [string] [default: fragmenter-config-pod.json]
   -g, --enhancementFragmentConfig  Path to enhancement's fragmentation config
