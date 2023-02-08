@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v1.6.1"></a>
+## [v1.6.1](https://github.com/SolidBench/SolidBench.js/compare/v1.6.0...v1.6.1) - 2023-02-08
+
+### Fixed
+* [Fix backpressure handling in enhancer](https://github.com/SolidBench/SolidBench.js/commit/664425414c34b533edc66ff720df7c9d112d64da)
+
 <a name="v1.6.0"></a>
 ## [v1.6.0](https://github.com/SolidBench/SolidBench.js/compare/v1.5.1...v1.6.0) - 2023-02-07
 
