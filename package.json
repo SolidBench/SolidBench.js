@@ -1,6 +1,6 @@
 {
   "name": "solidbench",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "description": "A benchmark for Solid to simulate vaults with social network data.",
   "main": "index.js",
   "scripts": {

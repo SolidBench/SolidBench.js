@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v1.7.0"></a>
+## [v1.7.0](https://github.com/SolidBench/SolidBench.js/compare/v1.6.1...v1.7.0) - 2023-02-14
+
+### Added
+* [Add baseUrl and rootFilePath options to serve command](https://github.com/SolidBench/SolidBench.js/commit/3bb872d4c1b58135f14ec085e6d86865ff48137c)
+
 <a name="v1.6.1"></a>
 ## [v1.6.1](https://github.com/SolidBench/SolidBench.js/compare/v1.6.0...v1.6.1) - 2023-02-08
 
