@@ -16,6 +16,8 @@ describe('Server', () => {
       configPath: 'CONFIG',
       port: 3_000,
       logLevel: 'info',
+      baseUrl: undefined,
+      rootFilePath: 'out-fragments/http/localhost_3000/',
     });
     run.mockReset();
   });

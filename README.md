@@ -126,13 +126,17 @@ solidbench serve
 Serves the fragmented dataset via an HTTP server
 
 Options:
-      --version   Show version number                                  [boolean]
-      --cwd       The current working directory            [string] [default: .]
-      --verbose   If more output should be printed                     [boolean]
-      --help      Show help                                            [boolean]
-  -p, --port      The HTTP port to run on               [number] [default: 3000]
-  -c, --config    Path to server config   [string] [default: server-config.json]
-  -l, --logLevel  Logging level (error, warn, info, verbose, debug, silly)
+      --version       Show version number                              [boolean]
+      --cwd           The current working directory        [string] [default: .]
+      --verbose       If more output should be printed                 [boolean]
+      --help          Show help                                        [boolean]
+  -p, --port          The HTTP port to run on           [number] [default: 3000]
+  -b, --baseUrl       The base URL of the server                        [string]
+  -r, --rootFilePath  Path to the root of the files to serve
+                        [string] [default: "out-fragments/http/localhost_3000/"]
+  -c, --config        Path to server config
+                                          [string] [default: server-config.json]
+  -l, --logLevel      Logging level (error, warn, info, verbose, debug, silly)
                                                       [string] [default: "info"]
 ```
 

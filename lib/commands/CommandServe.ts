@@ -13,6 +13,17 @@ export const builder = (yargs: Argv<any>): Argv<any> =>
         describe: 'The HTTP port to run on',
         default: 3_000,
       },
+      baseUrl: {
+        type: 'string',
+        alias: 'b',
+        describe: 'The base URL of the server',
+      },
+      rootFilePath: {
+        type: 'string',
+        alias: 'r',
+        describe: 'Path to the root of the files to serve',
+        default: 'out-fragments/http/localhost_3000/',
+      },
       config: {
         type: 'string',
         alias: 'c',
@@ -30,5 +41,7 @@ export const builder = (yargs: Argv<any>): Argv<any> =>
 export const handler = async(argv: Record<string, any>): Promise<void> => new Server({
   configPath: argv.config,
   port: argv.port,
+  baseUrl: argv.baseUrl,
+  rootFilePath: argv.rootFilePath,
   logLevel: argv.logLevel,
 }).serve();
