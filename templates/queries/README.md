@@ -5,6 +5,8 @@ Queries are slightly modified to be based on IRI-based parameters instead of id/
 as the former is better suitable for decentralized environments.
 Non-SPARQL queries have been omitted.
 
+The choke points that were used to determine the discover queries can be found at https://github.com/SolidBench/SolidBench.js/blob/master/docs/choke-points.md
+
 Below, you can find an overview of these queries.
 More details can be found in https://arxiv.org/pdf/2001.02299.pdf
 
