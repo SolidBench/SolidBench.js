@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v1.7.1"></a>
+## [v1.7.1](https://github.com/SolidBench/SolidBench.js/compare/v1.7.0...v1.7.1) - 2023-07-12
+
+### Fixed
+* [Disable resource locker in Solid server config (#7)](https://github.com/SolidBench/SolidBench.js/commit/50726f478458a43dd22a149269bdda329cb81d33)
+
 <a name="v1.7.0"></a>
 ## [v1.7.0](https://github.com/SolidBench/SolidBench.js/compare/v1.6.1...v1.7.0) - 2023-02-14
 
