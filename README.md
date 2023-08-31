@@ -24,7 +24,7 @@ $ npm install -g solidbench
 ```
 or
 ```bash
-$ yarn global add solidbench
+$ yarn global add solidbench --ignore-engines
 ```
 
 ## Quick start
