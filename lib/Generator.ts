@@ -97,9 +97,7 @@ export class Generator {
     // Create params.ini file
     const paramsTemplate = await fs.promises.readFile(Path.join(__dirname, '../templates/params.ini'), 'utf8');
     const paramsPath = Path.join(this.cwd, 'params.ini');
-    // TODO: remove once we drop Node 14 support
-    // eslint-disable-next-line unicorn/prefer-string-replace-all
-    await fs.promises.writeFile(paramsPath, paramsTemplate.replace(/SCALE/ug, this.scale), 'utf8');
+    await fs.promises.writeFile(paramsPath, paramsTemplate.replaceAll('SCALE', this.scale), 'utf8');
 
     // Pull the base Docker image
     const dockerode = new Dockerode();
