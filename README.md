@@ -14,7 +14,7 @@ This benchmark is based on the [LDBC SNB](https://github.com/ldbc/ldbc_snb_datag
 
 ## Requirements
 
-* [Node.js](https://nodejs.org/en/) _(1.14 or higher)_
+* [Node.js](https://nodejs.org/en/) _(16 or higher)_
 * [Docker](https://www.docker.com/) _(required for invoking [LDBC SNB generator](https://github.com/ldbc/ldbc_snb_datagen_hadoop))_
 
 ## Installation
@@ -24,7 +24,7 @@ $ npm install -g solidbench
 ```
 or
 ```bash
-$ yarn global add solidbench
+$ yarn global add solidbench --ignore-engines
 ```
 
 ## Quick start
