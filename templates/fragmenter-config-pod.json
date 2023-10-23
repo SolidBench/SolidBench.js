@@ -24,7 +24,7 @@
     {
       "@type": "QuadTransformerBlankToNamed",
       "searchRegex": "^(b[0-9]*_tagclass)",
-      "replacementString": "http://localhost:3000/www.example.org/$1"
+      "replacementString": "http://localhost:3000/www.ldbc.eu/tagclass/$1"
     },
     {
       "@type": "QuadTransformerReplaceIri",
