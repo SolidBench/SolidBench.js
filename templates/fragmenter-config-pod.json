@@ -22,6 +22,11 @@
   },
   "transformers": [
     {
+      "@type": "QuadTransformerBlankToNamed",
+      "searchRegex": "^(b[0-9]*_tagclass)",
+      "replacementString": "http://localhost:3000/www.ldbc.eu/tagclass/$1"
+    },
+    {
       "@type": "QuadTransformerReplaceIri",
       "searchRegex": "^http://www.ldbc.eu",
       "replacementString": "http://localhost:3000/www.ldbc.eu"
