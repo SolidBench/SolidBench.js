@@ -22,18 +22,20 @@ export class Server {
   public async serve(): Promise<void> {
     return new AppRunner().run(
       {
-        mainModulePath: Path.join(__dirname, '..'),
-        logLevel: <any> this.logLevel,
-        typeChecking: false,
-      },
-      this.configPath,
-      {
-        'urn:solid-server:default:variable:port': this.port,
-        'urn:solid-server:default:variable:rootFilePath': this.rootFilePath,
-        'urn:solid-server:default:variable:loggingLevel': this.logLevel,
-        'urn:solid-server:default:variable:baseUrl': this.baseUrl || `http://localhost:${this.port}/`,
-        'urn:solid-server:default:variable:seededPodConfigJson': '',
-        'urn:solid-server:default:variable:showStackTrace': false,
+        loaderProperties: {
+          mainModulePath: Path.join(__dirname, '..'),
+          typeChecking: false,
+          logLevel: <any> this.logLevel,
+        },
+        config: this.configPath,
+        variableBindings: {
+          'urn:solid-server:default:variable:port': this.port,
+          'urn:solid-server:default:variable:rootFilePath': this.rootFilePath,
+          'urn:solid-server:default:variable:loggingLevel': this.logLevel,
+          'urn:solid-server:default:variable:baseUrl': this.baseUrl || `http://localhost:${this.port}/`,
+          'urn:solid-server:default:variable:seededPodConfigJson': '',
+          'urn:solid-server:default:variable:showStackTrace': false,
+        },
       },
     );
   }

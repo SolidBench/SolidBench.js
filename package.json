@@ -77,7 +77,7 @@
     "index.ts"
   ],
   "dependencies": {
-    "@solid/community-server": "^6.0.2",
+    "@solid/community-server": "^7.0.0",
     "@types/dockerode": "^3.2.3",
     "@types/unzipper": "^0.10.5",
     "@types/yargs": "^16.0.1",
