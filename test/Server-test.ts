@@ -26,18 +26,20 @@ describe('Server', () => {
     await server.serve();
     expect(run).toHaveBeenCalledWith(
       {
-        mainModulePath: Path.join(__dirname, '..'),
-        logLevel: 'info',
-        typeChecking: false,
-      },
-      'CONFIG',
-      {
-        'urn:solid-server:default:variable:baseUrl': 'http://localhost:3000/',
-        'urn:solid-server:default:variable:loggingLevel': 'info',
-        'urn:solid-server:default:variable:port': 3_000,
-        'urn:solid-server:default:variable:rootFilePath': 'out-fragments/http/localhost_3000/',
-        'urn:solid-server:default:variable:seededPodConfigJson': '',
-        'urn:solid-server:default:variable:showStackTrace': false,
+        loaderProperties: {
+          mainModulePath: Path.join(__dirname, '..'),
+          typeChecking: false,
+          logLevel: 'info',
+        },
+        config: 'CONFIG',
+        variableBindings: {
+          'urn:solid-server:default:variable:baseUrl': 'http://localhost:3000/',
+          'urn:solid-server:default:variable:loggingLevel': 'info',
+          'urn:solid-server:default:variable:port': 3_000,
+          'urn:solid-server:default:variable:rootFilePath': 'out-fragments/http/localhost_3000/',
+          'urn:solid-server:default:variable:seededPodConfigJson': '',
+          'urn:solid-server:default:variable:showStackTrace': false,
+        },
       },
     );
   });
