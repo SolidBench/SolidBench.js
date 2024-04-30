@@ -2,7 +2,8 @@
   "name": "solidbench",
   "version": "1.7.1",
   "description": "A benchmark for Solid to simulate vaults with social network data.",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index",
   "scripts": {
     "build": "tsc",
     "test": "jest ${1}",
@@ -38,10 +39,7 @@
     "lib/**/*.js",
     "lib/**/*.json",
     "templates/**/*",
-    "lib/**/*.js.map",
-    "index.d.ts",
-    "index.js.map",
-    "index.ts"
+    "lib/**/*.js.map"
   ],
   "dependencies": {
     "@solid/community-server": "^7.0.0",

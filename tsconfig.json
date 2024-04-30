@@ -18,7 +18,6 @@
     "esModuleInterop": true
   },
   "include": [
-    "index.ts",
     "bin/**/*.ts",
     "lib/**/*.ts"
   ]
