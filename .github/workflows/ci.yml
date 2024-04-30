@@ -5,46 +5,43 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/cache@v2
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
         with:
           path: '**/node_modules'
-          key: ${{ runner.os }}-lint-modules-${{ hashFiles('**/yarn.lock') }}
-      - uses: actions/setup-node@v2
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/yarn.lock') }}
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18.x
-      - run: yarn install --frozen-lockfile --ignore-engines
+          node-version: 20.x
+      - run: corepack enable
+      - run: yarn install --frozen-lockfile --ignore-engines --ignore-scripts
       - run: yarn run lint
 
   test:
+    needs: lint
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os:
+          - ubuntu-latest
         node-version:
           - 18.x
           - 20.x
     steps:
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Ensure line endings are consistent
-        run: git config --global core.autocrlf input
-      - name: Check out repository
-        uses: actions/checkout@v2
-      - uses: actions/cache@v2
+      - run: corepack enable
+      - run: git config --global core.autocrlf input
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
         with:
           path: '**/node_modules'
-          key: ${{ runner.os }}-test-modules-${{ hashFiles('**/yarn.lock') }}
-      - name: Install dependencies
-        run: yarn install  --frozen-lockfile --ignore-engines
-      - name: Build project
-        run: yarn run build
-      - name: Run tests
-        run: yarn run test
-      - name: Submit coverage results
-        uses: coverallsapp/github-action@master
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/yarn.lock') }}
+      - run: yarn install  --frozen-lockfile --ignore-engines
+      - run: yarn run build
+      - run: yarn run test
+      - uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.github_token }}
           flag-name: run-${{ matrix.node-version }}
@@ -54,8 +51,7 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - name: Consolidate test coverage from different jobs
-        uses: coverallsapp/github-action@master
+      - uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.github_token }}
           parallel-finished: true
