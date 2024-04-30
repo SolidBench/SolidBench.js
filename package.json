@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "test": "jest ${1}",
-    "lint": "eslint . --ext .ts --cache",
+    "lint": "eslint .",
     "prepare": "husky",
     "version": "manual-git-changelog onversion"
   },
@@ -57,9 +57,9 @@
     "yargs": "^16.2.0"
   },
   "devDependencies": {
-    "@rubensworks/eslint-config": "^2.0.0",
+    "@rubensworks/eslint-config": "^3.0.0",
     "@types/jest": "^26.0.0",
-    "eslint": "^7.9.0",
+    "eslint": "^8.0.0",
     "fs-extra": "^9.0.0",
     "husky": "^9.0.0",
     "jest": "^26.6.3",
