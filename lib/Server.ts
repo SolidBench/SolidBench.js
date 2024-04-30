@@ -1,5 +1,5 @@
-import Path from 'path';
-import { AppRunner } from '@solid/community-server';
+import { join } from 'node:path';
+import { AppRunner, type LogLevel } from '@solid/community-server';
 
 /**
  * Serves generated fragments over HTTP.
@@ -23,16 +23,16 @@ export class Server {
     return new AppRunner().run(
       {
         loaderProperties: {
-          mainModulePath: Path.join(__dirname, '..'),
+          mainModulePath: join(__dirname, '..'),
           typeChecking: false,
-          logLevel: <any> this.logLevel,
+          logLevel: <LogLevel> this.logLevel,
         },
         config: this.configPath,
         variableBindings: {
           'urn:solid-server:default:variable:port': this.port,
           'urn:solid-server:default:variable:rootFilePath': this.rootFilePath,
           'urn:solid-server:default:variable:loggingLevel': this.logLevel,
-          'urn:solid-server:default:variable:baseUrl': this.baseUrl || `http://localhost:${this.port}/`,
+          'urn:solid-server:default:variable:baseUrl': this.baseUrl ?? `http://localhost:${this.port}/`,
           'urn:solid-server:default:variable:seededPodConfigJson': '',
           'urn:solid-server:default:variable:showStackTrace': false,
         },
