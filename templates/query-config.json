@@ -35,7 +35,9 @@
         {
           "@type": "VariableTemplateNamedNode",
           "name": "person",
-          "substitutionProvider": { "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson" }
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson"
+          }
         }
       ]
     },
@@ -50,7 +52,9 @@
         {
           "@type": "VariableTemplateNamedNode",
           "name": "rootPerson",
-          "substitutionProvider": { "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson" }
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson"
+          }
         }
       ]
     },
@@ -99,7 +103,9 @@
         {
           "@type": "VariableTemplateNamedNode",
           "name": "message",
-          "substitutionProvider": { "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderMessage" }
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderMessage"
+          }
         }
       ]
     },
@@ -114,7 +120,9 @@
         {
           "@type": "VariableTemplateNamedNode",
           "name": "message",
-          "substitutionProvider": { "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderMessage" }
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderMessage"
+          }
         }
       ]
     },
@@ -129,7 +137,9 @@
         {
           "@type": "VariableTemplateNamedNode",
           "name": "message",
-          "substitutionProvider": { "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderMessage" }
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderMessage"
+          }
         }
       ]
     },
@@ -639,7 +649,9 @@
         {
           "@type": "VariableTemplateNamedNode",
           "name": "person",
-          "substitutionProvider": { "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson" }
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson"
+          }
         }
       ]
     },
@@ -654,7 +666,9 @@
         {
           "@type": "VariableTemplateNamedNode",
           "name": "person",
-          "substitutionProvider": { "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson" }
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson"
+          }
         }
       ]
     },
@@ -669,7 +683,9 @@
         {
           "@type": "VariableTemplateNamedNode",
           "name": "person",
-          "substitutionProvider": { "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson" }
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson"
+          }
         }
       ]
     },
@@ -684,7 +700,9 @@
         {
           "@type": "VariableTemplateNamedNode",
           "name": "person",
-          "substitutionProvider": { "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson" }
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson"
+          }
         }
       ]
     },
@@ -699,7 +717,9 @@
         {
           "@type": "VariableTemplateNamedNode",
           "name": "person",
-          "substitutionProvider": { "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson" }
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson"
+          }
         }
       ]
     },
@@ -714,7 +734,9 @@
         {
           "@type": "VariableTemplateNamedNode",
           "name": "person",
-          "substitutionProvider": { "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson" }
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson"
+          }
         }
       ]
     },
@@ -729,7 +751,9 @@
         {
           "@type": "VariableTemplateNamedNode",
           "name": "person",
-          "substitutionProvider": { "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson" }
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson"
+          }
         }
       ]
     },
@@ -744,7 +768,9 @@
         {
           "@type": "VariableTemplateNamedNode",
           "name": "person",
-          "substitutionProvider": { "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson" }
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson"
+          }
         }
       ]
     }
