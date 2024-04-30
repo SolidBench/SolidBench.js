@@ -66,13 +66,7 @@ export const builder = (yargs: Argv<any>): Argv<any> =>
         default: '4G',
       },
     })
-    .check((args, options): boolean => {
-      const scales = [ 0.1, 1, 3, 10, 30, 100, 300, 1_000 ];
-      if (!scales.includes(args.scale)) {
-        throw new Error(`Invalid SNB scale factor '${args.type}'. Must be one of '${Object.keys(scales).join(', ')}'`);
-      }
-      return true;
-    });
+    .choices('scale', [ 0.1, 1, 3, 10, 30, 100, 300, 1_000 ]);
 export const handler = (argv: Record<string, any>): Promise<void> => new Generator({
   verbose: argv.verbose,
   cwd: argv.cwd,
