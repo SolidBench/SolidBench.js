@@ -2,14 +2,12 @@
   "name": "solidbench",
   "version": "1.7.1",
   "description": "A benchmark for Solid to simulate vaults with social network data.",
-  "main": "lib/index.js",
-  "types": "lib/index",
-  "scripts": {
-    "build": "tsc",
-    "test": "jest ${1}",
-    "lint": "eslint .",
-    "prepare": "husky",
-    "version": "manual-git-changelog onversion"
+  "author": "Ruben Taelman <rubensworks@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/SolidBench/SolidBench.js#readme",
+  "repository": "git@github.com:SolidBench/SolidBench.js.git",
+  "bugs": {
+    "url": "https://github.com/SolidBench/SolidBench.js/issues"
   },
   "keywords": [
     "solidbench",
@@ -20,13 +18,8 @@
     "snb",
     "social network"
   ],
-  "author": "Ruben Taelman <rubensworks@gmail.com>",
-  "repository": "git@github.com:SolidBench/SolidBench.js.git",
-  "bugs": {
-    "url": "https://github.com/SolidBench/SolidBench.js/issues"
-  },
-  "homepage": "https://github.com/SolidBench/SolidBench.js#readme",
-  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index",
   "bin": {
     "solidbench": "bin/solidbench"
   },
@@ -37,10 +30,17 @@
     "bin/solidbench",
     "lib/**/*.d.ts",
     "lib/**/*.js",
+    "lib/**/*.js.map",
     "lib/**/*.json",
-    "templates/**/*",
-    "lib/**/*.js.map"
+    "templates/**/*"
   ],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest ${1}",
+    "lint": "eslint .",
+    "prepare": "husky",
+    "version": "manual-git-changelog onversion"
+  },
   "dependencies": {
     "@solid/community-server": "^7.0.0",
     "@types/dockerode": "^3.2.3",
