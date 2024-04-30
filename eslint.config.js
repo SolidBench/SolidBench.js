@@ -11,6 +11,7 @@ module.exports = config([
     },
     rules: {
       'import/no-nodejs-modules': 'off',
+      'ts/naming-convention': 'off',
     },
   },
   {
