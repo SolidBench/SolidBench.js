@@ -13,4 +13,11 @@ module.exports = config([
       'import/no-nodejs-modules': 'off',
     },
   },
+  {
+    files: [ '**/commands/*.ts' ],
+    rules: {
+      'antfu/top-level-function': 'off',
+      'ts/no-unsafe-assignment': 'off',
+    },
+  },
 ]);
