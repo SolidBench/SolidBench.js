@@ -1,12 +1,15 @@
-import * as Path from 'path';
+import { join } from 'node:path';
 import { Server } from '../lib/Server';
 
 const run = jest.fn();
-jest.mock('@solid/community-server', () => ({
-  AppRunner: jest.fn().mockImplementation(() => ({
-    run,
-  })),
-}));
+
+jest.mock<typeof import('@solid/community-server')>('@solid/community-server', () => (
+  <typeof import('@solid/community-server')> <unknown> {
+    AppRunner: jest.fn().mockImplementation(() => ({
+      run,
+    })),
+  }
+));
 
 describe('Server', () => {
   let server: Server;
@@ -27,7 +30,7 @@ describe('Server', () => {
     expect(run).toHaveBeenCalledWith(
       {
         loaderProperties: {
-          mainModulePath: Path.join(__dirname, '..'),
+          mainModulePath: join(__dirname, '..'),
           typeChecking: false,
           logLevel: 'info',
         },
