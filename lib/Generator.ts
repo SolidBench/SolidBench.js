@@ -1,6 +1,6 @@
-import * as fs from 'fs';
-import { request } from 'https';
-import * as Path from 'path';
+import { stat, unlink, mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
+import { request } from 'node:https';
+import { join } from 'node:path';
 import Dockerode from 'dockerode';
 import { runConfig as runEnhancer } from 'ldbc-snb-enhancer';
 import { runConfig as runValidationGenerator } from 'ldbc-snb-validation-generator';
@@ -47,12 +47,12 @@ export class Generator {
     this.validationParams = opts.validationParams;
     this.validationConfig = opts.validationConfig;
     this.hadoopMemory = opts.hadoopMemory;
-    this.mainModulePath = Path.join(__dirname, '..');
+    this.mainModulePath = join(__dirname, '..');
   }
 
   protected async targetExists(path: string): Promise<boolean> {
     try {
-      await fs.promises.stat(path);
+      await stat(path);
       return true;
     } catch {
       return false;
@@ -64,7 +64,7 @@ export class Generator {
   }
 
   protected async runPhase(name: string, directory: string, runner: () => Promise<void>): Promise<void> {
-    if (this.overwrite || !await this.targetExists(Path.join(this.cwd, directory))) {
+    if (this.overwrite || !await this.targetExists(join(this.cwd, directory))) {
       this.log(name, 'Started');
       const timeStart = process.hrtime();
       await runner();
@@ -95,16 +95,15 @@ export class Generator {
    */
   public async generateSnbDataset(): Promise<void> {
     // Create params.ini file
-    const paramsTemplate = await fs.promises.readFile(Path.join(__dirname, '../templates/params.ini'), 'utf8');
-    const paramsPath = Path.join(this.cwd, 'params.ini');
-    await fs.promises.writeFile(paramsPath, paramsTemplate.replaceAll('SCALE', this.scale), 'utf8');
+    const paramsTemplate = await readFile(join(__dirname, '../templates/params.ini'), 'utf8');
+    const paramsPath = join(this.cwd, 'params.ini');
+    await writeFile(paramsPath, paramsTemplate.replaceAll('SCALE', this.scale), 'utf8');
 
     // Pull the base Docker image
     const dockerode = new Dockerode();
-    const buildStream = await dockerode.pull(Generator.LDBC_SNB_DATAGEN_DOCKER_IMAGE);
+    const buildStream = <NodeJS.ReadableStream> await dockerode.pull(Generator.LDBC_SNB_DATAGEN_DOCKER_IMAGE);
     await new Promise((resolve, reject) => {
-      dockerode.modem.followProgress(buildStream,
-        (err: Error | null, res: any[]) => err ? reject(err) : resolve(res));
+      dockerode.modem.followProgress(buildStream, (err: Error | null, res: any[]) => err ? reject(err) : resolve(res));
     });
 
     // Start Docker container
@@ -125,6 +124,7 @@ export class Generator {
 
     // Stop process on force-exit
     let containerEnded = false;
+    // eslint-disable-next-line ts/no-misused-promises
     process.on('SIGINT', async() => {
       if (!containerEnded) {
         await container.kill();
@@ -133,7 +133,7 @@ export class Generator {
     });
     async function cleanup(): Promise<void> {
       await container.remove();
-      await fs.promises.unlink(paramsPath);
+      await unlink(paramsPath);
     }
 
     // Attach output to stdout
@@ -164,7 +164,7 @@ export class Generator {
    */
   public async enhanceSnbDataset(): Promise<void> {
     // Create target directory
-    await fs.promises.mkdir(Path.join(this.cwd, 'out-enhanced'));
+    await mkdir(join(this.cwd, 'out-enhanced'));
 
     // Run enhancer
     const oldCwd = process.cwd();
@@ -195,7 +195,7 @@ export class Generator {
    */
   public async instantiateQueries(): Promise<void> {
     // Create target directory
-    await fs.promises.mkdir(Path.join(this.cwd, 'out-queries'));
+    await mkdir(join(this.cwd, 'out-queries'));
 
     // Run instantiator
     const oldCwd = process.cwd();
@@ -211,12 +211,12 @@ export class Generator {
    */
   public async downloadValidationParams(): Promise<void> {
     // Create target directory
-    const target = Path.join(this.cwd, 'out-validate-params');
-    await fs.promises.mkdir(target);
+    const target = join(this.cwd, 'out-validate-params');
+    await mkdir(target);
 
     // Download and extract zip file
     return new Promise((resolve, reject) => {
-      request(this.validationParams, res => {
+      request(this.validationParams, (res) => {
         res
           .on('error', reject)
           .pipe(Extract({ path: target }))
@@ -231,7 +231,7 @@ export class Generator {
    */
   public async generateValidation(): Promise<void> {
     // Create target directory
-    await fs.promises.mkdir(Path.join(this.cwd, 'out-validate'));
+    await mkdir(join(this.cwd, 'out-validate'));
 
     // Run generator
     const oldCwd = process.cwd();
@@ -243,8 +243,8 @@ export class Generator {
   }
 
   protected async generateVariables(): Promise<Record<string, string>> {
-    return Object.fromEntries((await fs.promises.readdir(Path.join(__dirname, '../templates/queries/')))
-      .map(name => [ `urn:variables:query-templates:${name}`, Path.join(__dirname, `../templates/queries/${name}`) ]));
+    return Object.fromEntries((await readdir(join(__dirname, '../templates/queries/')))
+      .map(name => [ `urn:variables:query-templates:${name}`, join(__dirname, `../templates/queries/${name}`) ]));
   }
 
   /**
