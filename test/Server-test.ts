@@ -3,13 +3,11 @@ import { Server } from '../lib/Server';
 
 const run = jest.fn();
 
-jest.mock<typeof import('@solid/community-server')>('@solid/community-server', () => (
-  <typeof import('@solid/community-server')> <unknown> {
-    AppRunner: jest.fn().mockImplementation(() => ({
-      run,
-    })),
-  }
-));
+jest.mock<typeof import('@solid/community-server')>('@solid/community-server', () => <any> ({
+  AppRunner: jest.fn().mockImplementation(() => ({
+    run,
+  })),
+}));
 
 describe('Server', () => {
   let server: Server;
