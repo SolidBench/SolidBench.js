@@ -37,7 +37,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "test": "jest ${1}",
+    "test": "jest",
     "lint": "eslint .",
     "prepare": "husky",
     "version": "manual-git-changelog onversion"
