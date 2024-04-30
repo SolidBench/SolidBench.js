@@ -45,18 +45,18 @@
     "@solid/community-server": "^7.0.0",
     "@types/dockerode": "^3.2.3",
     "@types/unzipper": "^0.10.5",
-    "@types/yargs": "^16.0.1",
     "dockerode": "^3.2.1",
     "ldbc-snb-enhancer": "^2.5.1",
     "ldbc-snb-validation-generator": "^1.1.0",
     "rdf-dataset-fragmenter": "^2.7.0",
     "sparql-query-parameter-instantiator": "^2.5.1",
     "unzipper": "^0.10.11",
-    "yargs": "^16.2.0"
+    "yargs": "^17.0.0"
   },
   "devDependencies": {
     "@rubensworks/eslint-config": "^3.0.0",
     "@types/jest": "^29.0.0",
+    "@types/yargs": "^17.0.0",
     "eslint": "^8.0.0",
     "fs-extra": "^9.0.0",
     "husky": "^9.0.0",
