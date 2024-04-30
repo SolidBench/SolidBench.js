@@ -39,22 +39,32 @@
       "@id": "urn:solid-server:default:Initializer",
       "@type": "SequenceHandler",
       "handlers": [
-        { "@id": "urn:solid-server:default:LoggerInitializer" },
-        { "@id": "urn:solid-server:default:ServerInitializer" }
+        {
+          "@id": "urn:solid-server:default:LoggerInitializer"
+        },
+        {
+          "@id": "urn:solid-server:default:ServerInitializer"
+        }
       ]
     },
     {
       "comment": "Taken from css:config/util/identifiers/suffix.json",
       "@id": "urn:solid-server:default:IdentifierStrategy",
       "@type": "SingleRootIdentifierStrategy",
-      "baseUrl": { "@id": "urn:solid-server:default:variable:baseUrl" }
+      "baseUrl": {
+        "@id": "urn:solid-server:default:variable:baseUrl"
+      }
     },
     {
       "comment": "Taken from css:config/util/identifiers/suffix.json, changed to serve only .nq",
       "@id": "urn:solid-server:default:FileIdentifierMapper",
       "@type": "FixedContentTypeMapper",
-      "base": { "@id": "urn:solid-server:default:variable:baseUrl" },
-      "rootFilepath": { "@id": "urn:solid-server:default:variable:rootFilePath" },
+      "base": {
+        "@id": "urn:solid-server:default:variable:baseUrl"
+      },
+      "rootFilepath": {
+        "@id": "urn:solid-server:default:variable:rootFilePath"
+      },
       "contentType": "application/n-quads",
       "pathSuffix": ".nq"
     }
