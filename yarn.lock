@@ -2961,6 +2961,13 @@
   resolved "https://registry.yarnpkg.com/@types/bcryptjs/-/bcryptjs-2.4.6.tgz#2b92e3c2121c66eba3901e64faf8bb922ec291fa"
   integrity sha512-9xlo6R2qDs5uixm0bcIqCeMCE6HiQsIyel9KQySStiyqNl2tnj2mP3DX1Nf56MD6KMenNNlBBsy3LJ7gUEQPXQ==
 
+"@types/bloem@^0.2.0":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@types/bloem/-/bloem-0.2.4.tgz#570477353e328aba6c3c9ab99be657021f2b444e"
+  integrity sha512-MRGg1tK+I38gvNQvoZSo+5srNDLTI2pkMqQfkfg0RcQLREXjghhgGWFrOpwU1TK43Z6TGbYpYvTkGXqhJg3Obg==
+  dependencies:
+    "@types/node" "*"
+
 "@types/body-parser@*":
   version "1.19.5"
   resolved "https://registry.yarnpkg.com/@types/body-parser/-/body-parser-1.19.5.tgz#04ce9a3b677dc8bd681a17da1ab9835dc9d3ede4"
@@ -3955,6 +3962,11 @@ binary@~0.3.0:
     buffers "~0.1.1"
     chainsaw "~0.1.0"
 
+bitbuffer@0.1.x:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/bitbuffer/-/bitbuffer-0.1.3.tgz#780feb1297caaf0fac9e48cfab946d6efd2bd397"
+  integrity sha512-SyRG3h70w/2MJaN27Z7gQufBDjVx1fiYsxLnZ9XBYZxUXXRC053nEkb3/wBoa9yFEKvsH5HxMPrjiG95DDQXCw==
+
 bl@^4.0.3:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/bl/-/bl-4.1.0.tgz#451535264182bec2fbbc83a62ab98cf11d9f7b3a"
@@ -3963,6 +3975,14 @@ bl@^4.0.3:
     buffer "^5.5.0"
     inherits "^2.0.4"
     readable-stream "^3.4.0"
+
+bloem@^0.2.0:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/bloem/-/bloem-0.2.4.tgz#3c29ebed689b384f28304fa7bd56c6026e6d5879"
+  integrity sha512-9NC03n3Eaj+hkBalu+6GKRe6fkzHAfo5kUT0etwQXVAb1efDTx86aGnbimV4kEgWi52Perprr0TMWO3dTs8ayA==
+  dependencies:
+    bitbuffer "0.1.x"
+    fnv "0.1.x"
 
 bluebird@~3.4.1:
   version "3.4.7"
@@ -5604,6 +5624,11 @@ fn.name@1.x.x:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/fn.name/-/fn.name-1.1.0.tgz#26cad8017967aea8731bc42961d04a3d5988accc"
   integrity sha512-GRnmB5gPyJpAhTQdSZTSp9uaPSvl09KoYcMQtsB9rQoOmzs9dH6ffeccH+Z+cv6P68Hu5bC6JjRh4Ah/mHSNRw==
+
+fnv@0.1.x:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/fnv/-/fnv-0.1.3.tgz#5db30b83e97e7aea448cb36138bd936970a8700d"
+  integrity sha512-5TtgKckVqRRjybT6Yogzprs7Lz4yrsXazxxuZ2CJeUzKCP4yc2lHWemqnM/9BuEk4LWXCntNbesiBQly8c7IHw==
 
 for-each@^0.3.3:
   version "0.3.3"
@@ -8454,14 +8479,16 @@ rdf-data-factory@^1.0.1, rdf-data-factory@^1.1.0, rdf-data-factory@^1.1.1, rdf-d
   dependencies:
     "@rdfjs/types" "*"
 
-rdf-dataset-fragmenter@^2.4.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/rdf-dataset-fragmenter/-/rdf-dataset-fragmenter-2.6.0.tgz#5079d9e0d3aea44f5581d51a53baac8b017a8138"
-  integrity sha512-2McXA8v8UVJRy/cjmYaUxnxVje2bL/AbbPmCJVcrK0Ri3yDG2ge5kCoX543OuP+c/7fTx26xHoIfYIL9J1O9mw==
+rdf-dataset-fragmenter@^2.7.0:
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/rdf-dataset-fragmenter/-/rdf-dataset-fragmenter-2.7.1.tgz#e4b30fd5b0fefdd9e17506f27c15eef0252e8d9f"
+  integrity sha512-BkvvSru7j0EUoq6RFUKh9XY6TyP1G3xEUDk61JKbGYMH9N+B48ZsU6B1zyWZVPF7/Hk2pxW0csmqrWpnoD7I5w==
   dependencies:
     "@rdfjs/types" "*"
     "@types/async-lock" "^1.4.0"
+    "@types/bloem" "^0.2.0"
     async-lock "^1.4.0"
+    bloem "^0.2.0"
     componentsjs "^5.0.0"
     lru-cache "^10.2.0"
     mkdirp "^3.0.1"
