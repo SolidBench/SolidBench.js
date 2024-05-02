@@ -101,7 +101,7 @@ export class Generator {
 
     // Pull the base Docker image
     const dockerode = new Dockerode();
-    const buildStream = <NodeJS.ReadableStream> await dockerode.pull(Generator.LDBC_SNB_DATAGEN_DOCKER_IMAGE);
+    const buildStream = await dockerode.pull(Generator.LDBC_SNB_DATAGEN_DOCKER_IMAGE);
     await new Promise((resolve, reject) => {
       dockerode.modem.followProgress(buildStream, (err: Error | null, res: any[]) => err ? reject(err) : resolve(res));
     });
