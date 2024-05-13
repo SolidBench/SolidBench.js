@@ -33,13 +33,6 @@ export const builder = (yargs: Argv<any>): Argv<any> =>
         default: Templates.FRAGMENT_CONFIG,
         defaultDescription: 'fragmenter-config-pod.json',
       },
-      enhancementFragmentConfig: {
-        type: 'string',
-        alias: 'g',
-        describe: 'Path to enhancement\'s fragmentation config',
-        default: Templates.ENHANCEMENT_FRAGMENT_CONFIG,
-        defaultDescription: 'fragmenter-auxiliary-config-subject.json',
-      },
       queryConfig: {
         type: 'string',
         alias: 'q',
@@ -74,7 +67,6 @@ export const handler = (argv: Record<string, any>): Promise<void> => new Generat
   scale: argv.scale,
   enhancementConfig: argv.enhancementConfig,
   fragmentConfig: argv.fragmentConfig,
-  enhancementFragmentConfig: argv.enhancementFragmentConfig,
   queryConfig: argv.queryConfig,
   validationParams: argv.validationParams,
   validationConfig: argv.validationConfig,

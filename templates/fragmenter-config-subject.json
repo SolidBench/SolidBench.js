@@ -17,6 +17,10 @@
       {
         "@type": "QuadSourceFile",
         "filePath": "out-snb/social_network/social_network_activity_0_0.ttl"
+      },
+      {
+        "@type": "QuadSourceFile",
+        "filePath": "out-enhanced/social_network_auxiliary.ttl"
       }
     ]
   },

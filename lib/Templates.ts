@@ -6,7 +6,6 @@ import { join } from 'node:path';
 export const Templates = {
   ENHANCEMENT_CONFIG: join(__dirname, '../templates/enhancer-config-pod.json'),
   FRAGMENT_CONFIG: join(__dirname, '../templates/fragmenter-config-pod.json'),
-  ENHANCEMENT_FRAGMENT_CONFIG: join(__dirname, '../templates/fragmenter-auxiliary-config-pod.json'),
   QUERY_CONFIG: join(__dirname, '../templates/query-config.json'),
   SERVER_CONFIG: join(__dirname, '../templates/server-config.json'),
   QUERIES_DIRECTORY: join(__dirname, '../templates/queries'),

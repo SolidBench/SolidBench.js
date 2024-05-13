@@ -28,7 +28,6 @@ export class Generator {
   private readonly scale: string;
   private readonly enhancementConfig: string;
   private readonly fragmentConfig: string;
-  private readonly enhancementFragmentConfig: string;
   private readonly queryConfig: string;
   private readonly validationParams: string;
   private readonly validationConfig: string;
@@ -42,7 +41,6 @@ export class Generator {
     this.scale = opts.scale;
     this.enhancementConfig = opts.enhancementConfig;
     this.fragmentConfig = opts.fragmentConfig;
-    this.enhancementFragmentConfig = opts.enhancementFragmentConfig;
     this.queryConfig = opts.queryConfig;
     this.validationParams = opts.validationParams;
     this.validationConfig = opts.validationConfig;
@@ -183,10 +181,6 @@ export class Generator {
     // Initial fragmentation
     await runFragmenter(this.fragmentConfig, { mainModulePath: this.mainModulePath });
 
-    // Auxiliary fragmentation
-    this.log('SNB dataset fragmenter', 'Starting auxiliary phase');
-    await runFragmenter(this.enhancementFragmentConfig, { mainModulePath: this.mainModulePath });
-
     process.chdir(oldCwd);
   }
 
@@ -264,7 +258,6 @@ export interface IGeneratorOptions {
   scale: string;
   enhancementConfig: string;
   fragmentConfig: string;
-  enhancementFragmentConfig: string;
   queryConfig: string;
   validationParams: string;
   validationConfig: string;
