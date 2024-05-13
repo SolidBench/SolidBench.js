@@ -63,8 +63,6 @@ Options:
                                   [string] [default: enhancer-config-pod.json]
   -f, --fragmentConfig             Path to fragmentation config
                                   [string] [default: fragmenter-config-pod.json]
-  -g, --enhancementFragmentConfig  Path to enhancement's fragmentation config
-                    [string] [default: fragmenter-auxiliary-config-subject.json]
   -q, --queryConfig                Path to query instantiation config
                                            [string] [default: query-config.json]
       --validationParams           URL of the validation parameters zip file
@@ -95,10 +93,6 @@ based on the given enhancement config (defaults to an empty config).
 
 Next, this Turtle file will be **fragmented** using [`rdf-dataset-fragmenter.js`](https://github.com/SolidBench/rdf-dataset-fragmenter.js)
 and the given fragmentation strategy config (defaults to a Solid vault-based fragmentation).
-This happens in two passes:
-
-1. Fragmenting of the main SNB dataset.
-1. Fragmenting of the auxiliary SNB dataset.
 
 Then, **query** templates will be instantiated based on the generated data.
 This is done using [`sparql-query-parameter-instantiator.js`](https://github.com/SolidBench/sparql-query-parameter-instantiator.js)
