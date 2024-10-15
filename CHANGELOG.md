@@ -1,6 +1,18 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v2.0.0"></a>
+## [v2.0.0](https://github.com/SolidBench/SolidBench.js/compare/v1.7.1...v2.0.0) - 2024-10-15
+
+### BREAKING CHANGES
+* [Update @solid/community-server to v7 and fix its usage and tests](https://github.com/SolidBench/SolidBench.js/commit/8f602114062f0b260988ae682924b24c2b2e9d4f)
+* [Combine primary and auxiliary fragmentation steps](https://github.com/SolidBench/SolidBench.js/commit/9a1fd817b0b595f2e5e967af4cc02e942cf8c603)
+
+### Changes
+* [Bump to rdf-dataset-fragmenter 2.8](https://github.com/SolidBench/SolidBench.js/commit/f59c1eee25b4849a7525a5d403592c2d6e24daf5)
+* [Use es2021 as the target to match the lib](https://github.com/SolidBench/SolidBench.js/commit/dd70fdc15b024cfca8db8c4bf321f632f62f2b70)
+* [Relocate index.ts to lib/index.ts, update configs to match](https://github.com/SolidBench/SolidBench.js/commit/cad941712a1ecd7e884d97f1018beacc780ed51a)
+
 <a name="v1.7.1"></a>
 ## [v1.7.1](https://github.com/SolidBench/SolidBench.js/compare/v1.7.0...v1.7.1) - 2023-07-12
 
