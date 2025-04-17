@@ -39,7 +39,7 @@
     "build": "tsc",
     "test": "jest",
     "lint": "eslint .",
-    "prepare": "husky",
+    "prepare": "husky && yarn run build",
     "version": "manual-git-changelog onversion"
   },
   "dependencies": {
