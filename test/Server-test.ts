@@ -1,4 +1,3 @@
-import { join } from 'node:path';
 import { Server } from '../lib/Server';
 
 const run = jest.fn();
@@ -28,8 +27,6 @@ describe('Server', () => {
     expect(run).toHaveBeenCalledWith(
       {
         loaderProperties: {
-          mainModulePath: join(__dirname, '..'),
-          typeChecking: false,
           logLevel,
         },
         config: configPath,
@@ -52,8 +49,6 @@ describe('Server', () => {
     expect(run).toHaveBeenCalledWith(
       {
         loaderProperties: {
-          mainModulePath: join(__dirname, '..'),
-          typeChecking: false,
           logLevel,
         },
         config: configPath,
