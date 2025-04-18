@@ -1,6 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v2.1.0"></a>
+## [v2.1.0](https://github.com/SolidBench/SolidBench.js/compare/v2.0.0...v2.1.0) - 2025-04-18
+
+### Added
+* [Allow skipping validation generation when no URL or config is provided](https://github.com/SolidBench/SolidBench.js/commit/3949fa3ff58647dbb9391ac9369ecb8d60c170b1)
+
+### Changed
+* [Avoid overriding unnecessary CSS parameters](https://github.com/SolidBench/SolidBench.js/commit/054ab55c3d156fb8e0df28d532eb859edd835d10)
+* [Bump generation dependencies and unzipper](https://github.com/SolidBench/SolidBench.js/commit/0f9946f63cd5b04bfd394d79c5946eeec8c8de1e)
+
 <a name="v2.0.0"></a>
 ## [v2.0.0](https://github.com/SolidBench/SolidBench.js/compare/v1.7.1...v2.0.0) - 2024-10-15
 

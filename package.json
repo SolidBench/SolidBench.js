@@ -1,6 +1,6 @@
 {
   "name": "solidbench",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "packageManager": "yarn@1.22.22",
   "description": "A benchmark for Solid to simulate vaults with social network data.",
   "author": "Ruben Taelman <rubensworks@gmail.com>",
