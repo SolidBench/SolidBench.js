@@ -1,4 +1,3 @@
-import { join } from 'node:path';
 import { AppRunner, type LogLevel } from '@solid/community-server';
 
 /**
@@ -23,8 +22,6 @@ export class Server {
     return new AppRunner().run(
       {
         loaderProperties: {
-          mainModulePath: join(__dirname, '..'),
-          typeChecking: false,
           logLevel: <LogLevel> this.logLevel,
         },
         config: this.configPath,
