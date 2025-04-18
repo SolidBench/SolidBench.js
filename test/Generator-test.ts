@@ -353,5 +353,38 @@ describe('Generator', () => {
         expect(runValidationGenerator).not.toHaveBeenCalled();
       });
     });
+
+    describe('when validation parameters have not been provided', () => {
+      beforeEach(() => {
+        generator = new Generator({
+          cwd: 'CWD',
+          verbose: true,
+          overwrite: false,
+          scale: '0.1',
+          enhancementConfig: 'enhancementConfig',
+          fragmentConfig: 'fragmentConfig',
+          queryConfig: 'queryConfig',
+          // Omitted: validationParams
+          // Omitted: validationConfig
+          hadoopMemory: '4G',
+        });
+      });
+
+      it('should not download and generate validation data', async() => {
+        jest.spyOn(generator, 'generateSnbDataset').mockImplementation();
+        jest.spyOn(generator, 'enhanceSnbDataset').mockImplementation();
+        jest.spyOn(generator, 'fragmentSnbDataset').mockImplementation();
+        jest.spyOn(generator, 'instantiateQueries').mockImplementation();
+        jest.spyOn(generator, 'downloadValidationParams').mockImplementation();
+        jest.spyOn(generator, 'generateValidation').mockImplementation();
+        await expect(generator.generate()).resolves.toBeUndefined();
+        expect(generator.generateSnbDataset).toHaveBeenCalledTimes(1);
+        expect(generator.enhanceSnbDataset).toHaveBeenCalledTimes(1);
+        expect(generator.fragmentSnbDataset).toHaveBeenCalledTimes(1);
+        expect(generator.instantiateQueries).toHaveBeenCalledTimes(1);
+        expect(generator.downloadValidationParams).not.toHaveBeenCalled();
+        expect(generator.generateValidation).not.toHaveBeenCalled();
+      });
+    });
   });
 });
