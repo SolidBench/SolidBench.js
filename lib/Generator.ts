@@ -29,8 +29,8 @@ export class Generator {
   private readonly enhancementConfig: string;
   private readonly fragmentConfig: string;
   private readonly queryConfig: string;
-  private readonly validationParams: string;
-  private readonly validationConfig: string;
+  private readonly validationParams: string | undefined;
+  private readonly validationConfig: string | undefined;
   private readonly hadoopMemory: string;
   private readonly mainModulePath: string;
 
@@ -82,8 +82,10 @@ export class Generator {
     await this.runPhase('SNB dataset enhancer', 'out-enhanced', () => this.enhanceSnbDataset());
     await this.runPhase('SNB dataset fragmenter', 'out-fragments', () => this.fragmentSnbDataset());
     await this.runPhase('SPARQL query instantiator', 'out-queries', () => this.instantiateQueries());
-    await this.runPhase('SNB validation downloader', 'out-validate-params', () => this.downloadValidationParams());
-    await this.runPhase('SNB validation generator', 'out-validate', () => this.generateValidation());
+    if (this.validationParams && this.validationConfig) {
+      await this.runPhase('SNB validation downloader', 'out-validate-params', () => this.downloadValidationParams());
+      await this.runPhase('SNB validation generator', 'out-validate', () => this.generateValidation());
+    }
     const timeEnd = process.hrtime(timeStart);
     this.log('All', `Done in ${timeEnd[0] + (timeEnd[1] / 1_000_000_000)} seconds`);
   }
@@ -210,7 +212,7 @@ export class Generator {
 
     // Download and extract zip file
     return new Promise((resolve, reject) => {
-      request(this.validationParams, (res) => {
+      request(this.validationParams!, (res) => {
         res
           .on('error', reject)
           .pipe(Extract({ path: target }))
@@ -230,7 +232,7 @@ export class Generator {
     // Run generator
     const oldCwd = process.cwd();
     process.chdir(this.cwd);
-    await runValidationGenerator(this.validationConfig, { mainModulePath: this.mainModulePath }, {
+    await runValidationGenerator(this.validationConfig!, { mainModulePath: this.mainModulePath }, {
       variables: await this.generateVariables(),
     });
     process.chdir(oldCwd);
@@ -259,7 +261,7 @@ export interface IGeneratorOptions {
   enhancementConfig: string;
   fragmentConfig: string;
   queryConfig: string;
-  validationParams: string;
-  validationConfig: string;
+  validationParams?: string;
+  validationConfig?: string;
   hadoopMemory: string;
 }
