@@ -1,0 +1,10 @@
+[
+
+  {
+    "type": "SUB",
+    "operation": "removal",
+    "description": "Substitute the person parameter in query",
+    "location": 0,
+    "target": []
+  }
+]

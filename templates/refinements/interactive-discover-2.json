@@ -1,0 +1,205 @@
+[
+  {
+    "type": "OPTIONAL",
+    "operation": "addition",
+    "description": "Optionally retrieve the comments on the Post and their creation date",
+    "target": [
+      {
+        "subject": "?message",
+        "predicate": "snvoc:hasComment",
+        "object": "?comment"
+      },
+      {
+        "subject": "?comment",
+        "predicate": "snvoc:creationDate",
+        "object": "?creationDate"
+      }
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "operation": "removal",
+    "description": "Remove optional retrieval of the comments on the Post",
+    "target": [
+      {
+        "subject": "?message",
+        "predicate": "snvoc:hasComment",
+        "object": "?comment"
+      },
+      {
+        "subject": "?comment",
+        "predicate": "snvoc:creationDate",
+        "object": "?creationDate"
+      }
+    ]
+  },
+  {
+    "type": "UNION",
+    "operation": "addition",
+    "description": "Add UNION block for people who like the messages",
+    "target": [
+      {
+        "subject": "?liker",
+        "predicate": "snvoc:likes",
+        "object": "?message"
+      }
+    ]
+  },
+  {
+    "type": "UNION",
+    "operation": "removal",
+    "description": "Remove UNION block for people who like the messages",
+    "target": [
+      {
+        "subject": "?liker",
+        "predicate": "snvoc:likes",
+        "object": "?message"
+      }
+    ]
+  },
+  {
+    "type": "UNION",
+    "operation": "removal",
+    "description": "Remove a random triple (with two variables) from the UNION block",
+    "target": []
+  },
+  {
+    "type": "BGP",
+    "operation": "addition",
+    "description": "Add triple to obtain the browser used to post the message",
+    "location": 0,
+    "target": [
+      {
+        "subject": "?message",
+        "predicate": "snvoc:browserUsed",
+        "object": "?browser"
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "operation": "addition",
+    "description": "Add triple for the vocabulary of the person",
+    "location": 0,
+    "target": [
+      {
+        "subject": "?person",
+        "predicate": "snvoc:speaks",
+        "object": "?language"
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "operation": "removal",
+    "description": "Remove triple for the creationDate of the message",
+    "target": [
+      {
+        "subject": "?message",
+        "predicate": "snvoc:creationDate",
+        "object": "?messageCreationDate"
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "operation": "removal",
+    "description": "Remove triple for id of the message",
+    "target": [
+      {
+        "subject": "?message",
+        "predicate": "snvoc:id",
+        "object": "?messageId"
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "operation": "removal",
+    "description": "Remove a random triple (with two variables) from the query",
+    "target": []
+  },
+  {
+    "type": "BGP",
+    "operation": "addition",
+    "description": "Add back any removed triple in the query",
+    "location": 0,
+    "target": []
+  },
+  {
+    "type": "FILTER",
+    "operation": "addition",
+    "description": "Only select messages posted earlier than 2011-10--16",
+    "location": 0,
+    "target":  
+        [
+            {
+                "type": "operation",
+                "operator": "<",
+                "args": [
+                    "?creationDate",
+                    "2011-10-16T11:09:08.955Z"
+                ]
+            }
+        ]
+  },
+  {
+    "type": "FILTER",
+    "operation": "addition",
+    "description": "Only select messages posted later than 2011-10--16",
+    "location": 0,
+    "target":  
+        [
+            {
+                "type": "operation",
+                "operator": ">",
+                "args": [
+                    "?creationDate",
+                    "2011-10-16T11:09:08.955Z"
+                ]
+            }
+        ]
+  },
+  {
+    "type": "FILTER",
+    "operation": "removal",
+    "description": "Only select messages posted earlier than 2011-10--16",
+    "location": 0,
+    "target":  
+        [
+            {
+                "type": "operation",
+                "operator": "<",
+                "args": [
+                    "?creationDate",
+                    "2011-10-16T11:09:08.955Z"
+                ]
+            }
+        ]
+  },
+  {
+    "type": "FILTER",
+    "operation": "removal",
+    "description": "Only select messages posted later than 2011-10--16",
+    "location": 0,
+    "target":  
+        [
+            {
+                "type": "operation",
+                "operator": ">",
+                "args": [
+                    "?creationDate",
+                    "2011-10-16T11:09:08.955Z"
+                ]
+            }
+        ]
+  },
+  {
+    "type": "SUB",
+    "operation": "removal",
+    "description": "Substitute the person parameter in query",
+    "location": 0,
+    "target": []
+  }
+
+]

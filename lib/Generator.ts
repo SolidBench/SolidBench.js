@@ -239,8 +239,13 @@ export class Generator {
   }
 
   protected async generateVariables(): Promise<Record<string, string>> {
-    return Object.fromEntries((await readdir(join(__dirname, '../templates/queries/')))
-      .map(name => [ `urn:variables:query-templates:${name}`, join(__dirname, `../templates/queries/${name}`) ]));
+    const templateMappings = (await readdir(join(__dirname, '../templates/queries/')))
+      .map(name => [ `urn:variables:query-templates:${name}`, join(__dirname, `../templates/queries/${name}`) ]);
+    const refinementMappings = (await readdir(join(__dirname, '../templates/refinements/')))
+      .map(name => [ `urn:variables:query-refinements:${name}`, join(__dirname, `../templates/refinements/${name}`) ])
+    return Object.fromEntries([...templateMappings, ...refinementMappings]);
+    // return Object.fromEntries((await readdir(join(__dirname, '../templates/queries/')))
+    //   .map(name => [ `urn:variables:query-templates:${name}`, join(__dirname, `../templates/queries/${name}`) ]));
   }
 
   /**

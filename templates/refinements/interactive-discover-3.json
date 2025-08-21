@@ -1,0 +1,215 @@
+[
+  {
+    "type": "OPTIONAL",
+    "operation": "addition",
+    "description": "Add triple to obtain the things the person likes (chk 1, ckh 4)",
+    "location": 0,
+    "target": [
+      {
+        "subject": "?person",
+        "predicate": "snvoc:likes",
+        "object": "?likedMessage"
+      }
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "operation": "addition",
+    "description": "Add unselective triple (Chk 6)",
+    "location": 0,
+    "target": [
+      {
+        "subject": "?message",
+        "predicate": "snvoc:creationDate",
+        "object": "?date"
+      }
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "operation": "removal",
+    "description": "Remove triple to obtain the things the person likes (Reduces traversal complexity chk 2)",
+    "target": [
+      {
+        "subject": "?person",
+        "predicate": "snvoc:likes",
+        "object": "?likedMessage"
+      }
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "operation": "removal",
+    "description": "Remove unselective triple (Chk 6)",
+    "location": 0,
+    "target": [
+      {
+        "subject": "?message",
+        "predicate": "snvoc:creationDate",
+        "object": "?date"
+      }
+    ]
+  },
+
+  {
+    "type": "UNION",
+    "operation": "addition",
+    "description": "Add UNION block for ?message type is post",
+    "location": 0,
+    "target": [
+      {
+        "subject": "?message ",
+        "predicate": "rdf:type",
+        "object": "snvoc:Post"
+      }
+    ]
+  },
+  {
+    "type": "UNION",
+    "operation": "addition",
+    "description": "Add UNION block for ?message type is post",
+    "location": 1,
+    "target": [
+      {
+        "subject": "?message ",
+        "predicate": "rdf:type",
+        "object": "snvoc:Comment"
+      }
+    ]
+  },
+  {
+    "type": "UNION",
+    "operation": "removal",
+    "description": "Remove a random triple (with two variables) from the UNION block",
+    "target": []
+  },
+
+
+
+  {
+    "type": "BGP",
+    "operation": "addition",
+    "description": "Add triple to obtain the things the person likes (Adds traversal complexity chk 1)",
+    "location": 0,
+    "target": [
+      {
+        "subject": "?person",
+        "predicate": "snvoc:likes",
+        "object": "?likedMessage"
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "operation": "addition",
+    "description": "Add unselective triple (Chk 6)",
+    "location": 0,
+    "target": [
+      {
+        "subject": "?message",
+        "predicate": "snvoc:creationDate",
+        "object": "?date"
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "operation": "removal",
+    "description": "Remove triple to obtain the things the person likes (Reduces traversal complexity chk 2)",
+    "target": [
+      {
+        "subject": "?person",
+        "predicate": "snvoc:likes",
+        "object": "?likedMessage"
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "operation": "removal",
+    "description": "Remove unselective triple (Chk 6)",
+    "location": 0,
+    "target": [
+      {
+        "subject": "?message",
+        "predicate": "snvoc:creationDate",
+        "object": "?date"
+      }
+    ]
+  },
+  {
+    "type": "FILTER",
+    "operation": "addition",
+    "description": "Only select messages posted earlier than 2011-10--16 (ckp 3,4 depending on OPTIONAL / UNION Clauses)",
+    "location": 0,
+    "target":  
+        [
+            {
+                "type": "operation",
+                "operator": "<",
+                "args": [
+                    "?creationDate",
+                    "2011-10-16T11:09:08.955Z"
+                ]
+            }
+        ]
+  },
+  {
+    "type": "FILTER",
+    "operation": "addition",
+    "description": "Only select messages posted later than 2011-10-16 (ckp 3,4 depending on OPTIONAL / UNION Clauses)",
+    "location": 0,
+    "target":  
+        [
+            {
+                "type": "operation",
+                "operator": ">",
+                "args": [
+                    "?creationDate",
+                    "2011-10-16T11:09:08.955Z"
+                ]
+            }
+        ]
+  },
+  {
+    "type": "FILTER",
+    "operation": "removal",
+    "description": "Only select messages posted earlier than 2011-10--16",
+    "location": 0,
+    "target":  
+        [
+            {
+                "type": "operation",
+                "operator": "<",
+                "args": [
+                    "?creationDate",
+                    "2011-10-16T11:09:08.955Z"
+                ]
+            }
+        ]
+  },
+  {
+    "type": "FILTER",
+    "operation": "removal",
+    "description": "Only select messages posted later than 2011-10--16",
+    "location": 0,
+    "target":  
+        [
+            {
+                "type": "operation",
+                "operator": ">",
+                "args": [
+                    "?creationDate",
+                    "2011-10-16T11:09:08.955Z"
+                ]
+            }
+        ]
+  },
+  {
+    "type": "SUB",
+    "operation": "removal",
+    "description": "Substitute the person parameter in query",
+    "location": 0,
+    "target": []
+  }
+]

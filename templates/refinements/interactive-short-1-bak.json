@@ -1,0 +1,180 @@
+[
+  {
+    "type": "OPTIONAL",
+    "operation": "addition",
+    "description": "Optionally retrieve the email of the person",
+    "target": [
+      {
+        "subject": "?person",
+        "predicate": "snvoc:email",
+        "object": "?email"
+      }
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "operation": "addition",
+    "description": "Add OPTIONAL block for university affiliation",
+    "target": [
+      {
+        "subject": "?person",
+        "predicate": "snvoc:studyAt",
+        "object": "?studyNode"
+      },
+      {
+        "subject": "?studyNode",
+        "predicate": "snvoc:hasOrganisation",
+        "object": "?university"
+      }
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "operation": "removal",
+    "description": "Remove OPTIONAL block for university affiliation",
+    "target": [
+      {
+        "subject": "?person",
+        "predicate": "snvoc:studyAt",
+        "object": "?studyNode"
+      },
+      {
+        "subject": "?studyNode",
+        "predicate": "snvoc:hasOrganisation",
+        "object": "?university"
+      }
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "operation": "removal",
+    "description": "Remove OPTIONAL block for the email of the person",
+    "target": [
+      {
+        "subject": "?person",
+        "predicate": "snvoc:email",
+        "object": "?email"
+      }
+    ]
+  },
+  {
+    "type": "UNION",
+    "operation": "addition",
+    "description": "Add UNION block for people who are moderators",
+    "target": [
+      {
+        "subject": "?person",
+        "predicate": "snvoc:isModeratorOf",
+        "object": "?forum"
+      }
+    ]
+  },
+  {
+    "type": "UNION",
+    "operation": "addition",
+    "description": "Add UNION for posts authored by the person",
+    "target": [
+      {
+        "subject": "?post",
+        "predicate": "dc:creator",
+        "object": "?person"
+      }
+    ]
+  },
+  {
+    "type": "UNION",
+    "operation": "removal",
+    "description": "Remove UNION for posts authored by the person",
+    "target": [
+      {
+        "subject": "?post",
+        "predicate": "dc:creator",
+        "object": "?person"
+      }
+    ]
+  },
+  {
+    "type": "UNION",
+    "operation": "removal",
+    "description": "Add UNION for posts authored by the person",
+    "target": [
+      {
+        "subject": "?person",
+        "predicate": "snvoc:isModeratorOf",
+        "object": "?forum"
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "operation": "addition",
+    "description": "Add triple for the person being a moderator of a forum",
+    "target": [
+      {
+        "subject": "?person",
+        "predicate": "snvoc:isModeratorOf",
+        "object": "?forum"
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "operation": "addition",
+    "description": "Add triple for the person being a moderator of a forum",
+    "target": [
+      {
+        "subject": "?person",
+        "predicate": "snvoc:isModeratorOf",
+        "object": "?forum"
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "operation": "addition",
+    "description": "Add triple for posts of a person",
+    "target": [
+      {
+        "subject": "?post",
+        "predicate": "dc:creator",
+        "object": "?person"
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "operation": "removal",
+    "description": "Remove triple for the person being a moderator of a forum",
+    "target": [
+      {
+        "subject": "?person",
+        "predicate": "snvoc:isModeratorOf",
+        "object": "?forum"
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "operation": "removal",
+    "description": "Remove triple for posts of a person",
+    "target": [
+      {
+        "subject": "?post",
+        "predicate": "dc:creator",
+        "object": "?person"
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "operation": "removal",
+    "description": "Remove a random triple (with two variables) from the query",
+    "target": []
+  },
+  {
+    "type": "BGP",
+    "operation": "addition",
+    "description": "Add back any removed triple in the query",
+    "target": []
+  }
+]

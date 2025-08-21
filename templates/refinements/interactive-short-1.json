@@ -1,0 +1,65 @@
+[
+  {
+    "type": "BGP",
+    "operation": "addition",
+    "description": "Add triple for the person being a moderator of a forum",
+    "location": 0,
+    "target": [
+      {
+        "subject": "?person",
+        "predicate": "snvoc:isModeratorOf",
+        "object": "?forum"
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "operation": "addition",
+    "description": "Add triple for posts of a person",
+    "location": 0,
+    "target": [
+      {
+        "subject": "?post",
+        "predicate": "dc:creator",
+        "object": "?person"
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "operation": "removal",
+    "description": "Remove triple for the person being a moderator of a forum",
+    "target": [
+      {
+        "subject": "?person",
+        "predicate": "snvoc:isModeratorOf",
+        "object": "?forum"
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "operation": "removal",
+    "description": "Remove triple for posts of a person",
+    "target": [
+      {
+        "subject": "?post",
+        "predicate": "dc:creator",
+        "object": "?person"
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "operation": "removal",
+    "description": "Remove a random triple (with two variables) from the query",
+    "target": []
+  },
+  {
+    "type": "BGP",
+    "operation": "addition",
+    "description": "Add back any removed triple in the query",
+    "location": 0,
+    "target": []
+  }
+]
