@@ -2,80 +2,41 @@
   {
     "type": "OPTIONAL",
     "operation": "addition",
-    "description": "Optionally retrieve the email of the person who made the posts",
+    "description": "Optionally retrieve the interests of the person and its name (P.4, T.1, T.3)",
     "target": [
       {
         "subject": "?person",
-        "predicate": "snvoc:email",
-        "object": "?email"
-      }
-    ]
-  },
-  {
-    "type": "OPTIONAL",
-    "operation": "addition",
-    "description": "Optionally retrieve the comments on the Post",
-    "target": [
+        "predicate": "snvoc:hasInterest",
+        "object": "?interest"
+      },
       {
-        "subject": "?message",
-        "predicate": "snvoc:hasComment",
-        "object": "?comment"
+        "subject": "?interest",
+        "predicate": "foaf:name",
+        "object": "?interestName"
       }
     ]
   },
   {
     "type": "OPTIONAL",
     "operation": "removal",
-    "description": "Remove optional retrieval of the comments on the Post",
-    "target": [
-      {
-        "subject": "?message",
-        "predicate": "snvoc:hasComment",
-        "object": "?comment"
-      }
-    ]
-  },
-  {
-    "type": "OPTIONAL",
-    "operation": "removal",
-    "description": "Remove OPTIONAL block for the email of the person",
+    "description": "Remove optional retrieving the interests of the person and its name (P.4, T.1, T.3)",
     "target": [
       {
         "subject": "?person",
-        "predicate": "snvoc:email",
-        "object": "?email"
-      }
-    ]
-  },
-
-  {
-    "type": "UNION",
-    "operation": "addition",
-    "description": "Add UNION block for people who like the messages",
-    "target": [
+        "predicate": "snvoc:hasInterest",
+        "object": "?interest"
+      },
       {
-        "subject": "?liker",
-        "predicate": "snvoc:likes",
-        "object": "?message"
+        "subject": "?interest",
+        "predicate": "foaf:name",
+        "object": "?interestName"
       }
     ]
-  },
-  {
-    "type": "UNION",
-    "operation": "removal",
-    "description": "Remove UNION block for people who like the messages",
-    "target": [
-      {
-        "subject": "?liker",
-        "predicate": "snvoc:likes",
-        "object": "?message"
-      }
-    ]
-  },
+  },  
   {
     "type": "BGP",
     "operation": "addition",
-    "description": "Add triple to obtain the browser used to post the message",
+    "description": "Add triple to obtain the browser used to post the message (P.3)",
     "location": 0,
     "target": [
       {
@@ -87,21 +48,8 @@
   },
   {
     "type": "BGP",
-    "operation": "addition",
-    "description": "Add triple for the vocabulary of the person",
-    "location": 0,
-    "target": [
-      {
-        "subject": "?person",
-        "predicate": "snvoc:speaks",
-        "object": "?language"
-      }
-    ]
-  },
-  {
-    "type": "BGP",
     "operation": "removal",
-    "description": "Remove triple for the creationDate of the message",
+    "description": "Remove triple for the creationDate of the message (P.3)",
     "target": [
       {
         "subject": "?message",
@@ -113,32 +61,20 @@
   {
     "type": "BGP",
     "operation": "removal",
-    "description": "Remove triple for id of the message",
+    "description": "Remove triple to obtain the browser used to post the message (P.3)",
+    "location": 0,
     "target": [
       {
         "subject": "?message",
-        "predicate": "snvoc:id",
-        "object": "?messageId"
+        "predicate": "snvoc:browserUsed",
+        "object": "?browser"
       }
     ]
   },
   {
-    "type": "BGP",
-    "operation": "removal",
-    "description": "Remove a random triple (with two variables) from the query",
-    "target": []
-  },
-  {
-    "type": "BGP",
-    "operation": "addition",
-    "description": "Add back any removed triple in the query",
-    "location": 0,
-    "target": []
-  },
-  {
     "type": "FILTER",
     "operation": "addition",
-    "description": "Only select messages posted earlier than 2011-10--16",
+    "description": "Only select messages posted earlier than 2011-10--16 (P.1)",
     "location": 0,
     "target":  
         [
@@ -146,24 +82,7 @@
                 "type": "operation",
                 "operator": "<",
                 "args": [
-                    "?creationDate",
-                    "2011-10-16T11:09:08.955Z"
-                ]
-            }
-        ]
-  },
-  {
-    "type": "FILTER",
-    "operation": "addition",
-    "description": "Only select messages posted later than 2011-10--16",
-    "location": 0,
-    "target":  
-        [
-            {
-                "type": "operation",
-                "operator": ">",
-                "args": [
-                    "?creationDate",
+                    "?messageCreationDate",
                     "2011-10-16T11:09:08.955Z"
                 ]
             }
@@ -172,7 +91,7 @@
   {
     "type": "FILTER",
     "operation": "removal",
-    "description": "Only select messages posted earlier than 2011-10--16",
+    "description": "Only select messages posted earlier than 2011-10--16 (P.1)",
     "location": 0,
     "target":  
         [
@@ -180,24 +99,7 @@
                 "type": "operation",
                 "operator": "<",
                 "args": [
-                    "?creationDate",
-                    "2011-10-16T11:09:08.955Z"
-                ]
-            }
-        ]
-  },
-  {
-    "type": "FILTER",
-    "operation": "removal",
-    "description": "Only select messages posted later than 2011-10--16",
-    "location": 0,
-    "target":  
-        [
-            {
-                "type": "operation",
-                "operator": ">",
-                "args": [
-                    "?creationDate",
+                    "?messageCreationDate",
                     "2011-10-16T11:09:08.955Z"
                 ]
             }
@@ -206,7 +108,7 @@
   {
     "type": "SUB",
     "operation": "removal",
-    "description": "Substitute the person parameter in query",
+    "description": "Substitute the person parameter in query (T.2)",
     "location": 0,
     "target": []
   }

@@ -2,7 +2,7 @@
   {
     "type": "OPTIONAL",
     "operation": "addition",
-    "description": "Optionally retrieve the comments on the Post and their creation date",
+    "description": "Optionally retrieve the comments on the Post and their creation date (P.2, P.4, T.1, T.3)",
     "target": [
       {
         "subject": "?message",
@@ -12,14 +12,14 @@
       {
         "subject": "?comment",
         "predicate": "snvoc:creationDate",
-        "object": "?creationDate"
+        "object": "?commentCreationDate"
       }
     ]
   },
   {
     "type": "OPTIONAL",
     "operation": "removal",
-    "description": "Remove optional retrieval of the comments on the Post",
+    "description": "Remove optional retrieval of the comments on the Post and their creation date (P.2, P.4, T.1, T.3)",
     "target": [
       {
         "subject": "?message",
@@ -29,44 +29,39 @@
       {
         "subject": "?comment",
         "predicate": "snvoc:creationDate",
-        "object": "?creationDate"
+        "object": "?commentCreationDate"
+      }
+    ]
+  },
+  {
+    "type": "UNION",
+    "operation": "removal",
+    "description": "Remove post from union (P.3, T.1, T.4)",
+    "target": [
+      {
+        "subject": "?message",
+        "predicate": "rdf:type ",
+        "object": "snvoc:Post"
       }
     ]
   },
   {
     "type": "UNION",
     "operation": "addition",
-    "description": "Add UNION block for people who like the messages",
+    "description": "Add union block for the location of a Comment",
+    "location": 1,
     "target": [
       {
-        "subject": "?liker",
-        "predicate": "snvoc:likes",
-        "object": "?message"
+        "subject": "?message",
+        "predicate": "snvoc:isLocatedIn",
+        "object": "?location"
       }
     ]
-  },
-  {
-    "type": "UNION",
-    "operation": "removal",
-    "description": "Remove UNION block for people who like the messages",
-    "target": [
-      {
-        "subject": "?liker",
-        "predicate": "snvoc:likes",
-        "object": "?message"
-      }
-    ]
-  },
-  {
-    "type": "UNION",
-    "operation": "removal",
-    "description": "Remove a random triple (with two variables) from the UNION block",
-    "target": []
   },
   {
     "type": "BGP",
     "operation": "addition",
-    "description": "Add triple to obtain the browser used to post the message",
+    "description": "Add triple to obtain the browser used to post the message (P.4)",
     "location": 0,
     "target": [
       {
@@ -79,57 +74,20 @@
   {
     "type": "BGP",
     "operation": "addition",
-    "description": "Add triple for the vocabulary of the person",
+    "description": "Remove triple to obtain the browser used to post the message (P.4)",
     "location": 0,
     "target": [
       {
-        "subject": "?person",
-        "predicate": "snvoc:speaks",
-        "object": "?language"
-      }
-    ]
-  },
-  {
-    "type": "BGP",
-    "operation": "removal",
-    "description": "Remove triple for the creationDate of the message",
-    "target": [
-      {
         "subject": "?message",
-        "predicate": "snvoc:creationDate",
-        "object": "?messageCreationDate"
+        "predicate": "snvoc:browserUsed",
+        "object": "?browser"
       }
     ]
-  },
-  {
-    "type": "BGP",
-    "operation": "removal",
-    "description": "Remove triple for id of the message",
-    "target": [
-      {
-        "subject": "?message",
-        "predicate": "snvoc:id",
-        "object": "?messageId"
-      }
-    ]
-  },
-  {
-    "type": "BGP",
-    "operation": "removal",
-    "description": "Remove a random triple (with two variables) from the query",
-    "target": []
-  },
-  {
-    "type": "BGP",
-    "operation": "addition",
-    "description": "Add back any removed triple in the query",
-    "location": 0,
-    "target": []
   },
   {
     "type": "FILTER",
     "operation": "addition",
-    "description": "Only select messages posted earlier than 2011-10--16",
+    "description": "Only select messages posted earlier than 2011-10--16 (P.1)",
     "location": 0,
     "target":  
         [
@@ -137,7 +95,24 @@
                 "type": "operation",
                 "operator": "<",
                 "args": [
-                    "?creationDate",
+                    "?messageCreationDate",
+                    "2011-10-16T11:09:08.955Z"
+                ]
+            }
+        ]
+  },
+  {
+    "type": "FILTER",
+    "operation": "removal",
+    "description": "Only select messages posted earlier than 2011-10--16 (P.1)",
+    "location": 0,
+    "target":  
+        [
+            {
+                "type": "operation",
+                "operator": "<",
+                "args": [
+                    "?messageCreationDate",
                     "2011-10-16T11:09:08.955Z"
                 ]
             }
@@ -146,24 +121,7 @@
   {
     "type": "FILTER",
     "operation": "addition",
-    "description": "Only select messages posted later than 2011-10--16",
-    "location": 0,
-    "target":  
-        [
-            {
-                "type": "operation",
-                "operator": ">",
-                "args": [
-                    "?creationDate",
-                    "2011-10-16T11:09:08.955Z"
-                ]
-            }
-        ]
-  },
-  {
-    "type": "FILTER",
-    "operation": "removal",
-    "description": "Only select messages posted earlier than 2011-10--16",
+    "description": "Only select comments posted earlier than 2011-10--16 (P.1) that respond to message of person (P.2)",
     "location": 0,
     "target":  
         [
@@ -171,7 +129,7 @@
                 "type": "operation",
                 "operator": "<",
                 "args": [
-                    "?creationDate",
+                    "?commentCreationDate",
                     "2011-10-16T11:09:08.955Z"
                 ]
             }
@@ -180,15 +138,15 @@
   {
     "type": "FILTER",
     "operation": "removal",
-    "description": "Only select messages posted later than 2011-10--16",
+    "description": "Only select comments posted earlier than 2011-10--16 (P.1) that respond to message of person (P.2)",
     "location": 0,
     "target":  
         [
             {
                 "type": "operation",
-                "operator": ">",
+                "operator": "<",
                 "args": [
-                    "?creationDate",
+                    "?commentCreationDate",
                     "2011-10-16T11:09:08.955Z"
                 ]
             }
