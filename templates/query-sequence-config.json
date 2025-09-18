@@ -28,11 +28,11 @@
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-discover-1",
       "queryTask": "Messages Person",
-      "nextTemplateFilePath": [        
+      "nextTemplateFilePath": [
         "interactive-discover-4",
         "interactive-discover-3",
         "interactive-discover-2"
-    ],
+      ],
       "templateFilePath": {
         "@id": "urn:variables:query-templates:interactive-discover-1.sparql",
         "@type": "Variable"
@@ -53,8 +53,8 @@
               "file": "out-fragments/transformed-activities.csv"
             }
           ],
-          "substitutionProvider": { 
-            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability" ,
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability",
             "@type": "SubstitutionProviderCsvSimilarityBasedProbability",
             "csvFilePath": "out-fragments/parameters-persons.csv",
             "csvFilePathSimilarities": "out-enhanced/parameters-similarities-people.csv",
@@ -69,7 +69,7 @@
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-discover-2",
       "queryTask": "Messages Person",
-      "nextTemplateFilePath": [        
+      "nextTemplateFilePath": [
         "interactive-discover-4",
         "interactive-discover-3",
         "interactive-discover-1"
@@ -93,7 +93,7 @@
               "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
             }
           ],
-          "substitutionProvider": { 
+          "substitutionProvider": {
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability"
           }
         }
@@ -128,7 +128,7 @@
               "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
             }
           ],
-          "substitutionProvider": { 
+          "substitutionProvider": {
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability"
           }
         }
@@ -163,7 +163,7 @@
               "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
             }
           ],
-          "substitutionProvider": { 
+          "substitutionProvider": {
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability"
           }
         },
