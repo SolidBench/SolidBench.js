@@ -1,0 +1,39 @@
+{
+  "@context": "https://linkedsoftwaredependencies.org/bundles/npm/ldbc-snb-enhancer/^2.0.0/components/context.jsonld",
+  "@id": "urn:ldbc-snb-enhancer:default",
+  "@type": "EnhancerSimilarity",
+  "personsPath": "out-snb/social_network/social_network_person_0_0.ttl",
+  "activitiesPath": "out-snb/social_network/social_network_activity_0_0.ttl",
+  "destinationPathData": "out-enhanced/social_network_auxiliary.ttl",
+  "logger": {
+    "@type": "LoggerStdout"
+  },
+  "dataSelector": {
+    "@type": "DataSelectorRandom",
+    "seed": 12345
+  },
+  "personTransformer":{
+      "@type": "TransformerReplaceIri",
+      "searchRegex": "^http://www.ldbc.eu/ldbc_socialnet/1.0/data/pers([0-9]*)$",
+      "replacementString": "http://solidbench-server:3000/pods/$1/profile/card#me"
+  },
+  "parameterEmitterPosts": {
+    "@type": "ParameterEmitterCsv",
+    "destinationPath": "out-enhanced/parameters-posts.csv"
+  },
+  "parameterEmitterSimilaritiesPeople": {
+    "@type": "ParameterEmitterCsv",
+    "destinationPath": "out-enhanced/parameters-similarities-people.csv",
+    "separator": ";"
+  },
+  "parameterEmitterSimilaritiesPosts": {
+    "@type": "ParameterEmitterCsv",
+    "destinationPath": "out-enhanced/parameters-similarities-posts.csv",
+    "separator": ";"
+  },
+  "parameterEmitterSimilaritiesComments": {
+    "@type": "ParameterEmitterCsv",
+    "destinationPath": "out-enhanced/parameters-similarities-comments.csv",
+    "separator": ";"
+  }
+}

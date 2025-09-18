@@ -1,0 +1,183 @@
+{
+  "@context": "https://linkedsoftwaredependencies.org/bundles/npm/sparql-query-parameter-instantiator/^2.0.0/components/context.jsonld",
+  "@id": "urn:sparql-query-parameter-instantiator:default",
+  "@type": "QuerySequenceInstantiator",
+  "baseUrl": "http://solidbench-server:3000/",
+  "count": 5,
+  "seed": 0,
+  "meanLogSequenceLength": 3,
+  "stdLogSequenceLength": 0.2,
+  "meanLogTransitionProbability": -2,
+  "stdLogTransitionProbability": 0.25,
+  "meanLogSessionLength": 1.7,
+  "stdLogSessionLength": 0.5,
+  "temperature": 0.1,
+  "destinationFilePath": "out-queries/",
+  "personProvider": {
+    "@type": "VariableTemplateNamedNode",
+    "name": "person",
+    "substitutionProvider": {
+      "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonT",
+      "@type": "SubstitutionProviderCsv",
+      "csvFilePath": "out-fragments/parameters-persons.csv",
+      "columnName": "subject"
+    }
+  },
+  "providers": [
+    {
+      "@type": "QuerySequenceTemplateProvider",
+      "name": "interactive-discover-1",
+      "queryTask": "Messages Person",
+      "nextTemplateFilePath": [        
+        "interactive-discover-4",
+        "interactive-discover-3",
+        "interactive-discover-2"
+    ],
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-discover-1.sparql",
+        "@type": "Variable"
+      },
+      "destinationFilePath": "out-queries/interactive-discover-1.sparql",
+      "refinementPatternsFilePath": {
+        "@id": "urn:variables:query-refinements:interactive-discover-1.json",
+        "@type": "Variable"
+      },
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "person",
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities",
+              "@type": "ValueTransformerCsvMap",
+              "file": "out-fragments/transformed-activities.csv"
+            }
+          ],
+          "substitutionProvider": { 
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability" ,
+            "@type": "SubstitutionProviderCsvSimilarityBasedProbability",
+            "csvFilePath": "out-fragments/parameters-persons.csv",
+            "csvFilePathSimilarities": "out-enhanced/parameters-similarities-people.csv",
+            "columnName": "subject",
+            "columnNameSimilaritySubject": "person",
+            "separator": ";"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "QuerySequenceTemplateProvider",
+      "name": "interactive-discover-2",
+      "queryTask": "Messages Person",
+      "nextTemplateFilePath": [        
+        "interactive-discover-4",
+        "interactive-discover-3",
+        "interactive-discover-1"
+      ],
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-discover-2.sparql",
+        "@type": "Variable"
+      },
+      "destinationFilePath": "out-queries/interactive-discover-2.sparql",
+      "refinementPatternsFilePath": {
+        "@id": "urn:variables:query-refinements:interactive-discover-2.json",
+        "@type": "Variable"
+      },
+
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "person",
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
+            }
+          ],
+          "substitutionProvider": { 
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "QuerySequenceTemplateProvider",
+      "name": "interactive-discover-3",
+      "queryTask": "Messages Person",
+      "nextTemplateFilePath": [
+        "interactive-discover-4",
+        "interactive-discover-1",
+        "interactive-discover-2"
+
+      ],
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-discover-3.sparql",
+        "@type": "Variable"
+      },
+      "destinationFilePath": "out-queries/interactive-discover-3.sparql",
+      "refinementPatternsFilePath": {
+        "@id": "urn:variables:query-refinements:interactive-discover-3.json",
+        "@type": "Variable"
+      },
+
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "person",
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
+            }
+          ],
+          "substitutionProvider": { 
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "QuerySequenceTemplateProvider",
+      "name": "interactive-discover-4",
+      "queryTask": "Messages Person",
+      "nextTemplateFilePath": [
+        "interactive-discover-1",
+        "interactive-discover-3",
+        "interactive-discover-2"
+
+      ],
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-discover-4.sparql",
+        "@type": "Variable"
+      },
+      "destinationFilePath": "out-queries/interactive-discover-4.sparql",
+      "refinementPatternsFilePath": {
+        "@id": "urn:variables:query-refinements:interactive-discover-4.json",
+        "@type": "Variable"
+      },
+
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "person",
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
+            }
+          ],
+          "substitutionProvider": { 
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability"
+          }
+        },
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "locationParam",
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderLocation",
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-fragments/parameters-locations.csv",
+            "columnName": "object"
+          }
+        }
+      ]
+    }
+  ]
+}

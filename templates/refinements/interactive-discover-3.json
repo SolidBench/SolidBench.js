@@ -1,212 +1,251 @@
 [
   {
     "type": "OPTIONAL",
+    "id": 0,
     "operation": "addition",
     "description": "Add triple to obtain the things the person likes (chk 1, ckh 4)",
     "location": 0,
     "target": [
       {
-        "subject": "?person",
-        "predicate": "snvoc:likes",
-        "object": "?likedMessage"
+        "subject": { "value": "person", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/likes", "termType": "namedNode" },
+        "object": { "value": "likedMessage", "termType": "variable" }
       }
     ]
   },
   {
     "type": "OPTIONAL",
+    "id": 1,
     "operation": "addition",
     "description": "Add unselective triple (Chk 6)",
     "location": 0,
     "target": [
       {
-        "subject": "?message",
-        "predicate": "snvoc:creationDate",
-        "object": "?date"
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/creationDate", "termType": "namedNode" },
+        "object": { "value": "creationDate", "termType": "variable" }
       }
     ]
   },
   {
     "type": "OPTIONAL",
+    "id": 2,
     "operation": "removal",
     "description": "Remove triple to obtain the things the person likes (Reduces traversal complexity chk 2)",
+    "location": 0,
     "target": [
       {
-        "subject": "?person",
-        "predicate": "snvoc:likes",
-        "object": "?likedMessage"
+        "subject": { "value": "person", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/likes", "termType": "namedNode" },
+        "object": { "value": "likedMessage", "termType": "variable" }
       }
     ]
   },
   {
     "type": "OPTIONAL",
+    "id": 3,
     "operation": "removal",
     "description": "Remove unselective triple (Chk 6)",
     "location": 0,
     "target": [
       {
-        "subject": "?message",
-        "predicate": "snvoc:creationDate",
-        "object": "?date"
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/creationDate", "termType": "namedNode" },
+        "object": { "value": "creationDate", "termType": "variable" }
       }
     ]
   },
-
   {
     "type": "UNION",
+    "id": 4,
     "operation": "addition",
     "description": "Add UNION block for ?message type is post",
     "location": 0,
     "target": [
       {
-        "subject": "?message ",
-        "predicate": "rdf:type",
-        "object": "snvoc:Post"
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+        "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Post", "termType": "namedNode" }
       }
     ]
   },
   {
     "type": "UNION",
+    "id": 5,
     "operation": "addition",
-    "description": "Add UNION block for ?message type is post",
+    "description": "Add UNION block for ?message type is comment",
     "location": 1,
     "target": [
       {
-        "subject": "?message ",
-        "predicate": "rdf:type",
-        "object": "snvoc:Comment"
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+        "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Comment", "termType": "namedNode" }
       }
     ]
   },
   {
     "type": "UNION",
+    "id": 6,
     "operation": "removal",
     "description": "Remove a random triple (with two variables) from the UNION block",
+    "location": 0,
     "target": []
   },
-
-
-
   {
     "type": "BGP",
+    "id": 7,
     "operation": "addition",
     "description": "Add triple to obtain the things the person likes (Adds traversal complexity chk 1)",
     "location": 0,
     "target": [
       {
-        "subject": "?person",
-        "predicate": "snvoc:likes",
-        "object": "?likedMessage"
+        "subject": { "value": "person", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/likes", "termType": "namedNode" },
+        "object": { "value": "likedMessage", "termType": "variable" }
       }
     ]
   },
   {
     "type": "BGP",
+    "id": 8,
     "operation": "addition",
     "description": "Add unselective triple (Chk 6)",
     "location": 0,
     "target": [
       {
-        "subject": "?message",
-        "predicate": "snvoc:creationDate",
-        "object": "?date"
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/creationDate", "termType": "namedNode" },
+        "object": { "value": "date", "termType": "variable" }
       }
     ]
   },
   {
     "type": "BGP",
+    "id": 9,
     "operation": "removal",
     "description": "Remove triple to obtain the things the person likes (Reduces traversal complexity chk 2)",
+    "location": 0,
     "target": [
       {
-        "subject": "?person",
-        "predicate": "snvoc:likes",
-        "object": "?likedMessage"
+        "subject": { "value": "person", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/likes", "termType": "namedNode" },
+        "object": { "value": "likedMessage", "termType": "variable" }
       }
     ]
   },
   {
     "type": "BGP",
+    "id": 10,
     "operation": "removal",
     "description": "Remove unselective triple (Chk 6)",
     "location": 0,
     "target": [
       {
-        "subject": "?message",
-        "predicate": "snvoc:creationDate",
-        "object": "?date"
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/creationDate", "termType": "namedNode" },
+        "object": { "value": "creationDate", "termType": "variable" }
       }
     ]
   },
   {
     "type": "FILTER",
+    "id": 11,
     "operation": "addition",
     "description": "Only select messages posted earlier than 2011-10--16 (ckp 3,4 depending on OPTIONAL / UNION Clauses)",
     "location": 0,
-    "target":  
-        [
-            {
-                "type": "operation",
-                "operator": "<",
-                "args": [
-                    "?creationDate",
-                    "2011-10-16T11:09:08.955Z"
-                ]
+    "target": [
+      {
+        "type": "operation",
+        "operator": "<",
+        "args": [
+          { "termType": "variable", "value": "creationDate" },
+          {
+            "termType": "literal",
+            "value": "2011-10-16T11:09:08.955Z",
+            "datatype": {
+              "termType": "namedNode",
+              "value": "http://www.w3.org/2001/XMLSchema#dateTime"
             }
+          }
         ]
+      }
+    ]
   },
   {
     "type": "FILTER",
+    "id": 12,
     "operation": "addition",
     "description": "Only select messages posted later than 2011-10-16 (ckp 3,4 depending on OPTIONAL / UNION Clauses)",
     "location": 0,
-    "target":  
-        [
-            {
-                "type": "operation",
-                "operator": ">",
-                "args": [
-                    "?creationDate",
-                    "2011-10-16T11:09:08.955Z"
-                ]
+    "target": [
+      {
+        "type": "operation",
+        "operator": ">",
+        "args": [
+          { "termType": "variable", "value": "creationDate" },
+          {
+            "termType": "literal",
+            "value": "2011-10-16T11:09:08.955Z",
+            "datatype": {
+              "termType": "namedNode",
+              "value": "http://www.w3.org/2001/XMLSchema#dateTime"
             }
+          }
         ]
+      }
+    ]
   },
   {
     "type": "FILTER",
+    "id": 13,
     "operation": "removal",
     "description": "Only select messages posted earlier than 2011-10--16",
     "location": 0,
-    "target":  
-        [
-            {
-                "type": "operation",
-                "operator": "<",
-                "args": [
-                    "?creationDate",
-                    "2011-10-16T11:09:08.955Z"
-                ]
+    "target": [
+      {
+        "type": "operation",
+        "operator": "<",
+        "args": [
+          { "termType": "variable", "value": "creationDate" },
+          {
+            "termType": "literal",
+            "value": "2011-10-16T11:09:08.955Z",
+            "datatype": {
+              "termType": "namedNode",
+              "value": "http://www.w3.org/2001/XMLSchema#dateTime"
             }
+          }
         ]
+      }
+    ]
   },
   {
     "type": "FILTER",
+    "id": 14,
     "operation": "removal",
     "description": "Only select messages posted later than 2011-10--16",
     "location": 0,
-    "target":  
-        [
-            {
-                "type": "operation",
-                "operator": ">",
-                "args": [
-                    "?creationDate",
-                    "2011-10-16T11:09:08.955Z"
-                ]
+    "target": [
+      {
+        "type": "operation",
+        "operator": ">",
+        "args": [
+          { "termType": "variable", "value": "creationDate" },
+          {
+            "termType": "literal",
+            "value": "2011-10-16T11:09:08.955Z",
+            "datatype": {
+              "termType": "namedNode",
+              "value": "http://www.w3.org/2001/XMLSchema#dateTime"
             }
+          }
         ]
+      }
+    ]
   },
   {
     "type": "SUB",
+    "id": 15,
     "operation": "removal",
     "description": "Substitute the person parameter in query",
     "location": 0,

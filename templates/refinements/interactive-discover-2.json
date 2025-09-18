@@ -1,163 +1,200 @@
 [
   {
     "type": "OPTIONAL",
+    "id": 0,
     "operation": "addition",
     "description": "Optionally retrieve the comments on the Post and their creation date (P.2, P.4, T.1, T.3)",
+    "location": 0,
     "target": [
       {
-        "subject": "?message",
-        "predicate": "snvoc:hasComment",
-        "object": "?comment"
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasComment", "termType": "namedNode" },
+        "object": { "value": "comment", "termType": "variable" }
       },
       {
-        "subject": "?comment",
-        "predicate": "snvoc:creationDate",
-        "object": "?commentCreationDate"
+        "subject": { "value": "comment", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/creationDate", "termType": "namedNode" },
+        "object": { "value": "commentCreationDate", "termType": "variable" }
       }
     ]
   },
   {
     "type": "OPTIONAL",
+    "id": 1,
     "operation": "removal",
     "description": "Remove optional retrieval of the comments on the Post and their creation date (P.2, P.4, T.1, T.3)",
+    "location": 0,
     "target": [
       {
-        "subject": "?message",
-        "predicate": "snvoc:hasComment",
-        "object": "?comment"
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasComment", "termType": "namedNode" },
+        "object": { "value": "comment", "termType": "variable" }
       },
       {
-        "subject": "?comment",
-        "predicate": "snvoc:creationDate",
-        "object": "?commentCreationDate"
+        "subject": { "value": "comment", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/creationDate", "termType": "namedNode" },
+        "object": { "value": "commentCreationDate", "termType": "variable" }
       }
     ]
   },
   {
     "type": "UNION",
+    "id": 2,
     "operation": "removal",
     "description": "Remove post from union (P.3, T.1, T.4)",
+    "location": 0,
     "target": [
       {
-        "subject": "?message",
-        "predicate": "rdf:type ",
-        "object": "snvoc:Post"
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+        "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Post", "termType": "namedNode" }
       }
     ]
   },
   {
     "type": "UNION",
+    "id": 3,
     "operation": "addition",
     "description": "Add union block for the location of a Comment",
     "location": 1,
     "target": [
       {
-        "subject": "?message",
-        "predicate": "snvoc:isLocatedIn",
-        "object": "?location"
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/isLocatedIn", "termType": "namedNode" },
+        "object": { "value": "location", "termType": "variable" }
       }
     ]
   },
   {
     "type": "BGP",
+    "id": 4,
     "operation": "addition",
     "description": "Add triple to obtain the browser used to post the message (P.4)",
     "location": 0,
     "target": [
       {
-        "subject": "?message",
-        "predicate": "snvoc:browserUsed",
-        "object": "?browser"
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/browserUsed", "termType": "namedNode" },
+        "object": { "value": "browser", "termType": "variable" }
       }
     ]
   },
   {
     "type": "BGP",
+    "id": 5,
     "operation": "addition",
     "description": "Remove triple to obtain the browser used to post the message (P.4)",
     "location": 0,
     "target": [
       {
-        "subject": "?message",
-        "predicate": "snvoc:browserUsed",
-        "object": "?browser"
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/browserUsed", "termType": "namedNode" },
+        "object": { "value": "browser", "termType": "variable" }
       }
     ]
   },
   {
     "type": "FILTER",
+    "id": 6,
     "operation": "addition",
     "description": "Only select messages posted earlier than 2011-10--16 (P.1)",
     "location": 0,
-    "target":  
-        [
-            {
-                "type": "operation",
-                "operator": "<",
-                "args": [
-                    "?messageCreationDate",
-                    "2011-10-16T11:09:08.955Z"
-                ]
+    "target": [
+      {
+        "type": "operation",
+        "operator": "<",
+        "args": [
+          { "termType": "variable", "value": "messageCreationDate" },
+          {
+            "termType": "literal",
+            "value": "2011-10-16T11:09:08.955Z",
+            "datatype": {
+              "termType": "namedNode",
+              "value": "http://www.w3.org/2001/XMLSchema#dateTime"
             }
+          }
         ]
+      }
+    ]
   },
   {
     "type": "FILTER",
+    "id": 7,
     "operation": "removal",
     "description": "Only select messages posted earlier than 2011-10--16 (P.1)",
     "location": 0,
-    "target":  
-        [
-            {
-                "type": "operation",
-                "operator": "<",
-                "args": [
-                    "?messageCreationDate",
-                    "2011-10-16T11:09:08.955Z"
-                ]
+    "target": [
+      {
+        "type": "operation",
+        "operator": "<",
+        "args": [
+          { "termType": "variable", "value": "messageCreationDate" },
+          {
+            "termType": "literal",
+            "value": "2011-10-16T11:09:08.955Z",
+            "datatype": {
+              "termType": "namedNode",
+              "value": "http://www.w3.org/2001/XMLSchema#dateTime"
             }
+          }
         ]
+      }
+    ]
   },
   {
     "type": "FILTER",
+    "id": 8,
     "operation": "addition",
     "description": "Only select comments posted earlier than 2011-10--16 (P.1) that respond to message of person (P.2)",
     "location": 0,
-    "target":  
-        [
-            {
-                "type": "operation",
-                "operator": "<",
-                "args": [
-                    "?commentCreationDate",
-                    "2011-10-16T11:09:08.955Z"
-                ]
+    "target": [
+      {
+        "type": "operation",
+        "operator": "<",
+        "args": [
+          { "termType": "variable", "value": "commentCreationDate" },
+          {
+            "termType": "literal",
+            "value": "2011-10-16T11:09:08.955Z",
+            "datatype": {
+              "termType": "namedNode",
+              "value": "http://www.w3.org/2001/XMLSchema#dateTime"
             }
+          }
         ]
+      }
+    ]
   },
   {
     "type": "FILTER",
+    "id": 9,
     "operation": "removal",
     "description": "Only select comments posted earlier than 2011-10--16 (P.1) that respond to message of person (P.2)",
     "location": 0,
-    "target":  
-        [
-            {
-                "type": "operation",
-                "operator": "<",
-                "args": [
-                    "?commentCreationDate",
-                    "2011-10-16T11:09:08.955Z"
-                ]
+    "target": [
+      {
+        "type": "operation",
+        "operator": "<",
+        "args": [
+          { "termType": "variable", "value": "commentCreationDate" },
+          {
+            "termType": "literal",
+            "value": "2011-10-16T11:09:08.955Z",
+            "datatype": {
+              "termType": "namedNode",
+              "value": "http://www.w3.org/2001/XMLSchema#dateTime"
             }
+          }
         ]
+      }
+    ]
   },
   {
     "type": "SUB",
+    "id": 10,
     "operation": "removal",
     "description": "Substitute the person parameter in query",
     "location": 0,
     "target": []
   }
-
 ]
