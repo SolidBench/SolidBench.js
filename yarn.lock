@@ -7000,10 +7000,8 @@ kuler@^2.0.0:
   resolved "https://registry.yarnpkg.com/kuler/-/kuler-2.0.0.tgz#e2c570a3800388fb44407e851531c1d670b061b3"
   integrity sha512-Xq9nH7KlWZmXAtodXDDRE7vs6DU1gTU8zYDHDiWLSip45Egwq3plLHzPn27NgvzL2r1LMPC1vdqh98sQxtqj4A==
 
-ldbc-snb-enhancer@^2.6.0:
+"ldbc-snb-enhancer@file:../ldbc-snb-enhancer-user-similarity":
   version "2.6.0"
-  resolved "https://registry.yarnpkg.com/ldbc-snb-enhancer/-/ldbc-snb-enhancer-2.6.0.tgz#f755c10b083aa11ecc60d3ef1e88d675d31e9d98"
-  integrity sha512-y2rdN2x79CSPKb+gpEMmR7UHUtcljnOC54IZWNzbAGRPAZ7zl+pIr53bDqyFsCwvqIqadmSp0aCDYTDUHWa5RQ==
   dependencies:
     "@rdfjs/types" "*"
     componentsjs "^6.0.0"
@@ -8541,6 +8539,11 @@ safe-stable-stringify@^2.3.1:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
+seedrandom@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/seedrandom/-/seedrandom-3.0.5.tgz#54edc85c95222525b0c7a6f6b3543d8e0b3aa0a7"
+  integrity sha512-8OwmbklUNzwezjGInmZ+2clQmExQPvomqjL7LFqOYqtmuxRgQYqOD3mHaU+MvZn5FLUeVxVfQjwLZW/n/JFuqg==
+
 "semver@2 || 3 || 4 || 5":
   version "5.7.2"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.2.tgz#48d55db737c3287cd4835e17fa13feace1c41ef8"
@@ -8673,6 +8676,17 @@ sparql-query-parameter-instantiator@^2.7.0:
     "@types/sparqljs" "*"
     componentsjs "^6.0.0"
     csv-parser "^3.0.0"
+    sparqljs "^3.7.0"
+
+"sparql-query-parameter-instantiator@file:../sparql-query-sequence-parameter-instantiator.js":
+  version "2.7.0"
+  dependencies:
+    "@rdfjs/types" "*"
+    "@types/sparqljs" "*"
+    componentsjs "^6.0.0"
+    csv-parser "^3.0.0"
+    lodash "^4.17.21"
+    seedrandom "^3.0.5"
     sparqljs "^3.7.0"
 
 sparqlalgebrajs@^4.0.0, sparqlalgebrajs@^4.2.0, sparqlalgebrajs@^4.3.0:

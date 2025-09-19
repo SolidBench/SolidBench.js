@@ -5,7 +5,7 @@ import { join } from 'node:path';
  */
 export const Templates = {
   ENHANCEMENT_CONFIG: join(__dirname, '../templates/enhancer-config-pod.json'),
-  ENHANCEMENT_SIMILARITIES_CONFIG: join(__dirname, '../template/enhancer-similarities-config-pod.json'),
+  ENHANCEMENT_SIMILARITIES_CONFIG: join(__dirname, '../templates/enhancer-similarities-config-pod.json'),
   FRAGMENT_CONFIG: join(__dirname, '../templates/fragmenter-config-pod.json'),
   QUERY_CONFIG: join(__dirname, '../templates/query-config.json'),
   QUERY_SEQUENCE_CONFIG: join(__dirname, '../templates/query-sequence-config.json'),

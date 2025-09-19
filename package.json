@@ -1,5 +1,5 @@
 {
-  "name": "solidbench",
+  "name": "@rubeneschauzier/solidbench",
   "version": "2.1.0",
   "packageManager": "yarn@1.22.22",
   "description": "A benchmark for Solid to simulate vaults with social network data.",
@@ -47,10 +47,10 @@
     "@types/dockerode": "^3.0.0",
     "@types/unzipper": "^0.10.0",
     "dockerode": "^4.0.0",
-    "ldbc-snb-enhancer": "^2.6.0",
+    "ldbc-snb-enhancer": "file:../ldbc-snb-enhancer-user-similarity",
     "ldbc-snb-validation-generator": "^1.2.0",
     "rdf-dataset-fragmenter": "^2.9.0",
-    "sparql-query-parameter-instantiator": "^2.7.0",
+    "sparql-query-parameter-instantiator": "file:../sparql-query-sequence-parameter-instantiator.js",
     "unzipper": "^0.12.0",
     "yargs": "^17.0.0"
   },
