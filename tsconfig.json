@@ -15,7 +15,8 @@
     "preserveConstEnums": true,
     "removeComments": false,
     "sourceMap": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
   "include": [
     "bin/**/*.ts",
