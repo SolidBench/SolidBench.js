@@ -48,7 +48,7 @@
     "@types/unzipper": "^0.10.0",
     "dockerode": "^4.0.0",
     "ldbc-snb-enhancer": "npm:@rubeneschauzier/ldbc-snb-enhancer@^2.6.0",
-    "ldbc-snb-validation-generator": "^1.2.0",
+    "ldbc-snb-validation-generator": "npm:@rubeneschauzier/ldbc-snb-validation-generator",
     "rdf-dataset-fragmenter": "npm:@rubeneschauzier/rdf-dataset-fragmenter@^2.9.1",
     "sparql-query-parameter-instantiator": "npm:@rubeneschauzier/sparql-query-parameter-instantiator@^2.7.0",
     "unzipper": "^0.12.0",
