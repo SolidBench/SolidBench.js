@@ -8163,16 +8163,16 @@ kuler@^2.0.0:
     rdf-terms "^2.0.0"
     relative-to-absolute-iri "^1.0.0"
 
-ldbc-snb-validation-generator@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/ldbc-snb-validation-generator/-/ldbc-snb-validation-generator-1.2.0.tgz#65ec91adc036a1cfc9eb0680b86df5cb7baf6427"
-  integrity sha512-b24jsizkBa1XxvkPrLHmiOOPIIwNcIVQPdLHe1+6+dKbXMH4/vvh+KJc1YJ2RV/SAx7Tw6tNt3DCL1V+kFEjeg==
+"ldbc-snb-validation-generator@npm:@rubeneschauzier/ldbc-snb-validation-generator":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@rubeneschauzier/ldbc-snb-validation-generator/-/ldbc-snb-validation-generator-1.2.2.tgz#9183ecb56bf288ff469b7c8f07cfb4d8dc9a5a44"
+  integrity sha512-2MsDvFsiyBJKd2QIiUZPbeBas71WCKDaX9DLwYOx6bokaprMOY2oWn8iphX556z/Eul6Wy9eQZ16sOvttUyKFg==
   dependencies:
     "@rdfjs/types" "*"
     "@types/fs-extra" "^11.0.0"
     componentsjs "^6.0.0"
     fs-extra "^11.0.0"
-    sparql-query-parameter-instantiator "^2.7.0"
+    sparql-query-parameter-instantiator "npm:@rubeneschauzier/sparql-query-parameter-instantiator"
 
 leven@^3.1.0:
   version "3.1.0"
@@ -9890,18 +9890,7 @@ spark-md5@^3.0.1:
   resolved "https://registry.yarnpkg.com/spark-md5/-/spark-md5-3.0.2.tgz#7952c4a30784347abcee73268e473b9c0167e3fc"
   integrity sha512-wcFzz9cDfbuqe0FZzfi2or1sgyIrsDwmPwfZC4hiNidPdPINjeUwNfv5kldczoEAcjl9Y1L3SM7Uz2PUEQzxQw==
 
-sparql-query-parameter-instantiator@^2.7.0:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/sparql-query-parameter-instantiator/-/sparql-query-parameter-instantiator-2.7.0.tgz#2e3e78554192ba921bcfcd86679935def1d24e79"
-  integrity sha512-3fz6UXa6EnakNQWE0D59Ga2EDt436QnQ8EiDYjSYE1IL4Lq+vJNHFxKWOAYFQHJ+5RJkuGrJ/GIelw0KWvHC6w==
-  dependencies:
-    "@rdfjs/types" "*"
-    "@types/sparqljs" "*"
-    componentsjs "^6.0.0"
-    csv-parser "^3.0.0"
-    sparqljs "^3.7.0"
-
-"sparql-query-parameter-instantiator@npm:@rubeneschauzier/sparql-query-parameter-instantiator@^2.7.0":
+"sparql-query-parameter-instantiator@npm:@rubeneschauzier/sparql-query-parameter-instantiator", "sparql-query-parameter-instantiator@npm:@rubeneschauzier/sparql-query-parameter-instantiator@^2.7.0":
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/@rubeneschauzier/sparql-query-parameter-instantiator/-/sparql-query-parameter-instantiator-2.7.0.tgz#f625531a44c29ffff75c01c3d83b8ce27b54c63f"
   integrity sha512-sWVcHXCeIS5fLAnkL9IUOGyby0746oSSLXmUnsc6kIcwwXq/+Ugy7XCRvX1STwTSCADt6398CLt0LB6GPw8doA==
