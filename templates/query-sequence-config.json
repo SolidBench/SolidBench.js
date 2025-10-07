@@ -11,6 +11,7 @@
   "stdLogTransitionProbability": 0.25,
   "meanLogSessionLength": 1.7,
   "stdLogSessionLength": 0.5,
+  "refinementPatternProbability": 0.1,
   "temperature": 0.1,
   "destinationFilePath": "out-queries/",
   "personProvider": {
