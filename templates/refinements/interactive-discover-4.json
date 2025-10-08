@@ -28,7 +28,7 @@
     ]
   },
   {
-    "type": "BGP",
+    "type": "UNION",
     "id": 2,
     "operation": "addition",
     "description": "Add UNION block for ?message type is post",
@@ -42,9 +42,9 @@
     ]
   },
   {
-    "type": "BGP",
+    "type": "UNION",
     "id": 3,
-    "operation": "addition",
+    "operation": "removal",
     "description": "Add UNION block for ?message type is post",
     "location": 1,
     "target": [
@@ -56,9 +56,9 @@
     ]
   },
   {
-    "type": "BGP",
+    "type": "UNION",
     "id": 4,
-    "operation": "removal",
+    "operation": "addition",
     "description": "Add UNION block for ?message type is post",
     "location": 1,
     "target": [
@@ -70,7 +70,7 @@
     ]
   },
   {
-    "type": "BGP",
+    "type": "UNION",
     "id": 5,
     "operation": "removal",
     "description": "Add UNION block for ?message type is post",
