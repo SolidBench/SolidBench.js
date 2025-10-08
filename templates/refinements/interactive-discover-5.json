@@ -2,8 +2,15 @@
 
   {
     "type": "SUB",
-    "operation": "removal",
+    "operation": "addition",
     "description": "Substitute the person parameter in query",
+    "location": 0,
+    "target": []
+  },
+  {
+    "type": "SUB",
+    "operation": "removal",
+    "description": "Substitute back the original person parameter",
     "location": 0,
     "target": []
   }
