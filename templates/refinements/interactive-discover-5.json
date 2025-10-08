@@ -1,4 +1,61 @@
 [
+  {
+    "type": "BGP",
+    "id": 0,
+    "operation": "addition",
+    "description": "Add UNION block for ?message type is comment (P.3, T.4)",
+    "location": 1,
+    "target": [
+      {
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+        "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Comment", "termType": "namedNode" }
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "id": 1,
+    "operation": "addition",
+    "description": "Add UNION block for ?message type is post (P.3, T.4)",
+    "location": 1,
+    "target": [
+      {
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+        "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Post", "termType": "namedNode" }
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "id": 2,
+    "operation": "removal",
+    "description": "Add UNION block for ?message type is post (P.3, T.4)",
+    "location": 1,
+    "target": [
+      {
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+        "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Comment", "termType": "namedNode" }
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "id": 3,
+    "operation": "removal",
+    "description": "Add UNION block for ?message type is post (P.3, T.4)",
+    "location": 1,
+    "target": [
+      {
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+        "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Post", "termType": "namedNode" }
+      }
+    ]
+  },
+
 
   {
     "type": "SUB",

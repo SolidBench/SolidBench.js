@@ -83,7 +83,7 @@
     "type": "FILTER",
     "id": 5,
     "operation": "addition",
-    "description": "Only select messages posted earlier than 2011-10--16 (P.1)",
+    "description": "Only select messages posted earlier than 2011-10-16 (P.1)",
     "location": 0,
     "target": [
       {
