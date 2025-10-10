@@ -8182,16 +8182,16 @@ kuler@^2.0.0:
     rdf-terms "^2.0.0"
     relative-to-absolute-iri "^1.0.0"
 
-"ldbc-snb-validation-generator@npm:@rubeneschauzier/ldbc-snb-validation-generator@^1.2.4":
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/@rubeneschauzier/ldbc-snb-validation-generator/-/ldbc-snb-validation-generator-1.2.4.tgz#fdcd3499104a6ffd410462e20e8078d83bc6b213"
-  integrity sha512-F7ygC7ELplK9KpSkHYzbi6hlNqYTrNmumC47I68VXCHfYNQwjgLUJy4nGnNl4As9v/k5wcgIGVoRacFI3YVqcw==
+"ldbc-snb-validation-generator@npm:@rubeneschauzier/ldbc-snb-validation-generator@^1.2.5":
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/@rubeneschauzier/ldbc-snb-validation-generator/-/ldbc-snb-validation-generator-1.2.5.tgz#d107646297829e647aab8eeabe3be230417c4b2e"
+  integrity sha512-bR16bMRkJScrbVIpaCl6gD0mjIp6FMI6Owt0weZ0lGK03BZ9mryC2cmDgJgfJ5MGS7vEUZKhRDO8Zm6DIaNTrA==
   dependencies:
     "@rdfjs/types" "*"
     "@types/fs-extra" "^11.0.0"
     componentsjs "^6.0.0"
     fs-extra "^11.0.0"
-    sparql-query-parameter-instantiator "npm:@rubeneschauzier/sparql-query-parameter-instantiator@^2.8.0"
+    sparql-query-parameter-instantiator "npm:@rubeneschauzier/sparql-query-parameter-instantiator@^2.8.1"
 
 leven@^3.1.0:
   version "3.1.0"
@@ -9902,10 +9902,10 @@ spark-md5@^3.0.1:
   resolved "https://registry.yarnpkg.com/spark-md5/-/spark-md5-3.0.2.tgz#7952c4a30784347abcee73268e473b9c0167e3fc"
   integrity sha512-wcFzz9cDfbuqe0FZzfi2or1sgyIrsDwmPwfZC4hiNidPdPINjeUwNfv5kldczoEAcjl9Y1L3SM7Uz2PUEQzxQw==
 
-"sparql-query-parameter-instantiator@npm:@rubeneschauzier/sparql-query-parameter-instantiator@^2.8.0":
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/@rubeneschauzier/sparql-query-parameter-instantiator/-/sparql-query-parameter-instantiator-2.8.0.tgz#c5dd10b7580937506426191b8ddbed164cf0fc0d"
-  integrity sha512-fBaLqgea3f5Pyc/90Z6lpnQ5v18PSdO3lexTpn6jmuaxK1+VuoKltl50HsFbYE5qyxJP7rd5AK2thCTJ6Yfo7w==
+"sparql-query-parameter-instantiator@npm:@rubeneschauzier/sparql-query-parameter-instantiator@^2.8.1":
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/@rubeneschauzier/sparql-query-parameter-instantiator/-/sparql-query-parameter-instantiator-2.8.1.tgz#2916a823e72c0ce5e246029b87d21810a42e2d38"
+  integrity sha512-9ARYDBO3LIWueRylmYeiFIhTnfEDqfr1xO3WnBouE8ZJH77wb5zlxOKeZhKAimFKh/tR1FpErTgi85flTnvh+w==
   dependencies:
     "@rdfjs/types" "*"
     "@types/sparqljs" "*"

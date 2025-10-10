@@ -29,58 +29,48 @@
   },
   {
     "type": "UNION",
-    "id": 2,
-    "operation": "addition",
-    "description": "Add UNION block for ?message type is post",
-    "location": 1,
-    "target": [
-      {
-        "subject": { "value": "message", "termType": "variable" },
-        "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
-        "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Comment", "termType": "namedNode" }
-      }
-    ]
-  },
-  {
-    "type": "UNION",
     "id": 3,
-    "operation": "removal",
-    "description": "Add UNION block for ?message type is post",
-    "location": 1,
+    "operation": "addition",
+    "description": "Add UNION block for ?message type is post or comment",
+    "location": 0,
     "target": [
-      {
-        "subject": { "value": "message", "termType": "variable" },
-        "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
-        "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Post", "termType": "namedNode" }
-      }
+      [
+        {
+          "subject": { "value": "message", "termType": "variable" },
+          "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+          "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Comment", "termType": "namedNode" }
+        }
+      ],
+      [
+        {
+          "subject": { "value": "message", "termType": "variable" },
+          "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+          "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Post", "termType": "namedNode" }
+        }
+      ]
     ]
   },
   {
     "type": "UNION",
     "id": 4,
-    "operation": "addition",
-    "description": "Add UNION block for ?message type is post",
-    "location": 1,
-    "target": [
-      {
-        "subject": { "value": "message", "termType": "variable" },
-        "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
-        "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Comment", "termType": "namedNode" }
-      }
-    ]
-  },
-  {
-    "type": "UNION",
-    "id": 5,
     "operation": "removal",
     "description": "Add UNION block for ?message type is post",
-    "location": 1,
+    "location": 0,
     "target": [
-      {
-        "subject": { "value": "message", "termType": "variable" },
-        "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
-        "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Post", "termType": "namedNode" }
-      }
+      [
+        {
+          "subject": { "value": "message", "termType": "variable" },
+          "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+          "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Comment", "termType": "namedNode" }
+        }
+      ],
+      [
+        {
+          "subject": { "value": "message", "termType": "variable" },
+          "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+          "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Post", "termType": "namedNode" }
+        }
+      ]
     ]
   },
   {

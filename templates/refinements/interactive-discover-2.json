@@ -44,11 +44,14 @@
     "description": "Remove post from union (P.3, T.1, T.4)",
     "location": 0,
     "target": [
-      {
-        "subject": { "value": "message", "termType": "variable" },
-        "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
-        "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Post", "termType": "namedNode" }
-      }
+      [
+        {
+          "subject": { "value": "message", "termType": "variable" },
+          "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+          "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Post", "termType": "namedNode" }
+        }
+      ],
+      []
     ]
   },
   {
@@ -56,13 +59,16 @@
     "id": 3,
     "operation": "addition",
     "description": "Add union block for the location of a Comment",
-    "location": 1,
+    "location": 0,
     "target": [
-      {
-        "subject": { "value": "message", "termType": "variable" },
-        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/isLocatedIn", "termType": "namedNode" },
-        "object": { "value": "location", "termType": "variable" }
-      }
+      [],
+      [
+        {
+          "subject": { "value": "message", "termType": "variable" },
+          "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/ReplyOf", "termType": "namedNode" },
+          "object": { "value": "messageReplied", "termType": "variable" }
+        }
+      ]
     ]
   },
   {
