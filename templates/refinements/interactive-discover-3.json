@@ -241,9 +241,21 @@
   {
     "type": "SUB",
     "id": 15,
-    "operation": "removal",
-    "description": "Substitute the person parameter in query",
+    "operation": "addition",
+    "description": "Substitute the person parameter in query (T.2)",
     "location": 0,
-    "target": []
+    "target": [
+      { "value": "person", "termType": "variable" }
+    ]
+  },
+  {
+    "type": "SUB",
+    "id": 16,
+    "operation": "removal",
+    "description": "Substitute back the original person parameter in query (T.2)",
+    "location": 0,
+    "target": [
+      { "value": "person", "termType": "variable" }
+    ]
   }
 ]
