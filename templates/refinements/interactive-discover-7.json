@@ -1,5 +1,130 @@
 [
-
+  {
+    "type": "BGP",
+    "id": 0,
+    "operation": "addition",
+    "description": "Add triple for template of location of a moderator (P.3)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/isLocatedIn", "termType": "namedNode" },
+        "object": { "value": "location", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "id": 1,
+    "operation": "removal",
+    "description": "Remove triple for template of location of a moderator (P.3)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/isLocatedIn", "termType": "namedNode" },
+        "object": { "value": "location", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "id": 2,
+    "operation": "addition",
+    "description": "Optionally include the creation date of the forum (P.2, P.4)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "forum", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/creationDate", "termType": "namedNode" },
+        "object": { "value": "creationDate", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "id": 2,
+    "operation": "removal",
+    "description": "Remove optional with the creation date of the forum (P.2, P.4)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "forum", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/creationDate", "termType": "namedNode" },
+        "object": { "value": "creationDate", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "FILTER",
+    "id": 3,
+    "operation": "addition",
+    "description": "Add filter on the creation date of forums to restrict results to recently created ones (P.1)",
+    "location": 0,
+    "target": [
+      {
+        "type": "operation",
+        "operator": ">=",
+        "args": [
+          { "termType": "variable", "value": "creationDate" },
+          { "termType": "literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2011-03-15T00:57:46.920Z" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "FILTER",
+    "id": 4,
+    "operation": "removal",
+    "description": "Add filter on the creation date of forums to restrict results to recently created ones (P.1)",
+    "location": 0,
+    "target": [
+      {
+        "type": "operation",
+        "operator": ">=",
+        "args": [
+          { "termType": "variable", "value": "creationDate" },
+          { "termType": "literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2011-03-15T00:57:46.920Z" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "FILTER",
+    "id": 5,
+    "operation": "addition",
+    "description": "Add case-insensitive regex filter to select moderators with first names starting from A to E (P.1)",
+    "location": 0,
+    "target": [
+      {
+        "type": "operation",
+        "operator": "regex",
+        "args": [
+          { "termType": "variable", "value": "firstName" },
+          { "termType": "literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "^[A-E]" },
+          { "termType": "literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "i" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "FILTER",
+    "id": 6,
+    "operation": "addition",
+    "description": "Add case-insensitive regex filter to select moderators with first names starting from A to E (P.1)",
+    "location": 0,
+    "target": [
+      {
+        "type": "operation",
+        "operator": "regex",
+        "args": [
+          { "termType": "variable", "value": "firstName" },
+          { "termType": "literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "^[A-E]" },
+          { "termType": "literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "i" }
+        ]
+      }
+    ]
+  },
   {
     "type": "SUB",
     "id": 7,

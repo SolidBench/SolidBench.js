@@ -1,24 +1,10 @@
 [
   {
     "type": "BGP",
-    "id": 0,
-    "operation": "addition",
-    "description": "Add triple ?message type is comment (P.3, T.4)",
-    "location": 1,
-    "target": [
-      {
-        "subject": { "value": "message", "termType": "variable" },
-        "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
-        "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Comment", "termType": "namedNode" }
-      }
-    ]
-  },
-  {
-    "type": "BGP",
     "id": 1,
     "operation": "addition",
     "description": "Add triple for ?message type is post (P.3, T.4)",
-    "location": 1,
+    "location": 0,
     "target": [
       {
         "subject": { "value": "message", "termType": "variable" },
@@ -32,21 +18,7 @@
     "id": 2,
     "operation": "removal",
     "description": "Remove triple for ?message type is post (P.3, T.4)",
-    "location": 1,
-    "target": [
-      {
-        "subject": { "value": "message", "termType": "variable" },
-        "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
-        "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Comment", "termType": "namedNode" }
-      }
-    ]
-  },
-  {
-    "type": "BGP",
-    "id": 3,
-    "operation": "removal",
-    "description": "Remove triple for ?message type is post (P.3, T.4)",
-    "location": 1,
+    "location": 0,
     "target": [
       {
         "subject": { "value": "message", "termType": "variable" },
@@ -56,13 +28,136 @@
     ]
   },
   {
-    "type": "UNION",
+    "type": "OPTIONAL",
+    "id": 3,
+    "operation": "addition",
+    "description": "Find all messages this is a reply of if they exist (P.2, P.4, T.1, T.3)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/replyOf", "termType": "namedNode" },
+        "object": { "value": "reply", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "reply", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/locationIP", "termType": "namedNode" },
+        "object": { "value": "replyLocationIp", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "reply", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/isLocatedIn", "termType": "namedNode" },
+        "object": { "value": "replyLocation", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "OPTIONAL",
     "id": 4,
-    "operation": "addition"
+    "operation": "removal",
+    "description": "Find all messages this is a reply of if they exist (P.2, P.4, T.1, T.3)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/replyOf", "termType": "namedNode" },
+        "object": { "value": "reply", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "reply", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/locationIP", "termType": "namedNode" },
+        "object": { "value": "replyLocationIp", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "reply", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/isLocatedIn", "termType": "namedNode" },
+        "object": { "value": "replyLocation", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "UNION",
+    "id": 5,
+    "operation": "addition",
+    "description": "Remove union of two locations which act as template variables, which will be filled with namedNodes",
+    "location": 0,
+    "target": [
+      [
+        {
+          "subject": { "value": "message", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/isLocatedIn", "termType": "namedNode" },
+          "object": { "value": "location1", "termType": "variable" }
+        }
+      ],
+      [
+        {
+          "subject": { "value": "message", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/isLocatedIn", "termType": "namedNode" },
+          "object": { "value": "location2", "termType": "variable" }
+        }
+      ]
+    ]
+  },
+  {
+    "type": "UNION",
+    "id": 6,
+    "operation": "removal",
+    "description": "Remove union of two locations which act as template variables, which will be filled with namedNodes (T.1, P.3)",
+    "location": 0,
+    "target": [
+      [
+        {
+          "subject": { "value": "message", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/isLocatedIn", "termType": "namedNode" },
+          "object": { "value": "location1", "termType": "variable" }
+        }
+      ],
+      [
+        {
+          "subject": { "value": "message", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/isLocatedIn", "termType": "namedNode" },
+          "object": { "value": "location2", "termType": "variable" }
+        }
+      ]
+    ]
+  },
+  {
+    "type": "FILTER",
+    "id": 7,
+    "operation": "addition",
+    "description": "Add filter to the location of the replies to a message (P.1)",
+    "location": 0,
+    "target": [
+      {
+        "type": "operation",
+        "operator": "==",
+        "args": [
+          { "termType": "variable", "value": "replyLocation" },
+          { "termType": "variable", "value": "location1" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "FILTER",
+    "id": 8,
+    "operation": "removal",
+    "description": "Remove filter to the location of the replies to a message (P.1)",
+    "location": 0,
+    "target": [
+      {
+        "type": "operation",
+        "operator": "==",
+        "args": [
+          { "termType": "variable", "value": "replyLocation" },
+          { "termType": "variable", "value": "location1" }
+        ]
+      }
+    ]
   },
   {
     "type": "SUB",
-    "id": 7,
+    "id": 9,
     "operation": "addition",
     "description": "Substitute the person parameter in query (T.2)",
     "location": 0,
@@ -72,7 +167,7 @@
   },
   {
     "type": "SUB",
-    "id": 8,
+    "id": 10,
     "operation": "removal",
     "description": "Substitute back the original person parameter in query (T.2)",
     "location": 0,
