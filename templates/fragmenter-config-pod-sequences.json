@@ -535,6 +535,20 @@
             "object"
           ]
         }
+      },
+      {
+        "@type": "QuadSinkFiltered",
+        "filter": {
+          "@type": "QuadMatcherPredicate",
+          "predicateRegex": "vocabulary/hasTag$"
+        },
+        "sink": {
+          "@type": "QuadSinkCsv",
+          "file": "out-fragments/parameters-tags.csv",
+          "columns": [
+            "object"
+          ]
+        }
       }
     ]
   }

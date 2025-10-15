@@ -67,7 +67,7 @@
         "operator": ">=",
         "args": [
           { "termType": "variable", "value": "creationDate" },
-          { "termType": "literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2011-03-15T00:57:46.920Z" }
+          { "termType": "variable", "value": "timestamp" }
         ]
       }
     ]
@@ -84,7 +84,7 @@
         "operator": ">=",
         "args": [
           { "termType": "variable", "value": "creationDate" },
-          { "termType": "literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2011-03-15T00:57:46.920Z" }
+          { "termType": "variable", "value": "timestamp" }
         ]
       }
     ]

@@ -111,14 +111,7 @@
         "operator": "<",
         "args": [
           { "termType": "variable", "value": "messageCreationDate" },
-          {
-            "termType": "literal",
-            "value": "2011-10-16T11:09:08.955Z",
-            "datatype": {
-              "termType": "namedNode",
-              "value": "http://www.w3.org/2001/XMLSchema#dateTime"
-            }
-          }
+          { "termType": "variable", "value": "timestamp" }
         ]
       }
     ]
@@ -135,14 +128,7 @@
         "operator": "<",
         "args": [
           { "termType": "variable", "value": "messageCreationDate" },
-          {
-            "termType": "literal",
-            "value": "2011-10-16T11:09:08.955Z",
-            "datatype": {
-              "termType": "namedNode",
-              "value": "http://www.w3.org/2001/XMLSchema#dateTime"
-            }
-          }
+          { "termType": "variable", "value": "timestamp" }
         ]
       }
     ]
@@ -159,14 +145,7 @@
         "operator": "<",
         "args": [
           { "termType": "variable", "value": "commentCreationDate" },
-          {
-            "termType": "literal",
-            "value": "2011-10-16T11:09:08.955Z",
-            "datatype": {
-              "termType": "namedNode",
-              "value": "http://www.w3.org/2001/XMLSchema#dateTime"
-            }
-          }
+          { "termType": "variable", "value": "timestamp" }
         ]
       }
     ]
@@ -183,14 +162,7 @@
         "operator": "<",
         "args": [
           { "termType": "variable", "value": "commentCreationDate" },
-          {
-            "termType": "literal",
-            "value": "2011-10-16T11:09:08.955Z",
-            "datatype": {
-              "termType": "namedNode",
-              "value": "http://www.w3.org/2001/XMLSchema#dateTime"
-            }
-          }
+          { "termType": "variable", "value": "timestamp" }
         ]
       }
     ]
