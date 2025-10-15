@@ -161,9 +161,7 @@
     "operation": "addition",
     "description": "Substitute the person parameter in query (T.2)",
     "location": 0,
-    "target": [
-      { "value": "person", "termType": "variable" }
-    ]
+    "target": { "value": "person", "termType": "variable" }
   },
   {
     "type": "SUB",
@@ -171,8 +169,6 @@
     "operation": "removal",
     "description": "Substitute back the original person parameter in query (T.2)",
     "location": 0,
-    "target": [
-      { "value": "person", "termType": "variable" }
-    ]
+    "target": { "value": "person", "termType": "variable" }
   }
 ]

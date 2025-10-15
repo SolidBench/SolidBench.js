@@ -80,11 +80,26 @@
   },
   {
     "type": "UNION",
-    "id": 6,
-    "operation": "Remove UNION triple (P.2, P.3, P.4)",
-    "description": "Remove a random triple (with two variables) from the UNION block",
+    "id": 4,
+    "operation": "removal",
+    "description": "Add UNION block for ?message type is post (T.4)",
     "location": 0,
-    "target": []
+    "target": [
+      [
+        {
+          "subject": { "value": "message", "termType": "variable" },
+          "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+          "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Comment", "termType": "namedNode" }
+        }
+      ],
+      [
+        {
+          "subject": { "value": "message", "termType": "variable" },
+          "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+          "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Post", "termType": "namedNode" }
+        }
+      ]
+    ]
   },
   {
     "type": "BGP",
@@ -216,9 +231,8 @@
     "operation": "addition",
     "description": "Substitute the person parameter in query (T.2)",
     "location": 0,
-    "target": [
-      { "value": "person", "termType": "variable" }
-    ]
+    "target": { "value": "person", "termType": "variable" }
+
   },
   {
     "type": "SUB",
@@ -226,8 +240,6 @@
     "operation": "removal",
     "description": "Substitute back the original person parameter in query (T.2)",
     "location": 0,
-    "target": [
-      { "value": "person", "termType": "variable" }
-    ]
+    "target": { "value": "person", "termType": "variable" }
   }
 ]
