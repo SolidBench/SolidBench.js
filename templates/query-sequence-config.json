@@ -77,7 +77,7 @@
             "@type": "SubstitutionProviderCsv",
             "csvFilePath": "out-snb/substitution_parameters/interactive_9_param.txt",
             "separator": "|",
-            "columnName": "timestamp"
+            "columnName": "maxDate"
           }
         }
       ]

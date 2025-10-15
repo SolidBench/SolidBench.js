@@ -8182,16 +8182,16 @@ kuler@^2.0.0:
     rdf-terms "^2.0.0"
     relative-to-absolute-iri "^1.0.0"
 
-"ldbc-snb-validation-generator@npm:@rubeneschauzier/ldbc-snb-validation-generator@^1.2.5":
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/@rubeneschauzier/ldbc-snb-validation-generator/-/ldbc-snb-validation-generator-1.2.5.tgz#d107646297829e647aab8eeabe3be230417c4b2e"
-  integrity sha512-bR16bMRkJScrbVIpaCl6gD0mjIp6FMI6Owt0weZ0lGK03BZ9mryC2cmDgJgfJ5MGS7vEUZKhRDO8Zm6DIaNTrA==
+"ldbc-snb-validation-generator@npm:@rubeneschauzier/ldbc-snb-validation-generator@^1.2.6":
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/@rubeneschauzier/ldbc-snb-validation-generator/-/ldbc-snb-validation-generator-1.2.6.tgz#b4702a40c934c3d1eb6e42fd970abeb86a647016"
+  integrity sha512-LQPpU/kd8X1SzHni7WBqHOV3IfEdzSSzyCBw2EwdaYTX7hoObktNf7rBeEjHCbnubEJlKYGylN0sK5brMW/GkQ==
   dependencies:
     "@rdfjs/types" "*"
     "@types/fs-extra" "^11.0.0"
     componentsjs "^6.0.0"
     fs-extra "^11.0.0"
-    sparql-query-parameter-instantiator "npm:@rubeneschauzier/sparql-query-parameter-instantiator@^2.8.1"
+    sparql-query-parameter-instantiator "npm:@rubeneschauzier/sparql-query-parameter-instantiator@^2.8.2"
 
 leven@^3.1.0:
   version "3.1.0"
@@ -9131,10 +9131,10 @@ rdf-data-factory@^2.0.0, rdf-data-factory@^2.0.1:
   dependencies:
     "@rdfjs/types" "^2.0.0"
 
-"rdf-dataset-fragmenter@npm:@rubeneschauzier/rdf-dataset-fragmenter@^2.9.1":
-  version "2.9.1"
-  resolved "https://registry.yarnpkg.com/@rubeneschauzier/rdf-dataset-fragmenter/-/rdf-dataset-fragmenter-2.9.1.tgz#12d4e325fc90a603c2a2ff2cd10d6541e72eec15"
-  integrity sha512-Q1F3i5qXCMTGMOjuk1pMFkNzdvgmSwao5jKfrRnJnyA9FAfNesMW8ZmbFv+Xvja1dI6TifLFVtael9RKVgV/MA==
+"rdf-dataset-fragmenter@npm:@rubeneschauzier/rdf-dataset-fragmenter@^2.9.2":
+  version "2.9.2"
+  resolved "https://registry.yarnpkg.com/@rubeneschauzier/rdf-dataset-fragmenter/-/rdf-dataset-fragmenter-2.9.2.tgz#77adfd712184a151be8b11f06cd2f6a7bb2167f3"
+  integrity sha512-p4uWkOQpVgERD8Y6GM9ahR6ML2ZdEs2xUqcXxGySBm4ppT3WDQhlruc5iU4eGeWE4omqTwIHNfaS63Yzsn58TQ==
   dependencies:
     "@rdfjs/types" "*"
     "@types/async-lock" "^1.4.0"
@@ -9902,10 +9902,10 @@ spark-md5@^3.0.1:
   resolved "https://registry.yarnpkg.com/spark-md5/-/spark-md5-3.0.2.tgz#7952c4a30784347abcee73268e473b9c0167e3fc"
   integrity sha512-wcFzz9cDfbuqe0FZzfi2or1sgyIrsDwmPwfZC4hiNidPdPINjeUwNfv5kldczoEAcjl9Y1L3SM7Uz2PUEQzxQw==
 
-"sparql-query-parameter-instantiator@npm:@rubeneschauzier/sparql-query-parameter-instantiator@^2.8.1":
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/@rubeneschauzier/sparql-query-parameter-instantiator/-/sparql-query-parameter-instantiator-2.8.1.tgz#2916a823e72c0ce5e246029b87d21810a42e2d38"
-  integrity sha512-9ARYDBO3LIWueRylmYeiFIhTnfEDqfr1xO3WnBouE8ZJH77wb5zlxOKeZhKAimFKh/tR1FpErTgi85flTnvh+w==
+"sparql-query-parameter-instantiator@npm:@rubeneschauzier/sparql-query-parameter-instantiator@^2.8.2":
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/@rubeneschauzier/sparql-query-parameter-instantiator/-/sparql-query-parameter-instantiator-2.8.2.tgz#feb83a4c9b04f8c8d8e3201255430aff49bbea85"
+  integrity sha512-/IzQrkB6lYvCnEYu3/sq2xswmV7gaU0cBXZDjr5Cj+7pboK9aFjRvBzZ4mYUVf7Vw6WsNR7YWJbIdkaaPT3+fg==
   dependencies:
     "@rdfjs/types" "*"
     "@types/sparqljs" "*"
