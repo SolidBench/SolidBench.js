@@ -1,0 +1,176 @@
+[
+  {
+    "type": "BGP",
+    "id": 0,
+    "operation": "addition",
+    "description": "Find all tags of message  (P.3/P.4, T.1, T.3) Some messages have tags some don't so selectivity depends on the base message",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasTag", "termType": "namedNode" },
+        "object": { "value": "tag", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "tag", "termType": "variable" },
+        "predicate": { "value": "http://xmlns.com/foaf/0.1/name", "termType": "namedNode" },
+        "object": { "value": "tagName", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "id": 1,
+    "operation": "removal",
+    "description": "Find all tags of message  (P.3/P.4, T.1, T.3)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasTag", "termType": "namedNode" },
+        "object": { "value": "tag", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "tag", "termType": "variable" },
+        "predicate": { "value": "http://xmlns.com/foaf/0.1/name", "termType": "namedNode" },
+        "object": { "value": "tagName", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "id": 2,
+    "operation": "addition",
+    "description": "Find creator of message (P.4, T.1, T.3)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator", "termType": "namedNode" },
+        "object": { "value": "creator", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "creator", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/firstName", "termType": "namedNode" },
+        "object": { "value": "firstName", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "creator", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/lastName", "termType": "namedNode" },
+        "object": { "value": "lastName", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "id": 3,
+    "operation": "removal",
+    "description": "Find creator of message (P.4, T.1, T.3)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator", "termType": "namedNode" },
+        "object": { "value": "creator", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "creator", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/firstName", "termType": "namedNode" },
+        "object": { "value": "firstName", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "creator", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/lastName", "termType": "namedNode" },
+        "object": { "value": "lastName", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "id": 4,
+    "operation": "addition",
+    "description": "Optionally find all tags of message  (P.4, P.2, T.1, T.3)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasTag", "termType": "namedNode" },
+        "object": { "value": "tag", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "tag", "termType": "variable" },
+        "predicate": { "value": "http://xmlns.com/foaf/0.1/name", "termType": "namedNode" },
+        "object": { "value": "tagName", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "id": 5,
+    "operation": "removal",
+    "description": "Remove optionally finding of all tags of message  (P.4, P.2, T.1, T.3)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasTag", "termType": "namedNode" },
+        "object": { "value": "tag", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "tag", "termType": "variable" },
+        "predicate": { "value": "http://xmlns.com/foaf/0.1/name", "termType": "namedNode" },
+        "object": { "value": "tagName", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "FILTER",
+    "id": 6,
+    "operation": "addition",
+    "description": "Add filter to the tags of a message (P.1)",
+    "location": 0,
+    "target": [
+      {
+        "type": "operation",
+        "operator": "==",
+        "args": [
+          { "termType": "variable", "value": "tag" },
+          { "termType": "variable", "value": "tagParam" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "FILTER",
+    "id": 7,
+    "operation": "removal",
+    "description": "Add filter to the tags of a message (P.1)",
+    "location": 0,
+    "target": [
+      {
+        "type": "operation",
+        "operator": "==",
+        "args": [
+          { "termType": "variable", "value": "tag" },
+          { "termType": "variable", "value": "tagParam" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "SUB",
+    "id": 8,
+    "operation": "addition",
+    "description": "Substitute the person parameter in query (T.2)",
+    "location": 0,
+    "target": { "value": "message", "termType": "variable" }
+  },
+  {
+    "type": "SUB",
+    "id": 9,
+    "operation": "removal",
+    "description": "Substitute back the original person parameter in query (T.2)",
+    "location": 0,
+    "target": { "value": "message", "termType": "variable" }
+  }
+]
