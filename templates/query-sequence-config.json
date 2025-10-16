@@ -40,6 +40,7 @@
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
+      "maxLogits": 5,
       "templateFilePath": {
         "@id": "urn:variables:query-templates:interactive-discover-1.sparql",
         "@type": "Variable"
@@ -97,6 +98,7 @@
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
+      "maxLogits": 5,
       "templateFilePath": {
         "@id": "urn:variables:query-templates:interactive-discover-2.sparql",
         "@type": "Variable"
@@ -144,6 +146,7 @@
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
+      "maxLogits": 5,
       "templateFilePath": {
         "@id": "urn:variables:query-templates:interactive-discover-3.sparql",
         "@type": "Variable"
@@ -191,6 +194,7 @@
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
+      "maxLogits": 5,
       "templateFilePath": {
         "@id": "urn:variables:query-templates:interactive-discover-4.sparql",
         "@type": "Variable"
@@ -241,6 +245,7 @@
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
+      "maxLogits": 5,
       "templateFilePath": {
         "@id": "urn:variables:query-templates:interactive-discover-5.sparql",
         "@type": "Variable"
@@ -294,6 +299,7 @@
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
+      "maxLogits": 5,
       "templateFilePath": {
         "@id": "urn:variables:query-templates:interactive-discover-6.sparql",
         "@type": "Variable"
@@ -340,6 +346,7 @@
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
+      "maxLogits": 5,
       "templateFilePath": {
         "@id": "urn:variables:query-templates:interactive-discover-7.sparql",
         "@type": "Variable"
@@ -393,6 +400,7 @@
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
+      "maxLogits": 5,
       "templateFilePath": {
         "@id": "urn:variables:query-templates:interactive-discover-8.sparql",
         "@type": "Variable"
