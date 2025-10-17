@@ -1,0 +1,176 @@
+[
+  {
+    "type": "BGP",
+    "id": 0,
+    "operation": "addition",
+    "description": "Add back original triples for moderator of a forum (T.1, P.4)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "forum", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasModerator", "termType": "namedNode" },
+        "object": { "value": "moderator", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "moderator", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/id", "termType": "namedNode" },
+        "object": { "value": "moderatorId", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "moderator", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/firstName", "termType": "namedNode" },
+        "object": { "value": "moderatorFirstName", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "moderator", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/lastName", "termType": "namedNode" },
+        "object": { "value": "moderatorLastName", "termType": "variable" }
+      }
+
+    ]
+  },
+  {
+    "type": "BGP",
+    "id": 1,
+    "operation": "removal",
+    "description": "Remove original triples for moderator of a forum (T.1, P.4)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "forum", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasModerator", "termType": "namedNode" },
+        "object": { "value": "moderator", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "moderator", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/id", "termType": "namedNode" },
+        "object": { "value": "moderatorId", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "moderator", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/firstName", "termType": "namedNode" },
+        "object": { "value": "moderatorFirstName", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "moderator", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/lastName", "termType": "namedNode" },
+        "object": { "value": "moderatorLastName", "termType": "variable" }
+      }
+
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "id": 2,
+    "operation": "addition",
+    "description": "Optionally retrieve members of forum and their names (T.1, T.3, P.3)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "forum", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasMember", "termType": "namedNode" },
+        "object": { "value": "member", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "member", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasPerson", "termType": "namedNode" },
+        "object": { "value": "memberPerson", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "memberPerson", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/firstName", "termType": "namedNode" },
+        "object": { "value": "memberFirstName", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "memberPerson", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/lastName", "termType": "namedNode" },
+        "object": { "value": "memberLastName", "termType": "variable" }
+      }
+
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "id": 3,
+    "operation": "removal",
+    "description": "Remove optional retrieval of members of forum and their names (T.1, T.3, P.3)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "forum", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasMember", "termType": "namedNode" },
+        "object": { "value": "member", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "member", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasPerson", "termType": "namedNode" },
+        "object": { "value": "memberPerson", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "memberPerson", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/firstName", "termType": "namedNode" },
+        "object": { "value": "memberFirstName", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "memberPerson", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/lastName", "termType": "namedNode" },
+        "object": { "value": "memberLastName", "termType": "variable" }
+      }
+
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "id": 4,
+    "operation": "addition",
+    "description": "Optionally include the interests of the moderator (P.2, P.4)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "moderator", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasInterest", "termType": "namedNode" },
+        "object": { "value": "interest", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "interest", "termType": "variable" },
+        "predicate": { "value": "http://xmlns.com/foaf/0.1/name", "termType": "namedNode" },
+        "object": { "value": "interestName", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "id": 5,
+    "operation": "addition",
+    "description": "Remove optional inclusion of the interests of the moderator (P.2, P.4)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "moderator", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasInterest", "termType": "namedNode" },
+        "object": { "value": "interest", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "interest", "termType": "variable" },
+        "predicate": { "value": "http://xmlns.com/foaf/0.1/name", "termType": "namedNode" },
+        "object": { "value": "interestName", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "SUB",
+    "id": 6,
+    "operation": "addition",
+    "description": "Substitute the message parameter in query (T.2)",
+    "location": 0,
+    "target": { "value": "message", "termType": "variable" }
+  },
+  {
+    "type": "SUB",
+    "id": 7,
+    "operation": "removal",
+    "description": "Substitute back the original message parameter in query (T.2)",
+    "location": 0,
+    "target": { "value": "message", "termType": "variable" }
+  }
+]
