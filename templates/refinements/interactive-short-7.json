@@ -1,3 +1,176 @@
 [
-    
+  {
+    "type": "BGP",
+    "id": 0,
+    "operation": "addition",
+    "description": "Add triples to match interest of message creator and creators of replies to message (P.3, T.1)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "messageCreator", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasInterest", "termType": "namedNode" },
+        "object": { "value": "interest", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "replyAuthor", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasInterest", "termType": "namedNode" },
+        "object": { "value": "interest", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "id": 1,
+    "operation": "removal",
+    "description": "remove triples to match interest of message creator and creators of replies to message (P.3)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "messageCreator", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasInterest", "termType": "namedNode" },
+        "object": { "value": "interest", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "replyAuthor", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasInterest", "termType": "namedNode" },
+        "object": { "value": "interest", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "UNION",
+    "id": 2,
+    "operation": "addition",
+    "description": "Add union for names of work and university of reply authors (P.2, P.4, T.1, T.3)",
+    "location": 0,
+    "target": [
+      [
+        {
+          "subject": { "value": "replyAuthor", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/worksAt", "termType": "namedNode" },
+          "object": { "value": "work", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "work", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasOrganisation", "termType": "namedNode" },
+          "object": { "value": "org", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "org", "termType": "variable" },
+          "predicate": { "value": "http://xmlns.com/foaf/0.1/name", "termType": "namedNode" },
+          "object": { "value": "workName", "termType": "variable" }
+        }
+      ],
+      [
+        {
+          "subject": { "value": "replyAuthor", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/studyAt", "termType": "namedNode" },
+          "object": { "value": "study", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "study", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasOrganisation", "termType": "namedNode" },
+          "object": { "value": "org", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "org", "termType": "variable" },
+          "predicate": { "value": "http://xmlns.com/foaf/0.1/name", "termType": "namedNode" },
+          "object": { "value": "universityName", "termType": "variable" }
+        }
+      ]
+    ]
+  },
+  {
+    "type": "UNION",
+    "id": 3,
+    "operation": "removal",
+    "description": "Add union for tags and locations of the other messages in a forum (P.2, P.4, T.1, T.3)",
+    "location": 0,
+    "target": [
+      [
+        {
+          "subject": { "value": "replyAuthor", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/worksAt", "termType": "namedNode" },
+          "object": { "value": "work", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "work", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasOrganisation", "termType": "namedNode" },
+          "object": { "value": "org", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "org", "termType": "variable" },
+          "predicate": { "value": "http://xmlns.com/foaf/0.1/name", "termType": "namedNode" },
+          "object": { "value": "workName", "termType": "variable" }
+        }
+      ],
+      [
+        {
+          "subject": { "value": "replyAuthor", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/studyAt", "termType": "namedNode" },
+          "object": { "value": "study", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "study", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasOrganisation", "termType": "namedNode" },
+          "object": { "value": "org", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "org", "termType": "variable" },
+          "predicate": { "value": "http://xmlns.com/foaf/0.1/name", "termType": "namedNode" },
+          "object": { "value": "universityName", "termType": "variable" }
+        }
+      ]
+    ]
+  },
+  {
+    "type": "FILTER",
+    "id": 4,
+    "operation": "addition",
+    "description": "Add filter on comment ID modulus to test cache reuse effectiveness (P.1)",
+    "location": 0,
+    "target": [
+        {
+        "type": "operation",
+        "operator": "%",
+        "args": [
+            { "value": "commentId", "termType":  "variable"},
+            { "value": "5", "termType": "literal", "datatype": "http://www.w3.org/2001/XMLSchema#integer" }
+        ]
+        }
+    ]
+  },
+  {
+    "type": "FILTER",
+    "id": 5,
+    "operation": "removal",
+    "description": "Remove filter on comment ID modulus to test cache reuse effectiveness (P.1)",
+    "location": 0,
+    "target": [
+        {
+        "type": "operation",
+        "operator": "%",
+        "args": [
+            { "value": "commentId", "termType":  "variable"},
+            { "value": "5", "termType": "literal", "datatype": "http://www.w3.org/2001/XMLSchema#integer" }
+        ]
+        }
+    ]
+  },
+  {
+    "type": "SUB",
+    "id": 6,
+    "operation": "addition",
+    "description": "Substitute the message parameter in query (T.2)",
+    "location": 0,
+    "target": { "value": "message", "termType": "variable" }
+  },
+  {
+    "type": "SUB",
+    "id": 7,
+    "operation": "removal",
+    "description": "Substitute back the original message parameter in query (T.2)",
+    "location": 0,
+    "target": { "value": "message", "termType": "variable" }
+  }
 ]

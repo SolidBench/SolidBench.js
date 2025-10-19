@@ -664,7 +664,7 @@
       "variables": [
         {
           "@type": "VariableTemplateNamedNode",
-          "name": "person",
+          "name": "message",
           "valueTransformers": [
             {
               "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
@@ -703,7 +703,46 @@
       "variables": [
         {
           "@type": "VariableTemplateNamedNode",
-          "name": "person",
+          "name": "message",
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
+            }
+          ],
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderMessageProbability"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "QuerySequenceTemplateProvider",
+      "name": "interactive-short-7",
+      "queryTask": "Messages",
+      "nextTemplateFilePath": [
+        "interactive-discover-1",
+        "interactive-discover-2",
+        "interactive-discover-3",
+        "interactive-discover-4",
+        "interactive-discover-5",
+        "interactive-discover-6",
+        "interactive-discover-7"
+      ],
+      "minRefinementLength": 2,
+      "maxRefinementLength": 4,
+      "maxLogits": 10,
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-short-7.sparql",
+        "@type": "Variable"
+      },
+      "refinementPatternsFilePath": {
+        "@id": "urn:variables:query-refinements:interactive-short-7.json",
+        "@type": "Variable"
+      },
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "message",
           "valueTransformers": [
             {
               "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
@@ -715,5 +754,6 @@
         }
       ]
     }
+
   ]
 }
