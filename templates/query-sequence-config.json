@@ -30,13 +30,10 @@
       "name": "interactive-discover-1",
       "queryTask": "Messages Person",
       "nextTemplateFilePath": [
-        "interactive-discover-2",
-        "interactive-discover-3",
-        "interactive-discover-4",
-        "interactive-discover-5",
-        "interactive-discover-6",
-        "interactive-discover-7",
-        "interactive-discover-8"
+        "interactive-short-4",
+        "interactive-short-5",
+        "interactive-short-6",
+        "interactive-short-7"
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
@@ -88,13 +85,10 @@
       "name": "interactive-discover-2",
       "queryTask": "Messages Person",
       "nextTemplateFilePath": [
-        "interactive-discover-1",
-        "interactive-discover-3",
-        "interactive-discover-4",
-        "interactive-discover-5",
-        "interactive-discover-6",
-        "interactive-discover-7",
-        "interactive-discover-8"
+        "interactive-short-4",
+        "interactive-short-5",
+        "interactive-short-6",
+        "interactive-short-7"
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
@@ -135,15 +129,7 @@
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-discover-3",
       "queryTask": "Messages Person",
-      "nextTemplateFilePath": [
-        "interactive-discover-1",
-        "interactive-discover-2",
-        "interactive-discover-4",
-        "interactive-discover-5",
-        "interactive-discover-6",
-        "interactive-discover-7",
-        "interactive-discover-8"
-      ],
+      "nextTemplateFilePath": [  ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -183,15 +169,7 @@
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-discover-4",
       "queryTask": "Messages Person",
-      "nextTemplateFilePath": [
-        "interactive-discover-1",
-        "interactive-discover-2",
-        "interactive-discover-3",
-        "interactive-discover-5",
-        "interactive-discover-6",
-        "interactive-discover-7",
-        "interactive-discover-8"
-      ],
+      "nextTemplateFilePath": [  ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -234,15 +212,7 @@
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-discover-5",
       "queryTask": "Messages Person",
-      "nextTemplateFilePath": [
-        "interactive-discover-1",
-        "interactive-discover-2",
-        "interactive-discover-3",
-        "interactive-discover-4",
-        "interactive-discover-6",
-        "interactive-discover-7",
-        "interactive-discover-8"
-      ],
+      "nextTemplateFilePath": [  ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -287,16 +257,8 @@
     {
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-discover-6",
-      "queryTask": "Messages Person",
-      "nextTemplateFilePath": [
-        "interactive-discover-1",
-        "interactive-discover-2",
-        "interactive-discover-3",
-        "interactive-discover-4",
-        "interactive-discover-5",
-        "interactive-discover-7",
-        "interactive-discover-8"
-      ],
+      "queryTask": "Forum",
+      "nextTemplateFilePath": [  ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -334,8 +296,15 @@
     {
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-discover-7",
-      "queryTask": "Messages Person",
+      "queryTask": "Forum",
       "nextTemplateFilePath": [
+        "interactive-short-1",
+        "interactive-short-2",
+        "interactive-short-3",
+        "interactive-short-4",
+        "interactive-short-5",
+        "interactive-short-6",
+        "interactive-short-7",
         "interactive-discover-1",
         "interactive-discover-2",
         "interactive-discover-3",
@@ -390,13 +359,10 @@
       "name": "interactive-discover-8",
       "queryTask": "Messages Person",
       "nextTemplateFilePath": [
-        "interactive-discover-1",
-        "interactive-discover-2",
-        "interactive-discover-3",
-        "interactive-discover-4",
-        "interactive-discover-5",
-        "interactive-discover-6",
-        "interactive-discover-7"
+        "interactive-short-4",
+        "interactive-short-5",
+        "interactive-short-6",
+        "interactive-short-7"
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
@@ -440,15 +406,7 @@
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-short-1",
       "queryTask": "Attributes Person",
-      "nextTemplateFilePath": [
-        "interactive-discover-1",
-        "interactive-discover-2",
-        "interactive-discover-3",
-        "interactive-discover-4",
-        "interactive-discover-5",
-        "interactive-discover-6",
-        "interactive-discover-7"
-      ],
+      "nextTemplateFilePath": [  ],
       "minRefinementLength": 2,
       "maxRefinementLength": 3,
       "maxLogits": 5,
@@ -479,15 +437,12 @@
     {
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-short-2",
-      "queryTask": "Messages",
+      "queryTask": "Messages Person",
       "nextTemplateFilePath": [
-        "interactive-discover-1",
-        "interactive-discover-2",
-        "interactive-discover-3",
-        "interactive-discover-4",
-        "interactive-discover-5",
-        "interactive-discover-6",
-        "interactive-discover-7"
+        "interactive-short-4",
+        "interactive-short-5",
+        "interactive-short-6",
+        "interactive-short-7"
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
@@ -511,7 +466,7 @@
             }
           ],
           "substitutionProvider": {
-            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson"
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability"
           }
         },
         {
@@ -526,15 +481,18 @@
     {
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-short-3",
-      "queryTask": "Messages",
+      "queryTask": "Attributes Person",
       "nextTemplateFilePath": [
+        "interactive-short-1",
+        "interactive-short-2",
         "interactive-discover-1",
         "interactive-discover-2",
         "interactive-discover-3",
         "interactive-discover-4",
         "interactive-discover-5",
         "interactive-discover-6",
-        "interactive-discover-7"
+        "interactive-discover-7",
+        "interactive-discover-8"
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
@@ -558,7 +516,7 @@
             }
           ],
           "substitutionProvider": {
-            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson"
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability"
           }
         },
         {
@@ -574,15 +532,7 @@
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-short-4",
       "queryTask": "Messages",
-      "nextTemplateFilePath": [
-        "interactive-discover-1",
-        "interactive-discover-2",
-        "interactive-discover-3",
-        "interactive-discover-4",
-        "interactive-discover-5",
-        "interactive-discover-6",
-        "interactive-discover-7"
-      ],
+      "nextTemplateFilePath": [  ],
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
       "maxLogits": 5,
@@ -608,7 +558,7 @@
             "@type": "SubstitutionProviderUnionProbabilities",
             "substitutionProviders": [
                 {
-                  "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPostProbability",
+                  "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderCommentProbability",
                   "@type": "SubstitutionProviderCsvSimilarityBasedProbability",
                   "csvFilePath": "out-fragments/parameters-comments.csv",
                   "csvFilePathSimilarities": "out-enhanced/parameters-similarities-comments.csv",
@@ -642,13 +592,17 @@
       "name": "interactive-short-5",
       "queryTask": "Messages",
       "nextTemplateFilePath": [
+        "interactive-short-1",
+        "interactive-short-2",
+        "interactive-short-3",
         "interactive-discover-1",
         "interactive-discover-2",
         "interactive-discover-3",
         "interactive-discover-4",
         "interactive-discover-5",
         "interactive-discover-6",
-        "interactive-discover-7"
+        "interactive-discover-7",
+        "interactive-discover-8"
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
@@ -681,13 +635,17 @@
       "name": "interactive-short-6",
       "queryTask": "Messages",
       "nextTemplateFilePath": [
+        "interactive-short-1",
+        "interactive-short-2",
+        "interactive-short-3",
         "interactive-discover-1",
         "interactive-discover-2",
         "interactive-discover-3",
         "interactive-discover-4",
         "interactive-discover-5",
         "interactive-discover-6",
-        "interactive-discover-7"
+        "interactive-discover-7",
+        "interactive-discover-8"
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
@@ -720,13 +678,9 @@
       "name": "interactive-short-7",
       "queryTask": "Messages",
       "nextTemplateFilePath": [
-        "interactive-discover-1",
-        "interactive-discover-2",
-        "interactive-discover-3",
-        "interactive-discover-4",
-        "interactive-discover-5",
-        "interactive-discover-6",
-        "interactive-discover-7"
+        "interactive-short-4",
+        "interactive-short-5",
+        "interactive-short-6"
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
@@ -754,6 +708,5 @@
         }
       ]
     }
-
   ]
 }
