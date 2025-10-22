@@ -2,7 +2,6 @@
   "@context": "https://linkedsoftwaredependencies.org/bundles/npm/sparql-query-parameter-instantiator/^2.0.0/components/context.jsonld",
   "@id": "urn:sparql-query-parameter-instantiator:default",
   "@type": "QuerySequenceInstantiator",
-  "baseUrl": "http://solidbench-server:3000/",
   "count": 5,
   "seed": 0,
   "meanLogSequenceLength": 3,
@@ -29,11 +28,17 @@
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-discover-1",
       "queryTask": "Messages Person",
-      "nextTemplateFilePath": [
+      "nextTemplates": [
         "interactive-short-4",
         "interactive-short-5",
         "interactive-short-6",
         "interactive-short-7"
+      ],
+      "nextTemplateProbabilities": [
+        0.19876350351575986,
+        0.26492700380779644,
+        0.27289973194050826,
+        0.2608130756530614
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
@@ -84,11 +89,17 @@
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-discover-2",
       "queryTask": "Messages Person",
-      "nextTemplateFilePath": [
+      "nextTemplates": [
         "interactive-short-4",
         "interactive-short-5",
         "interactive-short-6",
         "interactive-short-7"
+      ],
+      "nextTemplateProbabilities": [
+        0.2286696711223743,
+        0.26978095042474226,
+        0.21043526450011338,
+        0.28851742886989595
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
@@ -129,7 +140,7 @@
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-discover-3",
       "queryTask": "Messages Person",
-      "nextTemplateFilePath": [  ],
+      "nextTemplates": [  ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -169,7 +180,7 @@
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-discover-4",
       "queryTask": "Messages Person",
-      "nextTemplateFilePath": [  ],
+      "nextTemplates": [  ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -212,7 +223,7 @@
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-discover-5",
       "queryTask": "Messages Person",
-      "nextTemplateFilePath": [  ],
+      "nextTemplates": [  ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -258,7 +269,7 @@
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-discover-6",
       "queryTask": "Forum",
-      "nextTemplateFilePath": [  ],
+      "nextTemplates": [  ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -297,7 +308,7 @@
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-discover-7",
       "queryTask": "Forum",
-      "nextTemplateFilePath": [
+      "nextTemplates": [
         "interactive-short-1",
         "interactive-short-2",
         "interactive-short-3",
@@ -312,6 +323,22 @@
         "interactive-discover-5",
         "interactive-discover-6",
         "interactive-discover-8"
+      ],
+      "nextTemplateProbabilities": [
+        0.08110924111220413,
+        0.07854017999382142,
+        0.08123852680622093,
+        0.05000000000000001,
+        0.05000000000000001,
+        0.05000000000000001,
+        0.05000000000000001,
+        0.07854018016141234,
+        0.07854018012991712,
+        0.08110929625655203,
+        0.08110929628330119,
+        0.08110929639974655,
+        0.08110929623652173,
+        0.07854018066455613
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
@@ -358,11 +385,17 @@
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-discover-8",
       "queryTask": "Messages Person",
-      "nextTemplateFilePath": [
+      "nextTemplates": [
         "interactive-short-4",
         "interactive-short-5",
         "interactive-short-6",
         "interactive-short-7"
+      ],
+      "nextTemplateProbabilities": [
+        0.23278782530439124,
+        0.2335440550460271,
+        0.21641783953416613,
+        0.3146535950325414
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
@@ -406,7 +439,7 @@
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-short-1",
       "queryTask": "Attributes Person",
-      "nextTemplateFilePath": [  ],
+      "nextTemplates": [  ],
       "minRefinementLength": 2,
       "maxRefinementLength": 3,
       "maxLogits": 5,
@@ -438,11 +471,17 @@
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-short-2",
       "queryTask": "Messages Person",
-      "nextTemplateFilePath": [
+      "nextTemplates": [
         "interactive-short-4",
         "interactive-short-5",
         "interactive-short-6",
         "interactive-short-7"
+      ],
+      "nextTemplateProbabilities": [
+        0.23374715933617324,
+        0.2210029300396978,
+        0.17238318145042417,
+        0.37027004409083064
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
@@ -482,7 +521,7 @@
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-short-3",
       "queryTask": "Attributes Person",
-      "nextTemplateFilePath": [
+      "nextTemplates": [
         "interactive-short-1",
         "interactive-short-2",
         "interactive-discover-1",
@@ -493,6 +532,18 @@
         "interactive-discover-6",
         "interactive-discover-7",
         "interactive-discover-8"
+      ],
+      "nextTemplateProbabilities": [
+        0.11362064955001053,
+        0.07981240222304216,
+        0.07981240226261332,
+        0.07981240227443775,
+        0.11361502761691279,
+        0.1136151214244785,
+        0.11361508323465906,
+        0.11361515084900717,
+        0.1136150323421975,
+        0.07981240226690908
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
@@ -532,7 +583,7 @@
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-short-4",
       "queryTask": "Messages",
-      "nextTemplateFilePath": [  ],
+      "nextTemplates": [  ],
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
       "maxLogits": 5,
@@ -591,7 +642,7 @@
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-short-5",
       "queryTask": "Messages",
-      "nextTemplateFilePath": [
+      "nextTemplates": [
         "interactive-short-1",
         "interactive-short-2",
         "interactive-short-3",
@@ -603,6 +654,19 @@
         "interactive-discover-6",
         "interactive-discover-7",
         "interactive-discover-8"
+      ],
+      "nextTemplateProbabilities": [
+        0.0946854277570674,
+        0.08057536376867162,
+        0.11050898876100794,
+        0.08057536364767952,
+        0.08057536377134633,
+        0.09468995243006229,
+        0.09468992150586339,
+        0.09468994670530856,
+        0.09469001220439206,
+        0.09468996972005025,
+        0.08057536377281838
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
@@ -634,7 +698,7 @@
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-short-6",
       "queryTask": "Messages",
-      "nextTemplateFilePath": [
+      "nextTemplates": [
         "interactive-short-1",
         "interactive-short-2",
         "interactive-short-3",
@@ -646,6 +710,19 @@
         "interactive-discover-6",
         "interactive-discover-7",
         "interactive-discover-8"
+      ],
+      "nextTemplateProbabilities": [
+        0.09468536894338067,
+        0.08057536374730212,
+        0.110509100054371,
+        0.08057536379017707,
+        0.08057536364201826,
+        0.09469001366010688,
+        0.09468995075857897,
+        0.09468996318029473,
+        0.09468983074345588,
+        0.09468999176216329,
+        0.08057536376241889
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
@@ -677,10 +754,15 @@
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-short-7",
       "queryTask": "Messages",
-      "nextTemplateFilePath": [
+      "nextTemplates": [
         "interactive-short-4",
         "interactive-short-5",
         "interactive-short-6"
+      ],
+      "nextTemplateProbabilities": [
+        0.3902859843679777,
+        0.244999204328047,
+        0.36211812622110123
       ],
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
