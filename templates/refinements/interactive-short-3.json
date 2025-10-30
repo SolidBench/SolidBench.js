@@ -93,7 +93,7 @@
         {
           "subject": { "value": "uni", "termType": "variable" },
           "predicate": { "value": "http://xmlns.com/foaf/0.1/name", "termType": "namedNode" },
-          "object": { "value": "uniName", "termType": "namedNode" }
+          "object": { "value": "uniName", "termType": "variable" }
         }
       ]
   },
@@ -117,7 +117,7 @@
         {
           "subject": { "value": "uni", "termType": "variable" },
           "predicate": { "value": "http://xmlns.com/foaf/0.1/name", "termType": "namedNode" },
-          "object": { "value": "uniName", "termType": "namedNode" }
+          "object": { "value": "uniName", "termType": "variable" }
         }
       ]
   },
