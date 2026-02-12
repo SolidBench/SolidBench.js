@@ -8168,10 +8168,10 @@ kuler@^2.0.0:
   resolved "https://registry.yarnpkg.com/kuler/-/kuler-2.0.0.tgz#e2c570a3800388fb44407e851531c1d670b061b3"
   integrity sha512-Xq9nH7KlWZmXAtodXDDRE7vs6DU1gTU8zYDHDiWLSip45Egwq3plLHzPn27NgvzL2r1LMPC1vdqh98sQxtqj4A==
 
-"ldbc-snb-enhancer@npm:@rubeneschauzier/ldbc-snb-enhancer@^2.6.0":
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/@rubeneschauzier/ldbc-snb-enhancer/-/ldbc-snb-enhancer-2.6.0.tgz#d7a18436f3bdeca738e15ca7323564f03420ef8c"
-  integrity sha512-vUvZOVw7yRLvy0jm6X0PjZBgL+Pk79XV3fYDWiuZQr4LM6lEYmqzSax1RR0Ky80pP86JFNaZLhWEQB2/PjXOdg==
+"ldbc-snb-enhancer@npm:@rubeneschauzier/ldbc-snb-enhancer@^2.6.1":
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/@rubeneschauzier/ldbc-snb-enhancer/-/ldbc-snb-enhancer-2.6.1.tgz#1e8f8a026704adf87aae7f6210a1ce46992eef0b"
+  integrity sha512-+/F1WDMl/ea1G6osMv0qoOE9lpQyd/7XDe29RLcI8J54Uorxc9FANe2XwmVPZyNFa3rA7Wefz8f0Ll4s7WkeXA==
   dependencies:
     "@rdfjs/types" "*"
     componentsjs "^6.0.0"

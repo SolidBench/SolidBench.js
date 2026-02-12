@@ -1,17 +1,74 @@
 {
-  "@context": "https://linkedsoftwaredependencies.org/bundles/npm/sparql-query-parameter-instantiator/^2.0.0/components/context.jsonld",
+  "@context": "https://linkedsoftwaredependencies.org/bundles/npm/@rubeneschauzier/sparql-query-parameter-instantiator/^2.0.0/components/context.jsonld",
   "@id": "urn:sparql-query-parameter-instantiator:default",
   "@type": "QuerySequenceInstantiator",
   "count": 20,
   "seed": 0,
-  "meanLogSequenceLength": 3,
-  "stdLogSequenceLength": 0.2,
-  "meanLogTransitionProbability": -2,
-  "stdLogTransitionProbability": 0.25,
-  "meanLogSessionLength": 1.7,
-  "stdLogSessionLength": 0.5,
-  "refinementPatternProbability": 0.1,
-  "temperature": 0.1,
+  "sequenceGenerator": {
+    "@type": "SequenceGenerator",
+    "meanLogSequenceLength": 3,
+    "stdLogSequenceLength": 0.2,
+    "meanLogTransitionProbability": -2,
+    "stdLogTransitionProbability": 0.25,
+    "meanLogSessionLength": 1.7,
+    "stdLogSessionLength": 0.5,
+    "refinementPatternProbability": 0.1,
+    "temperature": 0.1,
+    "findNextInstantiationValue": {
+      "@type": "QueryNextInstantiatorValue",
+      "termMappingTransformerFragmentedToOriginal": {
+        "@type": "ValueTransformerCsvMap",
+        "file": "out-fragments/transformed-activities.csv",
+        "invertMapping": true
+      },
+      "termMappingTransformerOriginalToFragmented": {
+        "@type": "ValueTransformerCsvMap",
+        "file": "out-fragments/transformed-activities.csv",
+        "invertMapping": false
+      },
+      "transformers": [
+        {
+          "@type": "TermTransformerBiDirectional",
+          "originalRegex": "^http://www.ldbc.eu/ldbc_socialnet/1.0/data/pers([0-9]*)$",
+          "originalString": "http://www.ldbc.eu/ldbc_socialnet/1.0/data/pers$1",
+          "fragmentedRegex": "^http://solidbench-server:3000/pods/([0-9]*)/profile/card#me$",
+          "fragmentedString": "http://solidbench-server:3000/pods/$1/profile/card#me"
+        },      
+        {
+          "@type": "TermTransformerBiDirectional",
+          "originalRegex": "^http://www.ldbc.eu",
+          "originalString": "http://www.ldbc.eu",
+          "fragmentedRegex": "^http://solidbench-server:3000/www.ldbc.eu",
+          "fragmentedString": "http://solidbench-server:3000/www.ldbc.eu"
+        },
+        {
+          "@type": "TermTransformerBiDirectional",
+          "originalRegex": "^http://dbpedia.org",
+          "originalString": "http://dbpedia.org",
+          "fragmentedRegex": "^http://solidbench-server:3000/dbpedia.org",
+          "fragmentedString": "http://solidbench-server:3000/dbpedia.org"
+        },
+        {
+          "@type": "TermTransformerBiDirectional",
+          "originalRegex": "^http://www.w3.org/2002/07/owl",
+          "originalString": "http://www.w3.org/2002/07/owl",
+          "fragmentedRegex": "^http://solidbench-server:3000/www.w3.org/2002/07/owl",
+          "fragmentedString": "http://solidbench-server:3000/www.w3.org/2002/07/owl"
+        }
+      ],
+      "QLever": {
+        "@type": "QLeverInstance",
+        "imageName": "adfreiburg/qlever:latest",
+        "port": 7000,
+        "timeout": 60,
+        "dataLocations": [
+          "out-snb/social_network/social_network_activity_0_0.ttl",
+          "out-snb/social_network/social_network_person_0_0.ttl",
+          "out-snb/social_network/social_network_static_0_0.ttl"
+        ]
+      }
+    }
+  },
   "destinationFilePath": "out-queries/",
   "personProvider": {
     "@type": "VariableTemplateNamedNode",
@@ -35,12 +92,17 @@
         "interactive-short-7"
       ],
       "nextTemplateProbabilities": [
-        0.19876350351575986,
-        0.26492700380779644,
-        0.27289973194050826,
-        0.2638130756530614
+        0.2504146687152856,
+        0.2682039038006317,
+        0.22701927593722204,
+        0.2534540673829174
       ],
-      "baseProbabilityTemplate": 0.084,
+      "instantiationVariableTypeMap": {
+        "person": "person"
+      },
+      "outputVariableTypeMap": {
+        "message": "message"
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -84,7 +146,13 @@
             "columnName": "maxDate"
           }
         }
-      ]
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri",
+        "@type": "ValueTransformerIri",
+        "searchRegex": "http://localhost:3000",
+        "replacementString": "http://solidbench-server:3000"
+      }
     },
     {
       "@type": "QuerySequenceTemplateProvider",
@@ -97,12 +165,17 @@
         "interactive-short-7"
       ],
       "nextTemplateProbabilities": [
-        0.2286696711223743,
-        0.26978095042474226,
-        0.21343526450011338,
-        0.28851742886989595
+        0.2503716815147486,
+        0.23663215884440447,
+        0.2628077428484548,
+        0.24928033262844887
       ],
-      "baseProbabilityTemplate": 0.084,
+      "instantiationVariableTypeMap": {
+        "person": "person"
+      },
+      "outputVariableTypeMap": {
+        "message": "message"
+      },      
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -135,15 +208,21 @@
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderTimestamps"
           }
         }
-
-      ]
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+      }
     },
     {
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-discover-3",
       "queryTask": "Messages Person",
       "nextTemplates": [],
-      "baseProbabilityTemplate": 0.093,
+      "instantiationVariableTypeMap": {
+        "person": "person"
+      },
+      "outputVariableTypeMap": {
+      },      
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -175,15 +254,21 @@
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderTimestamps"
           }
         }
-
-      ]
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+      }
     },
     {
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-discover-4",
       "queryTask": "Messages Person",
       "nextTemplates": [],
-      "baseProbabilityTemplate": 0.084,
+      "instantiationVariableTypeMap": {
+        "person": "person"
+      },
+      "outputVariableTypeMap": {
+      },      
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -220,14 +305,21 @@
             "uniqueValues": true
           }
         }
-      ]
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+      }
     },
     {
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-discover-5",
       "queryTask": "Messages Person",
       "nextTemplates": [],
-      "baseProbabilityTemplate": 0.084,
+      "instantiationVariableTypeMap": {
+        "person": "person"
+      },
+      "outputVariableTypeMap": {
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -267,14 +359,21 @@
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderLocation"
           }
         }
-      ]
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+      }
     },
     {
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-discover-6",
       "queryTask": "Forum",
       "nextTemplates": [],
-      "baseProbabilityTemplate": 0.084,
+      "instantiationVariableTypeMap": {
+        "person": "person"
+      },
+      "outputVariableTypeMap": {
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -307,7 +406,10 @@
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderLocation"
           }
         }
-      ]
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+      }
     },
     {
       "@type": "QuerySequenceTemplateProvider",
@@ -330,22 +432,28 @@
         "interactive-discover-8"
       ],
       "nextTemplateProbabilities": [
-        0.08110924111220413,
-        0.07854017999382142,
-        0.08123852680622093,
-        0.05000000000000001,
-        0.05000000000000001,
-        0.05000000000000001,
-        0.05000000000000001,
-        0.07854018016141234,
-        0.07854018012991712,
-        0.08110929625655203,
-        0.08110929628330119,
-        0.08110929639974655,
-        0.08110929623652173,
-        0.07854018066455613
+        0.08976998608004583,
+        0.10191401788302577,
+        0.10025361737348314,
+        0.020000000003386267,
+        0.020000000003386267,
+        0.020000000003386267,
+        0.020000000003385355,
+        0.08976836496507658,
+        0.0897706878755632,
+        0.0897709930107464,
+        0.08977096805373001,
+        0.08977118970282424,
+        0.08976967836986104,
+        0.0897710085624828
       ],
-      "baseProbabilityTemplate": 0.084,
+      "instantiationVariableTypeMap": {
+        "person": "person"
+      },
+      "outputVariableTypeMap": {
+        "moderator": "person",
+        "message": "message"
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -385,7 +493,10 @@
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderTimestamps"
           }
         }
-      ]
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+      }
     },
     {
       "@type": "QuerySequenceTemplateProvider",
@@ -398,12 +509,17 @@
         "interactive-short-7"
       ],
       "nextTemplateProbabilities": [
-        0.23278782530439124,
-        0.2365440550460271,
-        0.21641783953416613,
-        0.3146535950325414
+        0.2435325866458712,
+        0.23948287423086942,
+        0.254491918090229,
+        0.2615845368690871
       ],
-      "baseProbabilityTemplate": 0.084,
+      "instantiationVariableTypeMap": {
+        "person": "person"
+      },
+      "outputVariableTypeMap": {
+        "message": "message"
+      },      
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -415,7 +531,6 @@
         "@id": "urn:variables:query-refinements:interactive-discover-8.json",
         "@type": "Variable"
       },
-
       "variables": [
         {
           "@type": "VariableTemplateNamedNode",
@@ -440,14 +555,21 @@
             "uniqueValues": true
           }
         }
-      ]
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+      }
     },
     {
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-short-1",
       "queryTask": "Attributes Person",
       "nextTemplates": [],
-      "baseProbabilityTemplate": 0.084,
+      "instantiationVariableTypeMap": {
+        "person": "person"
+      },
+      "outputVariableTypeMap": {
+      },      
       "minRefinementLength": 2,
       "maxRefinementLength": 3,
       "maxLogits": 5,
@@ -473,25 +595,54 @@
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability"
           }
         }
-      ]
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+      }
     },
     {
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-short-2",
       "queryTask": "Messages Person",
       "nextTemplates": [
+        "interactive-short-1",
+        "interactive-short-3",
         "interactive-short-4",
         "interactive-short-5",
         "interactive-short-6",
-        "interactive-short-7"
+        "interactive-short-7",
+        "interactive-discover-1",
+        "interactive-discover-2",
+        "interactive-discover-3",
+        "interactive-discover-4",
+        "interactive-discover-5",
+        "interactive-discover-6",
+        "interactive-discover-7",
+        "interactive-discover-8"
       ],
       "nextTemplateProbabilities": [
-        0.23674715933617324,
-        0.2210029300396978,
-        0.17238318145042417,
-        0.37027004409083064
+        0.08977244794506864,
+        0.1002531684414287,
+        0.020000000003386267,
+        0.020000000003386267,
+        0.020000000003386267,
+        0.020000000003385355,
+        0.08976901697497065,
+        0.08977023113023182,
+        0.08977036500752497,
+        0.08977030888328205,
+        0.08976987416824286,
+        0.0897691661161077,
+        0.10191529280314007,
+        0.08977064040684146
       ],
-      "baseProbabilityTemplate": 0.084,
+      "instantiationVariableTypeMap": {
+        "person": "person"
+      },
+      "outputVariableTypeMap": {
+        "originalPost": "message",
+        "creator": "person"
+      },      
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
       "maxLogits": 5,
@@ -503,7 +654,6 @@
         "@id": "urn:variables:query-refinements:interactive-short-2.json",
         "@type": "Variable"
       },
-
       "variables": [
         {
           "@type": "VariableTemplateNamedNode",
@@ -524,7 +674,10 @@
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderTag"
           }
         }
-      ]
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+      }
     },
     {
       "@type": "QuerySequenceTemplateProvider",
@@ -543,18 +696,23 @@
         "interactive-discover-8"
       ],
       "nextTemplateProbabilities": [
-        0.11362064955001053,
-        0.07981240222304216,
-        0.07981240226261332,
-        0.07981240227443775,
-        0.11361502761691279,
-        0.1136151214244785,
-        0.11361508323465906,
-        0.11361515084900717,
-        0.1136150323421975,
-        0.07981240226690908
+        0.09087179749598799,
+        0.1412562584422525,
+        0.09086785750615471,
+        0.0908735795765486,
+        0.09087537871025639,
+        0.0908722710301418,
+        0.09087286439560674,
+        0.09087533419153002,
+        0.1320898413841447,
+        0.0908753291577597
       ],
-      "baseProbabilityTemplate": 0.084,
+      "instantiationVariableTypeMap": {
+        "rootPerson": "person"
+      },
+      "outputVariableTypeMap": {
+        "person": "person"
+      },      
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
       "maxLogits": 5,
@@ -587,14 +745,21 @@
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderTag"
           }
         }
-      ]
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+      }
     },
     {
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-short-4",
       "queryTask": "Messages",
       "nextTemplates": [],
-      "baseProbabilityTemplate": 0.02,
+      "instantiationVariableTypeMap": {
+        "message": "message"
+      },
+      "outputVariableTypeMap": {
+      },      
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
       "maxLogits": 5,
@@ -647,7 +812,10 @@
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderTag"
           }
         }
-      ]
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+      }
     },
     {
       "@type": "QuerySequenceTemplateProvider",
@@ -667,19 +835,24 @@
         "interactive-discover-8"
       ],
       "nextTemplateProbabilities": [
-        0.0946854277570674,
-        0.08057536376867162,
-        0.11050898876100794,
-        0.08057536364767952,
-        0.08057536377134633,
-        0.09468995243006229,
-        0.09468992150586339,
-        0.09468994670530856,
-        0.09469001220439206,
-        0.09468996972005025,
-        0.08057536377281838
+        0.08533179249658247,
+        0.0990238168893021,
+        0.11950979863393806,
+        0.08532623843008677,
+        0.08533079334739188,
+        0.08533239407180786,
+        0.08533266821607252,
+        0.08533546118657856,
+        0.0853297731271049,
+        0.0991476372703466,
+        0.08533013822117143
       ],
-      "baseProbabilityTemplate": 0.02,
+      "instantiationVariableTypeMap": {
+        "message": "message"
+      },
+      "outputVariableTypeMap": {
+        "creator": "person"
+      },      
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
       "maxLogits": 10,
@@ -701,10 +874,22 @@
             }
           ],
           "substitutionProvider": {
-            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderMessageProbability"
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderMessageProbability",
+            "@type": "SubstitutionProviderUnionProbabilities",
+            "substitutionProviders": [
+              {
+                "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderCommentProbability"
+              },
+              {
+                "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPostProbability"
+              }
+            ]
           }
         }
-      ]
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+      }
     },
     {
       "@type": "QuerySequenceTemplateProvider",
@@ -724,19 +909,24 @@
         "interactive-discover-8"
       ],
       "nextTemplateProbabilities": [
-        0.09468536894338067,
-        0.08057536374730212,
-        0.110509100054371,
-        0.08057536379017707,
-        0.08057536364201826,
-        0.09469001366010688,
-        0.09468995075857897,
-        0.09468996318029473,
-        0.09468983074345588,
-        0.09468999176216329,
-        0.08057536376241889
+        0.08534027340030868,
+        0.09487835082590301,
+        0.11881654644626383,
+        0.08535640669357124,
+        0.08533670884849072,
+        0.08533465429956377,
+        0.08533736237338868,
+        0.08533506360175118,
+        0.08533790251941696,
+        0.10392080369600956,
+        0.08533643918571568
       ],
-      "baseProbabilityTemplate": 0.02,
+      "instantiationVariableTypeMap": {
+        "message": "message"
+      },
+      "outputVariableTypeMap": {
+        "moderator": "person"
+      },      
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
       "maxLogits": 10,
@@ -761,23 +951,54 @@
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderMessageProbability"
           }
         }
-      ]
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+      }
     },
     {
       "@type": "QuerySequenceTemplateProvider",
       "name": "interactive-short-7",
       "queryTask": "Messages",
       "nextTemplates": [
+        "interactive-short-1",
+        "interactive-short-2",
+        "interactive-short-3",
         "interactive-short-4",
         "interactive-short-5",
-        "interactive-short-6"
+        "interactive-short-6",
+        "interactive-discover-1",
+        "interactive-discover-2",
+        "interactive-discover-3",
+        "interactive-discover-4",
+        "interactive-discover-5",
+        "interactive-discover-6",
+        "interactive-discover-7",
+        "interactive-discover-8"
       ],
       "nextTemplateProbabilities": [
-        0.3912859843679777,
-        0.245999204328047,
-        0.36311812622110123
+        0.08454852724578575,
+        0.08856238062329591,
+        0.08680169376866571,
+        0.020000000004545916,
+        0.020000000004545916,
+        0.020000000004545916,
+        0.08454694009391951,
+        0.08455282388555316,
+        0.08455103956387992,
+        0.08455124610716427,
+        0.08455037160877583,
+        0.0845529703397588,
+        0.08856124951013836,
+        0.08455126912980829
       ],
-      "baseProbabilityTemplate": 0.02,
+      "instantiationVariableTypeMap": {
+        "message": "message"
+      },
+      "outputVariableTypeMap": {
+        "comment": "message",
+        "replyAuthor": "person"
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
       "maxLogits": 10,
@@ -802,7 +1023,10 @@
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderMessageProbability"
           }
         }
-      ]
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+      }
     }
   ]
 }
