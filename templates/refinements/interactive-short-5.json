@@ -68,7 +68,7 @@
   {
     "type": "UNION",
     "id": 3,
-    "operation": "addition",
+    "operation": "removal",
     "description": "Add union for location of creator or location of university (P.2, P.4, T.1, T.3, T.4)",
     "location": 0,
     "target": [
