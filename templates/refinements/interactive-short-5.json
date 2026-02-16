@@ -60,7 +60,7 @@
         {
           "subject": { "value": "uni", "termType": "variable" },
           "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/locatedIn", "termType": "namedNode" },
-          "object": { "value": "location", "termType": "namedNode" }
+          "object": { "value": "locationUni", "termType": "variable" }
         }
       ]
     ]
@@ -98,7 +98,7 @@
         {
           "subject": { "value": "uni", "termType": "variable" },
           "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/locatedIn", "termType": "namedNode" },
-          "object": { "value": "location", "termType": "namedNode" }
+          "object": { "value": "locationUni", "termType": "variable" }
         }
       ]
     ]
