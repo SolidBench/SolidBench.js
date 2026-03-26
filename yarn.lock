@@ -10088,10 +10088,10 @@ spark-md5@^3.0.1:
     seedrandom "^3.0.5"
     sparqljs "^3.7.0"
 
-"sparql-query-parameter-instantiator@npm:@rubeneschauzier/sparql-query-parameter-instantiator@^2.9.1":
-  version "2.9.1"
-  resolved "https://registry.yarnpkg.com/@rubeneschauzier/sparql-query-parameter-instantiator/-/sparql-query-parameter-instantiator-2.9.1.tgz#07e40c165dc24d7ef07f6567a90a054e7e3fedb0"
-  integrity sha512-ZS4rnhuzGwkpItLnOLXOVdTseoRbcEBh4SIYvjnNE5wstjl6AF/VPI4heFHr5TJHtHvdS72opkwh1gL19hfkAg==
+"sparql-query-parameter-instantiator@npm:@rubeneschauzier/sparql-query-parameter-instantiator@^2.9.2":
+  version "2.9.2"
+  resolved "https://registry.yarnpkg.com/@rubeneschauzier/sparql-query-parameter-instantiator/-/sparql-query-parameter-instantiator-2.9.2.tgz#ec7c26c2c1e8eff54a43548ad2b4cbb478cc8b84"
+  integrity sha512-CKJeU0FqLlPqO/4iVNlrKWv+af6ANEC+p0RNfUCG5sMFdvRHgi5kq58hhuHYzfu4b10ds2At4EJavP/Q4ZbwZA==
   dependencies:
     "@comunica/types" "^5.0.0"
     "@comunica/utils-bindings-factory" "^5.0.3"
