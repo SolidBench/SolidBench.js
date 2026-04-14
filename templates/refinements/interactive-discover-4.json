@@ -17,7 +17,7 @@
     "type": "OPTIONAL",
     "id": 1,
     "operation": "removal",
-    "description": "Add optional triple to obtain all messages this comment was a reply of",
+    "description": "Remove optional triple to obtain all messages this comment was a reply of",
     "location": 0,
     "target": [
       {
@@ -54,7 +54,7 @@
     "type": "UNION",
     "id": 4,
     "operation": "removal",
-    "description": "Add UNION block for ?message type is post",
+    "description": "Remove UNION block for ?message type is post",
     "location": 0,
     "target": [
       [

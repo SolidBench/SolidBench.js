@@ -22,7 +22,7 @@
     "type": "OPTIONAL",
     "id": 1,
     "operation": "removal",
-    "description": "Remove optional retrieving the interests of the person and its name (P.4, T.1, T.3)",
+    "description": "Remove optional retrieving the interests of the person and their names (P.4, T.1, T.3)",
     "location": 0,
     "target": [
       {
@@ -83,7 +83,7 @@
     "type": "FILTER",
     "id": 5,
     "operation": "addition",
-    "description": "Only select messages posted earlier than 2011-10-16 (P.1)",
+    "description": "Only select messages posted earlier than an instantiation value (P.1)",
     "location": 0,
     "target": [
       {
@@ -91,7 +91,7 @@
         "operator": "<",
         "args": [
           {
-            "termType": "Variable",
+            "termType": "variable",
             "value": "messageCreationDate"
           },
           { "termType": "variable", "value": "timestamp" }
@@ -103,7 +103,7 @@
     "type": "FILTER",
     "id": 6,
     "operation": "removal",
-    "description": "Only select messages posted earlier than 2011-10--16 (P.1)",
+    "description": "Only select messages posted earlier than an instantiation value (P.1)",
     "location": 0,
     "target": [
       {
@@ -111,7 +111,7 @@
         "operator": "<",
         "args": [
           {
-            "termType": "Variable",
+            "termType": "variable",
             "value": "messageCreationDate"
           },
           { "termType": "variable", "value": "timestamp" }

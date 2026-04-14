@@ -2,7 +2,7 @@
   "@context": "https://linkedsoftwaredependencies.org/bundles/npm/@rubeneschauzier/sparql-query-parameter-instantiator/^2.0.0/components/context.jsonld",
   "@id": "urn:sparql-query-parameter-instantiator:default",
   "@type": "QuerySequenceInstantiator",
-  "count": 20,
+  "count": 8,
   "seed": 0,
   "sequenceGenerator": {
     "@type": "SequenceGenerator",
@@ -138,12 +138,13 @@
         {
           "@type": "VariableTemplateTimestamp",
           "name": "timestamp",
+          "stripDatatype": true,
           "substitutionProvider": {
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderTimestamps",
             "@type": "SubstitutionProviderCsv",
-            "csvFilePath": "out-snb/substitution_parameters/interactive_9_param.txt",
-            "separator": "|",
-            "columnName": "maxDate"
+            "csvFilePath": "out-fragments/parameters-timestamps.csv",
+            "columnName": "object",
+            "uniqueValues": true
           }
         }
       ],
@@ -203,7 +204,8 @@
         },
         {
           "@type": "VariableTemplateTimestamp",
-          "name": "maxDate",
+          "name": "timestamp",
+          "stripDatatype": true,
           "substitutionProvider": {
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderTimestamps"
           }
@@ -249,7 +251,8 @@
         },
         {
           "@type": "VariableTemplateTimestamp",
-          "name": "maxDate",
+          "stripDatatype": true,
+          "name": "timestamp",
           "substitutionProvider": {
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderTimestamps"
           }
@@ -488,7 +491,8 @@
         },
         {
           "@type": "VariableTemplateTimestamp",
-          "name": "maxDate",
+          "name": "timestamp",
+          "stripDatatype": true,
           "substitutionProvider": {
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderTimestamps"
           }

@@ -144,7 +144,7 @@
     "type": "FILTER",
     "id": 7,
     "operation": "removal",
-    "description": "Add filter to the tags of a message (P.1)",
+    "description": "Remove filter to the tags of a message (P.1)",
     "location": 0,
     "target": [
       {
@@ -161,7 +161,7 @@
     "type": "SUB",
     "id": 8,
     "operation": "addition",
-    "description": "Substitute the person parameter in query (T.2)",
+    "description": "Substitute the message parameter in query (T.2)",
     "location": 0,
     "target": { "value": "message", "termType": "variable" }
   },
@@ -169,7 +169,7 @@
     "type": "SUB",
     "id": 9,
     "operation": "removal",
-    "description": "Substitute back the original person parameter in query (T.2)",
+    "description": "Substitute back the original message parameter in query (T.2)",
     "location": 0,
     "target": { "value": "message", "termType": "variable" }
   }

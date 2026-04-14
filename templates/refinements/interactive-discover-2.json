@@ -65,7 +65,7 @@
       [
         {
           "subject": { "value": "message", "termType": "variable" },
-          "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/ReplyOf", "termType": "namedNode" },
+          "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/replyOf", "termType": "namedNode" },
           "object": { "value": "messageReplied", "termType": "variable" }
         }
       ]
@@ -88,7 +88,7 @@
   {
     "type": "BGP",
     "id": 5,
-    "operation": "addition",
+    "operation": "remove",
     "description": "Remove triple to obtain the browser used to post the message (P.4)",
     "location": 0,
     "target": [
@@ -137,7 +137,7 @@
     "type": "FILTER",
     "id": 8,
     "operation": "addition",
-    "description": "Only select comments posted earlier than 2011-10--16 (P.1) that respond to message of person (P.2)",
+    "description": "Only select comments posted earlier than instantiation variable (P.1) that respond to message of person (P.2)",
     "location": 0,
     "target": [
       {
@@ -154,7 +154,7 @@
     "type": "FILTER",
     "id": 9,
     "operation": "removal",
-    "description": "Only select comments posted earlier than 2011-10--16 (P.1) that respond to message of person (P.2)",
+    "description": "Only select comments posted earlier than instantiation variable (P.1) that respond to message of person (P.2)",
     "location": 0,
     "target": [
       {

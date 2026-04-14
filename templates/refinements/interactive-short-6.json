@@ -141,7 +141,7 @@
   {
     "type": "OPTIONAL",
     "id": 5,
-    "operation": "addition",
+    "operation": "removal",
     "description": "Remove optional inclusion of the interests of the moderator (P.2, P.4)",
     "location": 0,
     "target": [

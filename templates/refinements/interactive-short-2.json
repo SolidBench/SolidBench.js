@@ -59,7 +59,7 @@
     "type": "UNION",
     "id": 3,
     "operation": "removal",
-    "description": "Add union for tags of both message and the forum its posted in (P.2, P.4, T.1, T.3)",
+    "description": "Remove union for tags of both message and the forum its posted in (P.2, P.4, T.1, T.3)",
     "location": 0,
     "target": [
       [

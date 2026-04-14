@@ -1,5 +1,5 @@
 {
-  "@context": "https://linkedsoftwaredependencies.org/bundles/npm/rdf-dataset-fragmenter/^2.0.0/components/context.jsonld",
+  "@context": "https://linkedsoftwaredependencies.org/bundles/npm/@rubeneschauzier/rdf-dataset-fragmenter/^2.0.0/components/context.jsonld",
   "@id": "urn:rdf-dataset-fragmenter:default",
   "@type": "Fragmenter",
   "transformCallback": [
@@ -545,6 +545,20 @@
         "sink": {
           "@type": "QuadSinkCsv",
           "file": "out-fragments/parameters-tags.csv",
+          "columns": [
+            "object"
+          ]
+        }
+      },
+      {
+        "@type": "QuadSinkFiltered",
+        "filter": {
+          "@type": "QuadMatcherPredicate",
+          "predicateRegex": "vocabulary/creationDate$"
+        },
+        "sink": {
+          "@type": "QuadSinkCsv",
+          "file": "out-fragments/parameters-timestamps.csv",
           "columns": [
             "object"
           ]

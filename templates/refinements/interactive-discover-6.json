@@ -1,7 +1,7 @@
 [
   {
     "type": "BGP",
-    "id": 1,
+    "id": 0,
     "operation": "addition",
     "description": "Add triple for members of a forum (T.1, P.4)",
     "location": 0,
@@ -74,7 +74,7 @@
     "type": "UNION",
     "id": 3,
     "operation": "removal",
-    "description": "Add union for tags and locations of the other messages in a forum (P.2, T.1, T.3)",
+    "description": "Remove union for tags and locations of the other messages in a forum (P.2, T.1, T.3)",
     "location": 0,
     "target": [
       [

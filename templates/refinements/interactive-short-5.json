@@ -37,7 +37,7 @@
       [
         {
           "subject": { "value": "creator", "termType": "variable" },
-          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/locatedIn", "termType": "namedNode" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/isLocatedIn", "termType": "namedNode" },
           "object": { "value": "location", "termType": "variable" }
         },
         {
@@ -59,7 +59,7 @@
         },
         {
           "subject": { "value": "uni", "termType": "variable" },
-          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/locatedIn", "termType": "namedNode" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/isLocatedIn", "termType": "namedNode" },
           "object": { "value": "locationUni", "termType": "variable" }
         }
       ]
@@ -69,13 +69,13 @@
     "type": "UNION",
     "id": 3,
     "operation": "removal",
-    "description": "Add union for location of creator or location of university (P.2, P.4, T.1, T.3, T.4)",
+    "description": "Remove union for location of creator or location of university (P.2, P.4, T.1, T.3, T.4)",
     "location": 0,
     "target": [
       [
         {
           "subject": { "value": "creator", "termType": "variable" },
-          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/locatedIn", "termType": "namedNode" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/isLocatedIn", "termType": "namedNode" },
           "object": { "value": "location", "termType": "variable" }
         },
         {
@@ -97,7 +97,7 @@
         },
         {
           "subject": { "value": "uni", "termType": "variable" },
-          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/locatedIn", "termType": "namedNode" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/isLocatedIn", "termType": "namedNode" },
           "object": { "value": "locationUni", "termType": "variable" }
         }
       ]

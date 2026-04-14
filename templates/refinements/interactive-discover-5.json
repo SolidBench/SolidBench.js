@@ -55,7 +55,7 @@
     "type": "OPTIONAL",
     "id": 4,
     "operation": "removal",
-    "description": "Find all messages this is a reply of if they exist (P.2, P.4, T.1, T.3)",
+    "description": "Remove optional that finds all messages this is a reply of if they exist (P.2, P.4, T.1, T.3)",
     "location": 0,
     "target": [
       {
@@ -79,7 +79,7 @@
     "type": "UNION",
     "id": 5,
     "operation": "addition",
-    "description": "Remove union of two locations which act as template variables, which will be filled with namedNodes",
+    "description": "Add union of two locations which act as template variables, which will be filled with namedNodes",
     "location": 0,
     "target": [
       [

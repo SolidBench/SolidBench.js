@@ -30,7 +30,7 @@
   {
     "type": "OPTIONAL",
     "id": 2,
-    "operation": "removal",
+    "operation": "addition",
     "description": "Add optional triple to obtain all messages this comment was a reply of (T.3, P.3)",
     "location": 0,
     "target": [
@@ -45,7 +45,7 @@
     "type": "OPTIONAL",
     "id": 3,
     "operation": "removal",
-    "description": "Add optional triple to obtain all messages this comment was a reply of (T.3, P.3)",
+    "description": "Remove optional triple to obtain all messages this comment was a reply of (T.3, P.3)",
     "location": 0,
     "target": [
       {
@@ -120,7 +120,7 @@
   },
   {
     "type": "FILTER",
-    "id": 6,
+    "id": 7,
     "operation": "removal",
     "description": "Remove filter on the tags of messages and interests (P.1)",
     "location": 0,
@@ -137,7 +137,7 @@
   },
   {
     "type": "SUB",
-    "id": 6,
+    "id": 8,
     "operation": "addition",
     "description": "Substitute the person parameter in query (T.2)",
     "location": 0,
@@ -146,7 +146,7 @@
   },
   {
     "type": "SUB",
-    "id": 7,
+    "id": 9,
     "operation": "removal",
     "description": "Substitute back the original person parameter in query (T.2)",
     "location": 0,

@@ -31,7 +31,7 @@
     "type": "UNION",
     "id": 2,
     "operation": "addition",
-    "description": "remove union that includes all people that know the parameter person (P.4)",
+    "description": "Add union that includes all people that know the parameter person (P.4)",
     "location": 0,
     "target": [
       [
@@ -101,7 +101,7 @@
    "type": "OPTIONAL",
     "id": 5,
     "operation": "removal",
-    "description": "Add optional for name of university (P.2, P.4, T.1, T.3)",
+    "description": "Remove optional for name of university (P.2, P.4, T.1, T.3)",
     "location": 0,
     "target": [
         {
@@ -125,7 +125,7 @@
     "type": "SUB",
     "id": 6,
     "operation": "addition",
-    "description": "Substitute the message parameter in query (T.2)",
+    "description": "Substitute the rootPerson parameter in query (T.2)",
     "location": 0,
     "target": { "value": "rootPerson", "termType": "variable" }
   },
@@ -133,7 +133,7 @@
     "type": "SUB",
     "id": 7,
     "operation": "removal",
-    "description": "Substitute back the original message parameter in query (T.2)",
+    "description": "Substitute back the original rootPerson parameter in query (T.2)",
     "location": 0,
     "target": { "value": "rootPerson", "termType": "variable" }
   }
