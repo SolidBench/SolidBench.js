@@ -132,7 +132,7 @@
     "target": [
       {
         "type": "operation",
-        "operator": "==",
+        "operator": "=",
         "args": [
           { "termType": "variable", "value": "tag" },
           { "termType": "variable", "value": "tagParam" }
@@ -149,7 +149,7 @@
     "target": [
       {
         "type": "operation",
-        "operator": "==",
+        "operator": "=",
         "args": [
           { "termType": "variable", "value": "tag" },
           { "termType": "variable", "value": "tagParam" }

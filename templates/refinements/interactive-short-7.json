@@ -124,40 +124,6 @@
     ]
   },
   {
-    "type": "FILTER",
-    "id": 4,
-    "operation": "addition",
-    "description": "Add filter on comment ID modulus to test cache reuse effectiveness (P.1)",
-    "location": 0,
-    "target": [
-        {
-        "type": "operation",
-        "operator": "%",
-        "args": [
-            { "value": "commentId", "termType":  "variable"},
-            { "value": "5", "termType": "literal", "datatype": "http://www.w3.org/2001/XMLSchema#integer" }
-        ]
-        }
-    ]
-  },
-  {
-    "type": "FILTER",
-    "id": 5,
-    "operation": "removal",
-    "description": "Remove filter on comment ID modulus to test cache reuse effectiveness (P.1)",
-    "location": 0,
-    "target": [
-        {
-        "type": "operation",
-        "operator": "%",
-        "args": [
-            { "value": "commentId", "termType":  "variable"},
-            { "value": "5", "termType": "literal", "datatype": "http://www.w3.org/2001/XMLSchema#integer" }
-        ]
-        }
-    ]
-  },
-  {
     "type": "SUB",
     "id": 6,
     "operation": "addition",

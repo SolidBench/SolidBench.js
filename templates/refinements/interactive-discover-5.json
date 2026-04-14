@@ -130,7 +130,7 @@
     "target": [
       {
         "type": "operation",
-        "operator": "==",
+        "operator": "=",
         "args": [
           { "termType": "variable", "value": "replyLocation" },
           { "termType": "variable", "value": "location1" }
@@ -147,7 +147,7 @@
     "target": [
       {
         "type": "operation",
-        "operator": "==",
+        "operator": "=",
         "args": [
           { "termType": "variable", "value": "replyLocation" },
           { "termType": "variable", "value": "location1" }
