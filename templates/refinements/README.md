@@ -1,6 +1,6 @@
 # Refinement Pattern Configuration Guide
 
-This document details the configuration options and operational constraints for refinement pattern simulation in SolidBench using [sparql-query-parameter-instantiator](https://github.com/SolidBench/sparql-query-parameter-instantiator.js). 
+This document details the configuration options and operational constraints for refinement pattern simulation in SolidBench using [sparql-query-parameter-instantiator](https://github.com/SolidBench/sparql-query-parameter-instantiator.js).
 The processor uses JSON configuration files to simulate user query refinements (additions, removals, and substitutions) of existing SolidBench query templates.
 These refinements are randomly applied when valid, and thus can produce many different combinations of related queries.
 

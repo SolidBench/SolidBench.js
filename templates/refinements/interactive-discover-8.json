@@ -142,7 +142,7 @@
     "description": "Substitute the person parameter in query (T.2)",
     "location": 0,
     "target": { "value": "person", "termType": "variable" }
-    
+
   },
   {
     "type": "SUB",

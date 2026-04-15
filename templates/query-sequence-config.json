@@ -33,7 +33,7 @@
           "originalString": "http://www.ldbc.eu/ldbc_socialnet/1.0/data/pers$1",
           "fragmentedRegex": "^http://solidbench-server:3000/pods/([0-9]*)/profile/card#me$",
           "fragmentedString": "http://solidbench-server:3000/pods/$1/profile/card#me"
-        },      
+        },
         {
           "@type": "TermTransformerBiDirectional",
           "originalRegex": "^http://www.ldbc.eu",
@@ -176,7 +176,7 @@
       },
       "outputVariableTypeMap": {
         "message": "message"
-      },      
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -224,7 +224,7 @@
         "person": "person"
       },
       "outputVariableTypeMap": {
-      },      
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -271,7 +271,7 @@
         "person": "person"
       },
       "outputVariableTypeMap": {
-      },      
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -523,7 +523,7 @@
       },
       "outputVariableTypeMap": {
         "message": "message"
-      },      
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -573,7 +573,7 @@
         "person": "person"
       },
       "outputVariableTypeMap": {
-      },      
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 3,
       "maxLogits": 5,
@@ -646,7 +646,7 @@
       "outputVariableTypeMap": {
         "originalPost": "message",
         "creator": "person"
-      },      
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
       "maxLogits": 5,
@@ -716,7 +716,7 @@
       },
       "outputVariableTypeMap": {
         "person": "person"
-      },      
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
       "maxLogits": 5,
@@ -763,7 +763,7 @@
         "message": "message"
       },
       "outputVariableTypeMap": {
-      },      
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
       "maxLogits": 5,
@@ -856,7 +856,7 @@
       },
       "outputVariableTypeMap": {
         "creator": "person"
-      },      
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
       "maxLogits": 10,
@@ -930,7 +930,7 @@
       },
       "outputVariableTypeMap": {
         "moderator": "person"
-      },      
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
       "maxLogits": 10,
