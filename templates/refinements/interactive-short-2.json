@@ -4,10 +4,10 @@
     "id": 0,
     "operation": "addition",
     "description": "Add triple to find interests of orginal author (T.1, T.3, P.4)",
-    "location": 0,
+    "location": 1,
     "target": [
       {
-        "subject": { "value": "location", "termType": "variable" },
+        "subject": { "value": "creator", "termType": "variable" },
         "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasInterest", "termType": "namedNode" },
         "object": { "value": "tag", "termType": "variable" }
       }
@@ -18,10 +18,10 @@
     "id": 1,
     "operation": "removal",
     "description": "Remove triple to find interests of orginal author (T.1, T.3, P.4)",
-    "location": 0,
+    "location": 1,
     "target": [
       {
-        "subject": { "value": "location", "termType": "variable" },
+        "subject": { "value": "creator", "termType": "variable" },
         "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasInterest", "termType": "namedNode" },
         "object": { "value": "tag", "termType": "variable" }
       }

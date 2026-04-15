@@ -4,7 +4,7 @@
     "id": 0,
     "operation": "addition",
     "description": "Retrieve creation date forum (T.1, P.4)",
-    "location": 0,
+    "location": 1,
     "target": [
       {
         "subject": { "value": "forum", "termType": "variable" },
@@ -18,7 +18,7 @@
     "id": 1,
     "operation": "removal",
     "description": "Remove retrieval creation date forum (T.1, P.4)",
-    "location": 0,
+    "location": 1,
     "target": [
       {
         "subject": { "value": "forum", "termType": "variable" },
@@ -60,7 +60,7 @@
     "id": 4,
     "operation": "addition",
     "description": "Retrieve the interests of the moderator (P.2, P.4)",
-    "location": 0,
+    "location": 1,
     "target": [
       {
         "subject": { "value": "moderator", "termType": "variable" },
@@ -79,7 +79,7 @@
     "id": 5,
     "operation": "removal",
     "description": "Remove Retrieval of the interests of the moderator (P.2, P.4)",
-    "location": 0,
+    "location": 1,
     "target": [
       {
         "subject": { "value": "moderator", "termType": "variable" },
