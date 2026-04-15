@@ -38,11 +38,6 @@
         "subject": { "value": "originalPostInner", "termType": "variable" },
         "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasTag", "termType": "namedNode" },
         "object": { "value": "tag", "termType": "variable" }
-      },
-      {
-        "subject": { "value": "member", "termType": "variable" },
-        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/isLocatedIn", "termType": "namedNode" },
-        "object": { "value": "location", "termType": "variable" }
       }
     ]
   },
@@ -57,11 +52,6 @@
         "subject": { "value": "originalPostInner", "termType": "variable" },
         "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasTag", "termType": "namedNode" },
         "object": { "value": "tag", "termType": "variable" }
-      },
-      {
-        "subject": { "value": "member", "termType": "variable" },
-        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/isLocatedIn", "termType": "namedNode" },
-        "object": { "value": "location", "termType": "variable" }
       }
     ]
   },
