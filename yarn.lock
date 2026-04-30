@@ -7918,10 +7918,10 @@ kuler@^2.0.0:
   resolved "https://registry.yarnpkg.com/kuler/-/kuler-2.0.0.tgz#e2c570a3800388fb44407e851531c1d670b061b3"
   integrity sha512-Xq9nH7KlWZmXAtodXDDRE7vs6DU1gTU8zYDHDiWLSip45Egwq3plLHzPn27NgvzL2r1LMPC1vdqh98sQxtqj4A==
 
-"ldbc-snb-enhancer@npm:@rubeneschauzier/ldbc-snb-enhancer@^2.6.1":
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/@rubeneschauzier/ldbc-snb-enhancer/-/ldbc-snb-enhancer-2.6.1.tgz#1e8f8a026704adf87aae7f6210a1ce46992eef0b"
-  integrity sha512-+/F1WDMl/ea1G6osMv0qoOE9lpQyd/7XDe29RLcI8J54Uorxc9FANe2XwmVPZyNFa3rA7Wefz8f0Ll4s7WkeXA==
+"ldbc-snb-enhancer@npm:@rubeneschauzier/ldbc-snb-enhancer@^2.6.2":
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/@rubeneschauzier/ldbc-snb-enhancer/-/ldbc-snb-enhancer-2.6.2.tgz#30c957f75cec3fc6f02dfc4a7a6d9ab6c1ec7def"
+  integrity sha512-R7c3dYfYpWW6f/fpA2EVAW8T8lKgEv2TNjuytywM2e6bixk5pk9/4ibM7Nw6z+zg6bDTXeLRAV90ACemnJ4x2Q==
   dependencies:
     "@rdfjs/types" "*"
     componentsjs "^6.0.0"
@@ -9761,10 +9761,10 @@ spark-md5@^3.0.1:
     seedrandom "^3.0.5"
     sparqljs "^3.7.0"
 
-"sparql-query-parameter-instantiator@npm:@rubeneschauzier/sparql-query-parameter-instantiator@^2.9.4":
-  version "2.9.4"
-  resolved "https://registry.yarnpkg.com/@rubeneschauzier/sparql-query-parameter-instantiator/-/sparql-query-parameter-instantiator-2.9.4.tgz#a4131fdf6e7aaddc33bd6aa84480d9c19b09b8d4"
-  integrity sha512-CviEFkY8ms9JIYs2LqVrySbh/qhj7SunjtWVeajeDmd1YRoxA748IwEJlJwtzqjUxp++tymRSAY3Fv63ye8LDg==
+"sparql-query-parameter-instantiator@npm:@rubeneschauzier/sparql-query-parameter-instantiator@^2.9.6":
+  version "2.9.6"
+  resolved "https://registry.yarnpkg.com/@rubeneschauzier/sparql-query-parameter-instantiator/-/sparql-query-parameter-instantiator-2.9.6.tgz#2286be9b9e4f612cb29966794eb1ca1a1233952b"
+  integrity sha512-JgZQussZLvVkkGcu0kIjIf6k3DKJ3YFpBmVR8J1fYO5qXxI/ARWTXtrdz9Bx0c40Sql8KEeOy/kUeLbBTxxTlw==
   dependencies:
     "@comunica/types" "^5.0.0"
     "@comunica/utils-bindings-factory" "^5.0.3"
