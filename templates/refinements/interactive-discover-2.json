@@ -88,7 +88,7 @@
   {
     "type": "BGP",
     "id": 5,
-    "operation": "remove",
+    "operation": "removal",
     "description": "Remove triple to obtain the browser used to post the message (P.4)",
     "location": 0,
     "target": [
