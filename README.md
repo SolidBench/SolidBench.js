@@ -98,9 +98,9 @@ Then, **query** templates will be instantiated based on the generated data.
 This is done using [`sparql-query-parameter-instantiator.js`](https://github.com/SolidBench/sparql-query-parameter-instantiator.js)
 with the given query instantiation config (defaults to a config instantiating [all LDBC SNB interactive queries](https://github.com/SolidBench/SolidBench.js/tree/master/templates/queries)).
 
-SolidBench can also generate **SolidSessionBench**, a benchmark for query sequences.
-These are realistic, ordered query sequences per user where consecutive queries in a logical session can reuse bindings from previous query results.
-Sequence generation can include refinements (additions, removals, and substitutions of query patterns) to simulate iterative user exploration.
+SolidBench can also generate **SolidSessionBench**, a benchmark for user-specific optimization approaches through the generation of realistic query sequences.
+These sequences simulate logical sessions where consecutive queries can reuse bindings from previous query results. In addition, queries in new logical sessions are instantiated based on realistic user interests.
+Sequence generation can include refinements (additions, removals, and substitutions of query patterns) to simulate iterative user exploration. These refinements form refinement sequences and are randomly selected from configured refinement pattern templates.
 The default refinement pattern templates for these sequences can be found in [`templates/refinements/`](https://github.com/SolidBench/SolidBench.js/tree/master/templates/refinements).
 To generate this benchmark, use the sequence-oriented enhancement, fragmentation, and query instantiation config templates:
 
