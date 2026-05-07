@@ -101,10 +101,11 @@ with the given query instantiation config (defaults to a config instantiating [a
 SolidBench can also generate **SolidSessionBench**, a benchmark for query sequences.
 These are realistic, ordered query sequences per user where consecutive queries in a logical session can reuse bindings from previous query results.
 Sequence generation can include refinements (additions, removals, and substitutions of query patterns) to simulate iterative user exploration.
-To generate this benchmark, use the sequence-oriented config templates:
+The default refinement pattern templates for these sequences can be found in [`templates/refinements/`](https://github.com/SolidBench/SolidBench.js/tree/master/templates/refinements).
+To generate this benchmark, use the sequence-oriented enhancement, fragmentation, and query instantiation config templates:
 
 ```bash
-$ solidbench generate -f fragmenter-config-pod-sequences.json -q query-sequence-config.json
+$ solidbench generate -e enhancer-similarities-config-pod.json -f fragmenter-config-pod-sequences.json -q query-sequence-config.json
 ```
 
 Finally, **validation queries and results** will be generated.
