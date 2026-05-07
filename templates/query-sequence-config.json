@@ -1,5 +1,5 @@
 {
-  "@context": "https://linkedsoftwaredependencies.org/bundles/npm/sparql-query-parameter-instantiator/^2.0.0/components/context.jsonld",
+  "@context": "https://linkedsoftwaredependencies.org/bundles/npm/@rubeneschauzier/sparql-query-parameter-instantiator/^2.0.0/components/context.jsonld",
   "@id": "urn:sparql-query-parameter-instantiator:default",
   "@type": "QuerySequenceInstantiator",
   "count": 8,
@@ -56,9 +56,9 @@
           "fragmentedString": "http://solidbench-server:3000/www.w3.org/2002/07/owl"
         }
       ],
-      "QLever": {
+      "qLever": {
         "@type": "QLeverInstance",
-        "imageName": "adfreiburg/qlever:latest",
+        "imageName": "adfreiburg/qlever@sha256:90c0cffc9a9158dff4c3841d5b0198cf76e67a4f47827e3321c4dff439408384",
         "port": 7000,
         "timeout": 60,
         "dataLocations": [
@@ -149,10 +149,10 @@
         }
       ],
       "iriTransformer": {
-        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri",
-        "@type": "ValueTransformerIri",
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri",
+        "@type": "ValueTransformerReplaceIri",
         "searchRegex": "http://localhost:3000",
-        "replacementString": "http://solidbench-server:3000"
+        "replacementString": "http://solidbench-server:3000" 
       }
     },
     {
@@ -212,7 +212,7 @@
         }
       ],
       "iriTransformer": {
-        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
       }
     },
     {
@@ -259,7 +259,7 @@
         }
       ],
       "iriTransformer": {
-        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
       }
     },
     {
@@ -310,7 +310,7 @@
         }
       ],
       "iriTransformer": {
-        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
       }
     },
     {
@@ -364,7 +364,7 @@
         }
       ],
       "iriTransformer": {
-        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
       }
     },
     {
@@ -411,7 +411,7 @@
         }
       ],
       "iriTransformer": {
-        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
       }
     },
     {
@@ -499,7 +499,7 @@
         }
       ],
       "iriTransformer": {
-        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
       }
     },
     {
@@ -561,7 +561,7 @@
         }
       ],
       "iriTransformer": {
-        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
       }
     },
     {
@@ -601,7 +601,7 @@
         }
       ],
       "iriTransformer": {
-        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
       }
     },
     {
@@ -680,7 +680,7 @@
         }
       ],
       "iriTransformer": {
-        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
       }
     },
     {
@@ -751,7 +751,7 @@
         }
       ],
       "iriTransformer": {
-        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
       }
     },
     {
@@ -818,7 +818,7 @@
         }
       ],
       "iriTransformer": {
-        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
       }
     },
     {
@@ -892,7 +892,7 @@
         }
       ],
       "iriTransformer": {
-        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
       }
     },
     {
@@ -957,7 +957,7 @@
         }
       ],
       "iriTransformer": {
-        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
       }
     },
     {
@@ -1029,7 +1029,7 @@
         }
       ],
       "iriTransformer": {
-        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerIri"
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
       }
     }
   ]
