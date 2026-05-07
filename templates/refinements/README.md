@@ -30,13 +30,15 @@ Targets for `BGP` (Basic Graph Pattern) and `OPTIONAL` operate on arrays of trip
 * **Term Types:** Valid `termType` values include `variable`, `namedNode`, and `literal` (for objects only).
 
 ```json
-"target": [
-  {
-    "subject": { "value": "forum", "termType": "variable" },
-    "predicate": { "value": "[http://example.org/hasMember](http://example.org/hasMember)", "termType": "namedNode" },
-    "object": { "value": "member", "termType": "variable" }
-  }
-]
+{
+  "target": [
+    {
+      "subject": { "value": "forum", "termType": "variable" },
+      "predicate": { "value": "http://example.org/hasMember", "termType": "namedNode" },
+      "object": { "value": "member", "termType": "variable" }
+    }
+  ]
+}
 ```
 
 ### UNION
@@ -46,14 +48,16 @@ Targets for UNION define both the left and right branches of the union operator.
 * **Target Structure:** An array containing exactly two arrays of triple objects. Index 0 represents the left branch, and index 1 represents the right branch. To selectively modify only one branch, pass an empty array to the other side (e.g., [ [], [{...}] ]).
 
 ```json
-"target": [
-  [
-    { "subject": { "value": "forum", "termType": "variable" }, "predicate": { "value": "[http://example.org/tag](http://example.org/tag)", "termType": "namedNode" }, "object": { "value": "tag", "termType": "variable" } }
-  ],
-  [
-    { "subject": { "value": "forum", "termType": "variable" }, "predicate": { "value": "[http://example.org/location](http://example.org/location)", "termType": "namedNode" }, "object": { "value": "location", "termType": "variable" } }
+{
+  "target": [
+    [
+      { "subject": { "value": "forum", "termType": "variable" }, "predicate": { "value": "[http://example.org/tag](http://example.org/tag)", "termType": "namedNode" }, "object": { "value": "tag", "termType": "variable" } }
+    ],
+    [
+      { "subject": { "value": "forum", "termType": "variable" }, "predicate": { "value": "[http://example.org/location](http://example.org/location)", "termType": "namedNode" }, "object": { "value": "location", "termType": "variable" } }
+    ]
   ]
-]
+}
 ```
 
 ### FILTER
@@ -63,16 +67,18 @@ Targets for FILTER define SPARQL.js Expression objects.
 * **Target Structure:** An array of operation objects detailing the operator and arguments.
 
 ```json
-"target": [
-  {
-    "type": "operation",
-    "operator": "=",
-    "args": [
-      { "termType": "variable", "value": "location" },
-      { "termType": "variable", "value": "location1" }
-    ]
-  }
-]
+{
+  "target": [
+    {
+      "type": "operation",
+      "operator": "=",
+      "args": [
+        { "termType": "variable", "value": "location" },
+        { "termType": "variable", "value": "location1" }
+      ]
+    }
+  ]
+}
 ```
 In the preceding example, you can use variable instantiation (explain below) to filter equality with a `NamedNode` or `Literal`.
 
@@ -84,7 +90,9 @@ Substitutes a template variable with an alternative value to simulate user inter
 * **Note on Values:** The configuration does not contain the substitution values. The processor generates the replacement values dynamically at runtime via variable mappings or probabilistic sampling. The config only acts as the trigger and locator.
 
 ```json
-"target": { "value": "person", "termType": "variable" }
+{
+  "target": { "value": "person", "termType": "variable" }
+}
 ```
 
 ### Instantiate Refinement Variables

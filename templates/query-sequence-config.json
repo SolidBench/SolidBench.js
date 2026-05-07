@@ -152,7 +152,7 @@
         "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri",
         "@type": "ValueTransformerReplaceIri",
         "searchRegex": "http://localhost:3000",
-        "replacementString": "http://solidbench-server:3000" 
+        "replacementString": "http://solidbench-server:3000"
       }
     },
     {
