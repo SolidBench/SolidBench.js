@@ -97,7 +97,7 @@
     "location": 0,
     "target": [
       {
-        "type": "functionCall",
+        "type": "operation",
         "operator": "regex",
         "args": [
           { "termType": "variable", "value": "firstName" },
@@ -115,7 +115,7 @@
     "location": 0,
     "target": [
       {
-        "type": "functionCall",
+        "type": "operation",
         "operator": "regex",
         "args": [
           { "termType": "variable", "value": "firstName" },
