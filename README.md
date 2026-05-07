@@ -98,6 +98,15 @@ Then, **query** templates will be instantiated based on the generated data.
 This is done using [`sparql-query-parameter-instantiator.js`](https://github.com/SolidBench/sparql-query-parameter-instantiator.js)
 with the given query instantiation config (defaults to a config instantiating [all LDBC SNB interactive queries](https://github.com/SolidBench/SolidBench.js/tree/master/templates/queries)).
 
+SolidBench can also generate **SolidSessionBench**, a benchmark for query sequences.
+These are realistic, ordered query sequences per user where consecutive queries in a logical session can reuse bindings from previous query results.
+Sequence generation can include refinements (additions, removals, and substitutions of query patterns) to simulate iterative user exploration.
+To generate this benchmark, use the sequence-oriented config templates:
+
+```bash
+$ solidbench generate -f fragmenter-config-pod-sequences.json -q query-sequence-config.json
+```
+
 Finally, **validation queries and results** will be generated.
 This is done using [`ldbc-snb-validation-generator.js`](https://github.com/SolidBench/ldbc-snb-validation-generator.js/) with the given validation config.
 This defaults to a config instantiating all queries and results from the `validation_params-sf1-without-updates.csv` file from LDBC SNB.
