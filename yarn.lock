@@ -2626,7 +2626,7 @@
     lru-cache "^10.0.1"
     sparqlalgebrajs "^5.0.2"
 
-"@comunica/types@^5.0.0", "@comunica/types@^5.1.3":
+"@comunica/types@^5.1.3":
   version "5.1.3"
   resolved "https://registry.yarnpkg.com/@comunica/types/-/types-5.1.3.tgz#1428a4acc05e450d3c7befe196d8adc268619f0d"
   integrity sha512-EbA9yYlx+49zGfmMYnQdbNfdZoUwovjKLXD4ZlpM2TDbo3MUdweyqLcDS00GB+PE5bVzFQf1I2sneEWVfzx3mQ==
@@ -3728,6 +3728,15 @@
     "@types/node" "*"
     "@types/ssh2" "*"
 
+"@types/dockerode@^4.0.0":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@types/dockerode/-/dockerode-4.0.1.tgz#26a44995a86322b4489090efd97890a5585a63a5"
+  integrity sha512-cmUpB+dPN955PxBEuXE3f6lKO1hHiIGYJA46IVF3BJpNsZGvtBDcRnlrHYHtOH/B6vtDOyl2kZ2ShAu3mgc27Q==
+  dependencies:
+    "@types/docker-modem" "*"
+    "@types/node" "*"
+    "@types/ssh2" "*"
+
 "@types/ejs@^3.1.3":
   version "3.1.5"
   resolved "https://registry.yarnpkg.com/@types/ejs/-/ejs-3.1.5.tgz#49d738257cc73bafe45c13cb8ff240683b4d5117"
@@ -3841,6 +3850,11 @@
     expect "^29.0.0"
     pretty-format "^29.0.0"
 
+"@types/js-yaml@^4.0.9":
+  version "4.0.9"
+  resolved "https://registry.yarnpkg.com/@types/js-yaml/-/js-yaml-4.0.9.tgz#cd82382c4f902fed9691a2ed79ec68c5898af4c2"
+  integrity sha512-k4MGaQl5TGo/iipqb2UDG2UwjXziSWkh0uysQelTlJpX1qGlpUZYm8PnO4DxG1qBomtJUdYJ6qR6xdIah10JLg==
+
 "@types/json-schema@*", "@types/json-schema@^7.0.12", "@types/json-schema@^7.0.15", "@types/json-schema@^7.0.9":
   version "7.0.15"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.15.tgz#596a1747233694d50f6ad8a7869fcb6f56cf5841"
@@ -3891,7 +3905,7 @@
   dependencies:
     "@types/lodash" "*"
 
-"@types/lodash@*":
+"@types/lodash@*", "@types/lodash@^4.17.20":
   version "4.17.24"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.17.24.tgz#4ae334fc62c0e915ca8ed8e35dcc6d4eeb29215f"
   integrity sha512-gIW7lQLZbue7lRSWEFql49QJJWThrTFFeIMJdp3eH4tKoxm1OvEPg02rm4wCCSHS0cL3/Fizimb35b7k8atwsQ==
@@ -4021,6 +4035,11 @@
   version "0.12.5"
   resolved "https://registry.yarnpkg.com/@types/retry/-/retry-0.12.5.tgz#f090ff4bd8d2e5b940ff270ab39fd5ca1834a07e"
   integrity sha512-3xSjTp3v03X/lSQLkczaN9UIEwJMoMCA1+Nb5HfbJEQWogdeQIyVtTvxPXDQjZ5zws8rFQfVfRdz03ARihPJgw==
+
+"@types/seedrandom@^3.0.8":
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/@types/seedrandom/-/seedrandom-3.0.8.tgz#61cc8ed88f93a3c31289c295e6df8ca40be42bdf"
+  integrity sha512-TY1eezMU2zH2ozQoAFAQFOPpvP15g+ZgSfTZt31AUUH/Rxtnz3H+A/Sv1Snw2/amp//omibc+AEkTaA8KUeOLQ==
 
 "@types/semver@^7.3.12", "@types/semver@^7.3.4", "@types/semver@^7.5.0":
   version "7.7.1"
@@ -5252,6 +5271,11 @@ cssesc@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
   integrity sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==
+
+csv-parse@^6.2.1:
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/csv-parse/-/csv-parse-6.2.1.tgz#325c5adb126b1ad07fa68077c3dc739ccfc12cf5"
+  integrity sha512-LRLMV+UCyfMokp8Wb411duBf1gaBKJfOfBWU9eHMJ+b+cJYZsNu3AFmjJf3+yPGd59Exz1TsMjaSFyxnYB9+IQ==
 
 csv-parser@^3.0.0:
   version "3.2.0"
@@ -7918,10 +7942,10 @@ kuler@^2.0.0:
   resolved "https://registry.yarnpkg.com/kuler/-/kuler-2.0.0.tgz#e2c570a3800388fb44407e851531c1d670b061b3"
   integrity sha512-Xq9nH7KlWZmXAtodXDDRE7vs6DU1gTU8zYDHDiWLSip45Egwq3plLHzPn27NgvzL2r1LMPC1vdqh98sQxtqj4A==
 
-"ldbc-snb-enhancer@npm:@rubeneschauzier/ldbc-snb-enhancer@^2.6.2":
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/@rubeneschauzier/ldbc-snb-enhancer/-/ldbc-snb-enhancer-2.6.2.tgz#30c957f75cec3fc6f02dfc4a7a6d9ab6c1ec7def"
-  integrity sha512-R7c3dYfYpWW6f/fpA2EVAW8T8lKgEv2TNjuytywM2e6bixk5pk9/4ibM7Nw6z+zg6bDTXeLRAV90ACemnJ4x2Q==
+ldbc-snb-enhancer@^2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/ldbc-snb-enhancer/-/ldbc-snb-enhancer-2.7.0.tgz#cedd60b466abba5ddd57dc204fb978cae43041c5"
+  integrity sha512-OgI2/h+TNQNot1T4P1afBtEeG4XxfFuG41DsG0F3jAfd28+g3v5eRWhC0h5HrhagqVtDps5VyVfxffL73dZlmQ==
   dependencies:
     "@rdfjs/types" "*"
     componentsjs "^6.0.0"
@@ -7932,16 +7956,16 @@ kuler@^2.0.0:
     rdf-terms "^2.0.0"
     relative-to-absolute-iri "^1.0.0"
 
-"ldbc-snb-validation-generator@npm:@rubeneschauzier/ldbc-snb-validation-generator@^1.2.14":
-  version "1.2.14"
-  resolved "https://registry.yarnpkg.com/@rubeneschauzier/ldbc-snb-validation-generator/-/ldbc-snb-validation-generator-1.2.14.tgz#27b3347c62158c2fe055d16a8f102f7f644465de"
-  integrity sha512-IP3hV6WRIfNBadXXFmfnSdMWag5kUgvcaLg+6fbbpYqOUL/LEZVSZ0MR6q3gGXY+Yps4I0KYHqZk3ZH5N0ZZ+Q==
+ldbc-snb-validation-generator@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/ldbc-snb-validation-generator/-/ldbc-snb-validation-generator-1.2.0.tgz#65ec91adc036a1cfc9eb0680b86df5cb7baf6427"
+  integrity sha512-b24jsizkBa1XxvkPrLHmiOOPIIwNcIVQPdLHe1+6+dKbXMH4/vvh+KJc1YJ2RV/SAx7Tw6tNt3DCL1V+kFEjeg==
   dependencies:
     "@rdfjs/types" "*"
     "@types/fs-extra" "^11.0.0"
     componentsjs "^6.0.0"
     fs-extra "^11.0.0"
-    sparql-query-parameter-instantiator "npm:@rubeneschauzier/sparql-query-parameter-instantiator@^2.8.10"
+    sparql-query-parameter-instantiator "^2.7.0"
 
 leven@^3.1.0:
   version "3.1.0"
@@ -8052,7 +8076,7 @@ lowercase-keys@^3.0.0:
   resolved "https://registry.yarnpkg.com/lowercase-keys/-/lowercase-keys-3.0.0.tgz#c5e7d442e37ead247ae9db117a9d0a467c89d4f2"
   integrity sha512-ozCC6gdQ+glXOQsveKD0YsDy8DSQFjDTz4zyzEHNV5+JP5D62LmfDZ6o1cycFx9ouG940M5dE8C8CTewdj2YWQ==
 
-lru-cache@^10.0.0, lru-cache@^10.0.1, lru-cache@^10.3.0:
+lru-cache@^10.0.0, lru-cache@^10.0.1:
   version "10.4.3"
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-10.4.3.tgz#410fc8a17b70e598013df257c2446b7f3383f119"
   integrity sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==
@@ -8061,6 +8085,11 @@ lru-cache@^11.2.2:
   version "11.2.6"
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-11.2.6.tgz#356bf8a29e88a7a2945507b31f6429a65a192c58"
   integrity sha512-ESL2CrkS/2wTPfuend7Zhkzo2u0daGJ/A2VucJOgQ/C48S/zB8MMeMHSGKYpXhIjbPxfuezITkaBH1wqv00DDQ==
+
+lru-cache@^11.2.7:
+  version "11.3.6"
+  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-11.3.6.tgz#f0306ad6e9f0a5dc25b16aeba4e8f57b7ec2df55"
+  integrity sha512-Gf/KoL3C/MlI7Bt0PGI9I+TeTC/I6r/csU58N4BSNc4lppLBeKsOdFYkK+dX0ABDUMJNfCHTyPpzwwO21Awd3A==
 
 lru-cache@^5.1.1:
   version "5.1.1"
@@ -8909,10 +8938,10 @@ rdf-data-factory@^2.0.0, rdf-data-factory@^2.0.1, rdf-data-factory@^2.0.2:
   dependencies:
     "@rdfjs/types" "^2.0.0"
 
-"rdf-dataset-fragmenter@npm:@rubeneschauzier/rdf-dataset-fragmenter@^2.9.2":
-  version "2.9.2"
-  resolved "https://registry.yarnpkg.com/@rubeneschauzier/rdf-dataset-fragmenter/-/rdf-dataset-fragmenter-2.9.2.tgz#77adfd712184a151be8b11f06cd2f6a7bb2167f3"
-  integrity sha512-p4uWkOQpVgERD8Y6GM9ahR6ML2ZdEs2xUqcXxGySBm4ppT3WDQhlruc5iU4eGeWE4omqTwIHNfaS63Yzsn58TQ==
+rdf-dataset-fragmenter@^2.10.0:
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/rdf-dataset-fragmenter/-/rdf-dataset-fragmenter-2.10.0.tgz#e2cc41aae738ac74c731eb50905bc10b903ecbb4"
+  integrity sha512-I0o4HsdTY8oUnp9IpHs7rQs33bEhhsbO4XAwvLtmQRKIfJurgP9HwCJKB8lUibQHmtBgdKaBhhs4Agti2gDY5g==
   dependencies:
     "@rdfjs/types" "*"
     "@types/async-lock" "^1.4.0"
@@ -8923,7 +8952,7 @@ rdf-data-factory@^2.0.0, rdf-data-factory@^2.0.1, rdf-data-factory@^2.0.2:
     componentsjs "^6.0.0"
     dockerode "^4.0.0"
     imurmurhash "^0.1.4"
-    lru-cache "^10.3.0"
+    lru-cache "^11.2.7"
     mkdirp "^3.0.1"
     rdf-parse "^3.0.0"
     rdf-serialize "^3.0.0"
@@ -9744,39 +9773,29 @@ spark-md5@^3.0.1:
   resolved "https://registry.yarnpkg.com/spark-md5/-/spark-md5-3.0.2.tgz#7952c4a30784347abcee73268e473b9c0167e3fc"
   integrity sha512-wcFzz9cDfbuqe0FZzfi2or1sgyIrsDwmPwfZC4hiNidPdPINjeUwNfv5kldczoEAcjl9Y1L3SM7Uz2PUEQzxQw==
 
-"sparql-query-parameter-instantiator@npm:@rubeneschauzier/sparql-query-parameter-instantiator@^2.8.10":
-  version "2.9.2"
-  resolved "https://registry.yarnpkg.com/@rubeneschauzier/sparql-query-parameter-instantiator/-/sparql-query-parameter-instantiator-2.9.2.tgz#ec7c26c2c1e8eff54a43548ad2b4cbb478cc8b84"
-  integrity sha512-CKJeU0FqLlPqO/4iVNlrKWv+af6ANEC+p0RNfUCG5sMFdvRHgi5kq58hhuHYzfu4b10ds2At4EJavP/Q4ZbwZA==
+sparql-query-parameter-instantiator@^2.7.0, sparql-query-parameter-instantiator@^2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/sparql-query-parameter-instantiator/-/sparql-query-parameter-instantiator-2.8.0.tgz#f9988be42a08a4f5e9aba6c7d0b3a3e51b8cca4c"
+  integrity sha512-1mZQtp98QtxdtMdJ363jBwwq75sJLsp7FTpO0pxbiTBqp4BDuiH/LIDc6XNOXr8GduriE89QNegEVYr6rCgdFg==
   dependencies:
-    "@comunica/types" "^5.0.0"
     "@comunica/utils-bindings-factory" "^5.0.3"
     "@rdfjs/types" "*"
+    "@types/dockerode" "^4.0.0"
+    "@types/js-yaml" "^4.0.9"
+    "@types/lodash" "^4.17.20"
+    "@types/seedrandom" "^3.0.8"
     "@types/sparqljs" "*"
     componentsjs "^6.0.0"
+    csv-parse "^6.2.1"
     csv-parser "^3.0.0"
     dockerode "^4.0.9"
     js-yaml "^4.1.1"
     lodash "^4.17.21"
+    rdf-terms "^2.0.0"
     seedrandom "^3.0.5"
     sparqljs "^3.7.0"
-
-"sparql-query-parameter-instantiator@npm:@rubeneschauzier/sparql-query-parameter-instantiator@^2.9.6":
-  version "2.9.6"
-  resolved "https://registry.yarnpkg.com/@rubeneschauzier/sparql-query-parameter-instantiator/-/sparql-query-parameter-instantiator-2.9.6.tgz#2286be9b9e4f612cb29966794eb1ca1a1233952b"
-  integrity sha512-JgZQussZLvVkkGcu0kIjIf6k3DKJ3YFpBmVR8J1fYO5qXxI/ARWTXtrdz9Bx0c40Sql8KEeOy/kUeLbBTxxTlw==
-  dependencies:
-    "@comunica/types" "^5.0.0"
-    "@comunica/utils-bindings-factory" "^5.0.3"
-    "@rdfjs/types" "*"
-    "@types/sparqljs" "*"
-    componentsjs "^6.0.0"
-    csv-parser "^3.0.0"
-    dockerode "^4.0.9"
-    js-yaml "^4.1.1"
-    lodash "^4.17.21"
-    seedrandom "^3.0.5"
-    sparqljs "^3.7.0"
+    sparqljson-parse "^3.3.0"
+    winston "^3.19.0"
 
 sparqlalgebrajs@^4.0.0, sparqlalgebrajs@^4.2.0, sparqlalgebrajs@^4.3.0:
   version "4.3.8"
@@ -9825,7 +9844,7 @@ sparqljson-parse@^2.0.0, sparqljson-parse@^2.2.0:
     rdf-data-factory "^1.1.0"
     readable-stream "^4.0.0"
 
-sparqljson-parse@^3.0.0:
+sparqljson-parse@^3.0.0, sparqljson-parse@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/sparqljson-parse/-/sparqljson-parse-3.3.0.tgz#d6770a1f3fd4fd2e168c2cc7027eaaa72051a31c"
   integrity sha512-XrmkCsrx4n69Ak63Ju7t91hVlWw7YhEPPdA+giW2GRTosQxPur0JWh7rQin/8aT0WjKZgBgGpsNnVBYyyWUq1w==
@@ -10699,7 +10718,7 @@ winston-transport@^4.5.0, winston-transport@^4.9.0:
     readable-stream "^3.6.2"
     triple-beam "^1.3.0"
 
-winston@^3.11.0, winston@^3.3.3:
+winston@^3.11.0, winston@^3.19.0, winston@^3.3.3:
   version "3.19.0"
   resolved "https://registry.yarnpkg.com/winston/-/winston-3.19.0.tgz#cc1d1262f5f45946904085cfffe73efb4b7a581d"
   integrity sha512-LZNJgPzfKR+/J3cHkxcpHKpKKvGfDZVPS4hfJCc4cCG0CgYzvlD6yE/S3CIL/Yt91ak327YCpiF/0MyeZHEHKA==
