@@ -9,6 +9,7 @@
 This benchmark allows you to generate a large amount of Solid data vaults with **simulated social network data**,
 and serve them over HTTP using a built-in [Solid Community Server](https://github.com/CommunitySolidServer/CommunitySolidServer) instance.
 Furthermore, different SPARQL queries will be generated to simulate workloads of social network apps for Solid.
+Optionally, [_query sequences_ can be generated with SolidSessionBench](#generate-query-sequences-with-solidsessionbench) to simulate workloads corresponding to logical sessions for users.
 
 This benchmark is based on the [LDBC SNB](https://github.com/ldbc/ldbc_snb_datagen_hadoop) **social network** dataset.
 
