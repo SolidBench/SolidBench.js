@@ -3,6 +3,7 @@
 [![Build status](https://github.com/SolidBench/SolidBench.js/workflows/CI/badge.svg)](https://github.com/SolidBench/SolidBench.js/actions?query=workflow%3ACI)
 [![Coverage Status](https://coveralls.io/repos/github/SolidBench/SolidBench.js/badge.svg?branch=master)](https://coveralls.io/github/SolidBench/SolidBench.js?branch=master)
 [![npm version](https://badge.fury.io/js/solidbench.svg)](https://www.npmjs.com/package/solidbench)
+[![DOI](https://zenodo.org/badge/340053800.svg)](https://zenodo.org/badge/latestdoi/340053800)
 
 ### A benchmark for [Solid](https://solidproject.org/) to simulate vaults with social network data.
 
