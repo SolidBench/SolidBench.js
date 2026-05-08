@@ -1,0 +1,155 @@
+[
+  {
+    "type": "BGP",
+    "id": 0,
+    "operation": "addition",
+    "description": "Find forums where the other messages are posted to (T.1, P.4, T.3)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "forum", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/containerOf", "termType": "namedNode" },
+        "object": { "value": "otherMessage", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "id": 1,
+    "operation": "removal",
+    "description": "Remove triple finding forums where the other messages are posted to (T.1, P.4, T.3)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "forum", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/containerOf", "termType": "namedNode" },
+        "object": { "value": "otherMessage", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "id": 2,
+    "operation": "addition",
+    "description": "Add optional triple to obtain all messages this comment was a reply of (T.3, P.3)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "otherMessage", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/replyOf", "termType": "namedNode" },
+        "object": { "value": "parentOtherMessage", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "id": 3,
+    "operation": "removal",
+    "description": "Remove optional triple to obtain all messages this comment was a reply of (T.3, P.3)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "otherMessage", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/replyOf", "termType": "namedNode" },
+        "object": { "value": "parentOtherMessage", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "UNION",
+    "id": 4,
+    "operation": "addition",
+    "description": "Add union for tags of messages made by people a person likes messages from and their interest (P.2, P.3, T.1, T.3)",
+    "location": 0,
+    "target": [
+      [
+        {
+          "subject": { "value": "otherMessage", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasTag", "termType": "namedNode" },
+          "object": { "value": "tag", "termType": "variable" }
+        }
+      ],
+      [
+        {
+          "subject": { "value": "creator", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasTag", "termType": "namedNode" },
+          "object": { "value": "tag", "termType": "variable" }
+        }
+      ]
+    ]
+  },
+  {
+    "type": "UNION",
+    "id": 5,
+    "operation": "removal",
+    "description": "Remove union for tags of messages made by people a person likes messages from and their interest (P.2, P.3, T.1, T.3)",
+    "location": 0,
+    "target": [
+      [
+        {
+          "subject": { "value": "otherMessage", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasTag", "termType": "namedNode" },
+          "object": { "value": "tag", "termType": "variable" }
+        }
+      ],
+      [
+        {
+          "subject": { "value": "creator", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasTag", "termType": "namedNode" },
+          "object": { "value": "tag", "termType": "variable" }
+        }
+      ]
+    ]
+  },
+  {
+    "type": "FILTER",
+    "id": 6,
+    "operation": "addition",
+    "description": "Add filter on the tags of messages and interests (P.1)",
+    "location": 0,
+    "target": [
+      {
+        "type": "operation",
+        "operator": "=",
+        "args": [
+          { "termType": "variable", "value": "tag" },
+          { "termType": "variable", "value": "tagParam" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "FILTER",
+    "id": 7,
+    "operation": "removal",
+    "description": "Remove filter on the tags of messages and interests (P.1)",
+    "location": 0,
+    "target": [
+      {
+        "type": "operation",
+        "operator": "=",
+        "args": [
+          { "termType": "variable", "value": "tag" },
+          { "termType": "variable", "value": "tagParam" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "SUB",
+    "id": 8,
+    "operation": "addition",
+    "description": "Substitute the person parameter in query (T.2)",
+    "location": 0,
+    "target": { "value": "person", "termType": "variable" }
+
+  },
+  {
+    "type": "SUB",
+    "id": 9,
+    "operation": "removal",
+    "description": "Substitute back the original person parameter in query (T.2)",
+    "location": 0,
+    "target": { "value": "person", "termType": "variable" }
+  }
+]

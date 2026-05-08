@@ -1,0 +1,150 @@
+[
+  {
+    "type": "BGP",
+    "id": 0,
+    "operation": "addition",
+    "description": "Restrict type to Comments (P.3, T.4)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+        "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Comment", "termType": "namedNode" }
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "id": 1,
+    "operation": "removal",
+    "description": "Remove restrict of type to Comments (P.3, T.4)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+        "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Comment", "termType": "namedNode" }
+      }
+    ]
+  },
+  {
+    "type": "UNION",
+    "id": 2,
+    "operation": "addition",
+    "description": "Add union for location of creator or location of university (P.2, P.4, T.1, T.3)",
+    "location": 0,
+    "target": [
+      [
+        {
+          "subject": { "value": "creator", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/isLocatedIn", "termType": "namedNode" },
+          "object": { "value": "location", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "location", "termType": "variable" },
+          "predicate": { "value": "http://xmlns.com/foaf/0.1/name", "termType": "namedNode" },
+          "object": { "value": "name", "termType": "variable" }
+        }
+      ],
+      [
+        {
+          "subject": { "value": "creator", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/studyAt", "termType": "namedNode" },
+          "object": { "value": "study", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "study", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasOrganisation", "termType": "namedNode" },
+          "object": { "value": "uni", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "uni", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/isLocatedIn", "termType": "namedNode" },
+          "object": { "value": "locationUni", "termType": "variable" }
+        }
+      ]
+    ]
+  },
+  {
+    "type": "UNION",
+    "id": 3,
+    "operation": "removal",
+    "description": "Remove union for location of creator or location of university (P.2, P.4, T.1, T.3, T.4)",
+    "location": 0,
+    "target": [
+      [
+        {
+          "subject": { "value": "creator", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/isLocatedIn", "termType": "namedNode" },
+          "object": { "value": "location", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "location", "termType": "variable" },
+          "predicate": { "value": "http://xmlns.com/foaf/0.1/name", "termType": "namedNode" },
+          "object": { "value": "name", "termType": "variable" }
+        }
+      ],
+      [
+        {
+          "subject": { "value": "creator", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/studyAt", "termType": "namedNode" },
+          "object": { "value": "study", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "study", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasOrganisation", "termType": "namedNode" },
+          "object": { "value": "uni", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "uni", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/isLocatedIn", "termType": "namedNode" },
+          "object": { "value": "locationUni", "termType": "variable" }
+        }
+      ]
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "id": 4,
+    "operation": "addition",
+    "description": "Optionally find images attached to message (P.4)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/imageFile", "termType": "namedNode" },
+        "object": { "value": "image", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "id": 5,
+    "operation": "removal",
+    "description": "Remove optionally finding images attached to message (P.4)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/imageFile", "termType": "namedNode" },
+        "object": { "value": "image", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "SUB",
+    "id": 6,
+    "operation": "addition",
+    "description": "Substitute the message parameter in query (T.2)",
+    "location": 0,
+    "target": { "value": "message", "termType": "variable" }
+  },
+  {
+    "type": "SUB",
+    "id": 7,
+    "operation": "removal",
+    "description": "Substitute back the original message parameter in query (T.2)",
+    "location": 0,
+    "target": { "value": "message", "termType": "variable" }
+  }
+]

@@ -9,6 +9,7 @@
 This benchmark allows you to generate a large amount of Solid data vaults with **simulated social network data**,
 and serve them over HTTP using a built-in [Solid Community Server](https://github.com/CommunitySolidServer/CommunitySolidServer) instance.
 Furthermore, different SPARQL queries will be generated to simulate workloads of social network apps for Solid.
+Optionally, [_query sequences_ can be generated with SolidSessionBench](#generate-query-sequences-with-solidsessionbench) to simulate workloads corresponding to logical sessions for users.
 
 This benchmark is based on the [LDBC SNB](https://github.com/ldbc/ldbc_snb_datagen_hadoop) **social network** dataset.
 
@@ -103,6 +104,18 @@ This is done using [`ldbc-snb-validation-generator.js`](https://github.com/Solid
 This defaults to a config instantiating all queries and results from the `validation_params-sf1-without-updates.csv` file from LDBC SNB.
 This default config will produce queries and expected results in the `out-validate/` directory,
 which are expected to be executed on a scale factor of `1`.
+
+#### Generate query sequences with SolidSessionBench
+SolidBench can also generate **SolidSessionBench**, a benchmark for user-specific optimization approaches through the generation of realistic query sequences.
+These sequences simulate logical sessions where consecutive queries can reuse bindings from previous query results. In addition, queries in new logical sessions are instantiated based on realistic user interests.
+Sequence generation can include refinements (additions, removals, and substitutions of query patterns) to simulate iterative user exploration. These refinements form refinement sequences and are randomly selected from configured refinement pattern templates.
+The default refinement pattern templates for these sequences can be found in [`templates/refinements/`](https://github.com/SolidBench/SolidBench.js/tree/master/templates/refinements).
+To generate this benchmark, use the sequence-oriented enhancement, fragmentation, and query instantiation config templates:
+
+```bash
+$ solidbench generate -e enhancer-similarities-config-pod.json -f fragmenter-config-pod-sequences.json -q query-sequence-config.json
+```
+
 
 ### 2. Serve
 

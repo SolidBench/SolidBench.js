@@ -1,0 +1,156 @@
+[
+  {
+    "type": "BGP",
+    "id": 0,
+    "operation": "addition",
+    "description": "Add triple for members of a forum (T.1, P.4)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "forum", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasMember", "termType": "namedNode" },
+        "object": { "value": "member", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "member", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasPerson", "termType": "namedNode" },
+        "object": { "value": "memberPerson", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "id": 1,
+    "operation": "removal",
+    "description": "Remove triple for members of a forum (T.1, P.4)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "forum", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasMember", "termType": "namedNode" },
+        "object": { "value": "member", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "member", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasPerson", "termType": "namedNode" },
+        "object": { "value": "memberPerson", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "UNION",
+    "id": 2,
+    "operation": "addition",
+    "description": "Add union for tags and locations of the other messages in a forum (P.2, T.1, T.3)",
+    "location": 0,
+    "target": [
+      [
+        {
+          "subject": { "value": "forum", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/containerOf", "termType": "namedNode" },
+          "object": { "value": "otherMessages", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "otherMessages", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasTag", "termType": "namedNode" },
+          "object": { "value": "tag", "termType": "variable" }
+        }
+      ],
+      [
+        {
+          "subject": { "value": "forum", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/containerOf", "termType": "namedNode" },
+          "object": { "value": "otherMessages", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "otherMessages", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasLocation", "termType": "namedNode" },
+          "object": { "value": "location", "termType": "variable" }
+        }
+      ]
+    ]
+  },
+  {
+    "type": "UNION",
+    "id": 3,
+    "operation": "removal",
+    "description": "Remove union for tags and locations of the other messages in a forum (P.2, T.1, T.3)",
+    "location": 0,
+    "target": [
+      [
+        {
+          "subject": { "value": "forum", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/containerOf", "termType": "namedNode" },
+          "object": { "value": "otherMessages", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "otherMessages", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasTag", "termType": "namedNode" },
+          "object": { "value": "tag", "termType": "variable" }
+        }
+      ],
+      [
+        {
+          "subject": { "value": "forum", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/containerOf", "termType": "namedNode" },
+          "object": { "value": "otherMessages", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "otherMessages", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasLocation", "termType": "namedNode" },
+          "object": { "value": "location", "termType": "variable" }
+        }
+      ]
+    ]
+  },
+  {
+    "type": "FILTER",
+    "id": 4,
+    "operation": "addition",
+    "description": "Add filter to the location of the messages in a forum (P.1)",
+    "location": 0,
+    "target": [
+      {
+        "type": "operation",
+        "operator": "=",
+        "args": [
+          { "termType": "variable", "value": "location" },
+          { "termType": "variable", "value": "location1" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "FILTER",
+    "id": 5,
+    "operation": "removal",
+    "description": "Remove filter to the location of the messages in a forum (P.1)",
+    "location": 0,
+    "target": [
+      {
+        "type": "operation",
+        "operator": "=",
+        "args": [
+          { "termType": "variable", "value": "location" },
+          { "termType": "variable", "value": "location1" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "SUB",
+    "id": 6,
+    "operation": "addition",
+    "description": "Substitute the person parameter in query (T.2)",
+    "location": 0,
+    "target": { "value": "person", "termType": "variable" }
+  },
+  {
+    "type": "SUB",
+    "id": 7,
+    "operation": "removal",
+    "description": "Substitute back the original person parameter in query (T.2)",
+    "location": 0,
+    "target": { "value": "person", "termType": "variable" }
+  }
+]

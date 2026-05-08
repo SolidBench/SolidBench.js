@@ -1,0 +1,142 @@
+[
+  {
+    "type": "BGP",
+    "id": 0,
+    "operation": "addition",
+    "description": "Add triples to get interests in a profile and their name (T.1, T.3, P.4)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "person", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasInterest", "termType": "namedNode" },
+        "object": { "value": "interest", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "interest", "termType": "variable" },
+        "predicate": { "value": "http://xmlns.com/foaf/0.1/name", "termType": "namedNode" },
+        "object": { "value": "interestName", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "id": 1,
+    "operation": "removal",
+    "description": "Remove triples to get interests in a profile and their name (T.1, T.3, P.4)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "person", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasInterest", "termType": "namedNode" },
+        "object": { "value": "interest", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "interest", "termType": "variable" },
+        "predicate": { "value": "http://xmlns.com/foaf/0.1/name", "termType": "namedNode" },
+        "object": { "value": "interestName", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "UNION",
+    "id": 2,
+    "operation": "addition",
+    "description": "Add union for liked messages and comments (P.2, P.4, T.1, T.3, T.4)",
+    "location": 0,
+    "target": [
+      [
+        {
+          "subject": { "value": "person", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/likes", "termType": "namedNode" },
+          "object": { "value": "liked", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "liked", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasPost", "termType": "namedNode" },
+          "object": { "value": "post", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "post", "termType": "variable" },
+          "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+          "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Post", "termType": "namedNode" }
+        }
+      ],
+      [
+        {
+          "subject": { "value": "person", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/likes", "termType": "namedNode" },
+          "object": { "value": "liked", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "liked", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasComment", "termType": "namedNode" },
+          "object": { "value": "post", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "post", "termType": "variable" },
+          "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+          "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Comment", "termType": "namedNode" }
+        }
+      ]
+    ]
+  },
+  {
+    "type": "UNION",
+    "id": 3,
+    "operation": "removal",
+    "description": "Remove union for liked messages and comments (P.2, P.4, T.1, T.3, T.4)",
+    "location": 0,
+    "target": [
+      [
+        {
+          "subject": { "value": "person", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/likes", "termType": "namedNode" },
+          "object": { "value": "liked", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "liked", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasPost", "termType": "namedNode" },
+          "object": { "value": "post", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "post", "termType": "variable" },
+          "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+          "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Post", "termType": "namedNode" }
+        }
+      ],
+      [
+        {
+          "subject": { "value": "person", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/likes", "termType": "namedNode" },
+          "object": { "value": "liked", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "liked", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasComment", "termType": "namedNode" },
+          "object": { "value": "post", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "post", "termType": "variable" },
+          "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+          "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Comment", "termType": "namedNode" }
+        }
+      ]
+    ]
+  },
+  {
+    "type": "SUB",
+    "id": 4,
+    "operation": "addition",
+    "description": "Substitute the person parameter in query (T.2)",
+    "location": 0,
+    "target": { "value": "person", "termType": "variable" }
+  },
+  {
+    "type": "SUB",
+    "id": 5,
+    "operation": "removal",
+    "description": "Substitute back the original person parameter in query (T.2)",
+    "location": 0,
+    "target": { "value": "person", "termType": "variable" }
+  }
+]

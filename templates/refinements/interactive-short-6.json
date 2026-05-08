@@ -1,0 +1,112 @@
+[
+  {
+    "type": "BGP",
+    "id": 0,
+    "operation": "addition",
+    "description": "Retrieve creation date forum (T.1, P.4)",
+    "location": 1,
+    "target": [
+      {
+        "subject": { "value": "forum", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/creationDate", "termType": "namedNode" },
+        "object": { "value": "creationDate", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "id": 1,
+    "operation": "removal",
+    "description": "Remove retrieval creation date forum (T.1, P.4)",
+    "location": 1,
+    "target": [
+      {
+        "subject": { "value": "forum", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/creationDate", "termType": "namedNode" },
+        "object": { "value": "creationDate", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "id": 2,
+    "operation": "addition",
+    "description": "Optionally retrieve tag and location of originalPostInner (T.1, T.3, P.3)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "originalPostInner", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasTag", "termType": "namedNode" },
+        "object": { "value": "tag", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "id": 3,
+    "operation": "removal",
+    "description": "Remove optional retrieval of tag and location of originalPostInner (T.1, T.3, P.3)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "originalPostInner", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasTag", "termType": "namedNode" },
+        "object": { "value": "tag", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "id": 4,
+    "operation": "addition",
+    "description": "Retrieve the interests of the moderator (P.2, P.4)",
+    "location": 1,
+    "target": [
+      {
+        "subject": { "value": "moderator", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasInterest", "termType": "namedNode" },
+        "object": { "value": "interest", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "interest", "termType": "variable" },
+        "predicate": { "value": "http://xmlns.com/foaf/0.1/name", "termType": "namedNode" },
+        "object": { "value": "interestName", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "id": 5,
+    "operation": "removal",
+    "description": "Remove Retrieval of the interests of the moderator (P.2, P.4)",
+    "location": 1,
+    "target": [
+      {
+        "subject": { "value": "moderator", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasInterest", "termType": "namedNode" },
+        "object": { "value": "interest", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "interest", "termType": "variable" },
+        "predicate": { "value": "http://xmlns.com/foaf/0.1/name", "termType": "namedNode" },
+        "object": { "value": "interestName", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "SUB",
+    "id": 6,
+    "operation": "addition",
+    "description": "Substitute the message parameter in query (T.2)",
+    "location": 0,
+    "target": { "value": "message", "termType": "variable" }
+  },
+  {
+    "type": "SUB",
+    "id": 7,
+    "operation": "removal",
+    "description": "Substitute back the original message parameter in query (T.2)",
+    "location": 0,
+    "target": { "value": "message", "termType": "variable" }
+  }
+]

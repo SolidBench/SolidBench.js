@@ -1,0 +1,154 @@
+[
+  {
+    "type": "OPTIONAL",
+    "id": 0,
+    "operation": "addition",
+    "description": "Add optional triple to obtain all messages this comment was a reply of",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/replyOf", "termType": "namedNode" },
+        "object": { "value": "otherMessage", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "id": 1,
+    "operation": "removal",
+    "description": "Remove optional triple to obtain all messages this comment was a reply of",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "message", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/replyOf", "termType": "namedNode" },
+        "object": { "value": "otherMessage", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "UNION",
+    "id": 3,
+    "operation": "addition",
+    "description": "Add UNION block for ?message type is post or comment",
+    "location": 0,
+    "target": [
+      [
+        {
+          "subject": { "value": "message", "termType": "variable" },
+          "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+          "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Comment", "termType": "namedNode" }
+        }
+      ],
+      [
+        {
+          "subject": { "value": "message", "termType": "variable" },
+          "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+          "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Post", "termType": "namedNode" }
+        }
+      ]
+    ]
+  },
+  {
+    "type": "UNION",
+    "id": 4,
+    "operation": "removal",
+    "description": "Remove UNION block for ?message type is post",
+    "location": 0,
+    "target": [
+      [
+        {
+          "subject": { "value": "message", "termType": "variable" },
+          "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+          "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Comment", "termType": "namedNode" }
+        }
+      ],
+      [
+        {
+          "subject": { "value": "message", "termType": "variable" },
+          "predicate": { "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "termType": "namedNode" },
+          "object": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/Post", "termType": "namedNode" }
+        }
+      ]
+    ]
+  },
+  {
+    "type": "BGP",
+    "id": 6,
+    "operation": "addition",
+    "description": "Add triple to find what the location is part of",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "location", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/isPartOf", "termType": "namedNode" },
+        "object": { "value": "superLocation", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "id": 7,
+    "operation": "removal",
+    "description": "Remove triple to find what the location is part of",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "location", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/isPartOf", "termType": "namedNode" },
+        "object": { "value": "superLocation", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "FILTER",
+    "id": 8,
+    "operation": "addition",
+    "description": "Only select messages from a location",
+    "location": 0,
+    "target": [
+      {
+        "type": "operation",
+        "operator": "=",
+        "args": [
+          { "termType": "variable", "value": "location" },
+          { "termType": "variable", "value": "locationParam" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "FILTER",
+    "id": 9,
+    "operation": "removal",
+    "description": "Only select messages from a location",
+    "location": 0,
+    "target": [
+      {
+        "type": "operation",
+        "operator": "=",
+        "args": [
+          { "termType": "variable", "value": "location" },
+          { "termType": "variable", "value": "locationParam" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "SUB",
+    "id": 10,
+    "operation": "removal",
+    "description": "Substitute the person parameter in query",
+    "location": 0,
+    "target": { "value": "person", "termType": "variable" }
+  },
+  {
+    "type": "SUB",
+    "id": 11,
+    "operation": "addition",
+    "description": "Substitute the person parameter in query",
+    "location": 0,
+    "target": { "value": "person", "termType": "variable" }
+  }
+]

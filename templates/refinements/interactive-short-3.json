@@ -1,0 +1,140 @@
+[
+  {
+    "type": "BGP",
+    "id": 0,
+    "operation": "addition",
+    "description": "Add triple to all friends with given interest (P.4)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "knows", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasInterest", "termType": "namedNode" },
+        "object": { "value": "interestParam", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "id": 1,
+    "operation": "removal",
+    "description": "Remove triple to all friends with given interest(P.4)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "knows", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasInterest", "termType": "namedNode" },
+        "object": { "value": "interestParam", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "UNION",
+    "id": 2,
+    "operation": "addition",
+    "description": "Add union that includes all people that know the parameter person (P.4)",
+    "location": 0,
+    "target": [
+      [
+      ],
+      [
+        {
+          "subject": { "value": "person", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/knows", "termType": "namedNode" },
+          "object": { "value": "knows", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "knows", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasLocation", "termType": "namedNode" },
+          "object": { "value": "rootPerson", "termType": "variable" }
+        }
+      ]
+    ]
+  },
+  {
+    "type": "UNION",
+    "id": 3,
+    "operation": "removal",
+    "description": "remove union that includes all people that know the parameter person (P.4)",
+    "location": 0,
+    "target": [
+      [
+      ],
+      [
+        {
+          "subject": { "value": "person", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/knows", "termType": "namedNode" },
+          "object": { "value": "knows", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "knows", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasLocation", "termType": "namedNode" },
+          "object": { "value": "rootPerson", "termType": "variable" }
+        }
+      ]
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "id": 4,
+    "operation": "addition",
+    "description": "Add optional for name of university (P.2, P.4, T.1, T.3)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "knows", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/studyAt", "termType": "namedNode" },
+        "object": { "value": "study", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "study", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasOrganisation", "termType": "namedNode" },
+        "object": { "value": "uni", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "uni", "termType": "variable" },
+        "predicate": { "value": "http://xmlns.com/foaf/0.1/name", "termType": "namedNode" },
+        "object": { "value": "uniName", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "OPTIONAL",
+    "id": 5,
+    "operation": "removal",
+    "description": "Remove optional for name of university (P.2, P.4, T.1, T.3)",
+    "location": 0,
+    "target": [
+      {
+        "subject": { "value": "knows", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/studyAt", "termType": "namedNode" },
+        "object": { "value": "study", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "study", "termType": "variable" },
+        "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasOrganisation", "termType": "namedNode" },
+        "object": { "value": "uni", "termType": "variable" }
+      },
+      {
+        "subject": { "value": "uni", "termType": "variable" },
+        "predicate": { "value": "http://xmlns.com/foaf/0.1/name", "termType": "namedNode" },
+        "object": { "value": "uniName", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "SUB",
+    "id": 6,
+    "operation": "addition",
+    "description": "Substitute the rootPerson parameter in query (T.2)",
+    "location": 0,
+    "target": { "value": "rootPerson", "termType": "variable" }
+  },
+  {
+    "type": "SUB",
+    "id": 7,
+    "operation": "removal",
+    "description": "Substitute back the original rootPerson parameter in query (T.2)",
+    "location": 0,
+    "target": { "value": "rootPerson", "termType": "variable" }
+  }
+]

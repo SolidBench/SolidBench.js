@@ -1,0 +1,136 @@
+[
+  {
+    "type": "BGP",
+    "id": 0,
+    "operation": "addition",
+    "description": "Add triple to find interests of orginal author (T.1, T.3, P.4)",
+    "location": 1,
+    "target": [
+      {
+        "subject": { "value": "creator", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasInterest", "termType": "namedNode" },
+        "object": { "value": "tag", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "BGP",
+    "id": 1,
+    "operation": "removal",
+    "description": "Remove triple to find interests of orginal author (T.1, T.3, P.4)",
+    "location": 1,
+    "target": [
+      {
+        "subject": { "value": "creator", "termType": "variable" },
+        "predicate": { "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasInterest", "termType": "namedNode" },
+        "object": { "value": "tag", "termType": "variable" }
+      }
+    ]
+  },
+  {
+    "type": "UNION",
+    "id": 2,
+    "operation": "addition",
+    "description": "Add union for tags of both message and the forum its posted in (P.2, P.4, T.1, T.3)",
+    "location": 0,
+    "target": [
+      [
+        {
+          "subject": { "value": "originalPost", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasTag", "termType": "namedNode" },
+          "object": { "value": "tag", "termType": "variable" }
+        }
+      ],
+      [
+        {
+          "subject": { "value": "originalPost", "termType": "variable" },
+          "predicate": { "value": "http://www.w3.org/2000/01/rdf-schema#seeAlso", "termType": "namedNode" },
+          "object": { "value": "forum", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "forum", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasTag", "termType": "namedNode" },
+          "object": { "value": "tag", "termType": "variable" }
+        }
+      ]
+    ]
+  },
+  {
+    "type": "UNION",
+    "id": 3,
+    "operation": "removal",
+    "description": "Remove union for tags of both message and the forum its posted in (P.2, P.4, T.1, T.3)",
+    "location": 0,
+    "target": [
+      [
+        {
+          "subject": { "value": "originalPost", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasTag", "termType": "namedNode" },
+          "object": { "value": "tag", "termType": "variable" }
+        }
+      ],
+      [
+        {
+          "subject": { "value": "originalPost", "termType": "variable" },
+          "predicate": { "value": "http://www.w3.org/2000/01/rdf-schema#seeAlso", "termType": "namedNode" },
+          "object": { "value": "forum", "termType": "variable" }
+        },
+        {
+          "subject": { "value": "forum", "termType": "variable" },
+          "predicate": { "value": "http://solidbench-server:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasTag", "termType": "namedNode" },
+          "object": { "value": "tag", "termType": "variable" }
+        }
+      ]
+    ]
+  },
+  {
+    "type": "FILTER",
+    "id": 4,
+    "operation": "addition",
+    "description": "Add filter on the tags of messages and interests (P.1)",
+    "location": 0,
+    "target": [
+      {
+        "type": "operation",
+        "operator": "=",
+        "args": [
+          { "termType": "variable", "value": "tag" },
+          { "termType": "variable", "value": "tagParam" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "FILTER",
+    "id": 5,
+    "operation": "removal",
+    "description": "Remove filter on the tags of messages and interests (P.1)",
+    "location": 0,
+    "target": [
+      {
+        "type": "operation",
+        "operator": "=",
+        "args": [
+          { "termType": "variable", "value": "tag" },
+          { "termType": "variable", "value": "tagParam" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "SUB",
+    "id": 6,
+    "operation": "addition",
+    "description": "Substitute the person parameter in query (T.2)",
+    "location": 0,
+    "target": { "value": "person", "termType": "variable" }
+  },
+  {
+    "type": "SUB",
+    "id": 7,
+    "operation": "removal",
+    "description": "Substitute back the original person parameter in query (T.2)",
+    "location": 0,
+    "target": { "value": "person", "termType": "variable" }
+  }
+]

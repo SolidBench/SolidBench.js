@@ -1,0 +1,1036 @@
+{
+  "@context": "https://linkedsoftwaredependencies.org/bundles/npm/sparql-query-parameter-instantiator/^2.0.0/components/context.jsonld",
+  "@id": "urn:sparql-query-parameter-instantiator:default",
+  "@type": "QuerySequenceInstantiator",
+  "count": 8,
+  "seed": 0,
+  "sequenceGenerator": {
+    "@type": "SequenceGenerator",
+    "meanLogSequenceLength": 3,
+    "stdLogSequenceLength": 0.2,
+    "meanLogTransitionProbability": -2,
+    "stdLogTransitionProbability": 0.25,
+    "meanLogSessionLength": 1.7,
+    "stdLogSessionLength": 0.5,
+    "refinementPatternProbability": 0.1,
+    "temperature": 0.1,
+    "findNextInstantiationValue": {
+      "@type": "QueryNextInstantiatorValue",
+      "termMappingTransformerFragmentedToOriginal": {
+        "@type": "ValueTransformerCsvMap",
+        "file": "out-fragments/transformed-activities.csv",
+        "invertMapping": true
+      },
+      "termMappingTransformerOriginalToFragmented": {
+        "@type": "ValueTransformerCsvMap",
+        "file": "out-fragments/transformed-activities.csv",
+        "invertMapping": false
+      },
+      "transformers": [
+        {
+          "@type": "TermTransformerBiDirectional",
+          "originalRegex": "^http://www.ldbc.eu/ldbc_socialnet/1.0/data/pers([0-9]*)$",
+          "originalString": "http://www.ldbc.eu/ldbc_socialnet/1.0/data/pers$1",
+          "fragmentedRegex": "^http://solidbench-server:3000/pods/([0-9]*)/profile/card#me$",
+          "fragmentedString": "http://solidbench-server:3000/pods/$1/profile/card#me"
+        },
+        {
+          "@type": "TermTransformerBiDirectional",
+          "originalRegex": "^http://www.ldbc.eu",
+          "originalString": "http://www.ldbc.eu",
+          "fragmentedRegex": "^http://solidbench-server:3000/www.ldbc.eu",
+          "fragmentedString": "http://solidbench-server:3000/www.ldbc.eu"
+        },
+        {
+          "@type": "TermTransformerBiDirectional",
+          "originalRegex": "^http://dbpedia.org",
+          "originalString": "http://dbpedia.org",
+          "fragmentedRegex": "^http://solidbench-server:3000/dbpedia.org",
+          "fragmentedString": "http://solidbench-server:3000/dbpedia.org"
+        },
+        {
+          "@type": "TermTransformerBiDirectional",
+          "originalRegex": "^http://www.w3.org/2002/07/owl",
+          "originalString": "http://www.w3.org/2002/07/owl",
+          "fragmentedRegex": "^http://solidbench-server:3000/www.w3.org/2002/07/owl",
+          "fragmentedString": "http://solidbench-server:3000/www.w3.org/2002/07/owl"
+        }
+      ],
+      "qLever": {
+        "@type": "QLeverInstance",
+        "imageName": "adfreiburg/qlever@sha256:90c0cffc9a9158dff4c3841d5b0198cf76e67a4f47827e3321c4dff439408384",
+        "port": 7000,
+        "timeout": 60,
+        "dataLocations": [
+          "out-snb/social_network/social_network_activity_0_0.ttl",
+          "out-snb/social_network/social_network_person_0_0.ttl",
+          "out-snb/social_network/social_network_static_0_0.ttl"
+        ]
+      }
+    }
+  },
+  "destinationFilePath": "out-queries/",
+  "personProvider": {
+    "@type": "VariableTemplateNamedNode",
+    "name": "person",
+    "substitutionProvider": {
+      "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPerson",
+      "@type": "SubstitutionProviderCsv",
+      "csvFilePath": "out-fragments/parameters-persons.csv",
+      "columnName": "subject"
+    }
+  },
+  "providers": [
+    {
+      "@type": "QuerySequenceTemplateProvider",
+      "name": "interactive-discover-1",
+      "queryTask": "Messages Person",
+      "nextTemplates": [
+        "interactive-short-4",
+        "interactive-short-5",
+        "interactive-short-6",
+        "interactive-short-7"
+      ],
+      "nextTemplateProbabilities": [
+        0.2504146687152856,
+        0.2682039038006317,
+        0.22701927593722204,
+        0.2534540673829174
+      ],
+      "instantiationVariableTypeMap": {
+        "person": "person"
+      },
+      "outputVariableTypeMap": {
+        "message": "message"
+      },
+      "minRefinementLength": 2,
+      "maxRefinementLength": 5,
+      "maxLogits": 5,
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-discover-1.sparql",
+        "@type": "Variable"
+      },
+      "refinementPatternsFilePath": {
+        "@id": "urn:variables:query-refinements:interactive-discover-1.json",
+        "@type": "Variable"
+      },
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "person",
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities",
+              "@type": "ValueTransformerCsvMap",
+              "file": "out-fragments/transformed-activities.csv"
+            }
+          ],
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability",
+            "@type": "SubstitutionProviderCsvSimilarityBasedProbability",
+            "csvFilePath": "out-fragments/parameters-persons.csv",
+            "csvFilePathSimilarities": "out-enhanced/parameters-similarities-people.csv",
+            "columnName": "subject",
+            "columnNameSimilaritySubject": "person",
+            "separator": ";"
+          }
+        },
+        {
+          "@type": "VariableTemplateTimestamp",
+          "name": "timestamp",
+          "stripDatatype": true,
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderTimestamps",
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-fragments/parameters-timestamps.csv",
+            "columnName": "object",
+            "uniqueValues": true
+          }
+        }
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri",
+        "@type": "ValueTransformerReplaceIri",
+        "searchRegex": "http://localhost:3000",
+        "replacementString": "http://solidbench-server:3000"
+      }
+    },
+    {
+      "@type": "QuerySequenceTemplateProvider",
+      "name": "interactive-discover-2",
+      "queryTask": "Messages Person",
+      "nextTemplates": [
+        "interactive-short-4",
+        "interactive-short-5",
+        "interactive-short-6",
+        "interactive-short-7"
+      ],
+      "nextTemplateProbabilities": [
+        0.2503716815147486,
+        0.23663215884440447,
+        0.2628077428484548,
+        0.24928033262844887
+      ],
+      "instantiationVariableTypeMap": {
+        "person": "person"
+      },
+      "outputVariableTypeMap": {
+        "message": "message"
+      },
+      "minRefinementLength": 2,
+      "maxRefinementLength": 5,
+      "maxLogits": 5,
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-discover-2.sparql",
+        "@type": "Variable"
+      },
+      "refinementPatternsFilePath": {
+        "@id": "urn:variables:query-refinements:interactive-discover-2.json",
+        "@type": "Variable"
+      },
+
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "person",
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
+            }
+          ],
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability"
+          }
+        },
+        {
+          "@type": "VariableTemplateTimestamp",
+          "name": "timestamp",
+          "stripDatatype": true,
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderTimestamps"
+          }
+        }
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
+      }
+    },
+    {
+      "@type": "QuerySequenceTemplateProvider",
+      "name": "interactive-discover-3",
+      "queryTask": "Messages Person",
+      "nextTemplates": [],
+      "instantiationVariableTypeMap": {
+        "person": "person"
+      },
+      "outputVariableTypeMap": {
+      },
+      "minRefinementLength": 2,
+      "maxRefinementLength": 5,
+      "maxLogits": 5,
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-discover-3.sparql",
+        "@type": "Variable"
+      },
+      "refinementPatternsFilePath": {
+        "@id": "urn:variables:query-refinements:interactive-discover-3.json",
+        "@type": "Variable"
+      },
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "person",
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
+            }
+          ],
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability"
+          }
+        },
+        {
+          "@type": "VariableTemplateTimestamp",
+          "stripDatatype": true,
+          "name": "timestamp",
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderTimestamps"
+          }
+        }
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
+      }
+    },
+    {
+      "@type": "QuerySequenceTemplateProvider",
+      "name": "interactive-discover-4",
+      "queryTask": "Messages Person",
+      "nextTemplates": [],
+      "instantiationVariableTypeMap": {
+        "person": "person"
+      },
+      "outputVariableTypeMap": {
+      },
+      "minRefinementLength": 2,
+      "maxRefinementLength": 5,
+      "maxLogits": 5,
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-discover-4.sparql",
+        "@type": "Variable"
+      },
+      "refinementPatternsFilePath": {
+        "@id": "urn:variables:query-refinements:interactive-discover-4.json",
+        "@type": "Variable"
+      },
+
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "person",
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
+            }
+          ],
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability"
+          }
+        },
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "locationParam",
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderLocation",
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-fragments/parameters-locations.csv",
+            "columnName": "object",
+            "uniqueValues": true
+          }
+        }
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
+      }
+    },
+    {
+      "@type": "QuerySequenceTemplateProvider",
+      "name": "interactive-discover-5",
+      "queryTask": "Messages Person",
+      "nextTemplates": [],
+      "instantiationVariableTypeMap": {
+        "person": "person"
+      },
+      "outputVariableTypeMap": {
+      },
+      "minRefinementLength": 2,
+      "maxRefinementLength": 5,
+      "maxLogits": 5,
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-discover-5.sparql",
+        "@type": "Variable"
+      },
+      "refinementPatternsFilePath": {
+        "@id": "urn:variables:query-refinements:interactive-discover-5.json",
+        "@type": "Variable"
+      },
+
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "person",
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
+            }
+          ],
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability"
+          }
+        },
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "location1",
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderLocation"
+          }
+        },
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "location2",
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderLocation"
+          }
+        }
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
+      }
+    },
+    {
+      "@type": "QuerySequenceTemplateProvider",
+      "name": "interactive-discover-6",
+      "queryTask": "Forum",
+      "nextTemplates": [],
+      "instantiationVariableTypeMap": {
+        "person": "person"
+      },
+      "outputVariableTypeMap": {
+      },
+      "minRefinementLength": 2,
+      "maxRefinementLength": 5,
+      "maxLogits": 5,
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-discover-6.sparql",
+        "@type": "Variable"
+      },
+      "refinementPatternsFilePath": {
+        "@id": "urn:variables:query-refinements:interactive-discover-6.json",
+        "@type": "Variable"
+      },
+
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "person",
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
+            }
+          ],
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability"
+          }
+        },
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "location1",
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderLocation"
+          }
+        }
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
+      }
+    },
+    {
+      "@type": "QuerySequenceTemplateProvider",
+      "name": "interactive-discover-7",
+      "queryTask": "Forum",
+      "nextTemplates": [
+        "interactive-short-1",
+        "interactive-short-2",
+        "interactive-short-3",
+        "interactive-short-4",
+        "interactive-short-5",
+        "interactive-short-6",
+        "interactive-short-7",
+        "interactive-discover-1",
+        "interactive-discover-2",
+        "interactive-discover-3",
+        "interactive-discover-4",
+        "interactive-discover-5",
+        "interactive-discover-6",
+        "interactive-discover-8"
+      ],
+      "nextTemplateProbabilities": [
+        0.08976998608004583,
+        0.10191401788302577,
+        0.10025361737348314,
+        0.020000000003386267,
+        0.020000000003386267,
+        0.020000000003386267,
+        0.020000000003385355,
+        0.08976836496507658,
+        0.0897706878755632,
+        0.0897709930107464,
+        0.08977096805373001,
+        0.08977118970282424,
+        0.08976967836986104,
+        0.0897710085624828
+      ],
+      "instantiationVariableTypeMap": {
+        "person": "person"
+      },
+      "outputVariableTypeMap": {
+        "moderator": "person",
+        "message": "message"
+      },
+      "minRefinementLength": 2,
+      "maxRefinementLength": 5,
+      "maxLogits": 5,
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-discover-7.sparql",
+        "@type": "Variable"
+      },
+      "refinementPatternsFilePath": {
+        "@id": "urn:variables:query-refinements:interactive-discover-7.json",
+        "@type": "Variable"
+      },
+
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "person",
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
+            }
+          ],
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability"
+          }
+        },
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "location",
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderLocation"
+          }
+        },
+        {
+          "@type": "VariableTemplateTimestamp",
+          "name": "timestamp",
+          "stripDatatype": true,
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderTimestamps"
+          }
+        }
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
+      }
+    },
+    {
+      "@type": "QuerySequenceTemplateProvider",
+      "name": "interactive-discover-8",
+      "queryTask": "Messages Person",
+      "nextTemplates": [
+        "interactive-short-4",
+        "interactive-short-5",
+        "interactive-short-6",
+        "interactive-short-7"
+      ],
+      "nextTemplateProbabilities": [
+        0.2435325866458712,
+        0.23948287423086942,
+        0.254491918090229,
+        0.2615845368690871
+      ],
+      "instantiationVariableTypeMap": {
+        "person": "person"
+      },
+      "outputVariableTypeMap": {
+        "message": "message"
+      },
+      "minRefinementLength": 2,
+      "maxRefinementLength": 5,
+      "maxLogits": 5,
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-discover-8.sparql",
+        "@type": "Variable"
+      },
+      "refinementPatternsFilePath": {
+        "@id": "urn:variables:query-refinements:interactive-discover-8.json",
+        "@type": "Variable"
+      },
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "person",
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
+            }
+          ],
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability"
+          }
+        },
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "tagParam",
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderTag",
+            "@type": "SubstitutionProviderCsv",
+            "csvFilePath": "out-fragments/parameters-tags.csv",
+            "columnName": "object",
+            "uniqueValues": true
+          }
+        }
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
+      }
+    },
+    {
+      "@type": "QuerySequenceTemplateProvider",
+      "name": "interactive-short-1",
+      "queryTask": "Attributes Person",
+      "nextTemplates": [],
+      "instantiationVariableTypeMap": {
+        "person": "person"
+      },
+      "outputVariableTypeMap": {
+      },
+      "minRefinementLength": 2,
+      "maxRefinementLength": 3,
+      "maxLogits": 5,
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-short-1.sparql",
+        "@type": "Variable"
+      },
+      "refinementPatternsFilePath": {
+        "@id": "urn:variables:query-refinements:interactive-short-1.json",
+        "@type": "Variable"
+      },
+
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "person",
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
+            }
+          ],
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability"
+          }
+        }
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
+      }
+    },
+    {
+      "@type": "QuerySequenceTemplateProvider",
+      "name": "interactive-short-2",
+      "queryTask": "Messages Person",
+      "nextTemplates": [
+        "interactive-short-1",
+        "interactive-short-3",
+        "interactive-short-4",
+        "interactive-short-5",
+        "interactive-short-6",
+        "interactive-short-7",
+        "interactive-discover-1",
+        "interactive-discover-2",
+        "interactive-discover-3",
+        "interactive-discover-4",
+        "interactive-discover-5",
+        "interactive-discover-6",
+        "interactive-discover-7",
+        "interactive-discover-8"
+      ],
+      "nextTemplateProbabilities": [
+        0.08977244794506864,
+        0.1002531684414287,
+        0.020000000003386267,
+        0.020000000003386267,
+        0.020000000003386267,
+        0.020000000003385355,
+        0.08976901697497065,
+        0.08977023113023182,
+        0.08977036500752497,
+        0.08977030888328205,
+        0.08976987416824286,
+        0.0897691661161077,
+        0.10191529280314007,
+        0.08977064040684146
+      ],
+      "instantiationVariableTypeMap": {
+        "person": "person"
+      },
+      "outputVariableTypeMap": {
+        "originalPost": "message",
+        "creator": "person"
+      },
+      "minRefinementLength": 2,
+      "maxRefinementLength": 4,
+      "maxLogits": 5,
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-short-2.sparql",
+        "@type": "Variable"
+      },
+      "refinementPatternsFilePath": {
+        "@id": "urn:variables:query-refinements:interactive-short-2.json",
+        "@type": "Variable"
+      },
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "person",
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
+            }
+          ],
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability"
+          }
+        },
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "tagParam",
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderTag"
+          }
+        }
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
+      }
+    },
+    {
+      "@type": "QuerySequenceTemplateProvider",
+      "name": "interactive-short-3",
+      "queryTask": "Attributes Person",
+      "nextTemplates": [
+        "interactive-short-1",
+        "interactive-short-2",
+        "interactive-discover-1",
+        "interactive-discover-2",
+        "interactive-discover-3",
+        "interactive-discover-4",
+        "interactive-discover-5",
+        "interactive-discover-6",
+        "interactive-discover-7",
+        "interactive-discover-8"
+      ],
+      "nextTemplateProbabilities": [
+        0.09087179749598799,
+        0.1412562584422525,
+        0.09086785750615471,
+        0.0908735795765486,
+        0.09087537871025639,
+        0.0908722710301418,
+        0.09087286439560674,
+        0.09087533419153002,
+        0.1320898413841447,
+        0.0908753291577597
+      ],
+      "instantiationVariableTypeMap": {
+        "rootPerson": "person"
+      },
+      "outputVariableTypeMap": {
+        "person": "person"
+      },
+      "minRefinementLength": 2,
+      "maxRefinementLength": 4,
+      "maxLogits": 5,
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-short-3.sparql",
+        "@type": "Variable"
+      },
+      "refinementPatternsFilePath": {
+        "@id": "urn:variables:query-refinements:interactive-short-3.json",
+        "@type": "Variable"
+      },
+
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "rootPerson",
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
+            }
+          ],
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPersonProbability"
+          }
+        },
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "interestParam",
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderTag"
+          }
+        }
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
+      }
+    },
+    {
+      "@type": "QuerySequenceTemplateProvider",
+      "name": "interactive-short-4",
+      "queryTask": "Messages",
+      "nextTemplates": [],
+      "instantiationVariableTypeMap": {
+        "message": "message"
+      },
+      "outputVariableTypeMap": {
+      },
+      "minRefinementLength": 2,
+      "maxRefinementLength": 4,
+      "maxLogits": 5,
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-short-4.sparql",
+        "@type": "Variable"
+      },
+      "refinementPatternsFilePath": {
+        "@id": "urn:variables:query-refinements:interactive-short-4.json",
+        "@type": "Variable"
+      },
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "message",
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
+            }
+          ],
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderMessageProbability",
+            "@type": "SubstitutionProviderUnionProbabilities",
+            "substitutionProviders": [
+              {
+                "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderCommentProbability",
+                "@type": "SubstitutionProviderCsvSimilarityBasedProbability",
+                "csvFilePath": "out-fragments/parameters-comments.csv",
+                "csvFilePathSimilarities": "out-enhanced/parameters-similarities-comments.csv",
+                "columnName": "subject",
+                "columnNameSimilaritySubject": "person",
+                "separator": ";"
+              },
+              {
+                "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPostProbability",
+                "@type": "SubstitutionProviderCsvSimilarityBasedProbability",
+                "csvFilePath": "out-fragments/parameters-posts.csv",
+                "csvFilePathSimilarities": "out-enhanced/parameters-similarities-posts.csv",
+                "columnName": "subject",
+                "columnNameSimilaritySubject": "person",
+                "separator": ";"
+              }
+            ]
+          }
+        },
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "tagParam",
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderTag"
+          }
+        }
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
+      }
+    },
+    {
+      "@type": "QuerySequenceTemplateProvider",
+      "name": "interactive-short-5",
+      "queryTask": "Messages",
+      "nextTemplates": [
+        "interactive-short-1",
+        "interactive-short-2",
+        "interactive-short-3",
+        "interactive-discover-1",
+        "interactive-discover-2",
+        "interactive-discover-3",
+        "interactive-discover-4",
+        "interactive-discover-5",
+        "interactive-discover-6",
+        "interactive-discover-7",
+        "interactive-discover-8"
+      ],
+      "nextTemplateProbabilities": [
+        0.08533179249658247,
+        0.0990238168893021,
+        0.11950979863393806,
+        0.08532623843008677,
+        0.08533079334739188,
+        0.08533239407180786,
+        0.08533266821607252,
+        0.08533546118657856,
+        0.0853297731271049,
+        0.0991476372703466,
+        0.08533013822117143
+      ],
+      "instantiationVariableTypeMap": {
+        "message": "message"
+      },
+      "outputVariableTypeMap": {
+        "creator": "person"
+      },
+      "minRefinementLength": 2,
+      "maxRefinementLength": 4,
+      "maxLogits": 10,
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-short-5.sparql",
+        "@type": "Variable"
+      },
+      "refinementPatternsFilePath": {
+        "@id": "urn:variables:query-refinements:interactive-short-5.json",
+        "@type": "Variable"
+      },
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "message",
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
+            }
+          ],
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderMessageProbability",
+            "@type": "SubstitutionProviderUnionProbabilities",
+            "substitutionProviders": [
+              {
+                "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderCommentProbability"
+              },
+              {
+                "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderPostProbability"
+              }
+            ]
+          }
+        }
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
+      }
+    },
+    {
+      "@type": "QuerySequenceTemplateProvider",
+      "name": "interactive-short-6",
+      "queryTask": "Messages",
+      "nextTemplates": [
+        "interactive-short-1",
+        "interactive-short-2",
+        "interactive-short-3",
+        "interactive-discover-1",
+        "interactive-discover-2",
+        "interactive-discover-3",
+        "interactive-discover-4",
+        "interactive-discover-5",
+        "interactive-discover-6",
+        "interactive-discover-7",
+        "interactive-discover-8"
+      ],
+      "nextTemplateProbabilities": [
+        0.08534027340030868,
+        0.09487835082590301,
+        0.11881654644626383,
+        0.08535640669357124,
+        0.08533670884849072,
+        0.08533465429956377,
+        0.08533736237338868,
+        0.08533506360175118,
+        0.08533790251941696,
+        0.10392080369600956,
+        0.08533643918571568
+      ],
+      "instantiationVariableTypeMap": {
+        "message": "message"
+      },
+      "outputVariableTypeMap": {
+        "moderator": "person"
+      },
+      "minRefinementLength": 2,
+      "maxRefinementLength": 4,
+      "maxLogits": 10,
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-short-6.sparql",
+        "@type": "Variable"
+      },
+      "refinementPatternsFilePath": {
+        "@id": "urn:variables:query-refinements:interactive-short-6.json",
+        "@type": "Variable"
+      },
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "message",
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
+            }
+          ],
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderMessageProbability"
+          }
+        }
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
+      }
+    },
+    {
+      "@type": "QuerySequenceTemplateProvider",
+      "name": "interactive-short-7",
+      "queryTask": "Messages",
+      "nextTemplates": [
+        "interactive-short-1",
+        "interactive-short-2",
+        "interactive-short-3",
+        "interactive-short-4",
+        "interactive-short-5",
+        "interactive-short-6",
+        "interactive-discover-1",
+        "interactive-discover-2",
+        "interactive-discover-3",
+        "interactive-discover-4",
+        "interactive-discover-5",
+        "interactive-discover-6",
+        "interactive-discover-7",
+        "interactive-discover-8"
+      ],
+      "nextTemplateProbabilities": [
+        0.08454852724578575,
+        0.08856238062329591,
+        0.08680169376866571,
+        0.020000000004545916,
+        0.020000000004545916,
+        0.020000000004545916,
+        0.08454694009391951,
+        0.08455282388555316,
+        0.08455103956387992,
+        0.08455124610716427,
+        0.08455037160877583,
+        0.0845529703397588,
+        0.08856124951013836,
+        0.08455126912980829
+      ],
+      "instantiationVariableTypeMap": {
+        "message": "message"
+      },
+      "outputVariableTypeMap": {
+        "comment": "message",
+        "replyAuthor": "person"
+      },
+      "minRefinementLength": 2,
+      "maxRefinementLength": 4,
+      "maxLogits": 10,
+      "templateFilePath": {
+        "@id": "urn:variables:query-templates:interactive-short-7.sparql",
+        "@type": "Variable"
+      },
+      "refinementPatternsFilePath": {
+        "@id": "urn:variables:query-refinements:interactive-short-7.json",
+        "@type": "Variable"
+      },
+      "variables": [
+        {
+          "@type": "VariableTemplateNamedNode",
+          "name": "message",
+          "valueTransformers": [
+            {
+              "@id": "urn:sparql-query-parameter-instantiator:valueTransformerCsvMapActivities"
+            }
+          ],
+          "substitutionProvider": {
+            "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderMessageProbability"
+          }
+        }
+      ],
+      "iriTransformer": {
+        "@id": "urn:sparql-query-parameter-instantiator:valueTransformerReplaceIri"
+      }
+    }
+  ]
+}
