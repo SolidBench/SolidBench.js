@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v2.2.0"></a>
+## [v2.2.0](https://github.com/SolidBench/SolidBench.js/compare/v2.1.0...v2.2.0) - 2026-05-08
+
+### Added
+* [Add support for logical query sessions with SolidSessionBench (#22)](https://github.com/SolidBench/SolidBench.js/commit/20fe5a9b344a824aeedf8e01a41e1b81130a2a25)
+
 <a name="v2.1.0"></a>
 ## [v2.1.0](https://github.com/SolidBench/SolidBench.js/compare/v2.0.0...v2.1.0) - 2025-04-18
 
