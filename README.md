@@ -116,7 +116,6 @@ To generate this benchmark, use the sequence-oriented enhancement, fragmentation
 $ solidbench generate -e enhancer-similarities-config-pod.json -f fragmenter-config-pod-sequences.json -q query-sequence-config.json
 ```
 
-
 ### 2. Serve
 
 The social network data can be served over HTTP as actual Solid vaults:
