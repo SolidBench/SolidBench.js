@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v2.2.1"></a>
+## [v2.2.1](https://github.com/SolidBench/SolidBench.js/compare/v2.2.0...v2.2.1) - 2026-05-10
+
+### Fixed
+* [Fix default SolidBench.js enhancer functionality (#23)](https://github.com/SolidBench/SolidBench.js/commit/85ca689d8f63b3246457e09081695bfa94ec03c5)
+
 <a name="v2.2.0"></a>
 ## [v2.2.0](https://github.com/SolidBench/SolidBench.js/compare/v2.1.0...v2.2.0) - 2026-05-08
 
