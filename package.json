@@ -47,7 +47,7 @@
     "@types/dockerode": "^3.0.0",
     "@types/unzipper": "^0.10.0",
     "dockerode": "^4.0.0",
-    "ldbc-snb-enhancer": "^2.7.0",
+    "ldbc-snb-enhancer": "^2.7.1",
     "ldbc-snb-validation-generator": "^1.2.0",
     "rdf-dataset-fragmenter": "^2.10.0",
     "sparql-query-parameter-instantiator": "^2.8.0",
